@@ -1,0 +1,1451 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='A la hora de crear un fichero pdf a través de un fichero markdown tenemos múltiples opciones, las mas personalizada es *pandoc* aunque otros conversores también son muy personalizables.'><title>markdown to pdf</title>
+
+<link rel='canonical' href='https://www.procamora.com/p/markdown-to-pdf/'>
+
+<link rel="stylesheet" href="/scss/style.min.ac77dcf8b111b51da39a92990f431923f210f3876d85798a2125667f96dc33a4.css"><meta property='og:title' content='markdown to pdf'>
+<meta property='og:description' content='A la hora de crear un fichero pdf a través de un fichero markdown tenemos múltiples opciones, las mas personalizada es *pandoc* aunque otros conversores también son muy personalizables.'>
+<meta property='og:url' content='https://www.procamora.com/p/markdown-to-pdf/'>
+<meta property='og:site_name' content='#&gt; fireroot'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='markdown' /><meta property='article:tag' content='pdf' /><meta property='article:tag' content='pandoc' /><meta property='article:tag' content='gimli' /><meta property='article:tag' content='linux' /><meta property='article:tag' content='atom' /><meta property='article:tag' content='markdownpad' /><meta property='article:tag' content='cloudconvert' /><meta property='article:tag' content='markdowntopdf' /><meta property='article:published_time' content='2017-01-27T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2017-01-27T00:00:00&#43;00:00'/><meta property='og:image' content='https://www.procamora.com/covers/software.png' />
+<meta name="twitter:title" content="markdown to pdf">
+<meta name="twitter:description" content="A la hora de crear un fichero pdf a través de un fichero markdown tenemos múltiples opciones, las mas personalizada es *pandoc* aunque otros conversores también son muy personalizables."><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://www.procamora.com/covers/software.png' />
+    <link rel="shortcut icon" href="img/favicon.ico" />
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/icons/procamora_30_hua3d16f4d7ffad1a52a64c31db4447108_16949_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">#&gt; fireroot</a></h1>
+            <h2 class="site-description">Mi wiki donde escribo artículos sobre Linux, Ciberseguridad y temas relacionados.</h2>
+        </div>
+    </header><ol class="social-menu">
+            
+                <li>
+                    <a 
+                        href='https://github.com/procamora'
+                        target="_blank"
+                        title="GitHub"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='mailto:pablojoserocamora@gmail.com'
+                        target="_blank"
+                        title="Gmail"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-gmail" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"> <path stroke="none" d="M0 0h24v24H0z" fill="none"/> <path d="M16 20h3a1 1 0 0 0 1 -1v-14a1 1 0 0 0 -1 -1h-3v16z" /> <path d="M5 20h3v-16h-3a1 1 0 0 0 -1 1v14a1 1 0 0 0 1 1z" /> <path d="M16 4l-4 4l-4 -4" /> <path d="M4 6.5l8 7.5l8 -7.5" /> </svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://es.linkedin.com/in/pablo-rocamora'
+                        target="_blank"
+                        title="Linkedin"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-linkedin" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"> <path stroke="none" d="M0 0h24v24H0z" fill="none"/> <rect x="4" y="4" width="16" height="16" rx="2" /> <line x1="8" y1="11" x2="8" y2="16" /> <line x1="8" y1="8" x2="8" y2="8.01" /> <line x1="12" y1="16" x2="12" y2="11" /> <path d="M16 16v-3a2 2 0 0 0 -4 0" /> </svg>
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archivos</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Buscar</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/acerca-de/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>Acerca de</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/index.xml' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-rss" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="5" cy="19" r="1" />
+  <path d="M4 4a16 16 0 0 1 16 16" />
+  <path d="M4 11a9 9 0 0 1 9 9" />
+</svg>
+
+
+
+                
+                <span>Feed</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+                <li id="i18n-switch">  
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                    <select name="language" onchange="window.location.href = this.selectedOptions[0].value">
+                        
+                            <option value="https://www.procamora.com/" selected>Español</option>
+                        
+                            <option value="https://www.procamora.com/en/" >English</option>
+                        
+                    </select>
+                </li>
+            
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Modo oscuro</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+<main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/markdown-to-pdf/">
+                
+                    <img src="/covers/software.png" loading="lazy" alt="Featured image of post markdown to pdf" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/software/" >
+                Software
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/markdown-to-pdf/">markdown to pdf</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            A la hora de crear un fichero pdf a través de un fichero markdown tenemos múltiples opciones, las mas personalizada es *pandoc* aunque otros conversores también son muy personalizables.
+        </h3>
+        
+    </div>
+
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Jan 27, 2017</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    8 minutos a leer
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+
+    <div class="article-category">
+        
+            
+                
+            
+            
+                <a href='https://github.com/procamora/dummy/edit/main/content/post/Software/markdown-to-pdf.md' style="background-color: #5bc0de" >Edit this page on GitHub</a>
+            
+            
+                <a href='https://github.com/procamora/dummy/edit/main/content/post/Software/markdown-to-pdf.md' style="background-color: #5bc0de" >Download article PDF</a>
+            
+        
+    </div>
+</div>
+</header>
+
+    <section class="article-content">
+    
+    
+    <h1 id="introducción">Introducción:</h1>
+<p>A la hora de crear un fichero pdf a través de un fichero markdown tenemos múltiples opciones, las mas personalizada es <em>pandoc</em> aunque otros conversores también son muy personalizables.</p>
+<p>Tenemos distintos tipos de conversores de markdown a pdf:</p>
+<ul>
+<li><a class="link" href="#header1" >Conversores por linea de comandos</a>:
+<ul>
+<li><a class="link" href="#mark0" >pandoc</a></li>
+<li><a class="link" href="#mark1" >gimli</a></li>
+</ul>
+</li>
+<li><a class="link" href="#header2" >Conversores con entorno gráfico</a>:
+<ul>
+<li><a class="link" href="#mark2" >Atom</a></li>
+<li><a class="link" href="#mark3" >Markdown Pad</a></li>
+</ul>
+</li>
+<li><a class="link" href="#header3" >Conversores Online</a>:
+<ul>
+<li><a class="link" href="#mark5" >Cloudconvert</a></li>
+<li><a class="link" href="#mark6" >Markdowntopdf</a></li>
+</ul>
+</li>
+<li><a class="link" href="#header4" >Resumen general</a></li>
+<li><a class="link" href="#header5" >Conclusion final</a></li>
+</ul>
+<blockquote>
+<p>Puede asegurarse de que ciertas cosas, como las comillas y los guiones en em, se leen y formateen correctamente especificando el conmutador &ldquo;Smart&rdquo; (un mayúscula -S o -smart):</p>
+</blockquote>
+<h1 id="header1">Conversores por linea de comandos</h1>
+<ul>
+<li><a class="link" href="#mark0" >pandoc</a></li>
+<li><a class="link" href="#mark1" >gimli</a></li>
+</ul>
+<h2 id="mark0">Pandoc</h2>
+<p><a class="link" href="http://pandoc.org/MANUAL.html"  target="_blank" rel="noopener"
+    >Pandoc</a> es una herramienta que te permite a través de un fichero markdown generar otro con múltiples formatos, como por ejemplo PDF, HTML o DOCX. Los pasos a realizar son los siguientes:</p>
+<blockquote>
+<p>Mejora a conseguir: que cada inicio de apartado empiece en una nueva pagina</p>
+</blockquote>
+<h3 id="paso-1-instalación">Paso 1: Instalación.</h3>
+<p>La instalación en Fedora es muy simple:</p>
+<p><code>dnf install pandoc pandoc-citeproc texlive texlive-collection-langspanish.noarch</code></p>
+<h3 id="paso-2-añadir-cabecera-yaml-al-fichero-markdown">Paso 2: Añadir cabecera yaml al fichero markdown.</h3>
+<p>Una vez instalado pandoc mas todas las librerías necesarias de texlive con latex tendremos que añadir una cabecera yaml para indicarle a pandoc una serie de directrices a la hora de generar el pdf.</p>
+<p>Los parámetros a tener en cuenta son:</p>
+<ul>
+<li>geometry: modificamos la alineación aumentándola</li>
+<li>toc: Indicamos con true que queremos una tabla de contenidos</li>
+<li>documentclass: pone en negrita el texto del los metadatos, visualmente queda mejor</li>
+</ul>
+<h3 id="modificar">MODIFICAR</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l">Nombre de la practica</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">subtitle</span><span class="p">:</span><span class="w"> </span><span class="l">Asignatura</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">author</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span>- <span class="l">nombre 1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span>- <span class="l">nombre 2</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">date</span><span class="p">:</span><span class="w"> </span><span class="l">September 6, 2016</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">header</span><span class="p">:</span><span class="w"> </span><span class="l">dsad</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">footer</span><span class="p">:</span><span class="w"> </span><span class="l">So is this</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">geometry</span><span class="p">:</span><span class="w"> </span><span class="l">margin=1in</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">toc</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">documentclass</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span>- <span class="l">scrartcl</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nn">---</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="paso-3-creación-del-fichero-plantilla-de-latex-para-poner-un-pagina-en-blanco-antes-de-la-tabla-de-contenidos-y-después">Paso 3: Creación del fichero plantilla de latex para poner un pagina en blanco antes de la tabla de contenidos y después.</h3>
+<ol>
+<li>
+<p>Generar la plantilla por defecto de latex, es recomendable generarla para que tenga la versión mas reciente usada por pandoc, la que yo uso es <a class="link" href="/code/plantilla.tex" >esta</a>.</p>
+<p><code>pandoc -D latex &gt; plantilla.tex</code></p>
+</li>
+</ol>
+<ol start="2">
+<li>
+<p>Modificar la plantilla, buscando donde se crea la tabla de contenido para añadir las paginas en blanco. <a class="link" href="https://github.com/jgm/pandoc-templates/issues/221"  target="_blank" rel="noopener"
+    >Fuente</a>.</p>
+<p>Buscar este texto</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-latex" data-lang="latex"><span class="line"><span class="cl"><span class="s">$</span><span class="nb">if</span><span class="o">(</span><span class="nb">toc</span><span class="o">)</span><span class="s">$</span>
+</span></span><span class="line"><span class="cl"><span class="nb">{</span>
+</span></span><span class="line"><span class="cl"><span class="s">$</span><span class="nb">if</span><span class="o">(</span><span class="nb">colorlinks</span><span class="o">)</span><span class="s">$</span>
+</span></span><span class="line"><span class="cl"><span class="k">\hypersetup</span><span class="nb">{</span>linkcolor=<span class="s">$</span><span class="nb">if</span><span class="o">(</span><span class="nb">toccolor</span><span class="o">)</span><span class="s">$$</span><span class="nb">toccolor</span><span class="s">$$</span><span class="nb">else</span><span class="s">$</span>black<span class="s">$</span><span class="nb">endif</span><span class="s">$</span><span class="nb">}</span>
+</span></span><span class="line"><span class="cl"><span class="s">$</span><span class="nb">endif</span><span class="s">$</span>
+</span></span><span class="line"><span class="cl"><span class="k">\setcounter</span><span class="nb">{</span>tocdepth<span class="nb">}{</span><span class="s">$</span><span class="nb">toc</span><span class="o">-</span><span class="nb">depth</span><span class="s">$</span><span class="nb">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">\tableofcontents</span>
+</span></span><span class="line"><span class="cl"><span class="nb">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Y le añadimos los dos <strong>\newpage</strong> para dejar la tabla de paginas en una pagina sola.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-latex" data-lang="latex"><span class="line"><span class="cl"><span class="s">$</span><span class="nb">if</span><span class="o">(</span><span class="nb">toc</span><span class="o">)</span><span class="s">$</span>
+</span></span><span class="line"><span class="cl"><span class="nb">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">\newpage</span>
+</span></span><span class="line"><span class="cl"><span class="s">$</span><span class="nb">if</span><span class="o">(</span><span class="nb">colorlinks</span><span class="o">)</span><span class="s">$</span>
+</span></span><span class="line"><span class="cl"><span class="k">\hypersetup</span><span class="nb">{</span>linkcolor=<span class="s">$</span><span class="nb">if</span><span class="o">(</span><span class="nb">toccolor</span><span class="o">)</span><span class="s">$$</span><span class="nb">toccolor</span><span class="s">$$</span><span class="nb">else</span><span class="s">$</span>black<span class="s">$</span><span class="nb">endif</span><span class="s">$</span><span class="nb">}</span>
+</span></span><span class="line"><span class="cl"><span class="s">$</span><span class="nb">endif</span><span class="s">$</span>
+</span></span><span class="line"><span class="cl"><span class="k">\setcounter</span><span class="nb">{</span>tocdepth<span class="nb">}{</span><span class="s">$</span><span class="nb">toc</span><span class="o">-</span><span class="nb">depth</span><span class="s">$</span><span class="nb">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">\tableofcontents</span>
+</span></span><span class="line"><span class="cl"><span class="k">\newpage</span>
+</span></span><span class="line"><span class="cl"><span class="nb">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>Latex dispone de 2 tags interesantes <code>\newpage</code> y <code>\pagebreak</code> que nos servirán para terminar de maquetar los texto como nosotros queramos, poniendo cualquiera de los 2 tags en el fichero markdown podremos introducir un final de pagina, por lo que si los ponemos antes de cada nuevo apartado, tendremos cada apartado en una pagina diferente. <a class="link" href="http://stackoverflow.com/questions/16965490/pandoc-markdown-page-break"  target="_blank" rel="noopener"
+    >Fuente</a></p>
+</li>
+</ol>
+<ol start="4">
+<li>Añadir bibliografia: hay que crear la biblioagria que tendra este formato:</li>
+</ol>
+<p>Fichero bibliografia.bib:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">@article{fenner2012a,
+</span></span><span class="line"><span class="cl">  title = {One-click science marketing},
+</span></span><span class="line"><span class="cl">  volume = {11},
+</span></span><span class="line"><span class="cl">  url = {http://dx.doi.org/10.1038/nmat3283},
+</span></span><span class="line"><span class="cl">  doi = {10.1038/nmat3283},
+</span></span><span class="line"><span class="cl">  number = {4},
+</span></span><span class="line"><span class="cl">  journal = {Nature Materials},
+</span></span><span class="line"><span class="cl">  publisher = {Nature Publishing Group},
+</span></span><span class="line"><span class="cl">  author = {Fenner, Martin},
+</span></span><span class="line"><span class="cl">  year = {2012},
+</span></span><span class="line"><span class="cl">  month = {mar},
+</span></span><span class="line"><span class="cl">  pages = {261-263}
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Codigo del .md</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">This is a test2 [@fenner2012a].
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Despues se compilara con: <code>pandoc  --bibliography=bibliografia.bib ....</code></p>
+<h3 id="paso-4-generación-del-pdf">Paso 4: Generación del pdf.</h3>
+<p>Teniendo esa cabecera yaml en el fichero y generada la plantilla modificada para general el pdf con nuestro formato ya solo falta llamar al comando pandoc.</p>
+<p>Los parámetros a tener en cuenta son:</p>
+<ul>
+<li>&ndash;template:</li>
+</ul>
+<p>Otros parámetros interesantes:</p>
+<ul>
+<li>&ndash;number-sections:</li>
+</ul>
+<p>El comando final resultante seria:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">pandoc --template=plantilla.tex memoria.md -o output.pdf
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="opción-2">Opción 2:</h4>
+<p>En ocasiones el código a mostrar tiene lineas muy largas y pandoc no las parte adecuadamente, hay una opción para hacer que markdown corte las lineas de código pero tiene ciertas desventajas como son: no resalta el código y necesita el motor de <code>xelatex</code></p>
+<p>Para usar esta opción solo habría que añadir un nuevo parámetro a la cabecera, que sera <code>header-includes</code> quedando así la cabecera yaml:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l">Recorrido de un paquete</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">subtitle</span><span class="p">:</span><span class="w"> </span><span class="l">Redes de Comunicaciones</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">author</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">Pablo José Rocamora Zamora</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">¡date</span><span class="p">:</span><span class="w"> </span><span class="l">Enero 30, 2017</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">header</span><span class="p">:</span><span class="w"> </span><span class="l">dsad</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">footer</span><span class="p">:</span><span class="w"> </span><span class="l">So is this</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">geometry</span><span class="p">:</span><span class="w"> </span><span class="l">margin=1in</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">toc</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">documentclass</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">scrartcl</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">header-includes</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">\usepackage{xcolor}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">\lstset{breaklines=true}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">\lstset{basicstyle=\small\ttfamily}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">\lstset{extendedchars=true}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">\lstset{tabsize=2}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">\lstset{columns=fixed}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">\lstset{showstringspaces=false}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">\lstset{frame=trbl}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">\lstset{frameround=tttt}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">\lstset{framesep=4pt}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">\lstset{numbers=left}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">\lstset{numberstyle=\tiny\ttfamily}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">\lstset{postbreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\color{red}\hookrightarrow\space}}}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">\lstset{keywordstyle=\color[rgb]{0.13,0.29,0.53}\bfseries}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">\lstset{stringstyle=\color[rgb]{0.31,0.60,0.02}}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">\lstset{commentstyle=\color[rgb]{0.56,0.35,0.01}\itshape}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">\lstset{stepnumber=1}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">\lstset{numbersep=5pt}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">\lstset{backgroundcolor=\color[RGB]{248,248,248}}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">\lstset{showspaces=false}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">\lstset{showtabs=false}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">\lstset{captionpos=b}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">\lstset{breakatwhitespace=false}</span><span class="w"> </span><span class="c"># esto hace que sea una linea son contar</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">\lstset{breakautoindent=true}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">\lstset{escapeinside={\%*}{*)}}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">\lstset{linewidth=\textwidth}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">\lstset{basewidth=0.5em}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nn">---</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>Hay muchos mas parametros que podemos poner con lstset, aqui podemos ver el <strong>listado con listings</strong> muchos: <a class="link" href="https://es.wikibooks.org/wiki/Manual_de_LaTeX/Listados_de_c%C3%B3digo/Listados_con_listings"  target="_blank" rel="noopener"
+    >url</a></p>
+</blockquote>
+<p>Si no tenemos el motor de <code>xelatex</code> instalado tendremos que instalarlo antes de poder usar el comando:
+<a class="link" href="http://mednis.info/wp/?p=63"  target="_blank" rel="noopener"
+    >Fuente</a></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="o">[</span>sudo<span class="o">]</span> dnf install texlive texlive-latex texlive-xetex texlive-collection-latex texlive-collection-latexrecommended texlive-xetex-def texlive-collection-xetex 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Instalar solo si es necesario</span>
+</span></span><span class="line"><span class="cl"><span class="o">[</span>sudo<span class="o">]</span> dnf install texlive-collection-latexextra
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>El comando final resultante seria:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">pandoc --template=plantilla.tex  --listings --latex-engine=xelatex memoria.md -o memoria.pdf
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>Portada</th>
+<th>Indice</th>
+<th>tabla de contenidos</th>
+<th>resaltado de sintaxis</th>
+<th>tablas markdown</th>
+<th>Separar por pagina distintos apartados</th>
+<th>Optimización del espacio</th>
+<th>Corta lineas de cdigo largas</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>✔</td>
+<td>✔</td>
+<td>✔</td>
+<td>✔</td>
+<td>✔</td>
+<td>✔</td>
+<td>✔</td>
+<td>✔</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="mark1">Gimli</h2>
+<p><a class="link" href="https://github.com/walle/gimli"  target="_blank" rel="noopener"
+    >Gimli</a> es una herramienta para convertir ficheros markdown en pdf, esta escrita en ruby. Su instalación se hace a través del instalador de paquetes de ruby <code>gem</code>. Trabaja convirtiendo el markdown a html a través de <a class="link" href="https://github.com/github/markup"  target="_blank" rel="noopener"
+    >github/markup</a> y el html a pdf a través de  <a class="link" href="https://github.com/wkhtmltopdf/wkhtmltopdf"  target="_blank" rel="noopener"
+    >wkhtmltopdf</a>, por lo que gracias a wkhtmltopdf podremos hacer pdf con bastantes mejoras visuales.</p>
+<h3 id="paso-1-instalación-1">Paso 1: Instalación.</h3>
+<p>En Fedora 24 viene instalado por defecto <code>gem</code>, así que la instalación es bastante simple:</p>
+<p><code>$ [sudo] gem install gimli</code></p>
+<h3 id="paso-2-generación-del-pdf">Paso 2: Generación del pdf.</h3>
+<p>Para generar un pdf con gimli, simplemente habría que usar el comando <code>gimli -f memoria.md</code> y generaría un fichero pdf con el mismo nombre aunque con extensión pdf, por defecto el fichero que genera es bastante feo estéticamente, pero le podemos añadir varias mejoras visuales a través de parámetros que enviamos a <em>wkhtmltopdf</em> directamente gracias al parámetro <code>-w</code>:</p>
+<p>Gimli tiene un parámetro de configuración que es <code>-cover portada.md</code> que es para ponerle una portada al pdf resultante.</p>
+<h4 id="parametros-de-wkhtmltopdf">Parametros de wkhtmltopdf:</h4>
+<p>Todos estos parámetros tienen que pasarse a través del parámetro -w de gimli para que lleguen a wkhtmltopdf, por lo que el comando seria <code>gimli -f test.md -w 'PARÁMETROS'</code></p>
+<ul>
+<li>
+<p>Tabla de contenidos: tendremos que pasar el parámetro <code>--toc</code> para generar la tabla y con <code>--toc-header-text &quot;Tabla de contenidos&quot;</code> indicamos el nombre que tendra, quedando asi el comando resultante:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">gimli -f test.md -w &#39;--toc --toc-header-text &#34;Tabla de contenidos&#34;&#39;
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>Pie de pagina con numero: tendremos que pasar el parámetro <code>--footer-right &quot;[page]/[toPage]&quot;</code>, aunque también podemos cambiar la posición del texto con: <code>--footer-left &quot;[page]/[toPage]&quot;</code> o <code>--footer-center &quot;[page]/[toPage]&quot;</code> quedando asi el comando resultante:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">gimli -f test.md -w &#39;--footer-right &#34;[page]/[toPage]&#34;&#39;
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+<p>Como resultado final nos quedaría este comando para generar un pdf con tabla de contenidos mas pie de pagina con el numero</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">gimli -f test.md -cover portada.md -w &#39;--toc --toc-header-text &#34;Tabla de contenidos&#34; --footer-right &#34;[page]/[toPage]&#34;&#39;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>Portada</th>
+<th>Indice</th>
+<th>tabla de contenidos</th>
+<th>resaltado de sintaxis</th>
+<th>tablas markdown</th>
+<th>Separar por pagina distintos apartados</th>
+<th>Optimización del espacio</th>
+<th>Corta lineas de código largas</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>✔*</td>
+<td>❌</td>
+<td>✔</td>
+<td>✔</td>
+<td>✔</td>
+<td>❌</td>
+<td>✔</td>
+<td>✔</td>
+</tr>
+</tbody>
+</table></div>
+<blockquote>
+<p>* Puede generar una portada pero tiene que estar hecha en markdown y no suelen quedar muy bien visualmente.</p>
+</blockquote>
+<h1 id="header2">Conversores con entorno gráfico</h1>
+<ul>
+<li><a class="link" href="#mark2" >Atom</a></li>
+<li><a class="link" href="#mark3" >Markdown Pad</a></li>
+</ul>
+<h2 id="mark2">Atom</h2>
+<p>Atom por si mismo no tiene ningún conversor de markdown a pdf, pero tiene varios paquetes que desempeñan esa tarea con bastante calidad. El mas destacado es <a class="link" href="https://github.com/cakebake/markdown-themeable-pdf"  target="_blank" rel="noopener"
+    >markdown-themeable-pdf</a> que crea unos pdf con bastantes caracteristicas interesantes.</p>
+<p>Una vez instalado con pulsar <code>ctrl-shift-E</code> o <code>botón derecho &gt; Markdown to PDF</code> generaremos el pdf con el mismo nombre que el fichero.</p>
+<p>Se puede modificar el css, el pie de pagina y la cabecera resultante, los ficheros a modificar serian:</p>
+<ul>
+<li>~/.atom/markdown-themeable-pdf/styles.css</li>
+<li>~/.atom/markdown-themeable-pdf/header.js</li>
+<li>~/.atom/markdown-themeable-pdf/footer.js</li>
+</ul>
+<h3 id="acordarme-de-subir-mis-ficheros-modificados-a-code">ACORDARME DE SUBIR MIS FICHEROS MODIFICADOS A CODE</h3>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>Portada</th>
+<th>Indice</th>
+<th>tabla de contenidos</th>
+<th>resaltado de sintaxis</th>
+<th>tablas markdown</th>
+<th>Separar por pagina distintos apartados</th>
+<th>Optimización del espacio</th>
+<th>Corta lineas de codigo largas</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>✔</td>
+<td>✔</td>
+<td>❌</td>
+<td>✔</td>
+<td>✔</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="mark3">Markdown Pad</h2>
+<p>Markdown Pad es el único de todos los conversores que salen aquí que esta unicamente para Windows y que ademas es de pago, teniendo una versión gratuita bastante limitada.</p>
+<h3 id="ponerlo-cuando-este-en-windows-ya-que-no-se-puede-usar-en-linux">PONERLO CUANDO ESTE EN WINDOWS YA QUE NO SE PUEDE USAR EN LINUX</h3>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>Portada</th>
+<th>Indice</th>
+<th>tabla de contenidos</th>
+<th>resaltado de sintaxis</th>
+<th>tablas markdown</th>
+<th>Separar por pagina distintos apartados</th>
+<th>Optimizacion del espacio</th>
+<th>Corta lineas de codigo largas</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+</tr>
+</tbody>
+</table></div>
+<h1 id="header3">Conversores Online</h1>
+<p>Los conversores online están muy bien a la hora de generar un documento rápidamente, pero incorporan muchas menos características que el resto de conversores.</p>
+<h2 id="mark5">Cloudconvert</h2>
+<p><a class="link" href="https://cloudconvert.com/md-to-pdf"  target="_blank" rel="noopener"
+    >url</a></p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>Portada</th>
+<th>Indice</th>
+<th>tabla de contenidos</th>
+<th>resaltado de sintaxis</th>
+<th>tablas markdown</th>
+<th>Separar por pagina distintos apartados</th>
+<th>Optimización del espacio</th>
+<th>Corta lineas de código largas</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>❌</td>
+<td>✔</td>
+<td>❌</td>
+<td>✔</td>
+<td>✔</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="mark6">Markdowntopdf</h2>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>Portada</th>
+<th>Indice</th>
+<th>tabla de contenidos</th>
+<th>resaltado de sintaxis</th>
+<th>tablas markdown</th>
+<th>Separar por pagina distintos apartados</th>
+<th>Optimización del espacio</th>
+<th>Corta lineas de código largas</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>✔</td>
+<td>❌</td>
+<td>✔</td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<p><a class="link" href="http://www.markdowntopdf.com/"  target="_blank" rel="noopener"
+    >http://www.markdowntopdf.com/</a></p>
+<h1 id="header4">Resumen general</h1>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>Programa</th>
+<th>Portada</th>
+<th>Indice</th>
+<th>tabla de contenidos</th>
+<th>resaltado de sintaxis</th>
+<th>tablas markdown</th>
+<th>Separar por pagina distintos apartados</th>
+<th>Optimización del espacio</th>
+<th>Corta lineas de código largas</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Pandoc</td>
+<td>✔</td>
+<td>✔</td>
+<td>✔</td>
+<td>✔</td>
+<td>✔</td>
+<td>✔</td>
+<td>✔</td>
+<td>✔</td>
+<td></td>
+</tr>
+<tr>
+<td>Gimli</td>
+<td>✔*</td>
+<td>❌</td>
+<td>✔</td>
+<td>✔</td>
+<td>✔</td>
+<td>❌</td>
+<td>✔</td>
+<td>✔</td>
+<td></td>
+</tr>
+<tr>
+<td>Atom</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>✔</td>
+<td>✔</td>
+<td>❌</td>
+<td>✔</td>
+<td>✔</td>
+<td></td>
+</tr>
+<tr>
+<td>Markdown Pad</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td></td>
+</tr>
+<tr>
+<td>Cloudconvert</td>
+<td>❌</td>
+<td>✔</td>
+<td>❌</td>
+<td>✔</td>
+<td>✔</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td></td>
+</tr>
+<tr>
+<td>Markdowntopdf</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>✔</td>
+<td>❌</td>
+<td>✔</td>
+<td>✔</td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<blockquote>
+<p>* Puede generar una portada pero tiene que estar hecha en markdown y no suelen quedar muy bien visualmente.</p>
+</blockquote>
+<h2 id="header5">Conclusión final</h2>
+<p>Creo que en este caso la mejor opción es pandoc ya que es la único que puede hacer todo con un mínimo esfuerzo, como por ejemplo la portada y la toc.</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/markdown/">markdown</a>
+        
+            <a href="/tags/pdf/">pdf</a>
+        
+            <a href="/tags/pandoc/">pandoc</a>
+        
+            <a href="/tags/gimli/">gimli</a>
+        
+            <a href="/tags/linux/">linux</a>
+        
+            <a href="/tags/atom/">atom</a>
+        
+            <a href="/tags/markdownpad/">markdownpad</a>
+        
+            <a href="/tags/cloudconvert/">cloudconvert</a>
+        
+            <a href="/tags/markdowntopdf/">markdowntopdf</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/katex.min.css"integrity="sha256-J&#43;iAE0sgH8QSz9hpcDxXIftnj65JEZgNhGcgReTTK9s="crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/katex.min.js"integrity="sha256-InsNdER1b2xUewP&#43;pKCUJpkhiqwHgqiPXDlIk7GzBu4="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/contrib/auto-render.min.js"integrity="sha256-y39Mpg7V3D4lhBX4x6O0bUqTV4pSrfgwEfGKfxkOdgI="crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.querySelector(`.article-content`), {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ]
+        });})
+</script>
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Contenidos relacionados</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/p/concatenar-pdf/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/covers/software.png" loading="lazy" data-key="concatenar-pdf" data-hash="/covers/software.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Concatenar pdf</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/optimizar-pdf/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/covers/software.png" loading="lazy" data-key="optimizar-pdf" data-hash="/covers/software.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Optimizar PDF&#39;s</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/configuracion_vim/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/covers/htb.png" loading="lazy" data-key="configuracion_vim" data-hash="/covers/htb.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Configuración vim</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/export-easyeda/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/covers/software.png" loading="lazy" data-key="export-easyeda" data-hash="/covers/software.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Export EasyEda</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/tips-git/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/covers/software.png" loading="lazy" data-key="tips-git" data-hash="/covers/software.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Tips Git</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "procamora-github" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2022 #&gt; fireroot
+    </section>
+    
+    <section class="powerby">
+        
+            Esto es el footer <br/>
+        Creado con <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Tema <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.13.0">Stack</a></b> diseñado por <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Tabla de contenido</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#mark0">Pandoc</a>
+      <ol>
+        <li><a href="#paso-1-instalación">Paso 1: Instalación.</a></li>
+        <li><a href="#paso-2-añadir-cabecera-yaml-al-fichero-markdown">Paso 2: Añadir cabecera yaml al fichero markdown.</a></li>
+        <li><a href="#modificar">MODIFICAR</a></li>
+        <li><a href="#paso-3-creación-del-fichero-plantilla-de-latex-para-poner-un-pagina-en-blanco-antes-de-la-tabla-de-contenidos-y-después">Paso 3: Creación del fichero plantilla de latex para poner un pagina en blanco antes de la tabla de contenidos y después.</a></li>
+        <li><a href="#paso-4-generación-del-pdf">Paso 4: Generación del pdf.</a>
+          <ol>
+            <li><a href="#opción-2">Opción 2:</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#mark1">Gimli</a>
+      <ol>
+        <li><a href="#paso-1-instalación-1">Paso 1: Instalación.</a></li>
+        <li><a href="#paso-2-generación-del-pdf">Paso 2: Generación del pdf.</a>
+          <ol>
+            <li><a href="#parametros-de-wkhtmltopdf">Parametros de wkhtmltopdf:</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+  </ol>
+
+  <ol>
+    <li><a href="#mark2">Atom</a>
+      <ol>
+        <li><a href="#acordarme-de-subir-mis-ficheros-modificados-a-code">ACORDARME DE SUBIR MIS FICHEROS MODIFICADOS A CODE</a></li>
+      </ol>
+    </li>
+    <li><a href="#mark3">Markdown Pad</a>
+      <ol>
+        <li><a href="#ponerlo-cuando-este-en-windows-ya-que-no-se-puede-usar-en-linux">PONERLO CUANDO ESTE EN WINDOWS YA QUE NO SE PUEDE USAR EN LINUX</a></li>
+      </ol>
+    </li>
+  </ol>
+
+  <ol>
+    <li><a href="#mark5">Cloudconvert</a></li>
+    <li><a href="#mark6">Markdowntopdf</a></li>
+  </ol>
+
+  <ol>
+    <li><a href="#header5">Conclusión final</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

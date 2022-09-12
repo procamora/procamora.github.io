@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>amixer on #&gt; fireroot</title>
+        <link>https://www.procamora.com/tags/amixer/</link>
+        <description>Recent content in amixer on #&gt; fireroot</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>es</language>
+        <lastBuildDate>Fri, 27 Nov 2015 00:00:00 +0000</lastBuildDate><atom:link href="https://www.procamora.com/tags/amixer/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Cambiar volumen por consola</title>
+        <link>https://www.procamora.com/p/volumen/</link>
+        <pubDate>Fri, 27 Nov 2015 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/p/volumen/</guid>
+        <description>&lt;img src="https://www.procamora.com/covers/linux.png" alt="Featured image of post Cambiar volumen por consola" /&gt;&lt;h6 id=&#34;bajar-volumen-en-10&#34;&gt;Bajar volumen en 10%&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;amixer sset Master 10%-&lt;/code&gt;&lt;/p&gt;
+&lt;h6 id=&#34;subir-volumen-en-10&#34;&gt;Subir volumen en 10%&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;amixer sset Master 10%+&lt;/code&gt;&lt;/p&gt;
+&lt;h6 id=&#34;activardesactivar-silencio&#34;&gt;Activar/desactivar silencio&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;amixer sset Master toggle&lt;/code&gt;&lt;/p&gt;
+&lt;h6 id=&#34;modo-gráfico-consola&#34;&gt;Modo gráfico consola&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;alsamixer&lt;/code&gt;&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

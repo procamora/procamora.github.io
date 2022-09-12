@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>screen on #&gt; fireroot</title>
+        <link>https://www.procamora.com/tags/screen/</link>
+        <description>Recent content in screen on #&gt; fireroot</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>es</language>
+        <lastBuildDate>Sun, 10 May 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://www.procamora.com/tags/screen/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Android cast screen to Linux</title>
+        <link>https://www.procamora.com/p/android_cast_screen_to_linux/</link>
+        <pubDate>Sun, 10 May 2020 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/p/android_cast_screen_to_linux/</guid>
+        <description>&lt;img src="https://www.procamora.com/covers/android.png" alt="Featured image of post Android cast screen to Linux" /&gt;&lt;p&gt;Summary: La aplicación_ scrcpy_ proporciona la visualización y control de dispositivos Android conectado por USB, aunque también tiene compatibilidad con el control por TCP/IP. No requiere acceso root y es multiplataforma, funcionando sobre Windows, Linux Y macOS.
+Status: published&lt;/p&gt;
+&lt;p&gt;La aplicación &lt;a class=&#34;link&#34; href=&#34;https://github.com/Genymobile/scrcpy&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;scrcpy&lt;/a&gt; proporciona la visualización y control de dispositivos Android conectado por USB, aunque también tiene compatibilidad con el control por TCP/IP. No requiere acceso root y es multiplataforma, funcionando sobre Windows, Linux Y macOS.&lt;/p&gt;
+&lt;p&gt;Sus características son:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Ligero (nativo, muestra sólo la pantalla del dispositivo).&lt;/li&gt;
+&lt;li&gt;Rendimiento (30 ~ 60 fps).&lt;/li&gt;
+&lt;li&gt;Calidad (1920 × 1080 o más).&lt;/li&gt;
+&lt;li&gt;Baja latencia (35 ~ 70ms).&lt;/li&gt;
+&lt;li&gt;Bajo tiempo de inicio (~ 1 segundo para mostrar la primera imagen).&lt;/li&gt;
+&lt;li&gt;No intrusivo (no se deja nada instalado en el dispositivo).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.procamora.com/images/2020/20200510_android_cast.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;android_cast&#34;
+	
+	
+&gt;{:height=&amp;ldquo;auto&amp;rdquo; width=&amp;ldquo;100%&amp;rdquo;}&lt;/p&gt;
+&lt;h1 id=&#34;instalación&#34;&gt;Instalación&lt;/h1&gt;
+&lt;p&gt;Requisitos previos:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;El dispositivo Android requiere al menos la API 21 (Android 5.0).&lt;/li&gt;
+&lt;li&gt;Tener habilitado la depuración &lt;em&gt;adb&lt;/em&gt; en el dispositivo.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Para instalarlo en Fedora podemos usar el gestor de paquetes &lt;em&gt;snap&lt;/em&gt;:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo snap install scrcpy
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;snap connections scrcpy
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo snap connect scrcpy:network :network
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo snap connect scrcpy:network-bind :network-bind
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo snap install core
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;En Ubuntu 20.04 ya se puede instalar desde el repositorio oficial.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&#34;uso&#34;&gt;Uso&lt;/h1&gt;
+&lt;p&gt;Un ejemplo básico de uso sería el siguiente:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;scrcpy --max-size &lt;span class=&#34;m&#34;&gt;1920&lt;/span&gt; --max-fps &lt;span class=&#34;m&#34;&gt;60&lt;/span&gt; --fullscreen
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id=&#34;rotación&#34;&gt;Rotación&lt;/h2&gt;
+&lt;p&gt;La ventana puede ser rotada con:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;scrcpy --rotation &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Los posibles valores son:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;0: no hay rotación.&lt;/li&gt;
+&lt;li&gt;1: 90 grados en sentido contrario a las agujas del reloj.&lt;/li&gt;
+&lt;li&gt;2: 180 grados.&lt;/li&gt;
+&lt;li&gt;3: 90 grados en el sentido de las agujas del reloj.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;grabación&#34;&gt;Grabación&lt;/h2&gt;
+&lt;p&gt;Es posible grabar la pantalla mientras se refleja con el comando:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;scrcpy --record file.mp4
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;scrcpy --record file.mkv
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Para deshabilitar el espejo mientras se graba:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;scrcpy --no-display --record file.mp4
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;Interrumpir la grabación con Ctrl+C
+Ctrl+C no termina correctamente en Windows, así que desconecta el dispositivo.&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+        </item>
+        <item>
+        <title>Uso de Screen</title>
+        <link>https://www.procamora.com/p/comando_screen/</link>
+        <pubDate>Sun, 06 Dec 2015 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/p/comando_screen/</guid>
+        <description>&lt;img src="https://www.procamora.com/covers/linux.png" alt="Featured image of post Uso de Screen" /&gt;&lt;p&gt;GNU Screen es una herramienta destinada a la terminal de Linux con la que se puede crear y manejar varias sesiones y programas de manera simultanea desde una sola terminal.&lt;/p&gt;
+&lt;p&gt;Pero además, permite cerrar la terminal y volverse a conectar a la sesión de screen que conservará las &amp;ldquo;terminales virtuales&amp;rdquo; que tuviéramos abiertas.&lt;/p&gt;
+&lt;p&gt;Instalar: &lt;code&gt;sudo apt-get install screen&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;###Opciones básicas&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;-S sockname  Da nombre a la sesión [pid].sockname.
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ls           Lista las sesiones abiertas de screen.
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;-r           Reattach a un sesión. Es posible especificar el nombre ej: screen -r sockname
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;-t título    Permite dar un título a una ventana.
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Ejemplo: &lt;code&gt;screen -S NombreSesion -t NombreVentana&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;###Manejo de las ventanas&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;Ctrl&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;+&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;A&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;,&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;C&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;         Nos permite abrir más terminales virtuales
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;Ctrl&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;+&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;A&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;,&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;N&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;         Nos permite cambiar de una terminal a otra
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;Ctrl&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;+&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;A&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;,&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;Shift&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;+&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;C&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; Nos permite renombrar el terminal, por defecto todos se llaman bash
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;Ctrl&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;+&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;A&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;,&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;D&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;         Nos permite cerrar la terminal sin cerrar los procesos que se están ejecutando
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;Ctrl&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;+&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;D&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;             Cierra la terminal, si es la única que tenemos bierta, salir de screen
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;Ctrl&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;+&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;A&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;,&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;x&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;         Bloquear todas las terminales con una clave  
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;Ctrl&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;+&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;A&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;,&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;?&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;         Nos muestra las combinaciones de teclas
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id=&#34;ejemplo-de-uso&#34;&gt;Ejemplo de uso:&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;screen
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Fuentes: [0][0] [1][1]
+[0]: &lt;a class=&#34;link&#34; href=&#34;http://www.muylinux.com/2009/01/05/gestion-remota-desconectando&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;http://www.muylinux.com/2009/01/05/gestion-remota-desconectando&lt;/a&gt;
+[1]: &lt;a class=&#34;link&#34; href=&#34;https://dreyacosta.com/jugando-con-screen-un-manejador-de-sesiones-linux/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://dreyacosta.com/jugando-con-screen-un-manejador-de-sesiones-linux/&lt;/a&gt;&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

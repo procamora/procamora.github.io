@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>SUDO on #&gt; fireroot</title>
+        <link>https://www.procamora.com/tags/sudo/</link>
+        <description>Recent content in SUDO on #&gt; fireroot</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>es</language>
+        <lastBuildDate>Wed, 20 Apr 2016 00:00:00 +0000</lastBuildDate><atom:link href="https://www.procamora.com/tags/sudo/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Permitir ciertos comandos sudo como usuario normal</title>
+        <link>https://www.procamora.com/p/permitir-ciertos-comandos-sudo-como-usuario-normal/</link>
+        <pubDate>Wed, 20 Apr 2016 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/p/permitir-ciertos-comandos-sudo-como-usuario-normal/</guid>
+        <description>&lt;img src="https://www.procamora.com/covers/draft.png" alt="Featured image of post Permitir ciertos comandos sudo como usuario normal" /&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;llows members of the users group to mount and unmount the
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;## cdrom as root
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;%users  ALL=/sbin/mount /mnt/cdrom, /sbin/umount /mnt/cdrom
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;http://www.cyberciti.biz/tips/allow-a-normal-user-to-run-commands-as-root.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;http://www.cyberciti.biz/tips/allow-a-normal-user-to-run-commands-as-root.html&lt;/a&gt;&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>tcp on #&gt; fireroot</title>
+        <link>https://www.procamora.com/tags/tcp/</link>
+        <description>Recent content in tcp on #&gt; fireroot</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>es</language>
+        <lastBuildDate>Sat, 03 Oct 2015 00:00:00 +0000</lastBuildDate><atom:link href="https://www.procamora.com/tags/tcp/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Ver puertos abiertos</title>
+        <link>https://www.procamora.com/p/puertos/</link>
+        <pubDate>Sat, 03 Oct 2015 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/p/puertos/</guid>
+        <description>&lt;img src="https://www.procamora.com/covers/linux.png" alt="Featured image of post Ver puertos abiertos" /&gt;&lt;p&gt;&lt;code&gt;sudo nmap -O localhost | grep &amp;quot;open&amp;quot;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;sudo fuser -n tcp puerto&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;sudo ps -l PID&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;sudo /etc/init.d/aplicación stop&lt;/code&gt;&lt;/p&gt;
+&lt;h6 id=&#34;matar-por-la-fuerza&#34;&gt;matar por la fuerza&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;sudo fuser -nk tcp puerto&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;sudo killall servicio&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;sudo kill -9 PID&lt;/code&gt;&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='En esta segunda parte, haré una configuración del entorno de trabajo (fstab, crontab, .ssh, etc) y del entorno gráfico.'><title>Primeros pasos Fedora 32 KDE Parte II</title>
+
+<link rel='canonical' href='https://www.procamora.com/p/primeros-pasos-fedora-32-parte-ii/'>
+
+<link rel="stylesheet" href="/scss/style.min.ac77dcf8b111b51da39a92990f431923f210f3876d85798a2125667f96dc33a4.css"><meta property='og:title' content='Primeros pasos Fedora 32 KDE Parte II'>
+<meta property='og:description' content='En esta segunda parte, haré una configuración del entorno de trabajo (fstab, crontab, .ssh, etc) y del entorno gráfico.'>
+<meta property='og:url' content='https://www.procamora.com/p/primeros-pasos-fedora-32-parte-ii/'>
+<meta property='og:site_name' content='#&gt; fireroot'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='fedora' /><meta property='article:tag' content='consola' /><meta property='article:tag' content='fedora32' /><meta property='article:tag' content='rpmfusion' /><meta property='article:tag' content='dnf' /><meta property='og:image' content='https://www.procamora.com/covers/draft.png' />
+<meta name="twitter:title" content="Primeros pasos Fedora 32 KDE Parte II">
+<meta name="twitter:description" content="En esta segunda parte, haré una configuración del entorno de trabajo (fstab, crontab, .ssh, etc) y del entorno gráfico."><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://www.procamora.com/covers/draft.png' />
+    <link rel="shortcut icon" href="img/favicon.ico" />
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/icons/procamora_30_hua3d16f4d7ffad1a52a64c31db4447108_16949_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">#&gt; fireroot</a></h1>
+            <h2 class="site-description">Mi wiki donde escribo artículos sobre Linux, Ciberseguridad y temas relacionados.</h2>
+        </div>
+    </header><ol class="social-menu">
+            
+                <li>
+                    <a 
+                        href='https://github.com/procamora'
+                        target="_blank"
+                        title="GitHub"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='mailto:pablojoserocamora@gmail.com'
+                        target="_blank"
+                        title="Gmail"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-gmail" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"> <path stroke="none" d="M0 0h24v24H0z" fill="none"/> <path d="M16 20h3a1 1 0 0 0 1 -1v-14a1 1 0 0 0 -1 -1h-3v16z" /> <path d="M5 20h3v-16h-3a1 1 0 0 0 -1 1v14a1 1 0 0 0 1 1z" /> <path d="M16 4l-4 4l-4 -4" /> <path d="M4 6.5l8 7.5l8 -7.5" /> </svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://es.linkedin.com/in/pablo-rocamora'
+                        target="_blank"
+                        title="Linkedin"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-linkedin" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"> <path stroke="none" d="M0 0h24v24H0z" fill="none"/> <rect x="4" y="4" width="16" height="16" rx="2" /> <line x1="8" y1="11" x2="8" y2="16" /> <line x1="8" y1="8" x2="8" y2="8.01" /> <line x1="12" y1="16" x2="12" y2="11" /> <path d="M16 16v-3a2 2 0 0 0 -4 0" /> </svg>
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archivos</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Buscar</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/acerca-de/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>Acerca de</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/index.xml' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-rss" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="5" cy="19" r="1" />
+  <path d="M4 4a16 16 0 0 1 16 16" />
+  <path d="M4 11a9 9 0 0 1 9 9" />
+</svg>
+
+
+
+                
+                <span>Feed</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+                <li id="i18n-switch">  
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                    <select name="language" onchange="window.location.href = this.selectedOptions[0].value">
+                        
+                            <option value="https://www.procamora.com/" selected>Español</option>
+                        
+                            <option value="https://www.procamora.com/en/" >English</option>
+                        
+                    </select>
+                </li>
+            
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Modo oscuro</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+<main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/primeros-pasos-fedora-32-parte-ii/">
+                
+                    <img src="/covers/draft.png" loading="lazy" alt="Featured image of post Primeros pasos Fedora 32 KDE Parte II" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/linux/" >
+                Linux
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/primeros-pasos-fedora-32-parte-ii/">Primeros pasos Fedora 32 KDE Parte II</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            En esta segunda parte, haré una configuración del entorno de trabajo (fstab, crontab, .ssh, etc) y del entorno gráfico.
+        </h3>
+        
+    </div>
+
+    
+    <footer class="article-time">
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    4 minutos a leer
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+
+    <div class="article-category">
+        
+            
+                
+            
+            
+                <a href='https://github.com/procamora/dummy/edit/main/content/post/draft/primeros-pasos-fedora-32-parte-ii.md' style="background-color: #5bc0de" >Edit this page on GitHub</a>
+            
+            
+                <a href='https://github.com/procamora/dummy/edit/main/content/post/draft/primeros-pasos-fedora-32-parte-ii.md' style="background-color: #5bc0de" >Download article PDF</a>
+            
+        
+    </div>
+</div>
+</header>
+
+    <section class="article-content">
+    
+    
+    <h1 id="introducción">Introducción</h1>
+<p>En esta segunda parte, haré una configuración del entorno de trabajo (fstab, crontab, .ssh, etc) y del entorno gráfico.</p>
+<ul>
+<li><a class="link" href="#header0" >Ficheros</a>
+<ul>
+<li><a class="link" href="#mark0" >Fichero crontab</a></li>
+<li><a class="link" href="#mark1" >Fichero fstab</a></li>
+<li><a class="link" href="#mark2" >Clave privada</a></li>
+</ul>
+</li>
+<li><a class="link" href="#header1" >Entorno grafico</a></li>
+</ul>
+<h1 id="header0">Configuración de ficheros</h1>
+<h2 id="mark0">Fichero crontab</h2>
+<p><code>vim /etc/crontab</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">SHELL</span><span class="o">=</span>/bin/bash
+</span></span><span class="line"><span class="cl"><span class="nv">PATH</span><span class="o">=</span>/sbin:/bin:/usr/sbin:/usr/bin
+</span></span><span class="line"><span class="cl"><span class="nv">MAILTO</span><span class="o">=</span>root
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># For details see man 4 crontabs</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Example of job definition:</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># .---------------- minute (0 - 59)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># |  .------------- hour (0 - 23)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># |  |  .---------- day of month (1 - 31)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># |  |  |  .------- month (1 - 12) OR jan,feb,mar,apr ...</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># |  |  |  |  .---- day of week (0 - 6) (Sunday=0 or 7) OR sun,mon,tue,wed,thu,fri,sat</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># |  |  |  |  |</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># *  *  *  *  * user-name  command to be executed</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 0 *	*  *  *	procamora	cd /home/procamora/ &amp;&amp; ./rsync_samba.sh &gt;/tmp/rsync.log 2&gt;&amp;1 </span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 0 */2	*  *  *	procamora	cd /home/procamora/BoxCryptor/ &amp;&amp; ./rsync_i7.sh &gt;/tmp/rsync_gdrive.log 2&gt;&amp;1</span>
+</span></span><span class="line"><span class="cl"><span class="m">0</span> 22	*  *  *	procamora	python3 /home/procamora/scripts/backup.py i7_rsync.sh &gt;&gt; /tmp/rsync_gdrive.log 2&gt;<span class="p">&amp;</span><span class="m">1</span>
+</span></span><span class="line"><span class="cl">*/7 *	*  *  *	procamora	<span class="nb">cd</span> /home/procamora/Documents/Wiki-Personal/ <span class="o">&amp;&amp;</span> bash pushgit.sh &gt;&gt; /tmp/wiki.log 2&gt;<span class="p">&amp;</span><span class="m">1</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="mark1">Fichero fstab</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo mkdir -p /mnt/<span class="o">{</span>WD_BLACK,640Gb,pi,zero<span class="o">}</span>
+</span></span><span class="line"><span class="cl">sudo chown <span class="nv">$USER</span>:<span class="nv">$USER</span> /mnt/<span class="o">{</span>WD_BLACK,640Gb,pi,zero<span class="o">}</span>
+</span></span><span class="line"><span class="cl">vim /etc/fstab
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1">#</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># /etc/fstab</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Created by anaconda on Wed Mar 29 21:50:12 2017</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Accessible filesystems, by reference, are maintained under &#39;/dev/disk&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># See man pages fstab(5), findfs(8), mount(8) and/or blkid(8) for more info</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Particiones por defecto</span>
+</span></span><span class="line"><span class="cl"><span class="nv">UUID</span><span class="o">=</span>9c64fe32-84c5-4954   /                   ext4      defaults,relatime               <span class="m">1</span> <span class="m">1</span>
+</span></span><span class="line"><span class="cl"><span class="nv">UUID</span><span class="o">=</span>659ee856-118a-433b   /boot               ext4      defaults,relatime               <span class="m">1</span> <span class="m">2</span>
+</span></span><span class="line"><span class="cl"><span class="nv">UUID</span><span class="o">=</span>F6DB-090A            /boot/efi           vfat      <span class="nv">umask</span><span class="o">=</span>0077,shortname<span class="o">=</span>winnt      <span class="m">0</span> <span class="m">2</span>
+</span></span><span class="line"><span class="cl"><span class="nv">UUID</span><span class="o">=</span>7f4fc31b-e92d-4d31   /home               ext4      defaults,relatime               <span class="m">1</span> <span class="m">2</span>
+</span></span><span class="line"><span class="cl">/dev/mapper/fedora-swap   swap                swap      defaults                        <span class="m">0</span> <span class="m">0</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Disco NTFS con todos los permisos + posibilidad de usar chmod</span>
+</span></span><span class="line"><span class="cl"><span class="nv">UUID</span><span class="o">=</span>EE3A29F53A29BC09     /mnt/WD_BLACK       ntfs-3g   permissions,locale<span class="o">=</span>es_ES.utf8   <span class="m">0</span> <span class="m">2</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Disco de red montado por samba</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#//192.168.1.71/DiscoUSB   /mnt/DescargasPi    cifs      credentials=/home/procamora/.smbcredentials,iocharset=utf8,sec=ntlm  0  0</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="mark2">Clave privada</h2>
+<p>Configuraremos tanto la clave privada para conectarnos a otros equipos sin necesidad de usar contraseña como la clave publica para que otros de nuestros equipos se conecten a nosotros con nuestra clave privada</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">mkdir -p ~/.ssh
+</span></span><span class="line"><span class="cl">touch ~/.ssh/OpenSSH
+</span></span><span class="line"><span class="cl">vim ~/.ssh/OpenSSH        <span class="c1"># guardamos el contenido de la clave privada</span>
+</span></span><span class="line"><span class="cl">chmod <span class="m">600</span> ~/.ssh/OpenSSH  <span class="c1"># le quitamos los permisos necesarios</span>
+</span></span><span class="line"><span class="cl">ssh-add ~/.ssh/OpenSSH    <span class="c1"># ponemos la contraseña y ya tenemos cargada la clave</span>
+</span></span><span class="line"><span class="cl">vim ~/.ssh/authorized_keys <span class="c1"># guardamos el contenido de la clave publica</span>
+</span></span><span class="line"><span class="cl">chmod <span class="m">600</span> ~/.ssh/authorized_keys  <span class="c1"># le quitamos los permisos necesarios</span>
+</span></span><span class="line"><span class="cl">chmod <span class="m">700</span> ~/.ssh
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="mark3">Fichero hosts</h2>
+<p><code>vim /etc/hosts</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">127.0.0.1       localhost 4770K localhost4
+</span></span><span class="line"><span class="cl">::1             localhost 4770K localhost6
+</span></span><span class="line"><span class="cl">192.168.1.1     router
+</span></span><span class="line"><span class="cl">192.168.1.59    4770K
+</span></span><span class="line"><span class="cl">192.168.1.55    xiaomi
+</span></span><span class="line"><span class="cl">192.168.1.71    rp3
+</span></span><span class="line"><span class="cl">192.168.1.72    zero
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="configuración-de-aplicaciones-con-autoarranque">Configuración de aplicaciones con autoarranque</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">systemctl <span class="nb">enable</span> sshd
+</span></span><span class="line"><span class="cl"><span class="c1">#systemctl enable smb</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#systemctl enable nmb</span>
+</span></span><span class="line"><span class="cl">systemctl disable firewalld.service <span class="c1"># solo en el pc de casa</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h1 id="header1">Configuración del entorno gráfico</h1>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">DIRS</span><span class="o">=(</span> Documents Downloads Public Pictures Videos Templates Music Desktop <span class="o">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="nb">dirs</span> in <span class="s2">&#34;</span><span class="si">${</span><span class="nv">DIRS</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">;</span> <span class="k">do</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">test</span> <span class="k">$(</span>ls <span class="nv">$HOME</span>/<span class="nv">$dirs</span>/ <span class="p">|</span> wc -l<span class="k">)</span> <span class="o">=</span> <span class="m">0</span> <span class="o">&amp;&amp;</span> rm -rf <span class="nv">$HOME</span>/<span class="nv">$dirs</span> <span class="o">&amp;&amp;</span> ln -s /media/data/<span class="nv">$dirs</span> <span class="nv">$HOME</span>/<span class="nv">$dirs</span>
+</span></span><span class="line"><span class="cl"><span class="k">done</span>
+</span></span><span class="line"><span class="cl"><span class="nb">test</span> -d <span class="nv">$HOME</span>/Programs <span class="o">||</span> ln -s /media/data/Programs <span class="nv">$HOME</span>/Programs
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">kwriteconfig5 --file <span class="s2">&#34;</span><span class="nv">$HOME</span><span class="s2">/Documents/.directory&#34;</span> --group <span class="s2">&#34;Desktop Entry&#34;</span> --key <span class="s2">&#34;Icon&#34;</span> <span class="s2">&#34;folder-documents&#34;</span>
+</span></span><span class="line"><span class="cl">kwriteconfig5 --file <span class="s2">&#34;</span><span class="nv">$HOME</span><span class="s2">/Downloads/.directory&#34;</span> --group <span class="s2">&#34;Desktop Entry&#34;</span> --key <span class="s2">&#34;Icon&#34;</span> <span class="s2">&#34;folder-downloads&#34;</span>
+</span></span><span class="line"><span class="cl">kwriteconfig5 --file <span class="s2">&#34;</span><span class="nv">$HOME</span><span class="s2">/Public/.directory&#34;</span> --group <span class="s2">&#34;Desktop Entry&#34;</span> --key <span class="s2">&#34;Icon&#34;</span> <span class="s2">&#34;folder-public&#34;</span>
+</span></span><span class="line"><span class="cl">kwriteconfig5 --file <span class="s2">&#34;</span><span class="nv">$HOME</span><span class="s2">/Pictures/.directory&#34;</span> --group <span class="s2">&#34;Desktop Entry&#34;</span> --key <span class="s2">&#34;Icon&#34;</span> <span class="s2">&#34;folder-pictures&#34;</span>
+</span></span><span class="line"><span class="cl">kwriteconfig5 --file <span class="s2">&#34;</span><span class="nv">$HOME</span><span class="s2">/Videos/.directory&#34;</span> --group <span class="s2">&#34;Desktop Entry&#34;</span> --key <span class="s2">&#34;Icon&#34;</span> <span class="s2">&#34;folder-videos&#34;</span>
+</span></span><span class="line"><span class="cl">kwriteconfig5 --file <span class="s2">&#34;</span><span class="nv">$HOME</span><span class="s2">/Templates/.directory&#34;</span> --group <span class="s2">&#34;Desktop Entry&#34;</span> --key <span class="s2">&#34;Icon&#34;</span> <span class="s2">&#34;folder-templates&#34;</span>
+</span></span><span class="line"><span class="cl">kwriteconfig5 --file <span class="s2">&#34;</span><span class="nv">$HOME</span><span class="s2">/Music/.directory&#34;</span> --group <span class="s2">&#34;Desktop Entry&#34;</span> --key <span class="s2">&#34;Icon&#34;</span> <span class="s2">&#34;folder-music&#34;</span>
+</span></span><span class="line"><span class="cl">kwriteconfig5 --file <span class="s2">&#34;</span><span class="nv">$HOME</span><span class="s2">/Desktop/.directory&#34;</span> --group <span class="s2">&#34;Desktop Entry&#34;</span> --key <span class="s2">&#34;Icon&#34;</span> <span class="s2">&#34;desktop&#34;</span>
+</span></span><span class="line"><span class="cl">kwriteconfig5 --file <span class="s2">&#34;</span><span class="nv">$HOME</span><span class="s2">/scripts/.directory&#34;</span> --group <span class="s2">&#34;Desktop Entry&#34;</span> --key <span class="s2">&#34;Icon&#34;</span> <span class="s2">&#34;folder-script&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="configuración-dolphin">Configuración dolphin</h2>
+<h3 id="configuración-de-vistas">Configuración de vistas</h3>
+<ol>
+<li>
+<p>Vamos a <code>Control/Configurar las barras de herramientas</code></p>
+<ul>
+<li>Abrir tereminal</li>
+<li>Archivos ocultos</li>
+</ul>
+</li>
+<li>
+<p>Vamos a <code>Control/Ajustar las propiedades de vista</code></p>
+<ul>
+<li>Ordenar por fecha Descendente</li>
+<li>Mostar archivos ocultos</li>
+<li>Aplicar a todas las carpetas</li>
+<li>Usar estas propiedades de vista como predeterminadas</li>
+</ul>
+</li>
+</ol>
+<h3 id="configuración-de-accesos-directos">Configuración de accesos directos</h3>
+<p><img src="/images/2017/2017-03-31-acceos_directos_dolphin.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="Accesos directos dolphin"
+	
+	
+></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ln -rs /mnt/WD_BLACK/Insync/pablojoserocamora@gmail.com/GoogleDrive ~/pablojoserocamora@gmail.com
+</span></span><span class="line"><span class="cl">ln -s ~/pablojoserocamora@gmail.com/scripts/ ~ <span class="c1"># directorio de scripts</span>
+</span></span><span class="line"><span class="cl">ln -s ~/pablojoserocamora@gmail.com/Musica/* ~/Music/ <span class="c1"># Enlazo todos los discos</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="instalacion-de-bspwm">Instalacion de bspwm</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git clone git@github.com:procamora/custom_workspace.git ~/Documents/custom_workspace
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> ~/Documents/custom_workspace
+</span></span><span class="line"><span class="cl">chmod u+x custom_workspace.sh
+</span></span><span class="line"><span class="cl">./custom_workspace.sh all
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/fedora/">fedora</a>
+        
+            <a href="/tags/consola/">consola</a>
+        
+            <a href="/tags/fedora32/">fedora32</a>
+        
+            <a href="/tags/rpmfusion/">rpmfusion</a>
+        
+            <a href="/tags/dnf/">dnf</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/katex.min.css"integrity="sha256-J&#43;iAE0sgH8QSz9hpcDxXIftnj65JEZgNhGcgReTTK9s="crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/katex.min.js"integrity="sha256-InsNdER1b2xUewP&#43;pKCUJpkhiqwHgqiPXDlIk7GzBu4="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/contrib/auto-render.min.js"integrity="sha256-y39Mpg7V3D4lhBX4x6O0bUqTV4pSrfgwEfGKfxkOdgI="crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.querySelector(`.article-content`), {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ]
+        });})
+</script>
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Contenidos relacionados</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/p/primeros-pasos-fedora-32-parte-i/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/covers/draft.png" loading="lazy" data-key="primeros-pasos-fedora-32-parte-i" data-hash="/covers/draft.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Primeros pasos Fedora 32 KDE Parte I</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/primeros-pasos-fedora-30-parte-i/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/covers/linux.png" loading="lazy" data-key="primeros-pasos-fedora-30-parte-i" data-hash="/covers/linux.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Primeros pasos Fedora 30 KDE Parte I</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/primeros-pasos-fedora-27-parte-i/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/covers/linux.png" loading="lazy" data-key="primeros-pasos-fedora-27-parte-i" data-hash="/covers/linux.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Primeros pasos Fedora 27 KDE Parte I</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/verdiferentespaquetes/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/covers/linux.png" loading="lazy" data-key="verdiferentespaquetes" data-hash="/covers/linux.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Ver Diferentes Paquetes</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/virtualbox_guest_additions/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/covers/linux.png" loading="lazy" data-key="virtualbox_guest_additions" data-hash="/covers/linux.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">VirtualBox Guest Additions</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "procamora-github" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2022 #&gt; fireroot
+    </section>
+    
+    <section class="powerby">
+        
+            Esto es el footer <br/>
+        Creado con <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Tema <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.13.0">Stack</a></b> diseñado por <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Tabla de contenido</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#mark0">Fichero crontab</a></li>
+    <li><a href="#mark1">Fichero fstab</a></li>
+    <li><a href="#mark2">Clave privada</a></li>
+    <li><a href="#mark3">Fichero hosts</a></li>
+    <li><a href="#configuración-de-aplicaciones-con-autoarranque">Configuración de aplicaciones con autoarranque</a></li>
+  </ol>
+
+  <ol>
+    <li><a href="#configuración-dolphin">Configuración dolphin</a>
+      <ol>
+        <li><a href="#configuración-de-vistas">Configuración de vistas</a></li>
+        <li><a href="#configuración-de-accesos-directos">Configuración de accesos directos</a></li>
+      </ol>
+    </li>
+    <li><a href="#instalacion-de-bspwm">Instalacion de bspwm</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

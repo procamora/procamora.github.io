@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>terraform on #&gt; fireroot</title>
+        <link>https://www.procamora.com/en/tags/terraform/</link>
+        <description>Recent content in terraform on #&gt; fireroot</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>es</language>
+        <lastBuildDate>Tue, 15 Sep 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://www.procamora.com/en/tags/terraform/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Pentesting Scenario (I). Introduction and objectives (WIP)</title>
+        <link>https://www.procamora.com/en/p/escenario_para_pentesting_i_introduccionen/</link>
+        <pubDate>Tue, 15 Sep 2020 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/en/p/escenario_para_pentesting_i_introduccionen/</guid>
+        <description>&lt;img src="https://www.procamora.com/covers/pentesting.png" alt="Featured image of post Pentesting Scenario (I). Introduction and objectives (WIP)" /&gt;&lt;p&gt;A virtual scenario will be designed to emulate the infrastructure of a medium-sized company, although in order to reduce the use of resources required for the deployment of the scenario, the services that have coherence in the same machine will be grouped together, making, for example, that different databases are in the same host.&lt;/p&gt;
+&lt;br/&gt;
+&lt;p&gt;The main objectives for the development of this scenario are as follows:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;In-depth study of the main services currently used, since it will be necessary to install and configure them properly.&lt;/li&gt;
+&lt;li&gt;Creation of a scenario (basic) with the different configurations of the default services except for the logs, which will be sent to a centralized log server, which will allow us to position ourselves from two different points of view:
+&lt;ul&gt;
+&lt;li&gt;Red Team: whose objective is to carry out a study of these configurations looking for security flaws in them in order to later carry out attacks taking advantage of these default configurations.&lt;/li&gt;
+&lt;li&gt;Blue Team: At the same time, from this point of view we will perform an analysis of the logs to see what traces are left during the attack.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Creation of a scenario (advanced) to which appropriate configurations will be applied according to the needs of each deployed service. At this stage we will also test different types of attack and analyze the logs to see the logs generated.&lt;/li&gt;
+&lt;li&gt;Creation of a scenario (hardening) in which all machines and services will have more robust configurations applied following standards of guides such as CIS or NIST.
+&lt;br/&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The main tools to be used for scenario deployment are as follows:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://es.wikipedia.org/wiki/Proxmox_Virtual_Environment&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Proxmox&lt;/strong&gt;&lt;/a&gt;: Proxmox Virtual Environment, or Proxmox VE, is an open source server virtualization environment. It is on Debian-based GNU/Linux distributions with a modified version of the RHEL Kernel and allows the deployment and management of virtual machines and containers. Proxmox VE includes a Web console and command-line tools, and provides a REST API for third-party tools. Two types of virtualization are supported: LXC-based containers and KVM virtualization. It comes with an installer and includes a Web site-based administration interface.&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://es.wikipedia.org/wiki/Terraform_%28software%29&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Terraform&lt;/strong&gt;&lt;/a&gt;: Terraform is an infrastructure-as-code (IaC) software developed by &lt;a class=&#34;link&#34; href=&#34;https://www.hashicorp.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;HashiCorp&lt;/a&gt;. It allows users to define and configure a data center infrastructure in a high-level language, generating an execution plan to deploy the infrastructure on Proxmox, OpenStack, AWS, Azure, etc.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Bash&lt;/strong&gt;: For the automation of configuration and deployment of Proxmox, hosts and the different containers we are going to use scripts made in bash that perform an initial configuration.&lt;/li&gt;
+&lt;li&gt;Ansible__: For the installation and configuration of services on all hosts. The objective is to create different environments being Ansible the one in charge of applying the more or less robust configurations according to the environment.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;br/&gt;
+&lt;p&gt;The operating systems to be used to deploy the different services are:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Linux: Different Linux distributions will be used to make a more heterogeneous scenario, these Operating Systems are based on the main Linux distributions and are the following:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Debian 10&lt;/li&gt;
+&lt;li&gt;CentOS 7&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Windows: Windows based Operating Systems will be used for the user hosts and for two servers that have an Active Directory, these are as follows:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Windows Server 2019&lt;/li&gt;
+&lt;li&gt;Windows Server 2012&lt;/li&gt;
+&lt;li&gt;Windows 10&lt;/li&gt;
+&lt;li&gt;Windows 7&lt;/li&gt;
+&lt;li&gt;Windows XP&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;br/&gt;
+&lt;p&gt;The following is a simplified diagram of how the architecture will be deployed, the computers inside the square are those that will be virtualized.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.procamora.com/images/prometeo/Basic_Scenario.svg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Escenario básico&#34;
+	
+	
+&gt;{:height=&amp;ldquo;auto&amp;rdquo; width=&amp;ldquo;100%&amp;rdquo;}&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

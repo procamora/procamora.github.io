@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>ftp on #&gt; fireroot</title>
+        <link>https://www.procamora.com/tags/ftp/</link>
+        <description>Recent content in ftp on #&gt; fireroot</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>es</language>
+        <lastBuildDate>Sun, 01 Nov 2015 00:00:00 +0000</lastBuildDate><atom:link href="https://www.procamora.com/tags/ftp/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Gestión de usuarios y grupos ftp</title>
+        <link>https://www.procamora.com/p/usuarios_grupos/</link>
+        <pubDate>Sun, 01 Nov 2015 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/p/usuarios_grupos/</guid>
+        <description>&lt;img src="https://www.procamora.com/covers/linux.png" alt="Featured image of post Gestión de usuarios y grupos ftp" /&gt;&lt;h6 id=&#34;creamos-el-usuario&#34;&gt;Creamos el usuario:&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;sudo useradd -G ftp -d /home/ftp/rocky -c &amp;quot;Nombre y Apellidos&amp;quot; rocky&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;-G ftp El usuario pertenece al grupo FTP
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;-d /home/ftp/pedro Es el directorio de trabajo del usuario
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;-c &amp;#34;Nombre y Apellidos&amp;#34; Es un comentario del usuario
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;-s /bin/bash Es el shell que usara el usuario
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h6 id=&#34;asignamos-una-contraseña-para-el-usuario&#34;&gt;Asignamos una contraseña para el usuario&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;sudo passwd rocky&lt;/code&gt;&lt;/p&gt;
+&lt;h6 id=&#34;modificar-un-usuario&#34;&gt;Modificar un usuario&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;sudo usermod -s /bin/ftp rocky&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;9
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;-c añade o modifica el comentario /etc/passwd
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;-d modifica el directorio de trabajo del usuario
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;-g cambia el número de grupo principal del usuario (GID)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;-G establece otros grupos a los que puede pertenecer el usuario, separados por comas.
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;-l cambia el login o nombre del usuario
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;-L bloque la cuenta del usuario, no permitiéndole que ingrese al sistema.
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;-s cambia el shell por defecto del usuario cuando ingrese al sistema.
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;-u cambia el UID del usuario.
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;-U desbloquea una cuenta previamente bloqueada con la opción -L.
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h6 id=&#34;borrar-un-usuario-de-etcpasswd-y-etcshadow&#34;&gt;Borrar un usuario de etc/passwd y /etc/shadow&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;sudo userdel nombre_usuario&lt;/code&gt;&lt;/p&gt;
+&lt;h6 id=&#34;borrar-un-usuario-de-etcpasswd-etcshadow-y-su-carpeta-personal&#34;&gt;Borrar un usuario de etc/passwd /etc/shadow y su carpeta personal&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;sudo userdel -r nombre_usuario&lt;/code&gt;&lt;/p&gt;
+&lt;h6 id=&#34;un-usuario-de-etcpasswd-etcshadow-su-carpeta-personal-aunque-el-usuario-este-logueado-en-el-sistema&#34;&gt;Un usuario de etc/passwd /etc/shadow su carpeta personal aunque el usuario este logueado en el sistema&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;sudo userdel -f nombre_usuario&lt;/code&gt;&lt;/p&gt;
+&lt;h6 id=&#34;crear-un-grupo-de-usuarios&#34;&gt;Crear un grupo de usuarios&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;sudo groupadd nombre_grupo&lt;/code&gt;&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>Configurar pure-ftpd</title>
+        <link>https://www.procamora.com/p/pure_ftpd/</link>
+        <pubDate>Mon, 03 Aug 2015 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/p/pure_ftpd/</guid>
+        <description>&lt;img src="https://www.procamora.com/covers/software.png" alt="Featured image of post Configurar pure-ftpd" /&gt;&lt;h6 id=&#34;0-instalar-los-paquetes-necesarios&#34;&gt;0. Instalar los paquetes necesarios&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;apt-get install pure-ftpd pureadmin&lt;/code&gt;&lt;/p&gt;
+&lt;h6 id=&#34;1-creación-de-un-usuario-y-grupo-para-el-ftp&#34;&gt;1. Creación de un usuario y grupo para el FTP&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;sudo groupadd ftpgroup&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;sudo useradd -g ftpgroup -d /dev/null -s /etc ftpuser&lt;/code&gt;&lt;/p&gt;
+&lt;h6 id=&#34;2-creación-de-un-directorio-para-el-ftp&#34;&gt;2. Creación de un directorio para el FTP&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;sudo mkdir /home/ftp&lt;/code&gt;&lt;/p&gt;
+&lt;h6 id=&#34;3-creación-de-un-usuario-ftp&#34;&gt;3. Creación de un usuario FTP&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;sudo pure-pw useradd usuario -u ftpuser -d /home/ftp&lt;/code&gt;&lt;/p&gt;
+&lt;h6 id=&#34;4-creación-de-base-de-datos-del-usuario&#34;&gt;4. Creación de base de datos del usuario&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;sudo pure-pw mkdb&lt;/code&gt;&lt;/p&gt;
+&lt;h6 id=&#34;5-hacemos-un-link-al-archivo-puredb&#34;&gt;5. Hacemos un link al archivo PureDB&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;sudo ln -s /etc/pure-ftpd/conf/PureDB /etc/pure-ftpd/auth/PureDB&lt;/code&gt;&lt;/p&gt;
+&lt;h6 id=&#34;6-denegamos-acceso-a-anonymous&#34;&gt;6. Denegamos acceso a anonymous&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;sudo echo yes &amp;gt; /etc/pure-ftpd/conf/NoAnonymous&lt;/code&gt;&lt;/p&gt;
+&lt;h6 id=&#34;7-denegamos-autenticación-pam&#34;&gt;7. Denegamos autenticación PAM&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;sudo echo no &amp;gt; /etc/pure-ftpd/conf/PAMAuthentication&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;#####Algunas configuraciones adicionales serían:&lt;/p&gt;
+&lt;h6 id=&#34;8-limitar-el-número-de-usuarios&#34;&gt;8. Limitar el número de usuarios&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;sudo echo 10 &amp;gt; /etc/pure-ftpd/conf/MaxClientsNumber&lt;/code&gt;&lt;/p&gt;
+&lt;h6 id=&#34;9-no-permitir-mostrar-los-ficheros-ocultos&#34;&gt;9. No permitir mostrar los ficheros ocultos&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;sudo echo no &amp;gt; /etc/pure-ftpd/conf/DisplayDotFiles&lt;/code&gt;&lt;/p&gt;
+&lt;h6 id=&#34;10-denegar-lectura-y-escritura-de-ficheros-ocultos&#34;&gt;10. Denegar lectura y escritura de ficheros ocultos&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;sudo echo yes &amp;gt; /etc/pure-ftpd/conf/ProhibitDotFilesRead&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;sudo echo yes &amp;gt; /etc/pure-ftpd/conf/ProhibitDotFilesWrite&lt;/code&gt;&lt;/p&gt;
+&lt;h6 id=&#34;11-prohibimos-ejecución-de-chmod&#34;&gt;11. Prohibimos ejecución de chmod&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;sudo echo yes &amp;gt; /etc/pure-ftpd/conf/NoChmod&lt;/code&gt;&lt;/p&gt;
+&lt;h6 id=&#34;12-reiniciamos-el-servicio&#34;&gt;12. Reiniciamos el servicio&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;sudo invoke-rc.d pure-ftpd restart&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;######11. Verificamos que la configuración concuerde con la que hicimos
+&lt;code&gt;sudo pure-pw show usuario&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Y ya podemos disfrutar de nuestro FTP!&lt;/p&gt;
+&lt;p&gt;El monitoreo puede ser por consola a gráficamente&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;sudo pure-ftpwho&lt;/code&gt;
+&lt;code&gt;sudo pureadmin&lt;/code&gt;&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

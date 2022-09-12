@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>linunx on #&gt; fireroot</title>
+        <link>https://www.procamora.com/tags/linunx/</link>
+        <description>Recent content in linunx on #&gt; fireroot</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>es</language>
+        <lastBuildDate>Sun, 02 Aug 2015 00:00:00 +0000</lastBuildDate><atom:link href="https://www.procamora.com/tags/linunx/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Instalar popcorn-time</title>
+        <link>https://www.procamora.com/p/popcorn_time/</link>
+        <pubDate>Sun, 02 Aug 2015 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/p/popcorn_time/</guid>
+        <description>&lt;img src="https://www.procamora.com/covers/software.png" alt="Featured image of post Instalar popcorn-time" /&gt;&lt;h2 id=&#34;popcorn-time-es-un-programa-para-streaming-de-películas-y-series&#34;&gt;popcorn time es un programa para streaming de películas y series&lt;/h2&gt;
+&lt;h5 id=&#34;primero-añadimos-lso-repositorios-a-nuestro-sistema&#34;&gt;Primero añadimos lso repositorios a nuestro sistema&lt;/h5&gt;
+&lt;p&gt;&lt;code&gt;sudo echo &amp;quot;deb http://ppa.launchpad.net/webupd8team/popcorntime/ubuntu trusty main&amp;quot; | tee /etc/apt/sources.list.d/webupd8team-popcorntime.list&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;sudo echo &amp;quot;deb-src http://ppa.launchpad.net/webupd8team/popcorntime/ubuntu trusty main&amp;quot; | tee -a /etc/apt/sources.list.d/webupd8team-popcorntime.list&lt;/code&gt;&lt;/p&gt;
+&lt;h5 id=&#34;añadimos-la-clave-publica-para-certificar-que-es-un-paquete-valido&#34;&gt;Añadimos la clave publica para certificar que es un paquete valido&lt;/h5&gt;
+&lt;p&gt;&lt;code&gt;sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys EEA14886&lt;/code&gt;&lt;/p&gt;
+&lt;h5 id=&#34;actualizamos-nuestros-repositorios&#34;&gt;Actualizamos nuestros repositorios&lt;/h5&gt;
+&lt;p&gt;&lt;code&gt;sudo apt-get update&lt;/code&gt;&lt;/p&gt;
+&lt;h5 id=&#34;instalar-popcorn-time&#34;&gt;Instalar popcorn time&lt;/h5&gt;
+&lt;p&gt;&lt;code&gt;sudo apt-get install popcorn-time&lt;/code&gt;&lt;/p&gt;
+&lt;h5 id=&#34;ya-podemos-ejecutarlo-se-pondrá-en-la-lista-de-internet-en-gnome&#34;&gt;Ya podemos ejecutarlo, se pondrá en la lista de &lt;em&gt;internet&lt;/em&gt; en gnome&lt;/h5&gt;
+&lt;p&gt;&lt;code&gt;popcorn-time&lt;/code&gt;&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>Tips vim</title>
+        <link>https://www.procamora.com/p/tips_vim/</link>
+        <pubDate>Sat, 01 Aug 2015 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/p/tips_vim/</guid>
+        <description>&lt;img src="https://www.procamora.com/covers/software.png" alt="Featured image of post Tips vim" /&gt;&lt;h2 id=&#34;modo-edición&#34;&gt;Modo edición&lt;/h2&gt;
+&lt;h6 id=&#34;habilitar-la-edición&#34;&gt;habilitar la edición&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;i&lt;/code&gt; o &lt;code&gt;o&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;operaciones-básicas&#34;&gt;Operaciones básicas&lt;/h2&gt;
+&lt;h6 id=&#34;salir&#34;&gt;Salir&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;:q&lt;/code&gt;&lt;/p&gt;
+&lt;h6 id=&#34;salir-sin-confirmación&#34;&gt;Salir sin confirmación&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;:q!&lt;/code&gt;&lt;/p&gt;
+&lt;h6 id=&#34;salir-guardando-sin-confirmación&#34;&gt;Salir guardando sin confirmación&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;:wq!&lt;/code&gt;&lt;/p&gt;
+&lt;h6 id=&#34;guardar-en-un-fichero-x&#34;&gt;Guardar en un fichero x&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;:w fichero.txt&lt;/code&gt;&lt;/p&gt;
+&lt;h6 id=&#34;cierra-el-actual-y-abre-x&#34;&gt;Cierra el actual y abre x&lt;/h6&gt;
+&lt;p&gt;:e fichero.txt`&lt;/p&gt;
+&lt;h2 id=&#34;copiar-cortar-pegar&#34;&gt;Copiar, cortar, pegar&lt;/h2&gt;
+&lt;h6 id=&#34;modo-visual&#34;&gt;Modo visual&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;v&lt;/code&gt;&lt;/p&gt;
+&lt;h6 id=&#34;cortar&#34;&gt;Cortar&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;c&lt;/code&gt;&lt;/p&gt;
+&lt;h6 id=&#34;copiar&#34;&gt;Copiar&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;y&lt;/code&gt;&lt;/p&gt;
+&lt;h6 id=&#34;pegar&#34;&gt;Pegar&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;p&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;operadores-de-texto&#34;&gt;Operadores de texto&lt;/h2&gt;
+&lt;h6 id=&#34;suprimir-linea&#34;&gt;suprimir linea&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;dd&lt;/code&gt;&lt;/p&gt;
+&lt;h6 id=&#34;deshacer-ultimo-cambio&#34;&gt;deshacer ultimo cambio&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;u&lt;/code&gt;&lt;/p&gt;
+&lt;h6 id=&#34;rehacer-ultimo-cambio&#34;&gt;rehacer ultimo cambio&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;CTRL+R&lt;/code&gt;&lt;/p&gt;
+&lt;h6 id=&#34;convertir-a-minus-la-linea&#34;&gt;convertir a minus la linea&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;guu&lt;/code&gt;&lt;/p&gt;
+&lt;h6 id=&#34;convertir-a-mayus-la-linea&#34;&gt;convertir a mayus la linea&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;gUU&lt;/code&gt;&lt;/p&gt;
+&lt;h6 id=&#34;posicionarse-en-linea-num&#34;&gt;posicionarse en linea &amp;rsquo;num&#39;&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;:num&lt;/code&gt;&lt;/p&gt;
+&lt;h6 id=&#34;mostrar-el-número-de-líneas&#34;&gt;Mostrar el número de líneas&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;:set number&lt;/code&gt;&lt;/p&gt;
+&lt;h6 id=&#34;posicionarse-al-principio&#34;&gt;posicionarse al principio&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;gg&lt;/code&gt;&lt;/p&gt;
+&lt;h6 id=&#34;posicionarse-al-final&#34;&gt;posicionarse al final&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;G&lt;/code&gt;&lt;/p&gt;
+&lt;h6 id=&#34;código-ascii-hex-y-octal&#34;&gt;Código ASCII, hex y octal&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;ga&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;búsqueda-y-sustitución&#34;&gt;Búsqueda y sustitución&lt;/h2&gt;
+&lt;h6 id=&#34;buscar&#34;&gt;buscar&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;/palabra&lt;/code&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&amp;ldquo;n&amp;rdquo; o &amp;ldquo;N&amp;rdquo; para ir adelante o atras&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h6 id=&#34;remplazar&#34;&gt;remplazar&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;:%s/texto1/texto2/g&lt;/code&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&amp;ldquo;g&amp;rdquo; selecciona todas las coincidencias&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;comandos-internos&#34;&gt;Comandos internos&lt;/h2&gt;
+&lt;h6 id=&#34;ejecutar-comando-interno&#34;&gt;Ejecutar comando interno&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;:!ls&lt;/code&gt;&lt;/p&gt;
+&lt;h6 id=&#34;pausa-en-la-edicion&#34;&gt;Pausa en la edicion&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;:shell&lt;/code&gt;	despues	  &lt;code&gt;exit&lt;/code&gt;&lt;/p&gt;
+&lt;h6 id=&#34;compilar&#34;&gt;Compilar&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;:make&lt;/code&gt;	&lt;code&gt;:cc&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;características-avanzadas&#34;&gt;Características avanzadas&lt;/h2&gt;
+&lt;h6 id=&#34;dividir-pantalla-verticalmente&#34;&gt;Dividir pantalla verticalmente&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;:split fichero.txt&lt;/code&gt;&lt;/p&gt;
+&lt;h6 id=&#34;dividir-pantalla-horizontalmente&#34;&gt;Dividir pantalla horizontalmente&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;:vsplit fichero.txt&lt;/code&gt;&lt;/p&gt;
+&lt;h6 id=&#34;cambiar-entre-pantallas&#34;&gt;Cambiar entre pantallas&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;CTRL+W + flecha cursor&lt;/code&gt;&lt;/p&gt;
+&lt;h6 id=&#34;crear-pestañas&#34;&gt;Crear pestañas&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;:tabnew fichero.txt&lt;/code&gt;&lt;/p&gt;
+&lt;h6 id=&#34;moverse-entre-pestañas&#34;&gt;Moverse entre pestañas&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;:tabn&lt;/code&gt;  o  &lt;code&gt;:tabnext&lt;/code&gt;  o  &lt;code&gt;gt&lt;/code&gt;&lt;/p&gt;
+&lt;h6 id=&#34;sistema-autocompletado&#34;&gt;Sistema autocompletado&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;caracter inicial + CTRL+N&lt;/code&gt;&lt;/p&gt;
+&lt;h6 id=&#34;elimina-lineas-en-blanco&#34;&gt;Elimina lineas en blanco&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;:g/^\s*$/d&lt;/code&gt;&lt;/p&gt;
+&lt;h6 id=&#34;detecta-llave-mal-cerrada&#34;&gt;Detecta llave mal cerrada&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;{}&lt;/code&gt;&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

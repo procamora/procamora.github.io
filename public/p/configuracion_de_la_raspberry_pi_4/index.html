@@ -1,0 +1,2037 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Para crear la imagen con Raspbian ejecutaremos:
+1 2 3 4 5 sudo dd bs=4M if=2020-08-20-raspios-buster-armhf-lite.img of=/dev/sdh conv=fsync status=progress sudo sync # montar en /run/media/procamora/boot/ touch /run/media/procamora/boot/ssh sudo sync Instalación y configuración inicial Lo primero que vamos a realizar es comprobar si tenemos bien configurados las configuraciones de idiomas, y así evitar posibles errores a la hora de actualizar e instalar nuevos programas. Para ello vamos a ejecutar el comando locale y ver si están configuradas todas las variables de entorno, en caso de que haya alguna vacia vamos a ejecutar:'><title>Configuracion de la Raspberry Pi 4</title>
+
+<link rel='canonical' href='https://www.procamora.com/p/configuracion_de_la_raspberry_pi_4/'>
+
+<link rel="stylesheet" href="/scss/style.min.ac77dcf8b111b51da39a92990f431923f210f3876d85798a2125667f96dc33a4.css"><meta property='og:title' content='Configuracion de la Raspberry Pi 4'>
+<meta property='og:description' content='Para crear la imagen con Raspbian ejecutaremos:
+1 2 3 4 5 sudo dd bs=4M if=2020-08-20-raspios-buster-armhf-lite.img of=/dev/sdh conv=fsync status=progress sudo sync # montar en /run/media/procamora/boot/ touch /run/media/procamora/boot/ssh sudo sync Instalación y configuración inicial Lo primero que vamos a realizar es comprobar si tenemos bien configurados las configuraciones de idiomas, y así evitar posibles errores a la hora de actualizar e instalar nuevos programas. Para ello vamos a ejecutar el comando locale y ver si están configuradas todas las variables de entorno, en caso de que haya alguna vacia vamos a ejecutar:'>
+<meta property='og:url' content='https://www.procamora.com/p/configuracion_de_la_raspberry_pi_4/'>
+<meta property='og:site_name' content='#&gt; fireroot'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='debian' /><meta property='article:tag' content='raspbian' /><meta property='article:tag' content='raspberry' /><meta property='article:tag' content='pi' /><meta property='article:tag' content='backuppc' /><meta property='article:tag' content='ssh' /><meta property='article:tag' content='apt' /><meta property='article:tag' content='transmission' /><meta property='article:tag' content='zsh' /><meta property='article:tag' content='crontab' /><meta property='article:tag' content='fstab' /><meta property='article:tag' content='systemd' /><meta property='article:tag' content='insync' /><meta property='article:tag' content='openvpn' /><meta property='article:tag' content='vpn' /><meta property='article:published_time' content='2020-09-11T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2020-09-11T00:00:00&#43;00:00'/><meta property='og:image' content='https://www.procamora.com/covers/draft.png' />
+<meta name="twitter:title" content="Configuracion de la Raspberry Pi 4">
+<meta name="twitter:description" content="Para crear la imagen con Raspbian ejecutaremos:
+1 2 3 4 5 sudo dd bs=4M if=2020-08-20-raspios-buster-armhf-lite.img of=/dev/sdh conv=fsync status=progress sudo sync # montar en /run/media/procamora/boot/ touch /run/media/procamora/boot/ssh sudo sync Instalación y configuración inicial Lo primero que vamos a realizar es comprobar si tenemos bien configurados las configuraciones de idiomas, y así evitar posibles errores a la hora de actualizar e instalar nuevos programas. Para ello vamos a ejecutar el comando locale y ver si están configuradas todas las variables de entorno, en caso de que haya alguna vacia vamos a ejecutar:"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://www.procamora.com/covers/draft.png' />
+    <link rel="shortcut icon" href="img/favicon.ico" />
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/icons/procamora_30_hua3d16f4d7ffad1a52a64c31db4447108_16949_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">#&gt; fireroot</a></h1>
+            <h2 class="site-description">Mi wiki donde escribo artículos sobre Linux, Ciberseguridad y temas relacionados.</h2>
+        </div>
+    </header><ol class="social-menu">
+            
+                <li>
+                    <a 
+                        href='https://github.com/procamora'
+                        target="_blank"
+                        title="GitHub"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='mailto:pablojoserocamora@gmail.com'
+                        target="_blank"
+                        title="Gmail"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-gmail" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"> <path stroke="none" d="M0 0h24v24H0z" fill="none"/> <path d="M16 20h3a1 1 0 0 0 1 -1v-14a1 1 0 0 0 -1 -1h-3v16z" /> <path d="M5 20h3v-16h-3a1 1 0 0 0 -1 1v14a1 1 0 0 0 1 1z" /> <path d="M16 4l-4 4l-4 -4" /> <path d="M4 6.5l8 7.5l8 -7.5" /> </svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://es.linkedin.com/in/pablo-rocamora'
+                        target="_blank"
+                        title="Linkedin"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-linkedin" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"> <path stroke="none" d="M0 0h24v24H0z" fill="none"/> <rect x="4" y="4" width="16" height="16" rx="2" /> <line x1="8" y1="11" x2="8" y2="16" /> <line x1="8" y1="8" x2="8" y2="8.01" /> <line x1="12" y1="16" x2="12" y2="11" /> <path d="M16 16v-3a2 2 0 0 0 -4 0" /> </svg>
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archivos</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Buscar</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/acerca-de/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>Acerca de</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/index.xml' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-rss" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="5" cy="19" r="1" />
+  <path d="M4 4a16 16 0 0 1 16 16" />
+  <path d="M4 11a9 9 0 0 1 9 9" />
+</svg>
+
+
+
+                
+                <span>Feed</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+                <li id="i18n-switch">  
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                    <select name="language" onchange="window.location.href = this.selectedOptions[0].value">
+                        
+                            <option value="https://www.procamora.com/" selected>Español</option>
+                        
+                            <option value="https://www.procamora.com/en/" >English</option>
+                        
+                    </select>
+                </li>
+            
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Modo oscuro</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+<main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/configuracion_de_la_raspberry_pi_4/">
+                
+                    <img src="/covers/draft.png" loading="lazy" alt="Featured image of post Configuracion de la Raspberry Pi 4" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/linux/" >
+                Linux
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/configuracion_de_la_raspberry_pi_4/">Configuracion de la Raspberry Pi 4</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Sep 11, 2020</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    16 minutos a leer
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+
+    <div class="article-category">
+        
+            
+                
+            
+            
+                <a href='https://github.com/procamora/dummy/edit/main/content/post/draft/rp3.md' style="background-color: #5bc0de" >Edit this page on GitHub</a>
+            
+            
+                <a href='https://github.com/procamora/dummy/edit/main/content/post/draft/rp3.md' style="background-color: #5bc0de" >Download article PDF</a>
+            
+        
+    </div>
+</div>
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>Para crear la imagen con Raspbian ejecutaremos:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo dd <span class="nv">bs</span><span class="o">=</span>4M <span class="k">if</span><span class="o">=</span>2020-08-20-raspios-buster-armhf-lite.img <span class="nv">of</span><span class="o">=</span>/dev/sdh <span class="nv">conv</span><span class="o">=</span>fsync <span class="nv">status</span><span class="o">=</span>progress
+</span></span><span class="line"><span class="cl">sudo sync
+</span></span><span class="line"><span class="cl"><span class="c1"># montar en /run/media/procamora/boot/</span>
+</span></span><span class="line"><span class="cl">touch /run/media/procamora/boot/ssh
+</span></span><span class="line"><span class="cl">sudo sync
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h1 id="instalación-y-configuración-inicial">Instalación y configuración inicial</h1>
+<p>Lo primero que vamos a realizar es comprobar si tenemos bien configurados las configuraciones de idiomas, y así evitar posibles errores a la hora de actualizar e instalar nuevos programas. Para ello vamos a ejecutar el comando <em>locale</em> y ver si están configuradas todas las variables de entorno, en caso de que haya alguna vacia vamos a ejecutar:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">LANGUAGE</span><span class="o">=</span>en_US.UTF-8
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">LANG</span><span class="o">=</span>en_US.UTF-8
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">LC_ALL</span><span class="o">=</span>en_US.UTF-8
+</span></span><span class="line"><span class="cl">sudo dpkg-reconfigure locales
+</span></span><span class="line"><span class="cl">sudo locale-gen en_US.UTF-8
+</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>Normalmente las que suelen estar vacías son: LANGUAGE y LC_ALL.</p>
+</blockquote>
+<p>Una vez que ya tenemos configurados correctamente los locales podemos actualizar el repositorio, los paquetes y el firmware con los comandos:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo apt update <span class="o">&amp;&amp;</span> sudo apt dist-upgrade -y
+</span></span><span class="line"><span class="cl">sudo reboot
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Reinicio recomendable</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#sudo rpi-update # no recomendable</span>
+</span></span><span class="line"><span class="cl">sudo reboot
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>export LC_ALL=C.UTF-8   ## IMPORTANTE PARA QUE FUNCIONE descomprime_rar.py</p>
+<h2 id="configuración-inicial">Configuración inicial</h2>
+<p>Una vez que esto todo el sistema actualizado procedemos a ejecutar el comando y a ir nivel a nivel realizando todas las configuraciones de la Rasperry:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo raspi-config
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol>
+<li>
+<p>Change User Password (Change password for the &lsquo;pi&rsquo; user)</p>
+</li>
+<li>
+<p>Network Options (Configure network settings)
+N1 Hostname
+N2 Wi-Fi
+N3 Network interfaces names (disable predicrable network interfaces)</p>
+</li>
+<li>
+<p>Boot Options (Configure options for start-up)</p>
+</li>
+<li>
+<p>Localisation Options (Set up language and regional settings to match your location)
+I1 Change Locale
+en_US.UTF-8 UTF-8
+Default en_US.UTF-8
+I2 Change Timezone
+Europe &gt; Madrid
+I3 Change Keyborad Layaout
+I4 Change Wi-fi Country</p>
+</li>
+<li>
+<p>Interfacing Options
+Deshabilitar todo menos SSH
+P2 SSH habilitar</p>
+</li>
+<li>
+<p>Advanced Options (Configure advanced settings)
+A1 Expand Filesystem (Ensures that all of the SD card storage is available to the OS)</p>
+</li>
+</ol>
+<h2 id="instalación-de-paquetes">Instalación de paquetes</h2>
+<p>Los paquetes que vamos a necesitar siempre son los siguientes:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo apt install -y vim encfs rsync zsh git python3 python3-pip python3-dev trash-cli screen gcc make <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span> cmake sshfs expect smbclient tar tcpdump htop build-essential wget curl tmux raspberrypi-kernel <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span> raspberrypi-kernel-headers atop
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>En caso de instalar todos los servicios, necesitaremos los paquetes:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo apt install -y samba transmission-daemon transmission-cli transmission-common wakeonlan vsftpd apache2 apache2-utils libapache2-mod-perl2 par2 perl zlib1g zlib1g-dev rrdtool perl-doc libarchive-zip-perl libfile-listing-perl libxml-rss-perl libcgi-session-perl libacl1-dev pwgen libapache2-mod-php mariadb-server mariadb-client openssl php php-imagick php-common php-curl php-gd php-imap php-intl php-json php-mbstring php-mysql php-ssh2 php-xml php-zip php-apcu bzip2 jq inetutils-ping php-smbclient coreutils php-ldap mlocate php-apcu php-http-request
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="configuración-zsh">Configuración zsh</h2>
+<p>Para la configuración del entorno con <em>zsh</em> vamos a utilizar el script que he desarrollado que automatiza todo el proceso:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">git clone https://github.com/procamora/custom_workspace
+</span></span><span class="line"><span class="cl">cd custom_workspace
+</span></span><span class="line"><span class="cl">./custom_workspace.sh zsh
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="fichero-hosts">Fichero hosts</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git clone https://github.com/StevenBlack/hosts 
+</span></span><span class="line"><span class="cl">pip3 install --user -r hosts/requirements.txt
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;# Custom host records are listed here.
+</span></span></span><span class="line"><span class="cl"><span class="s2">192.168.1.1     router
+</span></span></span><span class="line"><span class="cl"><span class="s2">192.168.1.71    rp4 backuppc.procamora.com owncloud.procamora.com procamora.myvnc.com
+</span></span></span><span class="line"><span class="cl"><span class="s2">192.168.1.72    zero
+</span></span></span><span class="line"><span class="cl"><span class="s2">192.168.1.73    rp3
+</span></span></span><span class="line"><span class="cl"><span class="s2">192.168.1.74    win10
+</span></span></span><span class="line"><span class="cl"><span class="s2">192.168.1.75    xiaomi
+</span></span></span><span class="line"><span class="cl"><span class="s2">192.168.1.76    huawei
+</span></span></span><span class="line"><span class="cl"><span class="s2">192.168.1.77    mia1
+</span></span></span><span class="line"><span class="cl"><span class="s2">192.168.1.78    4770k
+</span></span></span><span class="line"><span class="cl"><span class="s2"># End of custom host records.
+</span></span></span><span class="line"><span class="cl"><span class="s2">&#34;</span> &gt; hosts/myhosts
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">python3 hosts/testUpdateHostsFile.py
+</span></span><span class="line"><span class="cl">sudo python3 hosts/updateHostsFile.py --auto --replace &gt; /dev/null <span class="c1"># Tarda unos 15 segundos</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="fichero-crontab">Fichero crontab</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># Example of job definition:
+</span></span><span class="line"><span class="cl"># .---------------- minute (0 - 59)
+</span></span><span class="line"><span class="cl"># | .------------- hour (0 - 23)
+</span></span><span class="line"><span class="cl"># | |       .---------- day of month (1 - 31)
+</span></span><span class="line"><span class="cl"># | |       | .------- month (1 - 12) OR jan,feb,mar,apr ...
+</span></span><span class="line"><span class="cl"># | |       | | .---- day of week (0 - 6) (Sunday=0 or 7) OR sun,mon,tue,wed,thu,fri,sat
+</span></span><span class="line"><span class="cl"># | |       | | |
+</span></span><span class="line"><span class="cl"># * *       * * *   user    command to be executed
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">#GESTOR SERIES
+</span></span><span class="line"><span class="cl">*/20 *      * * *   pi      cd /home/pi/series_manager/ &amp;&amp; python3 /home/pi/series_manager/app/utils/descarga_automatica_cli.py &gt;&gt; /tmp/descargas.log 2&gt;&amp;1
+</span></span><span class="line"><span class="cl">0 *         * * *   pi      cd /home/pi/series_manager/ &amp;&amp; python3 /home/pi/series_manager/app/utils/descomprime_rar.py  &gt;&gt; /tmp/unrar.log 2&gt;&amp;1
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"># Mantenimiento
+</span></span><span class="line"><span class="cl">*/15 *      * * *   pi      find /home/pi/scripts/ -type f ! -executable -regex &#39;.*\.\(sh\|py\|exp\)&#39; -exec chmod u+x {} \;
+</span></span><span class="line"><span class="cl">30 22       * * *   pi      cd /home/pi/decrypt_gdrive/ &amp;&amp; bash rsync_rp3.sh &gt; /tmp/rsync.log 2&gt;&amp;1
+</span></span><span class="line"><span class="cl">#0 *        * * *   pi      cd /home/pi/scripts &amp;&amp; python3 /home/pi/scripts/insync.py  &gt;&gt; /tmp/insync.log 2&gt;&amp;1
+</span></span><span class="line"><span class="cl">#*/15 *      * * *   pi      sudo find /media/HDD/* -type d -prune -print | grep -v backup | sed -r &#39;s/\s+/\\ /g&#39; | xargs chmod 755 -R
+</span></span><span class="line"><span class="cl">#*/15 *      * * *   pi      sudo find /media/HDD/* -type d -prune -print | grep -v backup | sed -r &#39;s/\s+/\\ /g&#39; | xargs chown pi:pi -R
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">#DOMOTICA
+</span></span><span class="line"><span class="cl">#20 8       * * *   pi      /home/pi/tg/bin/telegram-cli -e &#39;msg domotica_pablo &#34;/modo_automatico on 23&#34;&#39; &gt;/tmp/tg_on.log 2&gt;/tmp/tg_on_err.log
+</span></span><span class="line"><span class="cl">#30 8       * * *   pi      /home/pi/tg/bin/telegram-cli -e &#39;msg domotica_pablo &#34;/set_rele off&#34;&#39; &gt;/tmp/tg_off.log 2&gt;/tmp/tg_on_err.log
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">##WIKI PERSONAL
+</span></span><span class="line"><span class="cl">*/15 *      * * *   pi      cd /home/pi/wiki/ &amp;&amp; bash pushgit.sh 1 &gt;&gt; /tmp/wiki_cont 2&gt;&amp;1
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"># Bots
+</span></span><span class="line"><span class="cl">#* *         * * *   root    sudo systemctl -q is-active mio_bot_recordatorios.service &amp;&amp; echo YES   || sudo systemctl restart mio_bot_recordatorios.service
+</span></span><span class="line"><span class="cl">* *         * * *   root    sudo systemctl -q is-active mio_bot_common_ports.service &amp;&amp; echo YES    || sudo systemctl restart mio_bot_common_ports.service
+</span></span><span class="line"><span class="cl">* *         * * *   root    sudo systemctl -q is-active mio_bot_dictionary.service &amp;&amp; echo YES      || sudo systemctl restart mio_bot_dictionary.service
+</span></span><span class="line"><span class="cl">* *         * * *   root    sudo systemctl -q is-active mio_bot_minitrue.service &amp;&amp; echo YES        || sudo systemctl restart mio_bot_minitrue.service
+</span></span><span class="line"><span class="cl">* *         * * *   root    sudo systemctl -q is-active mio_bot_series_manager.service &amp;&amp; echo YES  || sudo systemctl restart mio_bot_series_manager.service
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="fichero-fstab">Fichero fstab</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;UUID=1eb2f592-bee9-462d-9ac5-263870d2c04a       /media/HDD      btrfs                    defaults        0 0&#34;</span> <span class="p">|</span> sudo tee -a /etc/fstab
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">sudo mkdir -p /media/HDD
+</span></span><span class="line"><span class="cl">sudo mount -a
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="gestión-de-claves-privadas">Gestión de claves privadas</h2>
+<p>Para dejar el directorio SSH con los permisos adecuados ejecutamos:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">eval</span> <span class="s2">&#34;</span><span class="k">$(</span>ssh-agent -s<span class="k">)</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">mkdir -p ~/.ssh
+</span></span><span class="line"><span class="cl">chmod <span class="m">700</span> ~/.ssh
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">touch ~/.ssh/authorized_keys
+</span></span><span class="line"><span class="cl">chmod <span class="m">600</span> ~/.ssh/authorized_keys  <span class="c1"># le quitamos los permisos necesarios</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>En caso de querer generar un certificado SSH para servicios y sin contraseña podemos ejecutar los siguientes comandos, pero es mejor usar el que ya tengo generado y que esta añadido en el resto de hosts.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ssh-keygen -t rsa -b <span class="m">1024</span> -f ~/.ssh/services -N <span class="s2">&#34;&#34;</span> -q -C <span class="s2">&#34;key used for automation service connections&#34;</span>
+</span></span><span class="line"><span class="cl">ssh-add ~/.ssh/services    <span class="c1"># ponemos la contraseña y ya tenemos cargada la clave</span>
+</span></span><span class="line"><span class="cl">ssh-add -l
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">ssh-copy-id -i ~/.ssh/services root@zero
+</span></span><span class="line"><span class="cl">ssh-copy-id -i ~/.ssh/services pi@zero
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">ssh-copy-id -i ~/.ssh/services root@4770k
+</span></span><span class="line"><span class="cl">ssh-copy-id -i ~/.ssh/services procamora@4770k
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="swap">Swap</h2>
+<p>Raspberry OS suele venir configurado con 100Mb de swap, algo que en ciertas ocasiones en insuficiente, podemos aumentarlo a 2Gb con los siguientes comandos:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cat /proc/meminfo <span class="p">|</span> grep Swap
+</span></span><span class="line"><span class="cl">sudo sed -i <span class="s2">&#34;s/CONF_SWAPSIZE=[[:digit:]]\+/CONF_SWAPSIZE=2048/&#34;</span> /etc/dphys-swapfile
+</span></span><span class="line"><span class="cl">sudo dphys-swapfile setup
+</span></span><span class="line"><span class="cl">sudo dphys-swapfile swapon
+</span></span><span class="line"><span class="cl">cat /proc/meminfo <span class="p">|</span> grep Swap
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="transmission">Transmission</h2>
+<p>La instalación de Transmission requiere de algo mas de configuración a nivel de permisos, ya que si se dejan los permisos por defecto, a la hora de acceder por sshfs con el usuario pi nos encontraremos que no tenemos que no tenemos permisos para borrar las descargas.</p>
+<p>El primero paso sera instalar el servicio y habilitar para que se inicie con el sistema, una vez hecho esto lo paramos y lo configuramos. Es muy importante pararlo, ya que si se modifica estando encendido el fichero modificado se borrara y se mantendrá el fichero original.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo apt-get install transmission-daemon transmission-cli
+</span></span><span class="line"><span class="cl">sudo systemctl <span class="nb">enable</span> transmission-daemon.service
+</span></span><span class="line"><span class="cl">sudo systemctl stop transmission-daemon.service
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Una vez parado el servicio, ya podemos modificar el fichero <em>/etc/transmission-daemon/settings.json</em>. A continuación pongo mi fichero de configuración con las partes mas relevantes:</p>
+<ul>
+<li><em>&ldquo;rpc-username&rdquo;: &ldquo;pi&rdquo;</em>: El usuario para acceder por la interfaz web.</li>
+<li><em>&ldquo;rpc-password&rdquo;: &ldquo;raspberry&rdquo;</em>: La contraseña en texto plano para acceder, una vez que se inicie se pondrá su SHA1.</li>
+<li><em>&ldquo;watch-dir-enabled&rdquo;: true</em>: Habilitar que se añaden automáticamente todos los torrent que se en encuentren en un direcotrio</li>
+<li><em>&ldquo;watch-dir&rdquo;: &ldquo;/home/pi/Downloads&rdquo;</em>: Directorio desde donde añaden automáticamente todos los torrents.</li>
+<li><em>&ldquo;download-dir&rdquo;: &ldquo;/media/HDD&rdquo;</em>: Directorio donde se guardan las descargas una vez completadas.</li>
+<li><em>&ldquo;incomplete-dir&rdquo;: &ldquo;/media/HDD/tmp&rdquo;</em>: Directorio donde se guarnan las descargas durante el proceso de descarga.</li>
+<li><em>&ldquo;umask&rdquo;: 2</em>: Para que los permisos en las descargas sean 775.</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span><span class="lnt">72
+</span><span class="lnt">73
+</span><span class="lnt">74
+</span><span class="lnt">75
+</span><span class="lnt">76
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s1">&#39;{
+</span></span></span><span class="line"><span class="cl"><span class="s1">    &#34;alt-speed-down&#34;: 20000,
+</span></span></span><span class="line"><span class="cl"><span class="s1">    &#34;alt-speed-enabled&#34;: false,
+</span></span></span><span class="line"><span class="cl"><span class="s1">    &#34;alt-speed-time-begin&#34;: 540,
+</span></span></span><span class="line"><span class="cl"><span class="s1">    &#34;alt-speed-time-day&#34;: 127,
+</span></span></span><span class="line"><span class="cl"><span class="s1">    &#34;alt-speed-time-enabled&#34;: false,
+</span></span></span><span class="line"><span class="cl"><span class="s1">    &#34;alt-speed-time-end&#34;: 1020,
+</span></span></span><span class="line"><span class="cl"><span class="s1">    &#34;alt-speed-up&#34;: 500,
+</span></span></span><span class="line"><span class="cl"><span class="s1">    &#34;bind-address-ipv4&#34;: &#34;0.0.0.0&#34;,
+</span></span></span><span class="line"><span class="cl"><span class="s1">    &#34;bind-address-ipv6&#34;: &#34;::&#34;,
+</span></span></span><span class="line"><span class="cl"><span class="s1">    &#34;blocklist-enabled&#34;: false,
+</span></span></span><span class="line"><span class="cl"><span class="s1">    &#34;blocklist-url&#34;: &#34;https://github.com/sahsu/transmission-blocklist/releases/download/1.0.0/blocklist.gz&#34;,
+</span></span></span><span class="line"><span class="cl"><span class="s1">    &#34;cache-size-mb&#34;: 4,
+</span></span></span><span class="line"><span class="cl"><span class="s1">    &#34;dht-enabled&#34;: true,
+</span></span></span><span class="line"><span class="cl"><span class="s1">    &#34;download-dir&#34;: &#34;/media/HDD&#34;,
+</span></span></span><span class="line"><span class="cl"><span class="s1">    &#34;download-limit&#34;: 100,
+</span></span></span><span class="line"><span class="cl"><span class="s1">    &#34;download-limit-enabled&#34;: 0,
+</span></span></span><span class="line"><span class="cl"><span class="s1">    &#34;download-queue-enabled&#34;: true,
+</span></span></span><span class="line"><span class="cl"><span class="s1">    &#34;download-queue-size&#34;: 6,
+</span></span></span><span class="line"><span class="cl"><span class="s1">    &#34;encryption&#34;: 1,
+</span></span></span><span class="line"><span class="cl"><span class="s1">    &#34;idle-seeding-limit&#34;: 30,
+</span></span></span><span class="line"><span class="cl"><span class="s1">    &#34;idle-seeding-limit-enabled&#34;: true,
+</span></span></span><span class="line"><span class="cl"><span class="s1">    &#34;incomplete-dir&#34;: &#34;/media/HDD/tmp&#34;,
+</span></span></span><span class="line"><span class="cl"><span class="s1">    &#34;incomplete-dir-enabled&#34;: true,
+</span></span></span><span class="line"><span class="cl"><span class="s1">    &#34;lpd-enabled&#34;: false,
+</span></span></span><span class="line"><span class="cl"><span class="s1">    &#34;max-peers-global&#34;: 200,
+</span></span></span><span class="line"><span class="cl"><span class="s1">    &#34;message-level&#34;: 1,
+</span></span></span><span class="line"><span class="cl"><span class="s1">    &#34;open-file-limit&#34;: 32,
+</span></span></span><span class="line"><span class="cl"><span class="s1">    &#34;peer-congestion-algorithm&#34;: &#34;&#34;,
+</span></span></span><span class="line"><span class="cl"><span class="s1">    &#34;peer-id-ttl-hours&#34;: 6,
+</span></span></span><span class="line"><span class="cl"><span class="s1">    &#34;peer-limit-global&#34;: 200,
+</span></span></span><span class="line"><span class="cl"><span class="s1">    &#34;peer-limit-per-torrent&#34;: 50,
+</span></span></span><span class="line"><span class="cl"><span class="s1">    &#34;peer-port&#34;: 51413,
+</span></span></span><span class="line"><span class="cl"><span class="s1">    &#34;peer-port-random-high&#34;: 65535,
+</span></span></span><span class="line"><span class="cl"><span class="s1">    &#34;peer-port-random-low&#34;: 49152,
+</span></span></span><span class="line"><span class="cl"><span class="s1">    &#34;peer-port-random-on-start&#34;: false,
+</span></span></span><span class="line"><span class="cl"><span class="s1">    &#34;peer-socket-tos&#34;: &#34;default&#34;,
+</span></span></span><span class="line"><span class="cl"><span class="s1">    &#34;pex-enabled&#34;: true,
+</span></span></span><span class="line"><span class="cl"><span class="s1">    &#34;port-forwarding-enabled&#34;: false,
+</span></span></span><span class="line"><span class="cl"><span class="s1">    &#34;preallocation&#34;: 1,
+</span></span></span><span class="line"><span class="cl"><span class="s1">    &#34;prefetch-enabled&#34;: true,
+</span></span></span><span class="line"><span class="cl"><span class="s1">    &#34;queue-stalled-enabled&#34;: true,
+</span></span></span><span class="line"><span class="cl"><span class="s1">    &#34;queue-stalled-minutes&#34;: 30,
+</span></span></span><span class="line"><span class="cl"><span class="s1">    &#34;ratio-limit&#34;: 1,
+</span></span></span><span class="line"><span class="cl"><span class="s1">    &#34;ratio-limit-enabled&#34;: true,
+</span></span></span><span class="line"><span class="cl"><span class="s1">    &#34;rename-partial-files&#34;: true,
+</span></span></span><span class="line"><span class="cl"><span class="s1">    &#34;rpc-authentication-required&#34;: true,
+</span></span></span><span class="line"><span class="cl"><span class="s1">    &#34;rpc-bind-address&#34;: &#34;0.0.0.0&#34;,
+</span></span></span><span class="line"><span class="cl"><span class="s1">    &#34;rpc-enabled&#34;: true,
+</span></span></span><span class="line"><span class="cl"><span class="s1">    &#34;rpc-host-whitelist&#34;: &#34;&#34;,
+</span></span></span><span class="line"><span class="cl"><span class="s1">    &#34;rpc-host-whitelist-enabled&#34;: false,
+</span></span></span><span class="line"><span class="cl"><span class="s1">    &#34;rpc-password&#34;: &#34;raspberry&#34;,
+</span></span></span><span class="line"><span class="cl"><span class="s1">    &#34;rpc-port&#34;: 9091,
+</span></span></span><span class="line"><span class="cl"><span class="s1">    &#34;rpc-url&#34;: &#34;/transmission/&#34;,
+</span></span></span><span class="line"><span class="cl"><span class="s1">    &#34;rpc-username&#34;: &#34;pi&#34;,
+</span></span></span><span class="line"><span class="cl"><span class="s1">    &#34;rpc-whitelist&#34;: &#34;0.0.0.0&#34;,
+</span></span></span><span class="line"><span class="cl"><span class="s1">    &#34;rpc-whitelist-enabled&#34;: false,
+</span></span></span><span class="line"><span class="cl"><span class="s1">    &#34;scrape-paused-torrents-enabled&#34;: true,
+</span></span></span><span class="line"><span class="cl"><span class="s1">    &#34;script-torrent-done-enabled&#34;: false,
+</span></span></span><span class="line"><span class="cl"><span class="s1">    &#34;script-torrent-done-filename&#34;: &#34;&#34;,
+</span></span></span><span class="line"><span class="cl"><span class="s1">    &#34;seed-queue-enabled&#34;: false,
+</span></span></span><span class="line"><span class="cl"><span class="s1">    &#34;seed-queue-size&#34;: 10,
+</span></span></span><span class="line"><span class="cl"><span class="s1">    &#34;speed-limit-down&#34;: 600,
+</span></span></span><span class="line"><span class="cl"><span class="s1">    &#34;speed-limit-down-enabled&#34;: false,
+</span></span></span><span class="line"><span class="cl"><span class="s1">    &#34;speed-limit-up&#34;: 750,
+</span></span></span><span class="line"><span class="cl"><span class="s1">    &#34;speed-limit-up-enabled&#34;: false,
+</span></span></span><span class="line"><span class="cl"><span class="s1">    &#34;start-added-torrents&#34;: true,
+</span></span></span><span class="line"><span class="cl"><span class="s1">    &#34;trash-original-torrent-files&#34;: true,
+</span></span></span><span class="line"><span class="cl"><span class="s1">    &#34;umask&#34;: 2,
+</span></span></span><span class="line"><span class="cl"><span class="s1">    &#34;upload-limit&#34;: 100,
+</span></span></span><span class="line"><span class="cl"><span class="s1">    &#34;upload-limit-enabled&#34;: false,
+</span></span></span><span class="line"><span class="cl"><span class="s1">    &#34;upload-slots-per-torrent&#34;: 14,
+</span></span></span><span class="line"><span class="cl"><span class="s1">    &#34;utp-enabled&#34;: true,
+</span></span></span><span class="line"><span class="cl"><span class="s1">    &#34;watch-dir&#34;: &#34;/home/pi/Downloads&#34;,
+</span></span></span><span class="line"><span class="cl"><span class="s1">    &#34;watch-dir-enabled&#34;: true
+</span></span></span><span class="line"><span class="cl"><span class="s1">}&#39;</span> <span class="p">|</span> sudo tee /etc/transmission-daemon/settings.json
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>El siguiente paso es establecer los permisos necesarios para que todo funcione correctamente, teniendo en cuenta que al disco se va a acceder por varios usuarios, y se tiene que poder escribir y borrar datos.</p>
+<p>Para hacer esto se va a crear el grupo <em>hdd</em> al que vamos a meter los usuarios que necesitan tener acceso al disco, que serán <em>pi</em>, <em>debian-transmission</em> y <em>backuppc</em> (en caso de usarse). Al usuario pi que se la a añadir el grupo como secundario, pero al usuario <em>debian-transmission</em> se le va a poner este grupo como principal, para que al descargar los torrent le ponga permisos del grupo <em>hdd</em> y así el resto de usuarios tengan permisos sobre estos.</p>
+<p>Finalmente vamos a establecer los permisos 775 en el disco para indicar el los usuarios del grupo <em>hdd</em> tienen control total:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo addgroup hdd
+</span></span><span class="line"><span class="cl">sudo usermod -a -G hdd pi
+</span></span><span class="line"><span class="cl">sudo usermod -g hdd debian-transmission <span class="c1"># el grupo principal de debian-transmission tiene que ser HDD para que pi puedas borrar ficheros</span>
+</span></span><span class="line"><span class="cl">sudo usermod -a -G hdd www-data 
+</span></span><span class="line"><span class="cl">sudo usermod -a -G hdd backuppc <span class="c1"># cuidado que puede que aun no exista</span>
+</span></span><span class="line"><span class="cl">sudo usermod -a -G www-data backuppc
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">sudo chown pi:hdd /media/HDD/
+</span></span><span class="line"><span class="cl">sudo chmod <span class="m">755</span> /media/
+</span></span><span class="line"><span class="cl">sudo chmod <span class="m">775</span> /media/HDD/ -R
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">mkdir -p /home/pi/Downloads
+</span></span><span class="line"><span class="cl">sudo chown pi:hdd /home/pi/Downloads -R          <span class="c1"># debian-transmission permiso leer torrent</span>
+</span></span><span class="line"><span class="cl">sudo chmod <span class="m">775</span> /home/pi/Downloads
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Una vez configurado el servicio, ya podemos iniciarlo, es importante hacer un <em>start</em> y no un <em>restart</em>, ya que de este modo la contraseña que se encuentra en texto plano sera sustituida por su hash.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo systemctl start transmission-daemon.service
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h1 id="owncloud">owncloud</h1>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;ServerName 127.0.0.1&#34;</span> <span class="p">|</span> sudo tee -a /etc/apache2/apache2.conf
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nv">my_lang</span><span class="o">=</span><span class="k">$(</span>cat /etc/default/locale <span class="p">|</span> grep LANG <span class="p">|</span> awk -F <span class="o">=</span> <span class="s1">&#39;{print $2}&#39;</span><span class="k">)</span>
+</span></span><span class="line"><span class="cl">sudo sed -E -i.back <span class="s2">&#34;s/LANG\=(.*)</span>$<span class="s2">/LANG=</span><span class="nv">$my_lang</span><span class="s2">/g&#34;</span> /etc/apache2/envvars
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Create a Virtual Host Configuration</span>
+</span></span><span class="line"><span class="cl"><span class="nv">FILE</span><span class="o">=</span><span class="s2">&#34;/etc/apache2/sites-available/owncloud.conf&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s1">&#39;Alias /owncloud &#34;/var/www/owncloud/&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s1">
+</span></span></span><span class="line"><span class="cl"><span class="s1">&lt;Directory /var/www/owncloud/&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s1">  Options +FollowSymlinks
+</span></span></span><span class="line"><span class="cl"><span class="s1">  AllowOverride All
+</span></span></span><span class="line"><span class="cl"><span class="s1">
+</span></span></span><span class="line"><span class="cl"><span class="s1"> &lt;IfModule mod_dav.c&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s1">  Dav off
+</span></span></span><span class="line"><span class="cl"><span class="s1"> &lt;/IfModule&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s1">
+</span></span></span><span class="line"><span class="cl"><span class="s1"> SetEnv HOME /var/www/owncloud
+</span></span></span><span class="line"><span class="cl"><span class="s1"> SetEnv HTTP_HOME /var/www/owncloud
+</span></span></span><span class="line"><span class="cl"><span class="s1">&lt;/Directory&gt;&#39;</span> <span class="p">|</span> sudo tee <span class="nv">$FILE</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">sudo a2ensite owncloud.conf
+</span></span><span class="line"><span class="cl">sudo a2enmod dir env headers mime rewrite setenvif
+</span></span><span class="line"><span class="cl">sudo systemctl restart apache2
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#Configure the Database</span>
+</span></span><span class="line"><span class="cl">sudo mysql -u root -e <span class="s2">&#34;CREATE DATABASE IF NOT EXISTS owncloud; \
+</span></span></span><span class="line"><span class="cl"><span class="s2">GRANT ALL PRIVILEGES ON owncloud.* \
+</span></span></span><span class="line"><span class="cl"><span class="s2">  TO owncloud@localhost \
+</span></span></span><span class="line"><span class="cl"><span class="s2">  IDENTIFIED BY &#39;ppu908#m1&#39;&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Download owncloud</span>
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> /var/www
+</span></span><span class="line"><span class="cl">sudo wget https://download.owncloud.org/community/owncloud-complete-20200731.tar.bz2
+</span></span><span class="line"><span class="cl">sudo tar -xjf owncloud-complete-20200731.tar.bz2
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">sudo chown www-data:www-data /var/www/owncloud/ -R
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> /var/www/owncloud/
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">sudo mkdir -p /media/HDD/owncloudData/
+</span></span><span class="line"><span class="cl">sudo chown www-data:hdd /media/HDD/owncloudData/
+</span></span><span class="line"><span class="cl">sudo chmod <span class="m">700</span> /media/HDD/owncloudData/
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">firefox http://192.168.1.71/owncloud/
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#CONFIG OWNCLOUD</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#owncloud</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#admin/ppu908#m2</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#/media/HDD/owncloudData/</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#owncloud</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#ppu908#m1</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#owncloud</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">sudo systemctl <span class="nb">enable</span> apache2 mariadb
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="vpn">VPN</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -L https://install.pivpn.io <span class="p">|</span> bash
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>sudo su -c &ldquo;echo 1 &gt; /proc/sys/net/ipv4/ip_forward&rdquo;
+sudo sysctl -w net.ipv4.ip_forward=1
+sudo iptables -t nat -A POSTROUTING -s 10.6.0.0/24 -o eth0 -j MASQUERADE</p>
+<h3 id="en-caso-de-fallo-por-actualización-del-kernel">En caso de fallo por actualización del Kernel</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo <span class="nb">echo</span> <span class="s2">&#34;1&#34;</span> &gt; /boot/.firmware_revision <span class="c1"># cambiar hash firmware para forzar descargarlo de nuevo</span>
+</span></span><span class="line"><span class="cl">sudo rpi-update 
+</span></span><span class="line"><span class="cl">sudo reboot 
+</span></span><span class="line"><span class="cl">sudo apt-get install --reinstall wireguard-dkms
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>configurar firewall con input drop src 192.168.1.1</p>
+<p>tmux</p>
+<h2 id="insync">insync</h2>
+<p>Usar el articulo: <a class="link" href="https://procamora.github.io/2016/06/add-count-insync-portable-cli/"  target="_blank" rel="noopener"
+    >add-count-insync-portable-cli</a></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">wget https://procamora.github.io/downloads/insync/insync-armhf_1.3.17.36167_i386.tar.bz2 -O <span class="nv">$HOME</span>/Downloads/insync-armhf_i386.tar.bz2
+</span></span><span class="line"><span class="cl">tar -xjf <span class="nv">$HOME</span>/Downloads/insync-armhf_i386.tar.bz2 -C <span class="nv">$HOME</span>
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> <span class="nv">$HOME</span>/insync-portable
+</span></span><span class="line"><span class="cl">firefox https://insynchq.com/auth
+</span></span><span class="line"><span class="cl">./insync-portable add_account --auth-code 2/5ACzcYmorAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+</span></span><span class="line"><span class="cl">./insync-portable start
+</span></span><span class="line"><span class="cl">./insync-portable manage_selective_sync pablojoserocamora@gmail.com
+</span></span><span class="line"><span class="cl">./insync-portable get_sync_progress
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> -
+</span></span><span class="line"><span class="cl">ln -s ~/pablojoserocamora@gmail.com/scripts/ ~
+</span></span><span class="line"><span class="cl">mkdir ~/decrypt_gdrive/
+</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>Si manege_selective da un fallo de <em>curses.error: setupterm: could not find terminal</em>. Ejecutar el comando:</p>
+</blockquote>
+<pre><code>```bash
+export TERM=xterm                                                  
+export TERMINFO=/etc/terminfo
+```
+</code></pre>
+<h2 id="ftp">ftp</h2>
+<p><a class="link" href="https://www.solvetic.com/tutoriales/article/3212-como-instalar-servidor-ftp-linux-centos7/"  target="_blank" rel="noopener"
+    >https://www.solvetic.com/tutoriales/article/3212-como-instalar-servidor-ftp-linux-centos7/</a></p>
+<h2 id="unrar">unrar</h2>
+<p>Para podemos descomprimir ficheros rar protegidos con contraseña vamos a descargarnos el paquete unrar non-free para arm:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">wget https://procamora.github.io/downloads/unrar_5.2.7-0.1_armhf.deb
+</span></span><span class="line"><span class="cl">sudo dpkg -i unrar_5.2.7-0.1_armhf.deb
+</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p><strong>Importante</strong>: No instalar el paquete disponible en los repositorios (unrar-free), ya no funciona con rar con contraseña.</p>
+</blockquote>
+<h2 id="motd">motd</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo rm /etc/motd
+</span></span><span class="line"><span class="cl">sudo rm /etc/update-motd.d/10-uname
+</span></span><span class="line"><span class="cl"><span class="c1">#sudo sed -i -E &#39;s/^#?PrintLastLog (yes|no)$/PrintLastLog no/&#39; /etc/ssh/sshd_config</span>
+</span></span><span class="line"><span class="cl">sudo wget https://raw.githubusercontent.com/gagle/raspberrypi-motd/master/motd.sh -O /etc/update-motd.d/10-stats
+</span></span><span class="line"><span class="cl">sudo chown root:root /etc/update-motd.d/10-stats
+</span></span><span class="line"><span class="cl">sudo chmod +x /etc/update-motd.d/10-stats
+</span></span><span class="line"><span class="cl"><span class="c1">#sudo systemctl restart sshd</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="programas-propios">Programas propios</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git config --global user.email <span class="s2">&#34;pablojoserocamora@gmail.com&#34;</span>
+</span></span><span class="line"><span class="cl">git config --global user.name <span class="s2">&#34;procamora&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Minitrue</span>
+</span></span><span class="line"><span class="cl">git clone git@github.com:procamora/minitrue <span class="nv">$HOME</span>/minitrue
+</span></span><span class="line"><span class="cl">sudo pip3 install -r <span class="nv">$HOME</span>/minitrue/requirements.txt
+</span></span><span class="line"><span class="cl">sudo apt install -y nmap texlive-latex-recommended texlive-latex-extra texlive-lang-english
+</span></span><span class="line"><span class="cl">chmod u+x <span class="nv">$HOME</span>/minitrue/bot_minitrue.py
+</span></span><span class="line"><span class="cl">chmod <span class="m">644</span> <span class="nv">$HOME</span>/minitrue/mio_bot_minitrue.service
+</span></span><span class="line"><span class="cl">sudo cp <span class="nv">$HOME</span>/minitrue/mio_bot_minitrue.service /lib/systemd/system/
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Series Manager</span>
+</span></span><span class="line"><span class="cl">git clone git@github.com:procamora/Gestor-Series <span class="nv">$HOME</span>/series_manager
+</span></span><span class="line"><span class="cl">pip3 install --user -r <span class="nv">$HOME</span>/series_manager/requirements_bot.txt
+</span></span><span class="line"><span class="cl">chmod u+x <span class="nv">$HOME</span>/series_manager/app/utils/bot_series.py
+</span></span><span class="line"><span class="cl">chmod <span class="m">644</span> <span class="nv">$HOME</span>/series_manager/mio_bot_series_manager.service
+</span></span><span class="line"><span class="cl">sudo cp <span class="nv">$HOME</span>/series_manager/mio_bot_series_manager.service /lib/systemd/system/
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Bot Dicctionary</span>
+</span></span><span class="line"><span class="cl">git clone git@github.com:procamora/bot_dictionary <span class="nv">$HOME</span>/bot_dictionary
+</span></span><span class="line"><span class="cl">pip3 install --user -r <span class="nv">$HOME</span>/bot_dictionary/requirements.txt
+</span></span><span class="line"><span class="cl">chmod u+x <span class="nv">$HOME</span>/bot_dictionary/bot_dictionary.py
+</span></span><span class="line"><span class="cl">chmod <span class="m">644</span> <span class="nv">$HOME</span>/bot_dictionary/mio_bot_dictionary.service
+</span></span><span class="line"><span class="cl">sudo cp <span class="nv">$HOME</span>/bot_dictionary/mio_bot_dictionary.service /lib/systemd/system/
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Bot Common Ports</span>
+</span></span><span class="line"><span class="cl">git clone git@github.com:procamora/bot_common_ports <span class="nv">$HOME</span>/bot_common_ports
+</span></span><span class="line"><span class="cl">pip3 install --user -r <span class="nv">$HOME</span>/bot_common_ports/requirements.txt
+</span></span><span class="line"><span class="cl">chmod u+x <span class="nv">$HOME</span>/bot_common_ports/bot_common_ports.py
+</span></span><span class="line"><span class="cl">chmod <span class="m">644</span> <span class="nv">$HOME</span>/bot_common_ports/mio_bot_common_ports.service
+</span></span><span class="line"><span class="cl">sudo cp <span class="nv">$HOME</span>/bot_common_ports/mio_bot_common_ports.service /lib/systemd/system/
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Bot Promox</span>
+</span></span><span class="line"><span class="cl">git clone git@github.com:procamora/bot_proxmox <span class="nv">$HOME</span>/bot_proxmox
+</span></span><span class="line"><span class="cl">pip3 install --user -r <span class="nv">$HOME</span>/bot_proxmox/requirements.txt
+</span></span><span class="line"><span class="cl">sudo apt install -y wakeonlan
+</span></span><span class="line"><span class="cl">chmod u+x <span class="nv">$HOME</span>/bot_proxmox/bot_proxmox.py
+</span></span><span class="line"><span class="cl">chmod <span class="m">644</span> <span class="nv">$HOME</span>/bot_proxmox/mio_bot_proxmox.service
+</span></span><span class="line"><span class="cl">sudo cp <span class="nv">$HOME</span>/bot_proxmox/mio_bot_proxmox.service /lib/systemd/system/
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Wiki personal</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">pip3 install --user -r <span class="nv">$HOME</span>/wiki-personal/requirements.txt
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Manage systemd</span>
+</span></span><span class="line"><span class="cl">sudo systemctl daemon-reload
+</span></span><span class="line"><span class="cl">sudo systemctl <span class="nb">enable</span> mio_bot_minitrue.service <span class="o">&amp;&amp;</span> sudo systemctl start mio_bot_minitrue.service
+</span></span><span class="line"><span class="cl">sudo systemctl <span class="nb">enable</span> mio_bot_series_manager.service <span class="o">&amp;&amp;</span> sudo systemctl start mio_bot_series_manager.service
+</span></span><span class="line"><span class="cl">sudo systemctl <span class="nb">enable</span> mio_bot_dictionary.service <span class="o">&amp;&amp;</span> sudo systemctl start mio_bot_dictionary.service
+</span></span><span class="line"><span class="cl">sudo systemctl <span class="nb">enable</span> mio_bot_common_ports.service <span class="o">&amp;&amp;</span> sudo systemctl start mio_bot_common_ports.service
+</span></span><span class="line"><span class="cl">sudo systemctl <span class="nb">enable</span> mio_bot_proxmox.service <span class="o">&amp;&amp;</span> sudo systemctl start mio_bot_proxmox.service
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># pull all repos</span>
+</span></span><span class="line"><span class="cl"><span class="nv">DIRS</span><span class="o">=(</span> minitrue series_manager bot_dictionary bot_common_ports bot_proxmox <span class="o">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="nb">dirs</span> in <span class="s2">&#34;</span><span class="si">${</span><span class="nv">DIRS</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">;</span> <span class="k">do</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">echo</span> <span class="nv">$HOME</span>/<span class="nv">$dirs</span>
+</span></span><span class="line"><span class="cl">    git -C <span class="nv">$HOME</span>/<span class="nv">$dirs</span> pull <span class="o">&amp;&amp;</span> git -C <span class="nv">$HOME</span>/<span class="nv">$dirs</span> status
+</span></span><span class="line"><span class="cl"><span class="k">done</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="backuppc">BackupPC</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">wget -q -O - https://gist.githubusercontent.com/procamora/c32acb2f3ca4fb49c66e879644b11dc2/raw/76eb16ddaee21186e46a429ae9719723d960ab05/backuppc-ubuntu-installer.sh <span class="p">|</span> sudo bash
+</span></span><span class="line"><span class="cl">sudo chmod <span class="m">755</span> /etc/BackupPC
+</span></span><span class="line"><span class="cl">sudo htpasswd  /etc/BackupPC/BackupPC.users backuppc
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">sudo usermod -a -G hdd backuppc <span class="c1"># cuidado que puede que aun no exista</span>
+</span></span><span class="line"><span class="cl">sudo usermod -a -G www-data backuppc
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">sudo chown backuppc:www-data /etc/BackupPC/
+</span></span><span class="line"><span class="cl">sudo chown backuppc:www-data /etc/BackupPC/BackupPC.users
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">firefox http://localhost/BackupPC_Admin
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Vamos a instalar el servicio BackupPC para para realizar copias de seguridad de los distintos hosts.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo apt install backuppc rsync
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">sudo htpasswd /etc/backuppc/htpasswd backuppc          <span class="c1"># Establecer nuestra propia password</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">sudo systemctl <span class="nb">enable</span> backuppc
+</span></span><span class="line"><span class="cl">sudo systemctl stop backuppc
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Como estamos en una Raspberry Pi y no queremos hacer los backup de los equipos en una Micro SD de 32Gb, vamos a cambiar el directorio donde se guardan los backup, para ello lo primero sera editar el fichero de configuración y poner el nuevo directorio:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo vim /etc/backuppc/config.pl
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Añadir</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nv">$Conf</span><span class="o">{</span>TopDir<span class="o">}</span> <span class="o">=</span> <span class="s1">&#39;/media/HDD/backuppc&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$Conf</span><span class="o">{</span>LogDir<span class="o">}</span> <span class="o">=</span> <span class="s1">&#39;/media/HDD/backuppc/log&#39;</span><span class="p">;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Una vez que tenemos indicado el nuevo directorio copiamos todos los directorios y ficheros que habían en el directorio por defecto al nuevo:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo cp -r /var/lib/backuppc/* /media/HDD/backuppc/
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Para evitar poner las IPs vamos a indicar el nombre asociada a cada IP.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;# personal hosts
+</span></span></span><span class="line"><span class="cl"><span class="s2">192.168.1.71        rp3
+</span></span></span><span class="line"><span class="cl"><span class="s2">192.168.1.72        zero
+</span></span></span><span class="line"><span class="cl"><span class="s2">192.168.1.141       xiaomi
+</span></span></span><span class="line"><span class="cl"><span class="s2">192.168.1.144       4770k
+</span></span></span><span class="line"><span class="cl"><span class="s2">&#34;</span> &gt;&gt; /etc/hosts
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>c</p>
+<p>Establecemos los permisos necesarios para el directorio. Este paso esta enlazado con el de Transmission, ya que ahí es donde se crea el grupo <em>hdd</em>.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo usermod -a -G hdd backuppc
+</span></span><span class="line"><span class="cl">sudo chown backuppc:backuppc /media/HDD/backuppc/ -R
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Para poder usar rsync en Linux sin necesidad de poner contraseñas es necesario generar un certificado SSH sin contraseña (o usar uno ya disponible como el que tengo para servicios). Este certificado tiene que estar en el directorio de backuppc, por lo que es necesario logearnos con este para generar/usar el certificado.</p>
+<blockquote>
+<p>Puede fallar al copiar los certificados en caso de que el fichero de SSH no tenga puesto <em>permitRootLogin yes</em>.</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo su - backuppc          <span class="c1"># login user backuppc</span>
+</span></span><span class="line"><span class="cl">ssh-copy-id root@4770k      <span class="c1"># envia el certificado id_rsa.pub, sino se llama asi renombrarlo</span>
+</span></span><span class="line"><span class="cl">ssh-copy-id root@xiaomi
+</span></span><span class="line"><span class="cl">ssh-copy-id root@zero
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># login a servers para anadir los fingerprint</span>
+</span></span><span class="line"><span class="cl">/usr/bin/ssh -q -x -l root rp4
+</span></span><span class="line"><span class="cl">/usr/bin/ssh -q -x -l root xiaomi
+</span></span><span class="line"><span class="cl">/usr/bin/ssh -q -x -l root zero
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Después seria necesario loguearse a cada maquina para que se quede registrado el fingerprinter de cada una y así no lo vuelva a pedir.</p>
+<p>Una vez hecho esto, la configuración de SSL por parte de apache seria la siguiente:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bASH" data-lang="bASH"><span class="line"><span class="cl">sudo mkdir -p /etc/apache2/ssl/            <span class="c1"># Creamos directorio donde guardar certificados</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Enviamos los certificados</span>
+</span></span><span class="line"><span class="cl">scp procamora@4770k:/home/procamora/Documents/CA/server/backuppc.key /etc/apache2/ssl/
+</span></span><span class="line"><span class="cl">scp procamora@4770k:/home/procamora/Documents/CA/server/backuppc.cert /etc/apache2/ssl/
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">scp procamora@4770k:/home/procamora/Documents/CA/ca/cacert.cert /etc/apache2/ssl/
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Cogemos la plantilla de ssl y la modificamos</span>
+</span></span><span class="line"><span class="cl">sudo cp /etc/apache2/sites-available/default-ssl.conf /etc/apache2/sites-available/backuppc.conf
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Editamos el fichero que acabamos de crear añadiéndole la ruta de los certificados, el DocumentRoot y ServerName.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo vim /etc/apache2/sites-available/backuppc.conf
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">&lt;IfModule mod_ssl.c&gt;
+</span></span><span class="line"><span class="cl">        &lt;VirtualHost _default_:443&gt;
+</span></span><span class="line"><span class="cl">            ServerAdmin webmaster@localhost
+</span></span><span class="line"><span class="cl">            ServerName backuppc.procamora.com
+</span></span><span class="line"><span class="cl">            ServerAlias backuppc.procamora.com
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            DocumentRoot /usr/share/backuppc/cgi-bin/
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="c1"># Available loglevels: trace8, ..., trace1, debug, info, notice, warn,</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">#LogLevel info ssl:warn</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            ErrorLog <span class="si">${</span><span class="nv">APACHE_LOG_DIR</span><span class="si">}</span>/error.log
+</span></span><span class="line"><span class="cl">            CustomLog <span class="si">${</span><span class="nv">APACHE_LOG_DIR</span><span class="si">}</span>/access.log combined
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="c1">#   SSL Engine Switch:</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">#   Enable/Disable SSL for this virtual host.</span>
+</span></span><span class="line"><span class="cl">            SSLEngine on
+</span></span><span class="line"><span class="cl">            SSLCertificateFile      /etc/apache2/ssl/backuppc.cert
+</span></span><span class="line"><span class="cl">            SSLCertificateKeyFile   /etc/apache2/ssl/backuppc.key
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="c1">#SSLCertificateChainFile /etc/apache2/ssl.crt/server-ca.crt</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">#SSLCACertificatePath /etc/ssl/certs/</span>
+</span></span><span class="line"><span class="cl">            SSLCACertificateFile /etc/apache2/ssl/cacert.cert
+</span></span><span class="line"><span class="cl">            <span class="c1">#SSLCARevocationPath /etc/apache2/ssl.crl/</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">#SSLCARevocationFile /etc/apache2/ssl.crl/ca-bundle.crl</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">#SSLVerifyClient require</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">#SSLVerifyDepth  10</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">#SSLOptions +FakeBasicAuth +ExportCertData +StrictRequire</span>
+</span></span><span class="line"><span class="cl">            &lt;FilesMatch <span class="s2">&#34;\.(cgi|shtml|phtml|php)</span>$<span class="s2">&#34;</span>&gt;
+</span></span><span class="line"><span class="cl">                            SSLOptions +StdEnvVars
+</span></span><span class="line"><span class="cl">            &lt;/FilesMatch&gt;
+</span></span><span class="line"><span class="cl">            &lt;Directory /usr/lib/cgi-bin&gt;
+</span></span><span class="line"><span class="cl">                            SSLOptions +StdEnvVars
+</span></span><span class="line"><span class="cl">            &lt;/Directory&gt;
+</span></span><span class="line"><span class="cl">        &lt;/VirtualHost&gt;
+</span></span><span class="line"><span class="cl">&lt;/IfModule&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Una vez que están configurado el fichero, lo que faltara sería: habilitar el modulo de SSL, habilitar el VirtualHost que hemos creado y reiniciar la configuración de Apache:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo a2enmod ssl
+</span></span><span class="line"><span class="cl">sudo a2ensite backuppc.conf
+</span></span><span class="line"><span class="cl">sudo systemctl reload apache2
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Por ultimo, para poder hacer backup locales es necesario que el usuario backuppc pueda ejecutar el comando tar como sudo son contraseña:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo <span class="nb">echo</span> <span class="s2">&#34;backuppc ALL=NOPASSWD: /bin/tar&#34;</span> &gt; /etc/sudoers.d/backuppc
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Una vez realizada toda esta configuración, ya solo quedaría conectarnos por el navegador a la url: <a class="link" href="http://192.168.1.71/backuppc/"  target="_blank" rel="noopener"
+    >http://192.168.1.71/backuppc/</a> o a
+<a class="link" href="https://backuppc.procamora.com"  target="_blank" rel="noopener"
+    >https://backuppc.procamora.com</a>.</p>
+<p>En la sección host tendremos que añadir todos los host a los que queremos realizar copias de seguridad y en la sección xfer pondremos que el protocolo por defecto es rsync y los directorios a los que queremos realizar copias de seguridad. También podemos excluir ficheros como (*.iso, *.class, *.pyc, etc). Dentro de cada host podemos sobrescribir estas reglas poniendo algunas mas especificas.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">http://backuppc.sourceforge.net/faq/localhost.html
+</span></span><span class="line"><span class="cl">http://backuppc.sourceforge.net/faq/ssh.html
+</span></span><span class="line"><span class="cl">https://backuppc.procamora.com/backuppc/index.cgi?action=view&amp;type=docs#_conf_xferloglevel_SSH
+</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>Recuperar fichero comprimido por backuppc
+sudo perl -MCompress::Zlib -e &lsquo;undef $/; print uncompress(&lt;&gt;)&rsquo; &lt; /media/HDD/backuppc/pc/rp3/119/f%2fetc%2f/fbackuppc/fapache.conf</p>
+</blockquote>
+<p>###################################################### d</p>
+<p>sudo mkdir /lib/systemd/system/mio
+sudo touch /lib/systemd/system/mio/client_ssh.service
+sudo chmod 644 /lib/systemd/system/mio/client_ssh.service</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/debian/">debian</a>
+        
+            <a href="/tags/raspbian/">raspbian</a>
+        
+            <a href="/tags/raspberry/">raspberry</a>
+        
+            <a href="/tags/pi/">pi</a>
+        
+            <a href="/tags/backuppc/">backuppc</a>
+        
+            <a href="/tags/ssh/">ssh</a>
+        
+            <a href="/tags/apt/">apt</a>
+        
+            <a href="/tags/transmission/">transmission</a>
+        
+            <a href="/tags/zsh/">zsh</a>
+        
+            <a href="/tags/crontab/">crontab</a>
+        
+            <a href="/tags/fstab/">fstab</a>
+        
+            <a href="/tags/systemd/">systemd</a>
+        
+            <a href="/tags/insync/">insync</a>
+        
+            <a href="/tags/openvpn/">openvpn</a>
+        
+            <a href="/tags/vpn/">vpn</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/katex.min.css"integrity="sha256-J&#43;iAE0sgH8QSz9hpcDxXIftnj65JEZgNhGcgReTTK9s="crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/katex.min.js"integrity="sha256-InsNdER1b2xUewP&#43;pKCUJpkhiqwHgqiPXDlIk7GzBu4="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/contrib/auto-render.min.js"integrity="sha256-y39Mpg7V3D4lhBX4x6O0bUqTV4pSrfgwEfGKfxkOdgI="crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.querySelector(`.article-content`), {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ]
+        });})
+</script>
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Contenidos relacionados</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/p/verdiferentespaquetes/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/covers/linux.png" loading="lazy" data-key="verdiferentespaquetes" data-hash="/covers/linux.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Ver Diferentes Paquetes</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/virtualbox_guest_additions/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/covers/linux.png" loading="lazy" data-key="virtualbox_guest_additions" data-hash="/covers/linux.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">VirtualBox Guest Additions</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/linux_troubleshooting/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/covers/draft.png" loading="lazy" data-key="linux_troubleshooting" data-hash="/covers/draft.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Linux troubleshooting</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/primeros-pasos-osmc/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/covers/draft.png" loading="lazy" data-key="primeros-pasos-osmc" data-hash="/covers/draft.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Primeros pasos OSMC</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/add-count-insync-portable-cli/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/covers/draft.png" loading="lazy" data-key="add-count-insync-portable-cli" data-hash="/covers/draft.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Add count insync portable cli</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "procamora-github" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2022 #&gt; fireroot
+    </section>
+    
+    <section class="powerby">
+        
+            Esto es el footer <br/>
+        Creado con <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Tema <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.13.0">Stack</a></b> diseñado por <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Tabla de contenido</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#configuración-inicial">Configuración inicial</a></li>
+    <li><a href="#instalación-de-paquetes">Instalación de paquetes</a></li>
+    <li><a href="#configuración-zsh">Configuración zsh</a></li>
+    <li><a href="#fichero-hosts">Fichero hosts</a></li>
+    <li><a href="#fichero-crontab">Fichero crontab</a></li>
+    <li><a href="#fichero-fstab">Fichero fstab</a></li>
+    <li><a href="#gestión-de-claves-privadas">Gestión de claves privadas</a></li>
+    <li><a href="#swap">Swap</a></li>
+    <li><a href="#transmission">Transmission</a></li>
+  </ol>
+
+  <ol>
+    <li><a href="#vpn">VPN</a>
+      <ol>
+        <li><a href="#en-caso-de-fallo-por-actualización-del-kernel">En caso de fallo por actualización del Kernel</a></li>
+      </ol>
+    </li>
+    <li><a href="#insync">insync</a></li>
+    <li><a href="#ftp">ftp</a></li>
+    <li><a href="#unrar">unrar</a></li>
+    <li><a href="#motd">motd</a></li>
+    <li><a href="#programas-propios">Programas propios</a></li>
+    <li><a href="#backuppc">BackupPC</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

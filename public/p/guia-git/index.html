@@ -1,0 +1,1769 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Git es un software de control de versiones diseñado por Linus Torvalds, pensando en la eficiencia y la confiabilidad del mantenimiento de versiones de aplicaciones cuando éstas tienen un gran número de archivos de código fuente.'><title>Guia git</title>
+
+<link rel='canonical' href='https://www.procamora.com/p/guia-git/'>
+
+<link rel="stylesheet" href="/scss/style.min.ac77dcf8b111b51da39a92990f431923f210f3876d85798a2125667f96dc33a4.css"><meta property='og:title' content='Guia git'>
+<meta property='og:description' content='Git es un software de control de versiones diseñado por Linus Torvalds, pensando en la eficiencia y la confiabilidad del mantenimiento de versiones de aplicaciones cuando éstas tienen un gran número de archivos de código fuente.'>
+<meta property='og:url' content='https://www.procamora.com/p/guia-git/'>
+<meta property='og:site_name' content='#&gt; fireroot'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='git' /><meta property='article:tag' content='linux' /><meta property='article:tag' content='windows' /><meta property='article:tag' content='consola' /><meta property='article:tag' content='programacion' /><meta property='article:tag' content='ramas' /><meta property='article:tag' content='reopsitorio' /><meta property='article:tag' content='submodulo' /><meta property='article:published_time' content='2016-02-19T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2016-02-19T00:00:00&#43;00:00'/><meta property='og:image' content='https://www.procamora.com/covers/software.png' />
+<meta name="twitter:title" content="Guia git">
+<meta name="twitter:description" content="Git es un software de control de versiones diseñado por Linus Torvalds, pensando en la eficiencia y la confiabilidad del mantenimiento de versiones de aplicaciones cuando éstas tienen un gran número de archivos de código fuente."><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://www.procamora.com/covers/software.png' />
+    <link rel="shortcut icon" href="img/favicon.ico" />
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/icons/procamora_30_hua3d16f4d7ffad1a52a64c31db4447108_16949_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">#&gt; fireroot</a></h1>
+            <h2 class="site-description">Mi wiki donde escribo artículos sobre Linux, Ciberseguridad y temas relacionados.</h2>
+        </div>
+    </header><ol class="social-menu">
+            
+                <li>
+                    <a 
+                        href='https://github.com/procamora'
+                        target="_blank"
+                        title="GitHub"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='mailto:pablojoserocamora@gmail.com'
+                        target="_blank"
+                        title="Gmail"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-gmail" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"> <path stroke="none" d="M0 0h24v24H0z" fill="none"/> <path d="M16 20h3a1 1 0 0 0 1 -1v-14a1 1 0 0 0 -1 -1h-3v16z" /> <path d="M5 20h3v-16h-3a1 1 0 0 0 -1 1v14a1 1 0 0 0 1 1z" /> <path d="M16 4l-4 4l-4 -4" /> <path d="M4 6.5l8 7.5l8 -7.5" /> </svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://es.linkedin.com/in/pablo-rocamora'
+                        target="_blank"
+                        title="Linkedin"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-linkedin" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"> <path stroke="none" d="M0 0h24v24H0z" fill="none"/> <rect x="4" y="4" width="16" height="16" rx="2" /> <line x1="8" y1="11" x2="8" y2="16" /> <line x1="8" y1="8" x2="8" y2="8.01" /> <line x1="12" y1="16" x2="12" y2="11" /> <path d="M16 16v-3a2 2 0 0 0 -4 0" /> </svg>
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archivos</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Buscar</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/acerca-de/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>Acerca de</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/index.xml' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-rss" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="5" cy="19" r="1" />
+  <path d="M4 4a16 16 0 0 1 16 16" />
+  <path d="M4 11a9 9 0 0 1 9 9" />
+</svg>
+
+
+
+                
+                <span>Feed</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+                <li id="i18n-switch">  
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                    <select name="language" onchange="window.location.href = this.selectedOptions[0].value">
+                        
+                            <option value="https://www.procamora.com/" selected>Español</option>
+                        
+                            <option value="https://www.procamora.com/en/" >English</option>
+                        
+                    </select>
+                </li>
+            
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Modo oscuro</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+<main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/guia-git/">
+                
+                    <img src="/covers/software.png" loading="lazy" alt="Featured image of post Guia git" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/software/" >
+                Software
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/guia-git/">Guia git</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            Git es un software de control de versiones diseñado por Linus Torvalds, pensando en la eficiencia y la confiabilidad del mantenimiento de versiones de aplicaciones cuando éstas tienen un gran número de archivos de código fuente.
+        </h3>
+        
+    </div>
+
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Feb 19, 2016</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    20 minutos a leer
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+
+    <div class="article-category">
+        
+            
+                
+            
+            
+                <a href='https://github.com/procamora/dummy/edit/main/content/post/Software/guia-git.md' style="background-color: #5bc0de" >Edit this page on GitHub</a>
+            
+            
+                <a href='https://github.com/procamora/dummy/edit/main/content/post/Software/guia-git.md' style="background-color: #5bc0de" >Download article PDF</a>
+            
+        
+    </div>
+</div>
+</header>
+
+    <section class="article-content">
+    
+    
+    <h1 id="introducción">Introducción:</h1>
+<p>Git es un software de control de versiones diseñado por Linus Torvalds, pensando en la eficiencia y la confiabilidad del mantenimiento de versiones de aplicaciones cuando éstas tienen un gran número de archivos de código fuente.</p>
+<h2 id="existen-una-serie-de-buenas-practicas-que-son">Existen una serie de buenas practicas que son:</h2>
+<p>Cada desarrollador o equipo de desarrollo puede hacer uso de Git de la forma que le parezca conveniente. Sin embargo una buena práctica es la siguiente:
+Se deben utilizar 4 tipos de ramas: Master, Development, Features, y Hotfix.</p>
+<ul>
+<li>
+<p><strong>Master</strong>:
+Es la rama principal. Contiene el repositorio que se encuentra publicado en producción, por lo que debe estar siempre estable.</p>
+</li>
+<li>
+<p><strong>Development</strong>:
+Es una rama sacada de master. Es la rama de integración, todas las nuevas funcionalidades se deben integrar en esta rama. Luego que se realice la integración y se corrijan los errores (en caso de haber alguno), es decir que la rama se encuentre estable, se puede hacer un merge de development sobre la rama master.</p>
+</li>
+<li>
+<p><strong>Features</strong>:
+Cada nueva funcionalidad se debe realizar en una rama nueva, específica para esa funcionalidad. Estas se deben sacar de development. Una vez que la funcionalidad esté pronta, se hace un merge de la rama sobre development, donde se integrará con las demás funcionalidades.</p>
+</li>
+<li>
+<p><strong>Hotfix</strong>:
+Son bugs que surgen en producción, por lo que se deben arreglar y publicar de forma urgente. Es por ello, que son ramas sacadas de master. Una vez corregido el error, se debe hacer un merge de la rama sobre master. Al final, para que no quede desactualizada, se debe realizar el merge de master sobre development.</p>
+</li>
+</ul>
+<p>Las ordenes básicas que tiene son:</p>
+<ul>
+<li><a class="link" href="#header0" >Operaciones básicas</a>:</li>
+<li><a class="link" href="#header1" >Manejo de ramas</a>:
+<ul>
+<li><a class="link" href="#mark4" >Ramas locales</a></li>
+<li><a class="link" href="#mark5" >Ramas remotas</a></li>
+</ul>
+</li>
+<li><a class="link" href="#header2" >Manejo de submodulos</a>:</li>
+<li><a class="link" href="#header3" >Duplicar un repositorio</a>:</li>
+</ul>
+<h1 id="header0">Operaciones básicas</h1>
+<p>Una vez que tienes git instalado y listo para usarse podremos usar los siguientes comandos:</p>
+<h2 id="inicializando-un-repositorio-en-un-directorio-existente">Inicializando un repositorio en un directorio existente</h2>
+<p>Si tenemos un repositorio con codigo y queremos crear un repositio git tendremos que escribir:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ git init
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Esto crea un nuevo subdirectorio llamado .git que contiene todos los archivos necesarios del repositorio, un esqueleto de un repositorio Git. Todavía no hay nada en tu proyecto que esté bajo seguimiento.</p>
+<h2 id="añadir-archivos">Añadir archivos</h2>
+<p>Para empezar a seguir las modificaciones de un fichero habra que usar el comando <code>git add fichero</code> y comenzaremos a trackear el archivo &ldquo;nombre_archivo&rdquo;.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ git add &lt;nombre_archivo&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Si tenemos multiples ficheros y no queremos añadirlos uno a uno podremos hacerlos todos juntos con:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ git add .
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="confirmar-los-cambios">Confirmar los cambios</h2>
+<p>Para consolidar el archivo previamente creado y puesto en escenario debemos utilizar el siguiente comando:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ git commit –m <span class="s1">&#39;versión inicial del proyecto&#39;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>La bandera -m indica que se debe consolidar el archivo con un mensaje informativo.</p>
+</blockquote>
+<h2 id="enviar-cambios-al-servidor">Enviar cambios al servidor</h2>
+<p>Una vez que tenemos los cambios consolidados en nuestro repositorio local, utilizamos el comando <code>git push</code> para enviarlo al servidor:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ git push origin master
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="clonacion-de-un-repositorio">clonacion de un repositorio</h2>
+<p>Si queremos tener una copia local de un repositorio, el comando que usaremos es <code>git clone [url]</code>, tendremos distintas formas de clonar:</p>
+<ul>
+<li>
+<p>Clonacion de un repositorio</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git clone git@github.com:procamora/Wiki-Pelican.git
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>Clonacion de un repositorio especificando su nombre</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git clone git@github.com:procamora/Wiki-Pelican.git wiki
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>Clonacion recursiva con submodulos:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git clone --recursive git@github.com:procamora/Wiki-Pelican.git
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+<blockquote>
+<p>Recuerda que puedes clonar un repositorio por ssh o por https, la diferencia esta en que por ssh no tendras que autenticarte cada vez que realizas un cambio en el servidor.</p>
+</blockquote>
+<h2 id="ver-estado-del-respositorio">ver estado del respositorio</h2>
+<p>Muestra el estado actual de la rama, como los cambios que hay sin commitear.</p>
+<p>Si esta todo correcto y no hay ningun cambio la salida sera:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ git status
+</span></span><span class="line"><span class="cl">On branch master
+</span></span><span class="line"><span class="cl">nothing to commit, working directory clean
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Si hay modificaciones pendientes</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ git status
+</span></span><span class="line"><span class="cl">On branch master
+</span></span><span class="line"><span class="cl">Untracked files:  <span class="c1">#&lt;-- Nos está indicando que tenemos archivos nuevos.</span>
+</span></span><span class="line"><span class="cl">  <span class="o">(</span>use <span class="s2">&#34;git add &lt;file&gt;...&#34;</span> to include in what will be committed<span class="o">)</span>
+</span></span><span class="line"><span class="cl">   Archivo2.txt <span class="c1">#&lt;-- El archivo nuevo del que git no conoce.</span>
+</span></span><span class="line"><span class="cl">nothing added to commit but untracked files present <span class="o">(</span>use <span class="s2">&#34;git add&#34;</span> to track<span class="o">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="comparar-diferencias">comparar diferencias</h2>
+<p>Cuando queremos ver las lineas añadidas y eliminadas de un fichero modificado usaremos:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git diff fichero
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Si quieres ver los cambios que has preparado y que irán en tu próxima confirmación, puedes usar:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git diff –-cached.
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="eliminando-archivos">Eliminando archivos</h2>
+<p>Para eliminar un archivo de Git, debes eliminarlo de tus archivos bajo seguimiento (más concretamente, debes eliminarlo de tu área de preparación), y después confirmar. El comando <code>git rm</code> se encarga de eso, y también elimina el archivo de tu directorio de trabajo, para que no lo veas entre los archivos sin seguimiento.</p>
+<p>Si simplemente eliminas el archivo de tu directorio de trabajo, aparecerá bajo la cabecera “Modificados pero no actualizados” (“Changed but not updated”) (es decir, sin preparar) de la salida del comando <code>git status</code>:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ rm grit.gemspec
+</span></span><span class="line"><span class="cl">$ git status
+</span></span><span class="line"><span class="cl"><span class="c1"># On branch master</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Changed but not updated:</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#   (use &#34;git add/rm &lt;file&gt;...&#34; to update what will be committed)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#       deleted:    grit.gemspec</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Si entonces ejecutas el comando <code>git rm</code>, preparas la eliminación del archivo en cuestión:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ git rm grit.gemspec
+</span></span><span class="line"><span class="cl">rm <span class="s1">&#39;grit.gemspec&#39;</span>
+</span></span><span class="line"><span class="cl">$ git status
+</span></span><span class="line"><span class="cl"><span class="c1"># On branch master</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Changes to be committed:</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#   (use &#34;git reset HEAD &lt;file&gt;...&#34; to unstage)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#       deleted:    grit.gemspec</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>La próxima vez que confirmes, el archivo desaparecerá y dejará de estar bajo seguimiento. Si ya habías modificado el archivo y lo tenías en el área de preparación, deberás forzar su eliminación con la opción <code>-f</code>.</p>
+<h2 id="moviendo-archivos">Moviendo archivos</h2>
+<p>A diferencia de muchos otros VCSs, Git no hace un seguimiento explicito del movimiento de archivos. Si renombras un archivo, en Git no se almacena ningún metadato que indique que lo has renombrado. Sin embargo, Git es suficientemente inteligente como para darse cuenta — trataremos el tema de la detección de movimiento de archivos un poco más adelante —.</p>
+<p>Por tanto, es un poco desconcertante que Git tenga un comando mv. Si quieres renombrar un archivo en Git, puedes ejecutar algo así:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ git mv README.txt README
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Sin embargo, esto es equivalente a ejecutar algo así:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ mv README.txt README
+</span></span><span class="line"><span class="cl">$ git rm README.txt
+</span></span><span class="line"><span class="cl">$ git add README
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="git-log-multiples-vistas">git log (multiples vistas)</h2>
+<p>Después de haber hecho varias confirmaciones, o si has clonado un repositorio que ya tenía un histórico de confirmaciones, probablemente quieras mirar atrás para ver qué modificaciones se han llevado a cabo. La herramienta más básica y potente para hacer esto es el comando <code>git log</code>.</p>
+<p>Por defecto, si no pasas ningún argumento, git log lista las confirmaciones hechas sobre ese repositorio en orden cronológico inverso. Es decir, las confirmaciones más recientes se muestran al principio. Como puedes ver, este comando lista cada confirmación con su suma de comprobación SHA-1, el nombre y dirección de correo del autor, la fecha y el mensaje de confirmación <code>git log</code></p>
+<p>Una de las opciones más útiles es -p, que muestra las diferencias introducidas en cada confirmación. También puedes usar la opción -2, que hace que se muestren únicamente las dos últimas entradas del histórico <code>git log -p -2</code>.</p>
+<p>También puedes usar con git log una serie de opciones de resumen. Por ejemplo, si quieres ver algunas estadísticas de cada confirmación, puedes usar la opción &ndash;stat <code>git log --stat</code>.</p>
+<h2 id="modificando-tu-última-confirmación">Modificando tu última confirmación</h2>
+<p>Frecuentemente cuando trabajamos y consolidamos los cambios olvidamos agregar al escenario algún archivo o simplemente lo modificamos tarde y lo queremos agregar a la información consolidada anteriormente. Es aquí cuando entra este comando en acción.</p>
+<p>Vamos a realizar una serie de cambios, los consolidaremos y agregaremos otro cambio posteriormente.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ touch README.md
+</span></span><span class="line"><span class="cl">$ <span class="nb">echo</span> <span class="s1">&#39;# Repositorio git para el curso Git desde cero&#39;</span> &gt;&gt; README.md
+</span></span><span class="line"><span class="cl">$ git status <span class="c1"># omitimos la salida</span>
+</span></span><span class="line"><span class="cl">$ git add README.md
+</span></span><span class="line"><span class="cl">$ git commit -m <span class="s2">&#34;Agregar archivo README.md&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Ahora modificaremos otro archivo y lo agregaremos.</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">$ <span class="nb">echo</span> <span class="s1">&#39;Agregamos la tercera linea&#39;</span> &gt;&gt; Archivo2_cambio_de_nombre.txt
+</span></span><span class="line"><span class="cl">$ git add Archivo2_cambio_de_nombre.txt
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># En este punto tenemos dos opciones 1) Dejar el mismo mensaje 2) Cambiarlo</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">$ git commit --amend --no-edit <span class="c1"># Dejamos el mismo mensaje</span>
+</span></span><span class="line"><span class="cl">$ git commit --amend -m <span class="s2">&#34;Nuevo mensaje para el cambio&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>Es sumamente importante que si los cambios fueron consolidados y enviados al servidor remoto NO se utilice este comando; ya que se modifica el número de serial único de los cambios hechos y vamos a tener un conflicto difícil de resolver.</p>
+</blockquote>
+<h2 id="deshaciendo-la-preparación-de-un-archivo">Deshaciendo la preparación de un archivo</h2>
+<p>Cuando añadimos al escenario un archivo por error, o hacemos un <code>git add .</code> cuando no queriamos añadir todos los ficheros con modificaciones tendremos el comodin de eliminar del escenario un fichero o todos con <code>git reset</code></p>
+<p>Su funcionamiento es el siguiente: Añadimos todos los ficheros modificados y desacemos el add.  <code>git reset HEAD</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ git add .                 <span class="c1"># añadimos todos los ficheros</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">$ git status                <span class="c1"># mostramos el estado actual</span>
+</span></span><span class="line"><span class="cl">On branch master
+</span></span><span class="line"><span class="cl">Your branch is up-to-date with <span class="s1">&#39;origin/master&#39;</span>.
+</span></span><span class="line"><span class="cl">Changes to be committed:
+</span></span><span class="line"><span class="cl">  <span class="o">(</span>use <span class="s2">&#34;git reset HEAD &lt;file&gt;...&#34;</span> to unstage<span class="o">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        modified:   README.md
+</span></span><span class="line"><span class="cl">        new file:   prueba
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">$ git reset HEAD            <span class="c1"># cancelamos el comando add</span>
+</span></span><span class="line"><span class="cl">Unstaged changes after reset:
+</span></span><span class="line"><span class="cl">M       README.md
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">$ git status                <span class="c1"># mostramos el estado actual</span>
+</span></span><span class="line"><span class="cl">On branch master
+</span></span><span class="line"><span class="cl">Your branch is up-to-date with <span class="s1">&#39;origin/master&#39;</span>.
+</span></span><span class="line"><span class="cl">Changes not staged <span class="k">for</span> commit:
+</span></span><span class="line"><span class="cl">  <span class="o">(</span>use <span class="s2">&#34;git add &lt;file&gt;...&#34;</span> to update what will be committed<span class="o">)</span>
+</span></span><span class="line"><span class="cl">  <span class="o">(</span>use <span class="s2">&#34;git checkout -- &lt;file&gt;...&#34;</span> to discard changes in working directory<span class="o">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        modified:   README.md
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Untracked files:
+</span></span><span class="line"><span class="cl">  <span class="o">(</span>use <span class="s2">&#34;git add &lt;file&gt;...&#34;</span> to include in what will be committed<span class="o">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        prueba
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">no changes added to commit <span class="o">(</span>use <span class="s2">&#34;git add&#34;</span> and/or <span class="s2">&#34;git commit -a&#34;</span><span class="o">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Su funcionamiento es el siguiente: Añadimos un fichero y desacemos el add de ese unico fichero. <code>git reset HEAD &lt;archivo&gt;</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ git add prueba                <span class="c1"># añadimos el fichero prueba</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">$ git status                    <span class="c1"># mostramos el estado actual</span>
+</span></span><span class="line"><span class="cl">On branch master
+</span></span><span class="line"><span class="cl">Your branch is up-to-date with <span class="s1">&#39;origin/master&#39;</span>.
+</span></span><span class="line"><span class="cl">Changes to be committed:
+</span></span><span class="line"><span class="cl">  <span class="o">(</span>use <span class="s2">&#34;git reset HEAD &lt;file&gt;...&#34;</span> to unstage<span class="o">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        new file:   prueba
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Changes not staged <span class="k">for</span> commit:
+</span></span><span class="line"><span class="cl">  <span class="o">(</span>use <span class="s2">&#34;git add &lt;file&gt;...&#34;</span> to update what will be committed<span class="o">)</span>
+</span></span><span class="line"><span class="cl">  <span class="o">(</span>use <span class="s2">&#34;git checkout -- &lt;file&gt;...&#34;</span> to discard changes in working directory<span class="o">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        modified:   README.md
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">$ git reset HEAD prueba             <span class="c1"># cancelamos el comando add para prueba</span>
+</span></span><span class="line"><span class="cl">Unstaged changes after reset:
+</span></span><span class="line"><span class="cl">M       README.md
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">$ git status                       <span class="c1"># mostramos el estado actual</span>
+</span></span><span class="line"><span class="cl">On branch master
+</span></span><span class="line"><span class="cl">Your branch is up-to-date with <span class="s1">&#39;origin/master&#39;</span>.
+</span></span><span class="line"><span class="cl">Changes not staged <span class="k">for</span> commit:
+</span></span><span class="line"><span class="cl">  <span class="o">(</span>use <span class="s2">&#34;git add &lt;file&gt;...&#34;</span> to update what will be committed<span class="o">)</span>
+</span></span><span class="line"><span class="cl">  <span class="o">(</span>use <span class="s2">&#34;git checkout -- &lt;file&gt;...&#34;</span> to discard changes in working directory<span class="o">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        modified:   README.md
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Untracked files:
+</span></span><span class="line"><span class="cl">  <span class="o">(</span>use <span class="s2">&#34;git add &lt;file&gt;...&#34;</span> to include in what will be committed<span class="o">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        prueba
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">no changes added to commit <span class="o">(</span>use <span class="s2">&#34;git add&#34;</span> and/or <span class="s2">&#34;git commit -a&#34;</span><span class="o">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="deshaciendo-la-modificación-de-un-archivo">Deshaciendo la modificación de un archivo</h2>
+<p>Si queremos desechar todos los cambios que hemos hecho a un fichero desde el ultimo commit tendremos la opcion <code>git checkout fichero</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ git status
+</span></span><span class="line"><span class="cl">On branch master
+</span></span><span class="line"><span class="cl">Your branch is up-to-date with <span class="s1">&#39;origin/master&#39;</span>.
+</span></span><span class="line"><span class="cl">Changes not staged <span class="k">for</span> commit:
+</span></span><span class="line"><span class="cl">  <span class="o">(</span>use <span class="s2">&#34;git add &lt;file&gt;...&#34;</span> to update what will be committed<span class="o">)</span>
+</span></span><span class="line"><span class="cl">  <span class="o">(</span>use <span class="s2">&#34;git checkout -- &lt;file&gt;...&#34;</span> to discard changes in working directory<span class="o">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        modified:   README.md
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">no changes added to commit <span class="o">(</span>use <span class="s2">&#34;git add&#34;</span> and/or <span class="s2">&#34;git commit -a&#34;</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">$ git checkout README.md
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">$ git status
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">On branch master
+</span></span><span class="line"><span class="cl">Your branch is up-to-date with <span class="s1">&#39;origin/master&#39;</span>.
+</span></span><span class="line"><span class="cl">nothing to commit, working directory clean
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="mostrando-tus-repositorios-remotos">Mostrando tus repositorios remotos</h2>
+<p>Para ver qué repositorios remotos tienes configurados, puedes ejecutar el comando <code>git remote</code>. Mostrará una lista con los nombres de los remotos que hayas especificado. Si has clonado tu repositorio, deberías ver por lo menos <em>&ldquo;origin&rdquo;</em> (es el nombre predeterminado que le da Git al servidor del que clonaste):</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ git remote
+</span></span><span class="line"><span class="cl">origin
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>También puedes añadir la opción -v, que muestra la URL asociada a cada repositorio remoto:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ git remote -v
+</span></span><span class="line"><span class="cl">origin  git@github.com:procamora/Wiki-Personal.git <span class="o">(</span>fetch<span class="o">)</span>
+</span></span><span class="line"><span class="cl">origin  git@github.com:procamora/Wiki-Personal.git <span class="o">(</span>push<span class="o">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="añadiendo-repositorios-remotos">Añadiendo repositorios remotos</h2>
+<p>Para añadir un nuevo repositorio Git remoto, asignándole un nombre con el que referenciarlo fácilmente, ejecuta <code>git remote add [nombre] [url]</code>:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git remote add wiki git://github.com/procamora/Wiki-Personal.git
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="recibiendo-de-tus-repositorios-remotos">Recibiendo de tus repositorios remotos</h2>
+<p>Para recuperar datos de los repositorios remotos usamos <code>git fetch [remote-name]</code>, aunque normalmente el nombre del repositoio lo podremos saltar ya que solo tendremos uno.</p>
+<p>Este comando recupera todos los datos del proyecto remoto que no tengas todavía. Después de hacer esto, deberías tener referencias a todas las ramas del repositorio remoto, que puedes unir o inspeccionar en cualquier momento.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ git fetch
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="enviando-a-tus-repositorios-remotos">Enviando a tus repositorios remotos</h2>
+<p>Cuando tu proyecto se encuentra en un estado que quieres compartir, tienes que enviarlo a un repositorio remoto. El comando que te permite hacer esto es sencillo: <code>git push [nombre-remoto][nombre-rama]</code>. Si quieres enviar tu rama maestra (master) a tu servidor origen (origin), ejecutarías esto para enviar tu trabajo al servidor:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ git push origin master
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Este comando funciona únicamente si has clonado de un servidor en el que tienes permiso de escritura, y nadie ha enviado información mientras tanto. Si tú y otra persona clonais a la vez, y él envía su información y luego envías tú la tuya, tu envío será rechazado. Tendrás que bajarte primero su trabajo e incorporarlo en el tuyo para que se te permita hacer un envío.</p>
+<h2 id="recibiendo-de-tus-repositorios-remotos-y-actualizando-los-ficheros">Recibiendo de tus repositorios remotos y actualizando los ficheros</h2>
+<p>Éste comando es muy similar a <code>git fetch</code> aunque realiza dos funciones simultáneas, <code>git pull</code> realiza un <code>git fetch</code> más un <code>git merge</code>. Se descarga los cambios que se encuentren en el repositorio remoto y los unifica con los cambios que tengamos en nuestro equipo.</p>
+<p>nota: utilizando este comando puede que ocurran conflictos.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ git pull
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="git-tag-multiples-formatos">git tag (multiples formatos)</h2>
+<p>Git usa dos tipos principales de etiquetas: ligeras y anotadas. Una etiqueta ligera es muy parecida a una rama que no cambia — un puntero a una confirmación específica —. Sin embargo, las etiquetas anotadas son almacenadas como objetos completos en la base de datos de Git. Tienen suma de comprobación; contienen el nombre del etiquetador, correo electrónico y fecha; tienen mensaje de etiquetado; y pueden estar firmadas y verificadas con GNU Privacy Guard (GPG). Generalmente se recomienda crear etiquetas anotadas para disponer de toda esta información; pero si por alguna razón quieres una etiqueta temporal y no quieres almacenar el resto de información, también tiene disponibles las etiquetas ligeras.</p>
+<h3 id="etiquetas-anotadas">Etiquetas anotadas</h3>
+<p>Crear una etiqueta anotada en Git es simple. La forma más fácil es especificar <code>-a</code> al ejecutar el comando <code>tag</code>.</p>
+<p>El parámetro <code>-m</code> especifica el mensaje, el cual se almacena con la etiqueta. Si no se especifica un mensaje para la etiqueta anotada, Git lanza tu editor para poder escribirlo.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ git tag -a v1.4 -m <span class="s1">&#39;my version 1.4&#39;</span>
+</span></span><span class="line"><span class="cl">$ git tag
+</span></span><span class="line"><span class="cl">v0.1
+</span></span><span class="line"><span class="cl">v1.3
+</span></span><span class="line"><span class="cl">v1.4
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Puedes ver los datos de la etiqueta junto con la confirmación que fue etiquetada usando el comando git show:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ git show v1.4
+</span></span><span class="line"><span class="cl">tag v1.4
+</span></span><span class="line"><span class="cl">Tagger: Scott Chacon &lt;schacon@gee-mail.com&gt;
+</span></span><span class="line"><span class="cl">Date:   Mon Feb <span class="m">9</span> 14:45:11 <span class="m">2009</span> -0800
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">my version 1.4
+</span></span><span class="line"><span class="cl">commit 15027957951b64cf874c3557a0f3547bd83b3ff6
+</span></span><span class="line"><span class="cl">Merge: 4a447f7... a6b4c97...
+</span></span><span class="line"><span class="cl">Author: Scott Chacon &lt;schacon@gee-mail.com&gt;
+</span></span><span class="line"><span class="cl">Date:   Sun Feb <span class="m">8</span> 19:02:46 <span class="m">2009</span> -0800
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    Merge branch <span class="s1">&#39;experiment&#39;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Esto muestra la información del autor de la etiqueta, la fecha en la que la confirmación fue etiquetada, y el mensaje de anotación antes de mostrar la información de la confirmación.</p>
+<p>Una vez que hayamos creado nuevos tags y queramos compartirlos con el repositorio remoto sólo debemos emplear el comando push con la bandera &ndash;tags de la siguiente manera:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ git push origin master --tags
+</span></span><span class="line"><span class="cl">Total <span class="m">0</span> <span class="o">(</span>delta 0<span class="o">)</span>, reused <span class="m">0</span> <span class="o">(</span>delta 0<span class="o">)</span>
+</span></span><span class="line"><span class="cl">To git@github.com:procamora/Wiki-Personal.git
+</span></span><span class="line"><span class="cl"> * <span class="o">[</span>new tag<span class="o">]</span>         v1.4 -&gt; v1.4
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="etiquetas-ligeras">Etiquetas ligeras</h3>
+<p>Otra forma de etiquetar confirmaciones es con una etiqueta ligera. Esto es básicamente la suma de comprobación de la confirmación almacenada en un archivo (ninguna otra información es guardada). Para crear una etiqueta ligera no añadas las opciones <code>-a</code>, <code>-s</code> o <code>-m</code>:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ git tag v1.4-lw
+</span></span><span class="line"><span class="cl">$ git tag
+</span></span><span class="line"><span class="cl">v0.1
+</span></span><span class="line"><span class="cl">v1.3
+</span></span><span class="line"><span class="cl">v1.4
+</span></span><span class="line"><span class="cl">v1.4-lw
+</span></span><span class="line"><span class="cl">v1.5
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Esta vez, si ejecutas el comando git show en la etiqueta, no verás ninguna información extra. El comando simplemente muestra la confirmación.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ git show v1.4-lw
+</span></span><span class="line"><span class="cl">commit 15027957951b64cf874c3557a0f3547bd83b3ff6
+</span></span><span class="line"><span class="cl">Merge: 4a447f7... a6b4c97...
+</span></span><span class="line"><span class="cl">Author: Scott Chacon &lt;schacon@gee-mail.com&gt;
+</span></span><span class="line"><span class="cl">Date:   Sun Feb <span class="m">8</span> 19:02:46 <span class="m">2009</span> -0800
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    Merge branch <span class="s1">&#39;experiment&#39;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="ignorando-ficheros">Ignorando ficheros</h2>
+<p>#####################################################################################</p>
+<p>Actualiza tu repositorio remoto en caso que algún otro desarrollador haya eliminado alguna rama remota.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">$ git remote prune origin
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Elimina los cambios realizados que aún no se hayan hecho commit.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">$ git reset --hard HEAD
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Revierte el commit realizado, identificado por el “hash_commit”.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">$ git revert &lt;hash_commit&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h1 id="header1">Manejo de ramas</h1>
+<p>Una rama Git es simplemente un apuntador móvil apuntando a una de esas confirmaciones. La rama por defecto de Git es la rama master. Con la primera confirmación de cambios que realicemos, se creará esta rama principal master apuntando a dicha confirmación. En cada confirmación de cambios que realicemos, la rama irá avanzando automáticamente. Y la rama master apuntará siempre a la última confirmación realizada.
+¿Qué sucede cuando creas una nueva rama? Pues que simplemente se crea un nuevo apuntador para que lo puedas mover libremente.</p>
+<p>A la hora de trabajar con ramas tenemos 2 opciones</p>
+<p>Como buena práctica dentro de las ramas del árbol es donde deberíamos introducir los cambios a nuestro proyecto y solo luego de comprobar que dichos cambios funcionan y tienen el comportamiento deseado los unimos con el árbol principal. Esto es porque queremos que el árbol se encuentre lo más limpio posible.</p>
+<h2 id="mark4">Ramas locales</h2>
+<p>Los comandos que usaremos en este apartado serán:</p>
+<ul>
+<li>git checkout -b</li>
+<li>git branch (múltiples comandos.)</li>
+<li>git merge</li>
+<li>git branch -d</li>
+</ul>
+<h3 id="crear-una-rama-local">Crear una rama local</h3>
+<p>El comando <code>checkout -b nombre_rama</code> es el comando corto para crear una nueva rama a partir de la rama actual y nos cambia a la misma.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ git checkout -b sbrk
+</span></span><span class="line"><span class="cl"><span class="c1"># hemos creado la nueva rama y nos cambiamos a la nueva rama</span>
+</span></span><span class="line"><span class="cl">Switched to a new branch <span class="s1">&#39;sbrk&#39;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="comprobar-en-que-rama-estamos">Comprobar en que rama estamos</h3>
+<p>El comando <code>git branch</code> se usa para el manejo de ramas, tiene múltiples parámetros pero los mas usados por mi son:</p>
+<p>Para ver en que rama nos encontramos en este momento habría que usar el comando <code>git branch</code>, como resultado obtendremos todas las ramas locales y con un asterisco (*) y en verde la rama en la que nos encontramos actualmente.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ git branch
+</span></span><span class="line"><span class="cl">* master
+</span></span><span class="line"><span class="cl">  sbrk
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Para ver el ultimo comentario de cada rama del proyecto usaremos el parámetro <em>-v</em> <code>git branch -v</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ git branch -v
+</span></span><span class="line"><span class="cl">* master       44dc25c Create init
+</span></span><span class="line"><span class="cl">  sbrk 44d6g5g add rama
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Listar todas las ramas locales y remotas.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ git branch -a
+</span></span><span class="line"><span class="cl">* master
+</span></span><span class="line"><span class="cl">  sbrk
+</span></span><span class="line"><span class="cl">  remotes/origin/HEAD -&gt; origin/master
+</span></span><span class="line"><span class="cl">  remotes/origin/master
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>REPASAR git branch -r</p>
+<h3 id="cambiar-entre-ramas">Cambiar entre ramas</h3>
+<p>Para cambiar de una rama a otra usaremos el comando <code>git checkout nombre_rama</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ git checkout master
+</span></span><span class="line"><span class="cl">D       content/code/2015_12_03_usos_rsync.md
+</span></span><span class="line"><span class="cl">M       theme/plumage
+</span></span><span class="line"><span class="cl">Switched to branch <span class="s1">&#39;master&#39;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="unión-de-ramas">Unión de ramas</h3>
+<p>Para unir dos ramas tenemos el comando <code>git merge nombre_rama</code>. Hay que tener especial cuidado a la hora de hacer una unión ya que es probable que aparezcan conflictos al intentar unir ambas ramas. Los conflictos ocurren por tratar de unir dos archivos (son el mismo pero están en diferentes ramas) que son diferentes al compararlos linea a linea.</p>
+<p>Para realizar una unión el proceso es el siguiente:</p>
+<ol>
+<li>Nos colocamos en la rama en la que queremos agregar la funcionalidad de la otra rama.</li>
+<li>Hacemos un merge de la rama que queremos unir <code>git merge otra_rama</code></li>
+</ol>
+<p>Por ejemplo si queremos añadir a la rama <em>master</em> la funcionalidad desarrollada en la rama <em>sbrk</em></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ git checkout master
+</span></span><span class="line"><span class="cl">$ git merge sbrk
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Podemos apreciar que la unión se realizó correctamente y sin conflictos.</span>
+</span></span><span class="line"><span class="cl">Updating 0022f43..bc8fc31
+</span></span><span class="line"><span class="cl">Fast-forward
+</span></span><span class="line"><span class="cl"> README.md <span class="p">|</span> <span class="m">5</span> +++++
+</span></span><span class="line"><span class="cl"> <span class="m">1</span> file changed, <span class="m">5</span> insertions<span class="o">(</span>+<span class="o">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="eliminar-una-rama-local">Eliminar una rama local</h3>
+<p>Cuando queremos eliminar una rama usaremos el comando <code>git branch -d nombre_rama</code> o <code>git branch -D nombre_rama</code> y con esto conseguiremos eliminar la rama.</p>
+<p>Es importante diferenciar entre los parámetros <code>-d</code> elimina la rama solamente si se ha unido sino nos mandara un error y <code>-D</code> elimina la rama aunque no se haya unido.</p>
+<p>Una buena practica es eliminar una rama después de unirla a la rama principal</p>
+<p>Por ejemplo si queremos eliminar la rama <em>sbrk</em> después de haberla unido a la rama principal usaremos el siguiente comando:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ git branch -d sbrk
+</span></span><span class="line"><span class="cl">Deleted branch sbrk <span class="o">(</span>was bc8fc31<span class="o">)</span>.
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="resolver-conflictos">Resolver conflictos</h3>
+<p>Cuando unimos dos ramas (merge) en ocasiones produciremos conflictos entre ficheros por tener el mismo fichero modificado en ramas diferentes. Cuando ocurre eso git nos abrirá con el editor que tengamos configurado por defecto el fichero que tenga el conflicto, tendremos que buscar las lineas que nos introduce git para indicarnos donde esta el problema que son: <code>&lt;&lt;&lt;&lt;</code>, <code>&gt;&gt;&gt;&gt;&gt;</code> y <code>======</code> eliminarlas y después procederemos a arreglar el código o texto adecuadamente, después ya podremos hacer el commit y el push.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ git checkout master
+</span></span><span class="line"><span class="cl">$ git merge sbrk
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Ocurrió un conflicto</span>
+</span></span><span class="line"><span class="cl">Auto-merging README.md
+</span></span><span class="line"><span class="cl">CONFLICT <span class="o">(</span>content<span class="o">)</span>: Merge conflict in README.md
+</span></span><span class="line"><span class="cl">Automatic merge failed<span class="p">;</span> fix conflicts and <span class="k">then</span> commit the result.
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="mark5">Ramas remotas</h2>
+<p>Una rama remota es una referencia al estado de una rama local en un repositorio remoto.</p>
+<p>Las ramas remotas tienen como convención de nombre el siguiente formato: <code>(remoto)/(rama)</code>, donde la rama principal en un repositorio remoto se llama <code>origin/master</code> y todas las subramas en el repositorio remoto tendrán el prefijo <code>origin</code> y del otro lado el nombre de la rama que queramos darle; en nuestro caso podría ser <code>primera-rama</code>.</p>
+<p>Importante: si no aplicamos el comando <code>git push origin master</code> cada vez que queramos respaldar cambios realizados localmente de nuestra rama principal el estado de la rama remota se quedará rezagado.</p>
+<h3 id="crear-una-rama-remota">Crear una rama remota</h3>
+<p>Para crear una rama remota primero hay que crear una rama local <code>git checkout -b rama</code> y despues mandarla al servidor con <code>git push origin rama</code>.</p>
+<p>Las ramas locales no se sincronizan automáticamente con las remotas, es un comportamiento que se debe realizar manualmente.</p>
+<p>Importante: Una rama local puede estar enlazada con una rama remota, pero no tienen porque tener el mismo nombre.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ git checkout -b sbrk
+</span></span><span class="line"><span class="cl">Switched to a new branch <span class="s1">&#39;sbrk&#39;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># una vez creada la rama vamos a crearla en el repositorio remoto.</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">$ git push origin sbrk
+</span></span><span class="line"><span class="cl">Total <span class="m">0</span> <span class="o">(</span>delta 0<span class="o">)</span>, reused <span class="m">0</span> <span class="o">(</span>delta 0<span class="o">)</span>
+</span></span><span class="line"><span class="cl">To git@github.com:codeheroco/tutorial-git.git
+</span></span><span class="line"><span class="cl"> * <span class="o">[</span>new branch<span class="o">]</span>      sbrk -&gt; sbrk
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="eliminar-una-rama-remota">Eliminar una rama remota</h3>
+<p>Cuando queremos borrar una rama remota ubicada en el servidor lo haremos con <code>git push origin :nombre_rama</code>.</p>
+<p>Esto lo que realiza es decirle al servidor que deseche la rama sbrk. El comando es prácticamente idéntico al que utilizamos para crear la rama remota, la única diferencia es que le pasamos el prefijo <code>:</code> antes del nombre de la rama.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ git push origin :sbrk
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="seguimiento-de-una-rama-remota">Seguimiento de una rama remota</h3>
+<p>Cuando clonamos un repositorio solo se clona la rama principal <code>master</code>, si queremos seguir tambien alguna rama adicional, tendremos que hacerlo manualmente con el comando <code>git checkout --track origin/&lt;nombre_rama&gt;</code> o la opcion corta <code>git checkout -t origin/&lt;nombre_rama&gt;</code>, si existe una rama remota de nombre <code>nombre_rama</code>, al ejecutar este comando se crea una rama local con el nombre <code>nombre_rama</code> para hacer un seguimiento de la rama remota con el mismo nombre.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ git checkout --track origin/sbrk
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Si quisieramos colaborar con una rama remota lo que tendriamos que hacer seria crear una nueva rama local (nueva_rama) y enlazarlo con la rama remota ubicada en el servidor (sbrk):</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ git checkout -b nueva_rama origin/sbrk
+</span></span><span class="line"><span class="cl">Branch nueva_rama <span class="nb">set</span> up to track remote branch sbrk from origin.
+</span></span><span class="line"><span class="cl">Switched to a new branch <span class="s1">&#39;nueva_rama&#39;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h1 id="header2">Manejo de submodulos</h1>
+<h1 id="otras-opciones">Otras opciones</h1>
+<h2 id="cambiar-la-uri-url-para-un-repositorio-git-remoto">Cambiar la URI (URL) para un repositorio git remoto</h2>
+<p><code>git remote set-url origin &lt;URL&gt;</code></p>
+<p>Fuente <a class="link" href="http://www.iteramos.com/pregunta/3785/cambiar-la-uri-url-para-un-repositorio-git-remoto"  target="_blank" rel="noopener"
+    >1</a></p>
+<h2 id="borrar-un-commit">Borrar un commit</h2>
+<p><code>git reset --hard HEAD~1</code></p>
+<h2 id="ver-url-repositorios-configurados">Ver url repositorios configurados</h2>
+<p><code>git remote -v</code></p>
+<h2 id="duplicar-un-repositorio">Duplicar un repositorio</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Make a bare clone of the repository</span>
+</span></span><span class="line"><span class="cl">git clone --bare git@github.com:procamora/old-repository.git
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Mirror-push to the new repository</span>
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> old-repository.git
+</span></span><span class="line"><span class="cl">git push --mirror git@github.com:procamora/new-repository.git
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Remove our temporary local repository</span>
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> ..
+</span></span><span class="line"><span class="cl">rm -rf old-repository.git
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Fuente <a class="link" href="https://help.github.com/articles/duplicating-a-repository/"  target="_blank" rel="noopener"
+    >1</a></p>
+<h2 id="trabajar-con-submodulos">Trabajar con submodulos</h2>
+<p><code>git submodule add git@github.com:procamora/procamora.github.io.git output</code></p>
+<p>Fuente <a class="link" href="https://chrisjean.com/git-submodules-adding-using-removing-and-updating/"  target="_blank" rel="noopener"
+    >1</a></p>
+<p>Fuentes usadas: <a class="link" href="https://es.wikipedia.org/wiki/Git"  target="_blank" rel="noopener"
+    >wikipedia</a>, <a class="link" href="http://librosweb.es/libro/pro_git/"  target="_blank" rel="noopener"
+    >librosweb</a>, <a class="link" href="http://codehero.co/series/git-desde-cero.html"  target="_blank" rel="noopener"
+    >codehero</a></p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/git/">git</a>
+        
+            <a href="/tags/linux/">linux</a>
+        
+            <a href="/tags/windows/">windows</a>
+        
+            <a href="/tags/consola/">consola</a>
+        
+            <a href="/tags/programacion/">programacion</a>
+        
+            <a href="/tags/ramas/">ramas</a>
+        
+            <a href="/tags/reopsitorio/">reopsitorio</a>
+        
+            <a href="/tags/submodulo/">submodulo</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/katex.min.css"integrity="sha256-J&#43;iAE0sgH8QSz9hpcDxXIftnj65JEZgNhGcgReTTK9s="crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/katex.min.js"integrity="sha256-InsNdER1b2xUewP&#43;pKCUJpkhiqwHgqiPXDlIk7GzBu4="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/contrib/auto-render.min.js"integrity="sha256-y39Mpg7V3D4lhBX4x6O0bUqTV4pSrfgwEfGKfxkOdgI="crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.querySelector(`.article-content`), {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ]
+        });})
+</script>
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Contenidos relacionados</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/p/tips-git/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/covers/software.png" loading="lazy" data-key="tips-git" data-hash="/covers/software.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Tips Git</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/configuracion_vim/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/covers/htb.png" loading="lazy" data-key="configuracion_vim" data-hash="/covers/htb.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Configuración vim</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/reducir-tamano-repositorio-git/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/covers/draft.png" loading="lazy" data-key="reducir-tamano-repositorio-git" data-hash="/covers/draft.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Reducir tamaño repositorio git</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/configuracion-cowrie/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/covers/software.png" loading="lazy" data-key="configuracion-cowrie" data-hash="/covers/software.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Configuración Cowrie</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/primeros-pasos-docker/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/covers/software.png" loading="lazy" data-key="primeros-pasos-docker" data-hash="/covers/software.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Primeros pasos Docker</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "procamora-github" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2022 #&gt; fireroot
+    </section>
+    
+    <section class="powerby">
+        
+            Esto es el footer <br/>
+        Creado con <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Tema <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.13.0">Stack</a></b> diseñado por <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Tabla de contenido</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#existen-una-serie-de-buenas-practicas-que-son">Existen una serie de buenas practicas que son:</a></li>
+  </ol>
+
+  <ol>
+    <li><a href="#inicializando-un-repositorio-en-un-directorio-existente">Inicializando un repositorio en un directorio existente</a></li>
+    <li><a href="#añadir-archivos">Añadir archivos</a></li>
+    <li><a href="#confirmar-los-cambios">Confirmar los cambios</a></li>
+    <li><a href="#enviar-cambios-al-servidor">Enviar cambios al servidor</a></li>
+    <li><a href="#clonacion-de-un-repositorio">clonacion de un repositorio</a></li>
+    <li><a href="#ver-estado-del-respositorio">ver estado del respositorio</a></li>
+    <li><a href="#comparar-diferencias">comparar diferencias</a></li>
+    <li><a href="#eliminando-archivos">Eliminando archivos</a></li>
+    <li><a href="#moviendo-archivos">Moviendo archivos</a></li>
+    <li><a href="#git-log-multiples-vistas">git log (multiples vistas)</a></li>
+    <li><a href="#modificando-tu-última-confirmación">Modificando tu última confirmación</a></li>
+    <li><a href="#deshaciendo-la-preparación-de-un-archivo">Deshaciendo la preparación de un archivo</a></li>
+    <li><a href="#deshaciendo-la-modificación-de-un-archivo">Deshaciendo la modificación de un archivo</a></li>
+    <li><a href="#mostrando-tus-repositorios-remotos">Mostrando tus repositorios remotos</a></li>
+    <li><a href="#añadiendo-repositorios-remotos">Añadiendo repositorios remotos</a></li>
+    <li><a href="#recibiendo-de-tus-repositorios-remotos">Recibiendo de tus repositorios remotos</a></li>
+    <li><a href="#enviando-a-tus-repositorios-remotos">Enviando a tus repositorios remotos</a></li>
+    <li><a href="#recibiendo-de-tus-repositorios-remotos-y-actualizando-los-ficheros">Recibiendo de tus repositorios remotos y actualizando los ficheros</a></li>
+    <li><a href="#git-tag-multiples-formatos">git tag (multiples formatos)</a>
+      <ol>
+        <li><a href="#etiquetas-anotadas">Etiquetas anotadas</a></li>
+        <li><a href="#etiquetas-ligeras">Etiquetas ligeras</a></li>
+      </ol>
+    </li>
+    <li><a href="#ignorando-ficheros">Ignorando ficheros</a></li>
+  </ol>
+
+  <ol>
+    <li><a href="#mark4">Ramas locales</a>
+      <ol>
+        <li><a href="#crear-una-rama-local">Crear una rama local</a></li>
+        <li><a href="#comprobar-en-que-rama-estamos">Comprobar en que rama estamos</a></li>
+        <li><a href="#cambiar-entre-ramas">Cambiar entre ramas</a></li>
+        <li><a href="#unión-de-ramas">Unión de ramas</a></li>
+        <li><a href="#eliminar-una-rama-local">Eliminar una rama local</a></li>
+        <li><a href="#resolver-conflictos">Resolver conflictos</a></li>
+      </ol>
+    </li>
+    <li><a href="#mark5">Ramas remotas</a>
+      <ol>
+        <li><a href="#crear-una-rama-remota">Crear una rama remota</a></li>
+        <li><a href="#eliminar-una-rama-remota">Eliminar una rama remota</a></li>
+        <li><a href="#seguimiento-de-una-rama-remota">Seguimiento de una rama remota</a></li>
+      </ol>
+    </li>
+  </ol>
+
+  <ol>
+    <li><a href="#cambiar-la-uri-url-para-un-repositorio-git-remoto">Cambiar la URI (URL) para un repositorio git remoto</a></li>
+    <li><a href="#borrar-un-commit">Borrar un commit</a></li>
+    <li><a href="#ver-url-repositorios-configurados">Ver url repositorios configurados</a></li>
+    <li><a href="#duplicar-un-repositorio">Duplicar un repositorio</a></li>
+    <li><a href="#trabajar-con-submodulos">Trabajar con submodulos</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

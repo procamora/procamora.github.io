@@ -1,0 +1,426 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>twrp on #&gt; fireroot</title>
+        <link>https://www.procamora.com/tags/twrp/</link>
+        <description>Recent content in twrp on #&gt; fireroot</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>es</language>
+        <lastBuildDate>Thu, 03 Oct 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://www.procamora.com/tags/twrp/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Flashear Nexus 9</title>
+        <link>https://www.procamora.com/p/flashear-nexus-9/</link>
+        <pubDate>Thu, 03 Oct 2019 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/p/flashear-nexus-9/</guid>
+        <description>&lt;img src="https://www.procamora.com/covers/android.png" alt="Featured image of post Flashear Nexus 9" /&gt;&lt;p&gt;Status: published&lt;/p&gt;
+&lt;p&gt;Vamos a explicar el proceso para flashear la Nexus 9 LTE con distintas ROMs mediante &lt;code&gt;adb sideload&lt;/code&gt;. Este es un proceso bastante mas simple y rápido que los que se realizaban antiguamente. Se puede realizar en cualquier dispositivo.&lt;/p&gt;
+&lt;p&gt;Este procedimiento ha sido probado con las ROMs de LineageOS y SlimRoms.&lt;/p&gt;
+&lt;h1 id=&#34;requisitos-básicos&#34;&gt;Requisitos básicos&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;Tener instalado &lt;code&gt;adb&lt;/code&gt; y &lt;code&gt;fastboot&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Tener habilitado el USB debugging en el dispositivo.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Verificar que se tiene permiso para ejecutar &lt;code&gt;adb&lt;/code&gt; con el usuario. En caso de no tener permiso realizarlo con root.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&#34;desbloquear-el-bootloader&#34;&gt;Desbloquear el bootloader&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Si esta activado el bloqueo OEM hay que desactivarlo en las opciones de desarrollo.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Reiniciamos el dispositivo en modo fastboot:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;adb reboot bootloader
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;``&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;También se puede hacer presionando las teclas: &lt;strong&gt;Bajar volumen&lt;/strong&gt; y &lt;strong&gt;Power&lt;/strong&gt; con el dispositivo apagado hasta que aparezca el gestor de arranque. Después seleccionar &lt;em&gt;FASTBOOT&lt;/em&gt; y pulsar &lt;strong&gt;Power&lt;/strong&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Verificar que el dispositivo esta en modo &lt;em&gt;FASTBOOT&lt;/em&gt; con:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;fastboot devices
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;``&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;HT51EWV00595    fastboot
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;``&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Si el dispositivo esta bloqueado con OEM hay que desbloquearlo con:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;fastboot oem unlock
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;``&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;(bootloader) ability is 1
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;(bootloader) Device stete is unlock already
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;OKAY [  0.142s]
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Finished. Total time: 0.142s
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;``&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Este comando reiniciara el dispositivo automáticamente.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1 id=&#34;instalar-un-recovery-personalizado-usando-fastboot&#34;&gt;Instalar un recovery personalizado usando fastboot&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Descargar un recovery personalizado, como por ejemplo &lt;a class=&#34;link&#34; href=&#34;https://dl.twrp.me/flounder/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;TWRP&lt;/a&gt;. Este tendrá un formato similar a &lt;em&gt;twrp-x.x.x-x-flounder.img&lt;/em&gt;.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Importante, descargar el recovery des dispositivo que vas a usar puedes buscarlo en &lt;a class=&#34;link&#34; href=&#34;https://twrp.me/Devices/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://twrp.me/Devices/&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Reiniciar el dispositivo en modo &lt;em&gt;FASTBOOT&lt;/em&gt;, para ello es necesario que el dispositivo este encendido. Este paso se puede saltar si ya se tenia desbloqueado el OEM, ya que el dispositivo no se habrá reiniciado y seguirá en modo &lt;em&gt;FASTBOOT&lt;/em&gt;.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;adb reboot bootloader
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;``&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Verificar que el dispositivo esta en modo &lt;em&gt;FASTBOOT&lt;/em&gt; con:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;fastboot devices
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;``&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;HT51EWV00595    fastboot
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;``&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Flashear el dispositivo con la imagen previamente descargada:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;fastboot flash recovery &amp;lt;recovery_filename&amp;gt;.img
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;``&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Sending &amp;#39;recovery&amp;#39; (13254 KB)                      OKAY [  0.761s]
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Writing &amp;#39;recovery&amp;#39;                                 (bootloader) Device State : Unlocked
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;OKAY [  1.034s]
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Finished. Total time: 1.800s
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;``&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Reiniciar el dispositivo en modo recovery, esto se puede realizar manualmente usando las teclas de &lt;em&gt;Volumen&lt;/em&gt; y &lt;em&gt;Power&lt;/em&gt; o con el comando:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;fastboot boot &amp;lt;recovery_filename&amp;gt;.img
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;``&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Downloading &amp;#39;boot.img&amp;#39;                             OKAY [  0.740s]
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;booting                                            OKAY [  0.174s]
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Finished. Total time: 0.919s
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;``&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1 id=&#34;instalar-rom-desde-el-recovery&#34;&gt;Instalar ROM desde el recovery&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Descargar la ROM deseada, en mi caso ha sido &lt;a class=&#34;link&#34; href=&#34;https://slimroms.org/#/device/flounder_lte&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;SlimRoms&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Descargar las Google Apps, están disponibles en &lt;a class=&#34;link&#34; href=&#34;https://opengapps.org/?api=7.1&amp;amp;variant=nano&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;OpenGApps&lt;/a&gt;. Para la Nexus 9 hay que seleccionar como plataforma ARM64. Con la &lt;em&gt;nano&lt;/em&gt; es suficiente.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Una vez descargados los ficheros que vamos a utilizar, tenemos que estar en el modo Recovery con TWRP.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Vamos al menú de &lt;strong&gt;Wipe&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Seleccionamos &lt;strong&gt;Format Data&lt;/strong&gt; y escribimos &lt;em&gt;yes&lt;/em&gt;. Este proceso elimina la encriptación del disco y borra los datos de la memoria interna.&lt;/li&gt;
+&lt;li&gt;Volvemos al menú de &lt;strong&gt;Wipe&lt;/strong&gt; y seleccionamos &lt;strong&gt;Advanced Wipe&lt;/strong&gt;. Aquí seleccionamos &lt;em&gt;Cache&lt;/em&gt; y &lt;em&gt;System&lt;/em&gt; para hacer un wipe de estas particiones&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Finalmente solo queda instalar la ROM y las GApps, para hacer esto vamos a &lt;strong&gt;Advanced&lt;/strong&gt; y después a &lt;strong&gt;ADB Sideload&lt;/strong&gt;, hacemos swipe para iniciar el sideload, después de cada instalación es necesario volver a iniciarlo.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Instalamos la ROM&lt;/li&gt;
+&lt;li&gt;Instalamos las GApps&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;adb sideload rom.zip
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;adb sideload gapps.zip
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;``&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;IMPORTANTE:&lt;/strong&gt; &lt;a class=&#34;link&#34; href=&#34;https://forum.xda-developers.com/nexus-9/development/fix-fed-patcher-forceencrypt-disable-t3200168&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Instalar FED-Patcher v7 (ForceEncrypt Disable Patcher)&lt;/a&gt;, solo en la Nexus 9 con el objetivo de que el disco no se cifre, ya que reduce el rendimiento y se nota bastante. Podemos descargarlo tanto del foro xda, donde su creador lo ha publicado como desde &lt;a class=&#34;link&#34; href=&#34;https://www.procamora.com/descargas/fed_patcher_v7-signed.zip&#34; &gt;aquí&lt;/a&gt;.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;adb sideload fed_patcher_v7-signed.zip
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;``&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Una vez instalado todo lo necesario reiniciar el dispositivo y esperar a que arranque con normalidad, puede llegar a tardar mas de 10 minutos.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;adb reboot
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;``&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Como fuente para la realización de este manual se ha usado: &lt;a class=&#34;link&#34; href=&#34;https://wiki.lineageos.org/devices/flounder_lte/install&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;0&lt;/a&gt;&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>Instalar Remix OS en Nexus 9</title>
+        <link>https://www.procamora.com/p/instalar-remix-os-en-nexus-9/</link>
+        <pubDate>Wed, 27 Jan 2016 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/p/instalar-remix-os-en-nexus-9/</guid>
+        <description>&lt;img src="https://www.procamora.com/covers/android.png" alt="Featured image of post Instalar Remix OS en Nexus 9" /&gt;&lt;p&gt;Instrucciones para instalar la rom de Remix OS 1.5 en una Nexus 9&lt;/p&gt;
+&lt;p&gt;#Requisitos:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Tener el móvil con al menos el &lt;strong&gt;50%&lt;/strong&gt; de batería.&lt;/li&gt;
+&lt;li&gt;Tener liberado el &lt;strong&gt;bootloader&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Tener &lt;strong&gt;twrp&lt;/strong&gt; instalado, en caso de no tenerlo instalarlo.
+(url de donde explico como instalarlo).&lt;/li&gt;
+&lt;li&gt;tener &lt;strong&gt;Android 5.0.1&lt;/strong&gt; (no se si es necesario).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;#Pasos:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Descargarse el zip de la rom de: &lt;a class=&#34;link&#34; href=&#34;https://www.androidfilehost.com/?fid=24369303960687942&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;descarga&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Con twrp hacer un advanced wipe de:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Dalvik Cache&lt;/li&gt;
+&lt;li&gt;System&lt;/li&gt;
+&lt;li&gt;Data&lt;/li&gt;
+&lt;li&gt;Cache&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.procamora.com/images/wipe.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;wipe.jpg&#34;
+	
+	
+&gt;{:height=&amp;ldquo;auto&amp;rdquo; width=&amp;ldquo;100%&amp;rdquo;}&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Poner el zip de la rom en la memoria interna del dispositivo&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;mv chroma_mako-2016-01-18.zip /media/nexus9/Internal Storage/&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;instalar la zip con twrp
+&lt;img src=&#34;https://www.procamora.com/images/installrom.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;installrom.jpg&#34;
+	
+	
+&gt;{:height=&amp;ldquo;auto&amp;rdquo; width=&amp;ldquo;100%&amp;rdquo;}
+&lt;img src=&#34;https://www.procamora.com/images/install_rom.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;install_rom.jpg&#34;
+	
+	
+&gt;{:height=&amp;ldquo;auto&amp;rdquo; width=&amp;ldquo;100%&amp;rdquo;}&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Instalar gaps&lt;/p&gt;
+&lt;p&gt;poner foto&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Hacer un wipe(No se si es necesario)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Reiniciar dispositivo y esperar unos 5-10 min a que se inicie correctamente&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;http://forum.xda-developers.com/nexus-9/development/5-1-1r6-resurrection-remix-unofficial-t3157330&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;http://forum.xda-developers.com/nexus-9/development/5-1-1r6-resurrection-remix-unofficial-t3157330&lt;/a&gt;&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>Instalar TWRP en android</title>
+        <link>https://www.procamora.com/p/instalar-twrp-en-android/</link>
+        <pubDate>Tue, 26 Jan 2016 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/p/instalar-twrp-en-android/</guid>
+        <description>&lt;img src="https://www.procamora.com/covers/android.png" alt="Featured image of post Instalar TWRP en android" /&gt;&lt;p&gt;Proceso para instalar el recovery de TWRP en Android debemos hacer lo siguiente:&lt;/p&gt;
+&lt;h1 id=&#34;requisitos&#34;&gt;Requisitos:&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;Tener el móvil con al menos el &lt;strong&gt;50%&lt;/strong&gt; de batería.&lt;/li&gt;
+&lt;li&gt;Tener instalados los &lt;strong&gt;drivers&lt;/strong&gt; del dispositivo. &lt;a class=&#34;link&#34; href=&#34;http://developer.android.com/intl/es/sdk/win-usb.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Descarga&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Tener instalado &lt;strong&gt;ADB Tools&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Tener habilitada la &lt;strong&gt;depuración USB&lt;/strong&gt;.
+&lt;img src=&#34;https://www.procamora.com/images/usbdebbug.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;usbdebbug.jpg&#34;
+	
+	
+&gt;{:height=&amp;ldquo;auto&amp;rdquo; width=&amp;ldquo;100%&amp;rdquo;}&lt;/li&gt;
+&lt;li&gt;Recomendado: Tener liberado el &lt;strong&gt;bootloader&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;pasos&#34;&gt;Pasos:&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Para buscar la imagen de TWRP de nuestro dispositivo tenemos que buscarla desde &lt;a class=&#34;link&#34; href=&#34;https://twrp.me/Devices/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;aquí&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Una vez que hemos buscado la pagina de nuestro dispositivo y nos hemos descargado la imagen hay que reiniciar el dispositivo en el modo bootloader, se puede hacer de 2 formas distintas:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Con el comando: &lt;code&gt;adb reboot bootloader&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Botón Power + Bajar Volumen&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Comprobamos que fastboot detecta el dispositivo con &lt;code&gt;fastboot devices&lt;/code&gt;, si lo detecta procedemos a instalar twrp&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;fastboot flash recovery twrp-2.8.x.x-xxx.img&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Una vez que lo hemos instalado procedemos a reiniciar el dispositivo y ya lo tenemos listo con twrp instalado&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;fastboot reboot&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;En resumen:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;adb reboot bootloader
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;fastboot flash recovery twrp-2.8.x.x-xxx.img
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;fastboot reboot
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h1 id=&#34;descargas-de-imágenes-y-paginas-oficiales-a-fecha-de-22012016&#34;&gt;Descargas de imágenes y paginas oficiales: (a fecha de 22/01/2016)&lt;/h1&gt;
+&lt;p&gt;Nexus 4: &lt;a class=&#34;link&#34; href=&#34;https://twrp.me/devices/lgnexus4.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Pagina&lt;/a&gt; &lt;a class=&#34;link&#34; href=&#34;https://dl.twrp.me/mako/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;url&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Nexus 9: &lt;a class=&#34;link&#34; href=&#34;https://twrp.me/devices/htcnexus9.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Pagina&lt;/a&gt; &lt;a class=&#34;link&#34; href=&#34;https://dl.twrp.me/flounder/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;url&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Nexus 5X: &lt;a class=&#34;link&#34; href=&#34;https://twrp.me/devices/lgnexus5x.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Pagina&lt;/a&gt; &lt;a class=&#34;link&#34; href=&#34;https://dl.twrp.me/bullhead/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;url&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Fuentes: &lt;a class=&#34;link&#34; href=&#34;http://androiding.how/how-to-install-twrp-recovery-via-fastboot/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;0&lt;/a&gt; &lt;a class=&#34;link&#34; href=&#34;https://getmovil.com/nexus/instalar-android-4-4-4/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;1&lt;/a&gt;&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

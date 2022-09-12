@@ -1,0 +1,1034 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='El objetivo es concatenar múltiples pdf en un único pdf, intentando mantener la estructura interna de los pdf a unir.'><title>Concatenar pdf</title>
+
+<link rel='canonical' href='https://www.procamora.com/p/concatenar-pdf/'>
+
+<link rel="stylesheet" href="/scss/style.min.ac77dcf8b111b51da39a92990f431923f210f3876d85798a2125667f96dc33a4.css"><meta property='og:title' content='Concatenar pdf'>
+<meta property='og:description' content='El objetivo es concatenar múltiples pdf en un único pdf, intentando mantener la estructura interna de los pdf a unir.'>
+<meta property='og:url' content='https://www.procamora.com/p/concatenar-pdf/'>
+<meta property='og:site_name' content='#&gt; fireroot'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='markdown' /><meta property='article:tag' content='pdf' /><meta property='article:tag' content='pdfunite' /><meta property='article:tag' content='gs' /><meta property='article:tag' content='markdown' /><meta property='article:tag' content='linux' /><meta property='article:tag' content='ghostscript' /><meta property='article:tag' content='pdfjam' /><meta property='article:tag' content='imagemagick' /><meta property='article:tag' content='smallpdf' /><meta property='article:tag' content='python' /><meta property='article:tag' content='pypdf2' /><meta property='article:published_time' content='2016-05-11T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2016-05-11T00:00:00&#43;00:00'/><meta property='og:image' content='https://www.procamora.com/covers/software.png' />
+<meta name="twitter:title" content="Concatenar pdf">
+<meta name="twitter:description" content="El objetivo es concatenar múltiples pdf en un único pdf, intentando mantener la estructura interna de los pdf a unir."><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://www.procamora.com/covers/software.png' />
+    <link rel="shortcut icon" href="img/favicon.ico" />
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/icons/procamora_30_hua3d16f4d7ffad1a52a64c31db4447108_16949_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">#&gt; fireroot</a></h1>
+            <h2 class="site-description">Mi wiki donde escribo artículos sobre Linux, Ciberseguridad y temas relacionados.</h2>
+        </div>
+    </header><ol class="social-menu">
+            
+                <li>
+                    <a 
+                        href='https://github.com/procamora'
+                        target="_blank"
+                        title="GitHub"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='mailto:pablojoserocamora@gmail.com'
+                        target="_blank"
+                        title="Gmail"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-gmail" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"> <path stroke="none" d="M0 0h24v24H0z" fill="none"/> <path d="M16 20h3a1 1 0 0 0 1 -1v-14a1 1 0 0 0 -1 -1h-3v16z" /> <path d="M5 20h3v-16h-3a1 1 0 0 0 -1 1v14a1 1 0 0 0 1 1z" /> <path d="M16 4l-4 4l-4 -4" /> <path d="M4 6.5l8 7.5l8 -7.5" /> </svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://es.linkedin.com/in/pablo-rocamora'
+                        target="_blank"
+                        title="Linkedin"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-linkedin" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"> <path stroke="none" d="M0 0h24v24H0z" fill="none"/> <rect x="4" y="4" width="16" height="16" rx="2" /> <line x1="8" y1="11" x2="8" y2="16" /> <line x1="8" y1="8" x2="8" y2="8.01" /> <line x1="12" y1="16" x2="12" y2="11" /> <path d="M16 16v-3a2 2 0 0 0 -4 0" /> </svg>
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archivos</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Buscar</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/acerca-de/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>Acerca de</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/index.xml' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-rss" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="5" cy="19" r="1" />
+  <path d="M4 4a16 16 0 0 1 16 16" />
+  <path d="M4 11a9 9 0 0 1 9 9" />
+</svg>
+
+
+
+                
+                <span>Feed</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+                <li id="i18n-switch">  
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                    <select name="language" onchange="window.location.href = this.selectedOptions[0].value">
+                        
+                            <option value="https://www.procamora.com/" selected>Español</option>
+                        
+                            <option value="https://www.procamora.com/en/" >English</option>
+                        
+                    </select>
+                </li>
+            
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Modo oscuro</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+<main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/concatenar-pdf/">
+                
+                    <img src="/covers/software.png" loading="lazy" alt="Featured image of post Concatenar pdf" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/software/" >
+                Software
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/concatenar-pdf/">Concatenar pdf</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            El objetivo es concatenar múltiples pdf en un único pdf, intentando mantener la estructura interna de los pdf a unir.
+        </h3>
+        
+    </div>
+
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">May 11, 2016</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    4 minutos a leer
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+
+    <div class="article-category">
+        
+            
+                
+            
+            
+                <a href='https://github.com/procamora/dummy/edit/main/content/post/Software/concatenar-pdf.md' style="background-color: #5bc0de" >Edit this page on GitHub</a>
+            
+            
+                <a href='https://github.com/procamora/dummy/edit/main/content/post/Software/concatenar-pdf.md' style="background-color: #5bc0de" >Download article PDF</a>
+            
+        
+    </div>
+</div>
+</header>
+
+    <section class="article-content">
+    
+    
+    <h1 id="introducción">Introducción:</h1>
+<p>El objetivo es concatenar múltiples pdf en un único pdf, intentando mantener la estructura interna de los pdf a unir.</p>
+<p>Para hacer esto tenemos múltiples opciones:</p>
+<ul>
+<li><a class="link" href="#header1" >Concatenar por linea de comandos</a>:
+<ul>
+<li><a class="link" href="#mark0" >pdfunite</a></li>
+<li><a class="link" href="#mark1" >ImageMagick</a></li>
+<li><a class="link" href="#mark2" >pdfjam</a></li>
+<li><a class="link" href="#mark3" >Ghostscript Pad</a></li>
+</ul>
+</li>
+<li><a class="link" href="#header2" >Concatenar con librerias externas</a>:
+<ul>
+<li><a class="link" href="#mark4" >Python</a></li>
+</ul>
+</li>
+<li><a class="link" href="#header3" >Concatenar Online</a>:
+<ul>
+<li><a class="link" href="#mark5" >smallpdf</a></li>
+</ul>
+</li>
+<li><a class="link" href="#header4" >Resumen general</a></li>
+<li><a class="link" href="#header5" >Conclusion final</a></li>
+</ul>
+<h1 id="header1">Concatenar por linea de comandos</h1>
+<ul>
+<li><a class="link" href="#mark0" >pdfunite</a></li>
+<li><a class="link" href="#mark1" >ImageMagick</a></li>
+<li><a class="link" href="#mark2" >pdfjam</a></li>
+<li><a class="link" href="#mark3" >Ghostscript Pad</a></li>
+</ul>
+<h2 id="mark0">Pdfunite</h2>
+<p><a class="link" href="https://github.com/mtgrosser/pdfunite"  target="_blank" rel="noopener"
+    >Pdfunite</a> es una herramienta muy simple excrita en ruby para unir pdf, se instala rápido, funciona bien pero el indice de los pdf se lo carga.</p>
+<h3 id="instalación">Instalación.</h3>
+<p>Solo hay que instalar el paquete <code>poppler</code> que lo contiene.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">dnf install poppler-utils
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="unión-de-pdf">Unión de pdf.</h3>
+<p>Para unir varios pdf lo único que hay que hacer es pasárselos a pdfunite como argumento teniendo en cuenta que se irán añadiendo al pdf en el mismo orden y que el ultimo parámetro debe de ser el nombre del pdf resultante.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">pdfunite pdf1.pdf pdf2.pdf output.pdf
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Como inconveniente el indice que traigan otros pdf se lo carga.</p>
+<h2 id="mark1">ImageMagick (no recomendado)</h2>
+<p>Este método funciona pero reduce la calidad (resolucion) del pdf un poco y aumenta bastante el tamaño del pdf resultante, su uso seria el siguiente:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">convert -density 300x300 -quality 100 pdf1.pdf pdf2.pdf output.pdf
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="mark2">Pdfjam </h2>
+<p><a class="link" href="http://www2.warwick.ac.uk/fac/sci/statistics/staff/academic-research/firth/software/pdfjam/"  target="_blank" rel="noopener"
+    >Pdfjam</a> es un conjunto de pequeños script para hacer modificaciones a pdf, pero a nosotros la única herramienta que nos interesa ahora mismo es pdfjam que es la principal, ya que es la que usaremos para unir los pdf.</p>
+<h3 id="instalación-1">Instalación.</h3>
+<p>La Instalación en Fedora es simple, solo hay que instalar un paquete.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">[sudo] dnf install  pdfjam
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="union-de-pdf">Union de pdf.</h3>
+<p>Para unir varios pdf lo único que hay que hacer es pasárselos a pdfjam como argumento teniendo en cuenta que se irán añadiendo al pdf en el mismo orden y que el pdf resultante debe ir precedido por un <code>-o</code> para indicar que es la salida.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">pdfjam pdf1.pdf pdf2.pdf -o output.pdf
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Como inconveniente el indice que traigan otros pdf se lo carga.</p>
+<h2 id="mark3">Ghostscript</h2>
+<p>Ghostscript es un paquete que te permite ver o imprimir archivos PostScript y PDF en otros formatos o a partir de estos a otros formatos, pero a demás de todo eso también te permite unir archivos pdf. La instalación no es necesaria al menos en Fedora 24 ya que venia instalado por defecto.</p>
+<h3 id="unión-de-pdf-1">Unión de pdf.</h3>
+<p>En este apartado al ser una herramienta bastante completa podríamos hacerlo de múltiples formas, antes de ponerla pondré algunos parámetros importantes que pasaremos a Ghostscript:</p>
+<ul>
+<li>-dBATCH: una vez que Ghostscript procesa los archivos PDF, debe salir. Si no incluye esta opción, Ghostscript seguirá ejecutándose.</li>
+<li>-dNOPAUSE: obliga a Ghostscript a procesar cada página sin pausar la interacción del usuario.</li>
+<li>-q: para que Ghostscript no muestre mensajes mientras funciona.</li>
+<li>-sDEVICE=pdfwrite: le dice a Ghostscript que use su escritor de PDF incorporado para procesar los archivos.</li>
+<li>-sOutputFile=output.pdf: le dice a Ghostscript que guarde el archivo PDF combinado con el nombre que especifico.</li>
+</ul>
+<h4 id="unir-varios-pdf">Unir varios pdf.</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">gs -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite -sOutputFile=output.pdf pdf1.pdf pdf2.pdf
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="unir-varios-pdf-haciendo-una-pequeña-compresión">Unir varios pdf haciendo una pequeña compresión.</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">gs -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite -dPDFSETTINGS=/prepress -sOutputFile=output.pdf pdf1.pdf pdf2.pdf
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="unir-varios-pdf-haciendo-una-gran-compresión-revisar-porque-puede-haber-perdidas-de-calidad-visibles">Unir varios pdf haciendo una gran compresión, revisar porque puede haber perdidas de calidad visibles.</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">gs -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite -dPDFSETTINGS=/default -dCompatibilityLevel=1.4 -dQUIET -dDetectDuplicateImages -dCompressFonts=true -r150 -sOutputFile=output.pdf pdf1.pdf pdf2.pdf
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Fuentes: <a class="link" href="http://stackoverflow.com/questions/2507766/merge-convert-multiple-pdf-files-into-one-pdf"  target="_blank" rel="noopener"
+    >stackoverflow</a>, <a class="link" href="https://www.linux.com/news/putting-together-pdf-files"  target="_blank" rel="noopener"
+    >linux.com</a></p>
+<h1 id="header2">Concatenar con librerías externas</h1>
+<ul>
+<li><a class="link" href="#mark4" >Python</a></li>
+</ul>
+<h2 id="mark4">Python</h2>
+<p>En python podemos usar la librería pyPdf2 que depende de la librería pdf. El resultado es un pdf con el nombre <code>salida.pdf</code> que tiene buena calidad pero no mantiene los indices</p>
+<blockquote>
+<p>IMPORTANTE: Actualizar el script para pasarle distintos argumentos como -o para hacerlo dinamico y que no tenga un fichero de salida statico</p>
+</blockquote>
+<h3 id="instalación-2">Instalación.</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="o">[</span>sudo<span class="o">]</span> pip install pdf pyPdf2
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="unir-varios-pdf-1">Unir varios pdf.</h4>
+<p>Uso: <code>python concatena_pdf.py portada.pdf memoria.pdf</code></p>
+<p><a class="link" href="/code/concatena_pdf.py" >Descargar script</a></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="ch">#!/usr/bin/env python</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">pyPdf</span> <span class="kn">import</span> <span class="n">PdfFileReader</span><span class="p">,</span> <span class="n">PdfFileWriter</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">sys</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#Fuente: http://stackoverflow.com/questions/3444645/merge-pdf-files</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Creating a routine that appends files to the output file</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">append_pdf</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span><span class="n">output</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="p">[</span><span class="n">output</span><span class="o">.</span><span class="n">addPage</span><span class="p">(</span><span class="nb">input</span><span class="o">.</span><span class="n">getPage</span><span class="p">(</span><span class="n">page_num</span><span class="p">))</span> <span class="k">for</span> <span class="n">page_num</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">input</span><span class="o">.</span><span class="n">numPages</span><span class="p">)]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">	<span class="c1"># Creating an object where pdf pages are appended to</span>
+</span></span><span class="line"><span class="cl">	<span class="n">output</span> <span class="o">=</span> <span class="n">PdfFileWriter</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="c1"># Appending two pdf-pages from two different files</span>
+</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="n">pdf</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">:]:</span>
+</span></span><span class="line"><span class="cl">		<span class="n">append_pdf</span><span class="p">(</span><span class="n">PdfFileReader</span><span class="p">(</span><span class="n">file</span><span class="p">(</span><span class="n">pdf</span><span class="p">,</span><span class="s2">&#34;rb&#34;</span><span class="p">)),</span><span class="n">output</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="c1"># Writing all the collected pages to a file</span>
+</span></span><span class="line"><span class="cl">	<span class="n">output</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="s2">&#34;salida.pdf&#34;</span><span class="p">,</span><span class="s2">&#34;wb&#34;</span><span class="p">))</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h1 id="header3">Concatenar Online</h1>
+<ul>
+<li><a class="link" href="#mark5" >smallpdf</a></li>
+</ul>
+<h2 id="mark5">Smallpdf</h2>
+<p><a class="link" href="https://smallpdf.com/"  target="_blank" rel="noopener"
+    >Smallpdf</a> es una pagina online en la que podemos hacer múltiples operaciones con pdf como unirlos, separarlos y convertirlos a múltiples formatos, funciona bastante bien pero supongo que tendrá limitaciones en cuanto al tamaño de los ficheros y el numero máximo de operaciones a hacer con una cuenta gratis/sin registrar.</p>
+<h1 id="header4">Resumen general</h1>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>herramienta</th>
+<th>mantiene integridad del indice</th>
+<th>calidad resultante</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>pdfunite</td>
+<td>❌</td>
+<td>✔</td>
+</tr>
+<tr>
+<td>ImageMagick</td>
+<td>❌</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>pdfjam</td>
+<td>❌</td>
+<td>✔</td>
+</tr>
+<tr>
+<td>Ghostscript</td>
+<td>✔</td>
+<td>✔</td>
+</tr>
+<tr>
+<td>pyPdf2</td>
+<td>❌</td>
+<td>✔</td>
+</tr>
+<tr>
+<td>smallpdf</td>
+<td>❌</td>
+<td>✔</td>
+</tr>
+</tbody>
+</table></div>
+<h1 id="header5">Conclusión final</h1>
+<p>Creo que en este caso la mejor opción es Ghostscript ya que es la unica que mantiene el indice después de la unión.</p>
+<p>Fuente: <a class="link" href="http://jamesmcdonald.id.au/it-tips/alternative-to-pdftk-under-fedora-21"  target="_blank" rel="noopener"
+    >0</a>, <a class="link" href="https://blog.dbrgn.ch/2013/8/14/merge-multiple-pdfs/"  target="_blank" rel="noopener"
+    >1</a></p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/pdf/">pdf</a>
+        
+            <a href="/tags/pdfunite/">pdfunite</a>
+        
+            <a href="/tags/gs/">gs</a>
+        
+            <a href="/tags/markdown/">markdown</a>
+        
+            <a href="/tags/linux/">linux</a>
+        
+            <a href="/tags/ghostscript/">ghostscript</a>
+        
+            <a href="/tags/pdfjam/">pdfjam</a>
+        
+            <a href="/tags/imagemagick/">imagemagick</a>
+        
+            <a href="/tags/smallpdf/">smallpdf</a>
+        
+            <a href="/tags/python/">python</a>
+        
+            <a href="/tags/pypdf2/">pypdf2</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/katex.min.css"integrity="sha256-J&#43;iAE0sgH8QSz9hpcDxXIftnj65JEZgNhGcgReTTK9s="crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/katex.min.js"integrity="sha256-InsNdER1b2xUewP&#43;pKCUJpkhiqwHgqiPXDlIk7GzBu4="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/contrib/auto-render.min.js"integrity="sha256-y39Mpg7V3D4lhBX4x6O0bUqTV4pSrfgwEfGKfxkOdgI="crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.querySelector(`.article-content`), {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ]
+        });})
+</script>
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Contenidos relacionados</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/p/markdown-to-pdf/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/covers/software.png" loading="lazy" data-key="markdown-to-pdf" data-hash="/covers/software.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">markdown to pdf</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/optimizar-pdf/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/covers/software.png" loading="lazy" data-key="optimizar-pdf" data-hash="/covers/software.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Optimizar PDF&#39;s</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/descargar-video-youtube-con-python/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/covers/software.png" loading="lazy" data-key="descargar-video-youtube-con-python" data-hash="/covers/software.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Descargar video youtube con python</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/configuracion_vim/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/covers/htb.png" loading="lazy" data-key="configuracion_vim" data-hash="/covers/htb.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Configuración vim</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/export-easyeda/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/covers/software.png" loading="lazy" data-key="export-easyeda" data-hash="/covers/software.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Export EasyEda</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "procamora-github" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2022 #&gt; fireroot
+    </section>
+    
+    <section class="powerby">
+        
+            Esto es el footer <br/>
+        Creado con <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Tema <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.13.0">Stack</a></b> diseñado por <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Tabla de contenido</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#mark0">Pdfunite</a>
+      <ol>
+        <li><a href="#instalación">Instalación.</a></li>
+        <li><a href="#unión-de-pdf">Unión de pdf.</a></li>
+      </ol>
+    </li>
+    <li><a href="#mark1">ImageMagick (no recomendado)</a></li>
+    <li><a href="#mark2">Pdfjam </a>
+      <ol>
+        <li><a href="#instalación-1">Instalación.</a></li>
+        <li><a href="#union-de-pdf">Union de pdf.</a></li>
+      </ol>
+    </li>
+    <li><a href="#mark3">Ghostscript</a>
+      <ol>
+        <li><a href="#unión-de-pdf-1">Unión de pdf.</a>
+          <ol>
+            <li><a href="#unir-varios-pdf">Unir varios pdf.</a></li>
+            <li><a href="#unir-varios-pdf-haciendo-una-pequeña-compresión">Unir varios pdf haciendo una pequeña compresión.</a></li>
+            <li><a href="#unir-varios-pdf-haciendo-una-gran-compresión-revisar-porque-puede-haber-perdidas-de-calidad-visibles">Unir varios pdf haciendo una gran compresión, revisar porque puede haber perdidas de calidad visibles.</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+  </ol>
+
+  <ol>
+    <li><a href="#mark4">Python</a>
+      <ol>
+        <li><a href="#instalación-2">Instalación.</a>
+          <ol>
+            <li><a href="#unir-varios-pdf-1">Unir varios pdf.</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+  </ol>
+
+  <ol>
+    <li><a href="#mark5">Smallpdf</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

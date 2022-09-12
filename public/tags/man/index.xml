@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>man on #&gt; fireroot</title>
+        <link>https://www.procamora.com/tags/man/</link>
+        <description>Recent content in man on #&gt; fireroot</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>es</language>
+        <lastBuildDate>Fri, 20 Nov 2015 00:00:00 +0000</lastBuildDate><atom:link href="https://www.procamora.com/tags/man/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Instalar man en español</title>
+        <link>https://www.procamora.com/p/man_espa%C3%B1ol/</link>
+        <pubDate>Fri, 20 Nov 2015 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/p/man_espa%C3%B1ol/</guid>
+        <description>&lt;img src="https://www.procamora.com/covers/linux.png" alt="Featured image of post Instalar man en español" /&gt;&lt;p&gt;&lt;code&gt;sudo apt-get install manpages-es manpages-es-extra&lt;/code&gt;&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

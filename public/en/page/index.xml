@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Pages on #&gt; fireroot</title>
+        <link>https://www.procamora.com/en/page/</link>
+        <description>Recent content in Pages on #&gt; fireroot</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>es</language>
+        <lastBuildDate>Fri, 27 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://www.procamora.com/en/page/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>About</title>
+        <link>https://www.procamora.com/en/about/</link>
+        <pubDate>Fri, 27 Aug 2021 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/en/about/</guid>
+        <description>&lt;p&gt;My name is Pablo and I am a computer engineer who is specializing in cybersecurity and ethical hacking through a master&amp;rsquo;s degree. My main hobbies are programming and electronics.&lt;/p&gt;
+&lt;p&gt;When I was a child I liked to disassemble objects to understand how they work and, although at that time I did not usually manage to reassemble them correctly, now I usually do.&lt;/p&gt;
+&lt;p&gt;During my academic stage, I spent more hours researching on my own concepts related to those seen in class than the syllabus that was taught, so my classmates consulted me the doubts that arose.&lt;/p&gt;
+&lt;p&gt;I am a person who loves to face new challenges and to be constantly learning. If anything defines me is the DIY (Do it yourself) culture.&lt;/p&gt;
+&lt;p&gt;My main hard skills are:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Vulnerability analysis and pentesting.&lt;/li&gt;
+&lt;li&gt;Firewall configuration.&lt;/li&gt;
+&lt;li&gt;Risk management and network auditing.&lt;/li&gt;
+&lt;li&gt;Information Cybersecurity: Authorization and Access Control.&lt;/li&gt;
+&lt;li&gt;Configuration of Intrusion Detection and Prevention Systems.&lt;/li&gt;
+&lt;li&gt;Linux Operating Systems Administration.&lt;/li&gt;
+&lt;li&gt;Knowledge of programming languages such as Python, Java and C/C++.&lt;/li&gt;
+&lt;li&gt;Design of projects based on embedded systems such as Arduino.&lt;/li&gt;
+&lt;li&gt;Network administration and management.&lt;/li&gt;
+&lt;li&gt;Development of REST Web Services.&lt;/li&gt;
+&lt;li&gt;Development of Relational and Non-Relational Databases.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;My main soft skills are:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Team work&lt;/li&gt;
+&lt;li&gt;Resolving capacity&lt;/li&gt;
+&lt;li&gt;Ability to adapt and learn&lt;/li&gt;
+&lt;li&gt;Analytical thinking&lt;/li&gt;
+&lt;li&gt;Creativity&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;If you wish to contact me, you can do it through this platform or by e-mail: [pablojoserocamora@gmail.com][mail].&lt;/p&gt;
+&lt;h1 id=&#34;socials&#34;&gt;Socials&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/procamora&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Github&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.procamora.com&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;web&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;mailto:pablojoserocamora@gmail.com&#34; &gt;pablojoserocamora@gmail.com&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        <item>
+        <title>Archives</title>
+        <link>https://www.procamora.com/en/archives/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/en/archives/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Search</title>
+        <link>https://www.procamora.com/en/search/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/en/search/</guid>
+        <description></description>
+        </item>
+        
+    </channel>
+</rss>

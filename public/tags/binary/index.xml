@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>binary on #&gt; fireroot</title>
+        <link>https://www.procamora.com/tags/binary/</link>
+        <description>Recent content in binary on #&gt; fireroot</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>es</language>
+        <lastBuildDate>Sat, 10 Oct 2015 00:00:00 +0000</lastBuildDate><atom:link href="https://www.procamora.com/tags/binary/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Ruta de los binarios en linux</title>
+        <link>https://www.procamora.com/p/localizacion_programas/</link>
+        <pubDate>Sat, 10 Oct 2015 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/p/localizacion_programas/</guid>
+        <description>&lt;img src="https://www.procamora.com/covers/linux.png" alt="Featured image of post Ruta de los binarios en linux" /&gt;&lt;p&gt;En linux los programas se instalan en su sitio:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Los binarios en &lt;strong&gt;/usr/bin/&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Las librerías en &lt;strong&gt;/usr/lib/&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Los archivos de configuración en &lt;strong&gt;/etc/&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Los archivos de configuración personal en &lt;strong&gt;$HOME&lt;/strong&gt; o &lt;strong&gt;~/&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;code&gt;whereis &amp;lt;programa&amp;gt;&lt;/code&gt;&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

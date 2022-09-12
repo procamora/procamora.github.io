@@ -1,0 +1,425 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>backup on #&gt; fireroot</title>
+        <link>https://www.procamora.com/tags/backup/</link>
+        <description>Recent content in backup on #&gt; fireroot</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>es</language>
+        <lastBuildDate>Fri, 16 Feb 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://www.procamora.com/tags/backup/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Clonar disco con Clonezilla</title>
+        <link>https://www.procamora.com/p/clonar-disco-con-clonezilla/</link>
+        <pubDate>Fri, 16 Feb 2018 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/p/clonar-disco-con-clonezilla/</guid>
+        <description>&lt;img src="https://www.procamora.com/covers/software.png" alt="Featured image of post Clonar disco con Clonezilla" /&gt;&lt;h1 id=&#34;introducción&#34;&gt;Introducción:&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;#header0&#34; &gt;Configuración Inicial&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;#header1&#34; &gt;Clonación del Disco&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;En este ejemplo queremos hacer una copia del disco &lt;strong&gt;sda&lt;/strong&gt; en el directorio raíz del disco &lt;strong&gt;sdb&lt;/strong&gt;.&lt;/p&gt;
+&lt;h1 id=&#34;header0&#34;&gt;Configuración Inicial&lt;/h1&gt;
+&lt;p&gt;Lo primero es seleccionar el idioma y el teclado, una vez hecho eso podemos iniciar Clonezilla de modo gráfico o en modo consola para introducir el comando a ejecutar directamente. En este caso lo haremos de forma gráfica con &lt;strong&gt;Start_Clonezilla&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.procamora.com/images/2018/ClonezillaClonar/1_ClonezillaClonar.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;1&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;En la mayoría de las ocasiones usaremos la opción &lt;strong&gt;device-image&lt;/strong&gt;, ya que queremos crear una copia del disco físico en un directorio de otro disco&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.procamora.com/images/2018/ClonezillaClonar/2_ClonezillaClonar.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;1&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Seleccionamos el modo de conectarnos con el disco en el que guardaremos la copia, en nuestro caso sera &lt;strong&gt;local_dev&lt;/strong&gt; que es un disco local.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.procamora.com/images/2018/ClonezillaClonar/4_ClonezillaClonar.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;1&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Ahora tenemos que conectar el disco al equipo en caso de que no estuviese conectado, pulsamos &lt;strong&gt;Enter&lt;/strong&gt; para que escanee los discos disponibles.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.procamora.com/images/2018/ClonezillaClonar/5_ClonezillaClonar.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;1&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Aquí veremos los discos que hay disponibles, tenemos:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;sda&lt;/strong&gt;: disco del que queremos hacer una clonación&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;sdb&lt;/strong&gt;: disco donde guardaremos el disco sda&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.procamora.com/images/2018/ClonezillaClonar/6_ClonezillaClonar.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;1&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Aquí vemos todas las particiones disponibles, tenemos que seleccionar el disco donde queremos que se guarde la copia, ya que se va a montar para poder acceder a los directorios, en este caso &lt;strong&gt;sdb1&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.procamora.com/images/2018/ClonezillaClonar/7_ClonezillaClonar.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;1&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Seleccionamos el directorio donde queremos que se guarde la copia, en este caso la raíz y le damos a &lt;strong&gt;Done&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.procamora.com/images/2018/ClonezillaClonar/8_ClonezillaClonar.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;1&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Nos pedirá que le demos a &lt;strong&gt;Enter&lt;/strong&gt; para confirmar.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.procamora.com/images/2018/ClonezillaClonar/9_ClonezillaClonar.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;1&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h1 id=&#34;header1&#34;&gt;Clonación del Disco&lt;/h1&gt;
+&lt;p&gt;Aqui podemos seleccionar el modo en el que deseamos continuar, yo usare &lt;strong&gt;Beginner&lt;/strong&gt; que es mas que suficiente para hacer clonaciones de disco&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.procamora.com/images/2018/ClonezillaClonar/10_ClonezillaClonar.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;1&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Seleccionamos &lt;strong&gt;savedisk&lt;/strong&gt; ya que lo que deseamos hacer es clonar el disco no una particion.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.procamora.com/images/2018/ClonezillaClonar/11_ClonezillaClonar.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;1&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Introducimos el nombre que tendrá la copia de seguridad, es aconsejable mantener la estructura: &lt;em&gt;YY-MM-DD-SO-NOMBRE&lt;/em&gt; para una mayor claridad a la hora de revisar las copias de seguridad.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.procamora.com/images/2018/ClonezillaClonar/12_ClonezillaClonar.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;1&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Seleccionamos cual es el disco que queremos clonar, aquí nunca saldrá el disco que hemos montado anteriormente para guardar la copia, en este caso el disco que queremos clonar es &lt;strong&gt;sda&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.procamora.com/images/2018/ClonezillaClonar/13_ClonezillaClonar.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;1&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Aquí nos empezara a pedir unas configuraciones básicas, mi recomendación es dejarlas todas por defecto, la opción por defecto es &lt;strong&gt;-sfsck&lt;/strong&gt; para saltar la revisión y reparación de la copia una vez que se ha hecho.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.procamora.com/images/2018/ClonezillaClonar/14_ClonezillaClonar.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;1&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Después nos preguntara si queremos comprobar si la imagen creada es restaurable, la opción recomendada es &lt;strong&gt;Yes, check the saved image&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.procamora.com/images/2018/ClonezillaClonar/15_ClonezillaClonar.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;1&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Indicamos que cuando termine se apague con &lt;strong&gt;poweroff&lt;/strong&gt;, ya que es un proceso largo y posiblemente no estemos cuando termine de clonarse.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.procamora.com/images/2018/ClonezillaClonar/16_ClonezillaClonar.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;1&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Nos muestra el comando que se va a ejecutar por si queremos usarlo la próxima vez automatizando todo el proceso.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.procamora.com/images/2018/ClonezillaClonar/17_ClonezillaClonar.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;1&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Nos muestra lo que se va a hacer y nos pide confirmación para proceder a hacer la copia.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.procamora.com/images/2018/ClonezillaClonar/18_ClonezillaClonar.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;1&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Empieza el proceso de clonado de cada partición de &lt;strong&gt;sda&lt;/strong&gt; en una carpeta de &lt;strong&gt;sdb&lt;/strong&gt; y cuando termine apagara el equipo.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.procamora.com/images/2018/ClonezillaClonar/19_ClonezillaClonar.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;1&#34;
+	
+	
+&gt;&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>Restaurar disco con Clonezilla</title>
+        <link>https://www.procamora.com/p/restaurar-disco-con-clonezilla/</link>
+        <pubDate>Fri, 16 Feb 2018 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/p/restaurar-disco-con-clonezilla/</guid>
+        <description>&lt;img src="https://www.procamora.com/covers/software.png" alt="Featured image of post Restaurar disco con Clonezilla" /&gt;&lt;h1 id=&#34;introducción&#34;&gt;Introducción:&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;#header0&#34; &gt;Configuración Inicial&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;#header1&#34; &gt;Restauración del Disco&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;En este ejemplo queremos restaurar la imagen del disco  &lt;strong&gt;sda&lt;/strong&gt;  que esta guardada en el disco &lt;strong&gt;sdb&lt;/strong&gt;.&lt;/p&gt;
+&lt;h1 id=&#34;header0&#34;&gt;Configuración Inicial&lt;/h1&gt;
+&lt;p&gt;Lo primero es seleccionar el idioma y el teclado, una vez hecho eso podemos iniciar Clonezilla de modo gráfico o en modo consola para introducir el comando a ejecutar directamente. En este caso lo haremos de forma gráfica con &lt;strong&gt;Start_Clonezilla&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.procamora.com/images/2018/ClonezillaRestaurar/1_ClonezillaRestaurar.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;1&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;En la mayoría de las ocasiones usaremos la opción &lt;strong&gt;device-image&lt;/strong&gt;, ya que queremos restaurar una imagen de un directorio a un disco.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.procamora.com/images/2018/ClonezillaRestaurar/2_ClonezillaRestaurar.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;1&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Seleccionamos el modo de conectarnos con el disco en el tenemos la imagen que queremos restaurar, en nuestro caso sera &lt;strong&gt;local_dev&lt;/strong&gt; que es un disco local.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.procamora.com/images/2018/ClonezillaRestaurar/3_ClonezillaRestaurar.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;1&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Ahora tenemos que conectar el disco al equipo en caso de que no estuviese conectado, pulsamos &lt;strong&gt;Enter&lt;/strong&gt; para que escanee los discos disponibles.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.procamora.com/images/2018/ClonezillaRestaurar/4_ClonezillaRestaurar.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;1&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Aquí veremos los discos que hay disponibles, tenemos:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;sda&lt;/strong&gt;: disco en el que queremos restaurar la imagen&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;sdb&lt;/strong&gt;: disco donde tenemos la imagen del disco sda&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.procamora.com/images/2018/ClonezillaRestaurar/5_ClonezillaRestaurar.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;1&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Aquí vemos todas las particiones disponibles, tenemos que seleccionar el disco donde tenemos la imagen que queremos restaurar, ya que se va a montar para poder acceder a los directorios, en este caso &lt;strong&gt;sdb1&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.procamora.com/images/2018/ClonezillaRestaurar/6_ClonezillaRestaurar.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;1&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Seleccionamos el directorio donde esta la imagen a restaurar, en este caso la raíz y le damos a &lt;strong&gt;Done&lt;/strong&gt;. Nos pedirá que le demos a &lt;strong&gt;Enter&lt;/strong&gt; para confirmar.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.procamora.com/images/2018/ClonezillaRestaurar/9_ClonezillaRestaurar.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;1&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h1 id=&#34;header1&#34;&gt;Restauración del Disco&lt;/h1&gt;
+&lt;p&gt;Seleccionamos &lt;strong&gt;restoredisk&lt;/strong&gt; ya que lo que deseamos hacer es restaurar una imagen.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.procamora.com/images/2018/ClonezillaRestaurar/10_ClonezillaRestaurar.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;1&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Nos saldrá la lista de imágenes disponibles para restaurar en el directorio que indicamos anteriormente, en esta ocasión solo tenemos 1 disponible por lo que la seleccionamos.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.procamora.com/images/2018/ClonezillaRestaurar/11_ClonezillaRestaurar.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;1&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Seleccionamos cual es el disco que queremos restaurar, aquí nunca saldrá el disco que hemos montado anteriormente para guardar la copia, en este caso el disco que queremos restaurar es &lt;strong&gt;sda&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.procamora.com/images/2018/ClonezillaRestaurar/12_ClonezillaRestaurar.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;1&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Aquí nos empezara a pedir unas configuraciones básicas, mi recomendación es dejarlas todas por defecto, la opción por defecto es &lt;strong&gt;Yes, check the image before restoring&lt;/strong&gt; para chekear la integridad de la imagen antes de restaurarla.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.procamora.com/images/2018/ClonezillaRestaurar/13_ClonezillaRestaurar.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;1&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Indicamos que cuando termine se apague con &lt;strong&gt;poweroff&lt;/strong&gt;, ya que es un proceso largo y posiblemente no estemos cuando termine de clonarse.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.procamora.com/images/2018/ClonezillaRestaurar/14_ClonezillaRestaurar.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;1&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Nos muestra el comando que se va a ejecutar por si queremos usarlo la próxima vez automatizando todo el proceso y nos pide que pulsemos &lt;strong&gt;Enter&lt;/strong&gt; para confirmar la operación.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.procamora.com/images/2018/ClonezillaRestaurar/15_ClonezillaRestaurar.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;1&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Hace el checkeo de la imagen si anteriormente así lo indicamos como viene por defecto.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.procamora.com/images/2018/ClonezillaRestaurar/16_ClonezillaRestaurar.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;1&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Nos muestra lo que se va a hacer y nos pide confirmación 2 veces.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.procamora.com/images/2018/ClonezillaRestaurar/17_ClonezillaRestaurar.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;1&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Empieza el proceso de clonado de cada partición de &lt;strong&gt;sda&lt;/strong&gt; en una carpeta de &lt;strong&gt;sdb&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.procamora.com/images/2018/ClonezillaRestaurar/18_ClonezillaRestaurar.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;1&#34;
+	
+	
+&gt;&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

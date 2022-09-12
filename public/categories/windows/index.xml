@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Windows on #&gt; fireroot</title>
+        <link>https://www.procamora.com/categories/windows/</link>
+        <description>Recent content in Windows on #&gt; fireroot</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>es</language>
+        <lastBuildDate>Sat, 12 Sep 2015 00:00:00 +0000</lastBuildDate><atom:link href="https://www.procamora.com/categories/windows/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Uso de estenagrofia</title>
+        <link>https://www.procamora.com/p/estenagrogafia_windows/</link>
+        <pubDate>Sat, 12 Sep 2015 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/p/estenagrogafia_windows/</guid>
+        <description>&lt;img src="https://www.procamora.com/covers/windows.png" alt="Featured image of post Uso de estenagrofia" /&gt;&lt;p&gt;&lt;code&gt;copy /B archivo1+archivo2+archivoN archivoNuevo&lt;/code&gt;&lt;/p&gt;
+&lt;h1 id=&#34;pasos&#34;&gt;Pasos:&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;el gringo creo la carpeta &amp;ldquo;X&amp;rdquo; en el disco duro C: (esto para hacer el proceso mas fácil)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Seguidamente copio a esa carpeta, los archivos que realmente desea compartir y también la imagen que servirá solo como fachada&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Seleccionas los &amp;ldquo;archivos importantes&amp;rdquo; y los comprimes dentro de un archivo con un nombre corto (para facilitar el tramite) el gringo le dio el nombre &amp;ldquo;X&amp;rdquo;, pero pudo haberle puesto &amp;ldquo;PERRO&amp;rdquo;, &amp;ldquo;GATO&amp;rdquo;, etc.
+Realmente puede usar cualquier compresor sea Winrar o Winzip para crear el comprimido.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Te vas a usar la linea de comandos para eso pulsas: INICIO &amp;gt; EJECUTAR o START &amp;gt; RUN en ingles.
+Seguidamente escribe CMD y pulsas ENTER.
+A continuación estarás en una ventana de fondo negro en donde:
+A) escribirás: &lt;code&gt;CD\X&lt;/code&gt; y pulsa ENTER (entrar a la carpeta que contiene los archivos)
+B) escribes COPY /B [nombre de archivo de imagen.extensión] + [nombre de archivo comprimido.extensión] [Nombre del archivo destino.extensión JPG]&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Segun el video:
+&lt;code&gt;COPY /B cow.jpg + x.7z secretcow.jpg&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;y Listo!!!
+al abrir el archivo secretcow.jpg normalmente lo que encuentra en primer lugar es la cabecera del archivo de imagen y abre la imagen.&lt;/p&gt;
+&lt;p&gt;Pero si abres 7zip Manager (7zip si es obligatorio para sacar los archivos ocultos) podrás abrir el archivo SECRETCOW.jpg y lo que te aparecerán son los archivos contenidos dentro del archivo comprimido.&lt;/p&gt;
+&lt;p&gt;Los descomprimes y listo.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Nota: No solamente funciona con JPG sino tambien con archivos GIF (ya lo probé) y tal vez funcione con otros tipos de archivos.&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+        </item>
+        <item>
+        <title>Crear un aranque dual en windows</title>
+        <link>https://www.procamora.com/p/arranque_dual_windows/</link>
+        <pubDate>Fri, 11 Sep 2015 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/p/arranque_dual_windows/</guid>
+        <description>&lt;img src="https://www.procamora.com/covers/windows.png" alt="Featured image of post Crear un aranque dual en windows" /&gt;&lt;h6 id=&#34;tienes-que-ejecutar-la-consola-como-administrador&#34;&gt;Tienes que ejecutar la consola como administrador&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;bcdedit&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;bcdedit /set {identifier} description &amp;quot;lo que quieras que salga&amp;quot;&lt;/code&gt;&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>Crar administrador por consola</title>
+        <link>https://www.procamora.com/p/crear_administrador_windows/</link>
+        <pubDate>Thu, 10 Sep 2015 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/p/crear_administrador_windows/</guid>
+        <description>&lt;img src="https://www.procamora.com/covers/windows.png" alt="Featured image of post Crar administrador por consola" /&gt;&lt;h2 id=&#34;para-crear-un-usuario-administrador-a-través-de-la-consola&#34;&gt;Para crear un usuario administrador a través de la consola:&lt;/h2&gt;
+&lt;h6 id=&#34;1-creamos-un-usuario&#34;&gt;1. Creamos un usuario&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;net user /add SuperAdmin&lt;/code&gt;&lt;/p&gt;
+&lt;h6 id=&#34;2-metemos-dentro-del-grupo-administradores-el-usuario-creado&#34;&gt;2. Metemos dentro del grupo &lt;em&gt;Administradores&lt;/em&gt; el usuario creado&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;net localgroup administradores SuperAdmin /add&lt;/code&gt;&lt;/p&gt;
+&lt;h6 id=&#34;3-asignamos-una-contraseña-al-usuario-creado&#34;&gt;3. Asignamos una contraseña al usuario creado&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;net user SuperAdmin &amp;quot;contraseña&amp;quot;&lt;/code&gt;&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

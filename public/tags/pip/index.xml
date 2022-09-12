@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>pip on #&gt; fireroot</title>
+        <link>https://www.procamora.com/tags/pip/</link>
+        <description>Recent content in pip on #&gt; fireroot</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>es</language>
+        <lastBuildDate>Mon, 25 Jan 2016 00:00:00 +0000</lastBuildDate><atom:link href="https://www.procamora.com/tags/pip/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Descargar video youtube con python</title>
+        <link>https://www.procamora.com/p/descargar-video-youtube-con-python/</link>
+        <pubDate>Mon, 25 Jan 2016 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/p/descargar-video-youtube-con-python/</guid>
+        <description>&lt;img src="https://www.procamora.com/covers/software.png" alt="Featured image of post Descargar video youtube con python" /&gt;&lt;h1 id=&#34;introducción&#34;&gt;Introducción&lt;/h1&gt;
+&lt;p&gt;Cuando queremos descargar un video de youtube tenemos multiples opciones, tanto aplicaciones como online. La aplicación que mejor resultados me ha dado es youtube-dl.&lt;/p&gt;
+&lt;h2 id=&#34;youtube-dl&#34;&gt;youtube-dl&lt;/h2&gt;
+&lt;p&gt;Permite tanto descargar videos como listas de reproducción.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;sudo pip install youtube-dl&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;$ youtube-dl -f &amp;quot;(bestvideo+bestaudio/best)&amp;quot; &amp;quot;https://www.youtube.com/watch?v=tbVmV4XJNlo&amp;quot;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/rg3/youtube-dl/blob/master/README.md#readme&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Documentacion&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;pytube&#34;&gt;pytube&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;sudo pip install pytube&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;pytube -e mp4 -r 720p &amp;quot;https://www.youtube.com/watch?v=tbVmV4XJNlo&amp;quot;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Pd: No permite descargar vídeos a 1080 a fecha de hoy 22/01/2016&lt;/p&gt;
+&lt;h2 id=&#34;pafy&#34;&gt;pafy&lt;/h2&gt;
+&lt;p&gt;Para instalar pafy&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;sudo pip install pafy&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Download best available resolution (-b):&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;$ ytdl -b &amp;quot;http://www.youtube.com/watch?v=cyMHZVT91Dw&amp;quot;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;para ver las calidades disponibles ejecutamos
+ytdl tbVmV4XJNlo&lt;/p&gt;
+&lt;p&gt;y para seleccionar con que calidad queremos descargarnoslo:
+ytdl -n2 cyMHZVT91Dw&lt;/p&gt;
+&lt;p&gt;Fuente: &lt;a class=&#34;link&#34; href=&#34;http://np1.github.io/pafy/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;pafy&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Pd: No permite descargar vídeos a 1080 a fecha de hoy 22/01/2016&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

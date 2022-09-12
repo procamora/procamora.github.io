@@ -1,0 +1,11 @@
+Sitemap: /sitemap.xml
+User-agent: *
+Disallow: /static/pictures/*
+Disallow: /category/*
+Disallow: /drafts/*
+Disallow: /feeds/*
+Disallow: /feeds/tags/*
+Disallow: theme/*
+Disallow: pushgit.sh
+Disallow: googlec9cb9be279a3dd36.html
+Disallow: .htaccess

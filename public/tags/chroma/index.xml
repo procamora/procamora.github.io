@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>chroma on #&gt; fireroot</title>
+        <link>https://www.procamora.com/tags/chroma/</link>
+        <description>Recent content in chroma on #&gt; fireroot</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>es</language>
+        <lastBuildDate>Thu, 28 Jan 2016 00:00:00 +0000</lastBuildDate><atom:link href="https://www.procamora.com/tags/chroma/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Instalar Chroma en Nexus 4</title>
+        <link>https://www.procamora.com/p/uso-de-adb/</link>
+        <pubDate>Thu, 28 Jan 2016 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/p/uso-de-adb/</guid>
+        <description>&lt;img src="https://www.procamora.com/covers/android.png" alt="Featured image of post Instalar Chroma en Nexus 4" /&gt;&lt;p&gt;Instrucciones para instalar la rom de Chroma en un Nexus 4&lt;/p&gt;
+&lt;h1 id=&#34;requisitos&#34;&gt;Requisitos:&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;Tener el móvil con al menos el &lt;strong&gt;50%&lt;/strong&gt; de batería.&lt;/li&gt;
+&lt;li&gt;Tener liberado el &lt;strong&gt;bootloader&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Tener &lt;strong&gt;twrp&lt;/strong&gt; instalado, en caso de no tenerlo instalarlo
+(url de donde explico como instalarlo)&lt;/li&gt;
+&lt;li&gt;tener &lt;strong&gt;Android 5.0.1&lt;/strong&gt; (no se si es necesario)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;#Pasos:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Descargarse el zip de la rom de: &lt;a class=&#34;link&#34; href=&#34;https://www.androidfilehost.com/?fid=24369303960688159&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;descarga&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Con twrp hacer un advanced wipe de:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Dalvik Cache&lt;/li&gt;
+&lt;li&gt;System&lt;/li&gt;
+&lt;li&gt;Data&lt;/li&gt;
+&lt;li&gt;Cache&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Poner foto&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Poner el zip de la rom en la memoria interna del dispositivo&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;mv chroma_mako-2016-01-18.zip /media/nexus4/Internal Storage/&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;instalar la zip con twrp&lt;/p&gt;
+&lt;p&gt;poner foto&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Instalar gaps&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ol start=&#34;6&#34;&gt;
+&lt;li&gt;
+&lt;p&gt;Hacer un wipe(No se si es necesario)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Reiniciar dispositivo y esperar unos 5-10 min a que se inicie correctamente&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;http://forum.xda-developers.com/nexus-4/development/rom-chroma-03-31-2015-layers-t3069936&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;http://forum.xda-developers.com/nexus-4/development/rom-chroma-03-31-2015-layers-t3069936&lt;/a&gt;&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

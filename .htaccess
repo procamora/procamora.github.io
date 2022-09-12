@@ -1,0 +1,94 @@
+# Redirect everything to my beautiful subdomain
+RewriteCond %{HTTP_HOST} !^procamora\.github\.io
+RewriteRule ^(.*)$ http://procamora.github.io/$1
+
+# General server config
+Options -FollowSymLinks -ExecCGI -Includes -IncludesNOEXEC -Indexes -MultiViews +SymLinksIfOwnerMatch
+RewriteEngine on
+
+# Generic error files
+ErrorDocument 403 403.html
+ErrorDocument 404 404.html
+ErrorDocument 410 410.html
+ErrorDocument 500 500.html
+
+
+# Monthly-static assets are now sorted by year only
+RedirectMatch 301 ^/uploads/(\d+)/\d+/(.*) /uploads/$1/$2
+
+# Force mime type of feeds
+RewriteRule /feed/$ - [T=application/rss+xml]
+RewriteRule /feed/atom/$ - [T=application/atom+xml]
+
+# Yearly and monthly archive are no longer paginated
+RedirectMatch 301 ^/(\d{4})/page/\d+/?.* /$1/
+RedirectMatch 301 ^/(\d{4}/\d{2})/page/\d+/?.* /$1/
+
+# Intermediate category are gone too
+RedirectMatch gone /category/lang/?$
+RedirectMatch gone /category/lang/page/\d+/?$
+
+# Paginated tags and categories are no more
+RedirectMatch gone /category/(.*)/page/\d+/?$
+RedirectMatch gone /tag/[^\/]+/page/\d+/?$
+
+# Misc WordPress stuff
+RedirectMatch gone /author/[^\/]+/?$
+RedirectMatch gone /author/[^\/]+/page/\d+/?$
+RedirectMatch gone ^/wp-(admin|content|includes)/?.*$
+RedirectMatch gone ^/wp-.*\.php$
+
+#Inyecciones SQL
+RewriteCond %{QUERY_STRING} (;|<|>|’|”|\)|%0A|%0D|%22|%27|%3C|%3E|%00).*(/\*|union|select|insert|cast|set|declare|drop|update|md5|benchmark) [NC,OR]
+RewriteCond %{QUERY_STRING} \.\./\.\. [OR]
+RewriteCond %{QUERY_STRING} (localhost|loopback|127\.0\.0\.1) [NC,OR]
+RewriteCond %{QUERY_STRING} \.[a-z0-9] [NC,OR]
+RewriteCond %{QUERY_STRING} (<|>|’|%0A|%0D|%27|%3C|%3E|%00) [NC]
+RewriteRule ^(.*)$ index.php [R=404]
+
+
+#Bloqueo de agentes y utilidades de línea de comandos
+RewriteCond %{HTTP_USER_AGENT} ^$ [OR]
+RewriteCond %{HTTP_USER_AGENT} ^(java|curl|wget) [NC,OR]
+RewriteCond %{HTTP_USER_AGENT} (winhttp|HTTrack|clshttp|archiver|loader|email|harvest|extract|grab|miner) [NC,OR]
+RewriteCond %{HTTP_USER_AGENT} (libwww-perl|curl|wget|python|nikto|scan) [NC,OR]
+RewriteCond %{HTTP_USER_AGENT} (<|>|’|%0A|%0D|%27|%3C|%3E|%00) [NC]
+RewriteRule ^(.*)$ index.php [R=404]
+
+
+#Evitar Exploración de directorios.
+Options -Indexes
+
+
+#Bloqueo de direcotios
+RewriteEngine on
+RewriteCond %{REQUEST_URI} ^.*/.git/.*$
+RewriteRule ^(.*)$ index.php [R=404]
+
+
+#Si hay un error que no de informacion (firma del explorador: versión, módulos, sistema operativo, etc)
+ServerSignature Off
+
+#Bloquear acceso a ficheros
+<FilesMatch "\.(htaccess|htpasswd|ini|phps|log|bak|txt|py)$">
+ Order Allow,Deny
+ Deny from all
+</FilesMatch>
+
+### Disqus redirects
+
+# Links to a particular comment are no longer supported following Disqus migration
+RedirectMatch 301 (.*)/comment-page-\d+/?.* $1
+
+# Site-wide comments feeds moved to Disqus
+RedirectMatch 301 ^/comments/feed(/(rss2?|rdf|atom))?/?$ http://procamora-github.disqus.com/latest.rss
+
+
+### HTTP tweaks (caching, optimizations, mime-types)
+
+# Force compression of text-based assets
+<IfModule mod_headers.c>
+  RequestHeader append Accept-Encoding "gzip,deflate"
+</IfModule>
+<IfModule filter_module>
+

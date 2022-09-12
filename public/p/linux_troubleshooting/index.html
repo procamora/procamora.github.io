@@ -1,0 +1,1090 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='El comando ip se utiliza para asignar una dirección a una interfaz de red y/o configurar parámetros de interfaz de red en sistemas operativos Linux. Este comando reemplaza el comando ifconfig antiguo y ahora obsoleto en las distribuciones modernas de Linux.'><title>Linux troubleshooting</title>
+
+<link rel='canonical' href='https://www.procamora.com/p/linux_troubleshooting/'>
+
+<link rel="stylesheet" href="/scss/style.min.ac77dcf8b111b51da39a92990f431923f210f3876d85798a2125667f96dc33a4.css"><meta property='og:title' content='Linux troubleshooting'>
+<meta property='og:description' content='El comando ip se utiliza para asignar una dirección a una interfaz de red y/o configurar parámetros de interfaz de red en sistemas operativos Linux. Este comando reemplaza el comando ifconfig antiguo y ahora obsoleto en las distribuciones modernas de Linux.'>
+<meta property='og:url' content='https://www.procamora.com/p/linux_troubleshooting/'>
+<meta property='og:site_name' content='#&gt; fireroot'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='ip' /><meta property='article:tag' content='arp' /><meta property='article:tag' content='vlan' /><meta property='article:tag' content='bridge' /><meta property='article:tag' content='netplan' /><meta property='article:tag' content='troubleshooting' /><meta property='article:tag' content='dns' /><meta property='article:tag' content='route' /><meta property='article:tag' content='systemd' /><meta property='article:tag' content='dig' /><meta property='article:published_time' content='2020-03-15T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2020-03-15T00:00:00&#43;00:00'/><meta property='og:image' content='https://www.procamora.com/covers/draft.png' />
+<meta name="twitter:title" content="Linux troubleshooting">
+<meta name="twitter:description" content="El comando ip se utiliza para asignar una dirección a una interfaz de red y/o configurar parámetros de interfaz de red en sistemas operativos Linux. Este comando reemplaza el comando ifconfig antiguo y ahora obsoleto en las distribuciones modernas de Linux."><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://www.procamora.com/covers/draft.png' />
+    <link rel="shortcut icon" href="img/favicon.ico" />
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/icons/procamora_30_hua3d16f4d7ffad1a52a64c31db4447108_16949_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">#&gt; fireroot</a></h1>
+            <h2 class="site-description">Mi wiki donde escribo artículos sobre Linux, Ciberseguridad y temas relacionados.</h2>
+        </div>
+    </header><ol class="social-menu">
+            
+                <li>
+                    <a 
+                        href='https://github.com/procamora'
+                        target="_blank"
+                        title="GitHub"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='mailto:pablojoserocamora@gmail.com'
+                        target="_blank"
+                        title="Gmail"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-gmail" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"> <path stroke="none" d="M0 0h24v24H0z" fill="none"/> <path d="M16 20h3a1 1 0 0 0 1 -1v-14a1 1 0 0 0 -1 -1h-3v16z" /> <path d="M5 20h3v-16h-3a1 1 0 0 0 -1 1v14a1 1 0 0 0 1 1z" /> <path d="M16 4l-4 4l-4 -4" /> <path d="M4 6.5l8 7.5l8 -7.5" /> </svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://es.linkedin.com/in/pablo-rocamora'
+                        target="_blank"
+                        title="Linkedin"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-linkedin" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"> <path stroke="none" d="M0 0h24v24H0z" fill="none"/> <rect x="4" y="4" width="16" height="16" rx="2" /> <line x1="8" y1="11" x2="8" y2="16" /> <line x1="8" y1="8" x2="8" y2="8.01" /> <line x1="12" y1="16" x2="12" y2="11" /> <path d="M16 16v-3a2 2 0 0 0 -4 0" /> </svg>
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archivos</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Buscar</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/acerca-de/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>Acerca de</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/index.xml' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-rss" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="5" cy="19" r="1" />
+  <path d="M4 4a16 16 0 0 1 16 16" />
+  <path d="M4 11a9 9 0 0 1 9 9" />
+</svg>
+
+
+
+                
+                <span>Feed</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+                <li id="i18n-switch">  
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                    <select name="language" onchange="window.location.href = this.selectedOptions[0].value">
+                        
+                            <option value="https://www.procamora.com/" selected>Español</option>
+                        
+                            <option value="https://www.procamora.com/en/" >English</option>
+                        
+                    </select>
+                </li>
+            
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Modo oscuro</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+<main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/linux_troubleshooting/">
+                
+                    <img src="/covers/draft.png" loading="lazy" alt="Featured image of post Linux troubleshooting" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/linux/" >
+                Linux
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/linux_troubleshooting/">Linux troubleshooting</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            El comando ip se utiliza para asignar una dirección a una interfaz de red y/o configurar parámetros de interfaz de red en sistemas operativos Linux. Este comando reemplaza el comando ifconfig antiguo y ahora obsoleto en las distribuciones modernas de Linux.
+        </h3>
+        
+    </div>
+
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Mar 15, 2020</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    6 minutos a leer
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+
+    <div class="article-category">
+        
+            
+                
+            
+            
+                <a href='https://github.com/procamora/dummy/edit/main/content/post/draft/linux_troubleshooting.md' style="background-color: #5bc0de" >Edit this page on GitHub</a>
+            
+            
+                <a href='https://github.com/procamora/dummy/edit/main/content/post/draft/linux_troubleshooting.md' style="background-color: #5bc0de" >Download article PDF</a>
+            
+        
+    </div>
+</div>
+</header>
+
+    <section class="article-content">
+    
+    
+    <ul>
+<li><a class="link" href="#header1" >Gestión de interfaces</a>:
+<ul>
+<li><a class="link" href="#mark0" >Administración direcciones IP</a></li>
+<li><a class="link" href="#mark1" >Configuración del dispositivos físicos y lógicos</a></li>
+<li><a class="link" href="#mark2" >Administración de ARP</a></li>
+<li><a class="link" href="#mark3" >Configuración del dispositivo MACsec</a></li>
+</ul>
+</li>
+<li><a class="link" href="#header2" >Enrutamiento</a>:
+<ul>
+<li><a class="link" href="#mark20" >Ver rutas del sistema</a></li>
+<li><a class="link" href="#mark21" >Añadir rutas estáticas</a></li>
+<li><a class="link" href="#mark22" >Borrar rutas estaticas</a></li>
+<li><a class="link" href="#mark23" >Hacer persistentes las rutas</a></li>
+</ul>
+</li>
+<li><a class="link" href="#header3" >Domain Name System o DNS</a>:
+<ul>
+<li><a class="link" href="#mark5" >smallpdf</a></li>
+</ul>
+</li>
+<li><a class="link" href="#header4" >Resumen general</a></li>
+<li><a class="link" href="#header5" >Conclusion final</a></li>
+</ul>
+<p>Iproute2 es un paquete de utilidades desarrollado por Alexey Kuznetsov. Este paquete es un conjunto de herramientas muy potentes para administrar interfaces de red y conexiones en sistemas Linux.</p>
+<p>Este paquete reemplaza completamente las funcionalidades presentes en ifconfig, route, y arp y las extiende llegando a tener características similares a las provistas por dispositivos exclusivamente dedicados al ruteo y control de tráfico.</p>
+<p>Este paquete lo podemos encontrar incluido en distribuciones de Debian y RedHat con versiones del núcleo mayores a 2.2.</p>
+<p>El comando <em>ip</em> se utiliza para asignar una dirección a una interfaz de red y/o configurar parámetros de interfaz de red en sistemas operativos Linux. Este comando reemplaza el comando <em>ifconfig</em> antiguo y ahora obsoleto en las distribuciones modernas de Linux. Como curiosidad de este comando es que no es necesario ponerlo completo, si pones abreviaciones de este funciona correctamente siempre que no hay ambigüedad con otros, como con los comandos en Cisco.</p>
+<h1 id="header1">Gestión de interfaces</h1>
+<h2 id="mark0">Administración direcciones IP</h2>
+<p>Podemos ver la configuración de las interfaces con el comando <em>ip address</em>. También se puede ver de forma abreviada:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Ver interfaces</span>
+</span></span><span class="line"><span class="cl">ip address
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Forma abreviada</span>
+</span></span><span class="line"><span class="cl">ip a
+</span></span><span class="line"><span class="cl">ip addr
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Interfaz enp0s3</span>
+</span></span><span class="line"><span class="cl">ip address show enp0s3
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>También podemos añadir interfaces y borrarlas con el argumento <em>add</em> y <em>del</em>. En el caso de añadir una IP, si ya existe se añadirá una nueva dirección IP &ldquo;virtual&rdquo;.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Añadir IP</span>
+</span></span><span class="line"><span class="cl">sudo ip address add 192.168.1.105/24 dev enp0s3
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Borrar IP</span>
+</span></span><span class="line"><span class="cl">sudo ip address del 192.168.1.105/24 dev enp0s3
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="mark1">Configuración del dispositivos físicos y lógicos</h2>
+<p>Las interfaces se manejan con el comando <em>ip link</em>. Con este comando podemos modificar &ldquo;físicamente&rdquo; las interfaces, tumbándolas y levantándolas.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Levantar la interfaz</span>
+</span></span><span class="line"><span class="cl">sudo ip link <span class="nb">set</span> enp0s3 up
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Tumbar la interfaz</span>
+</span></span><span class="line"><span class="cl">sudo ip link <span class="nb">set</span> enp0s3 down
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>También se pueden crear nuevos interfaces, algunos de estos interfaces son: bridge, can, macvlan, vlan, macsec, etc). Por ejemplo podemos crear un interfaz bridge y añadirle interfaces a ese bridge de la siguiente forma:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo ip link add br0 <span class="nb">type</span> bridge
+</span></span><span class="line"><span class="cl">sudo ip link <span class="nb">set</span> enp0s3 master br0
+</span></span><span class="line"><span class="cl">sudo ip link <span class="nb">set</span> enp0s8 master br0
+</span></span><span class="line"><span class="cl">sudo ip link <span class="nb">set</span> enp0s9 master br0
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Se pueden ver las interfaces asociadas a cada bridge con el siguiente comando:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">bridge link
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>También es se pueden crear VLANs asociadas a una interfaz con el siguiente comando:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo ip link add link enp0s3 name enp0s3.50 <span class="nb">type</span> vlan id <span class="m">50</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Fuentes: <a class="link" href="https://developers.redhat.com/blog/2018/10/22/introduction-to-linux-interfaces-for-virtual-networking/"  target="_blank" rel="noopener"
+    >0</a>, <a class="link" href="https://www.ibiblio.org/pub/linux/docs/LuCaS/Presentaciones/200103hispalinux/eric/html/interfaces.html"  target="_blank" rel="noopener"
+    >1</a>, <a class="link" href="https://wiki.archlinux.org/index.php/VLAN"  target="_blank" rel="noopener"
+    >2</a></p>
+<h2 id="mark2">Administración de ARP</h2>
+<p>Para ver la tabla ARP tenemos el comando <em>ip neigh</em>.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ip neigh show
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>En la ultima columna nos muestra el estado del vecino, que puede ser uno de estos estados:</p>
+<ul>
+<li>REACHABLE: la entrada ARP es válida y hay conectividad.</li>
+<li>STALE: la entrada ARP es válida pero no hay conectividad.</li>
+<li>FAILED: no hay conectividad y la MAC no ha sido detectada.</li>
+<li>DELAY: a la espera de confirmación tras el envío de un paquete.</li>
+</ul>
+<p>También puede ser muy interesante poner fija la tabla ARP para evitar que nos puedan hacer MAC Spofing, esto se realiza con:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Para evitar conflictos hay que bajar la interfaz o quitarle la IP</span>
+</span></span><span class="line"><span class="cl">sudo ip addr flush dev enp0s3
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Asignamos la MAC asociada a la IP</span>
+</span></span><span class="line"><span class="cl">sudo ip neigh add 192.168.1.1 lladdr d0:6e:d5:54:3d:a4 nud permanent dev enp0s3
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Volvemos a solicitar las IPs</span>
+</span></span><span class="line"><span class="cl">sudo netplan apply
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Para borrar una entrada sería:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo ip neigh del 192.168.1.1 dev enp0s3
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Para vaciar la tabla ARP o borrar una única entrada sería:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo ip -s -s neigh flush all
+</span></span><span class="line"><span class="cl">sudo ip -s -s neigh flush 192.168.1.1
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Fuentes: <a class="link" href="https://eltallerdelbit.com/rtnetlink-answers-file-exists/"  target="_blank" rel="noopener"
+    >0</a>, <a class="link" href="https://rm-rf.es/control-de-tablas-arp-con-el-comando-ip/"  target="_blank" rel="noopener"
+    >1</a></p>
+<h2 id="mark3">Configuración del dispositivo MACsec</h2>
+<p>MACsec es un estándar IEEE (IEEE 802.1AE) para seguridad MAC, introducido en 2006. Define una forma de establecer una conexión independiente de protocolo entre dos hosts con confidencialidad, autenticidad y/o integridad de datos, utilizando GCM-AES-128. MACsec opera en la capa Ethernet y, como tal, es un protocolo de capa 2, lo que significa que está diseñado para proteger el tráfico dentro de una red de capa 2, incluidas las solicitudes DHCP o ARP. No compite con otras soluciones de seguridad como IPsec (capa 3) o TLS (capa 4), ya que todas esas soluciones se utilizan para sus propios casos de uso específicos.</p>
+<blockquote>
+<p>IMPORTANTE: NO LO HE PROBADO AÚN</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo ip link add macsec0 link eth1 <span class="nb">type</span> macsec
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Fuentes: <a class="link" href="https://bootlin.com/blog/network-traffic-encryption-in-linux-using-macsec-and-hardware-offloading/"  target="_blank" rel="noopener"
+    >0</a></p>
+<h1 id="header2">Enrutamiento</h1>
+<p>Una ruta estática no es más que una forma de especificar el tráfico que no debe pasar por la puerta de enlace predeterminada. Se puede usar el comando <em>ip</em> para agregar una ruta estática a una red diferente a la que no se puede acceder a través de su puerta de enlace predeterminada. Por ejemplo, la puerta de enlace VPN.</p>
+<h2 id="mark20">Ver rutas del sistema</h2>
+<p>Podemos ver cuales son las rutas por defecto del sistema con el comando <em>ip route</em>.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ip route show
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>También se puede hacer un mayor debug solicitando al sistema que te diga cual es la IP e interfaz por la que saldrá un paquete indicando la IP destino. (Ojo, no es capaz de resolver un FQND).</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ip route get 192.168.1.1
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">ip route get 8.8.8.8
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="mark21">Añadir rutas estáticas</h2>
+<p>La sintaxis para añadir rutas estáticas es la siguiente:</p>
+<blockquote>
+<p><em>ip route add {NETWORK/MASK} via {GATEWAYIP}</em></p>
+</blockquote>
+<blockquote>
+<p><em>ip route add {NETWORK/MASK} dev {INTERFACE}</em></p>
+</blockquote>
+<blockquote>
+<p><em>ip route add default {NETWORK/MASK} dev {INTERFACE}</em></p>
+</blockquote>
+<blockquote>
+<p><em>ip route add default {NETWORK/MASK} via {GATEWAYIP}</em></p>
+</blockquote>
+<p>Por ejemplo a continuación se puede ver como se enruta el trafico de una red por la interfaz vlan.100 y como se envía en trafico para un host por la interfaz enp0s3.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># RED</span>
+</span></span><span class="line"><span class="cl">sudo ip route add 192.168.20.0/24 via 192.168.10.10 dev vlan.100
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># HOST</span>
+</span></span><span class="line"><span class="cl">sudo ip route add 192.168.20.5 via 192.168.10.10 dev enp0s3
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="mark22">Borrar rutas estaticas</h2>
+<p>La sintaxis para añadir rutas estáticas es la siguiente:</p>
+<blockquote>
+<p><em>sudo ip route add default via {NETWORK/MASK} dev {INTERFACE}</em></p>
+</blockquote>
+<blockquote>
+<p><em>sudo ip route del default</em></p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo ip route del 192.168.20.0/24 via 192.168.10.10 dev vlan.100
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">sudo ip route del default
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="mark23">Hacer persistentes las rutas</h2>
+<p>Los comandos mencionados anteriormente son volatiles, y cuando sereinicia el ordenador se borrar. Se podrian hacer las rutas persistentes de la siguiente forma:</p>
+<h3 id="enrutamiento-persistentes-en-rhel-fedora-centos">Enrutamiento persistentes en (RHEL, Fedora, CentOS)</h3>
+<p>En el directorio /etc/sysconfig/network-scripts/ hay que crear un fichero por cada interfaz de host, donde el nombre del fichero sera el nombre de la interfaz. En nuestro caso, esto será route-enp0s3.</p>
+<p>En nuestro caso hay que añadir al fichero <em>/etc/sysconfig/network-scripts/route-enps03</em> las siguientes lineas:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">10.0.2.0/32 via 192.168.43.1
+</span></span><span class="line"><span class="cl">10.0.2.15  via 192.168.43.1
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Guardamos el fichero y reiniciamos el servicio NetworkManager:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo systemctl restart NetworkManager
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Fuentes: <a class="link" href="https://mytcpip.com/2019/05/05/ubuntu-18-04-y-netplan-tutorial-rapido-de-los-cambios-de-networking/"  target="_blank" rel="noopener"
+    >0</a>, <a class="link" href="https://www.linuxtechi.com/add-delete-static-route-linux-ip-command/"  target="_blank" rel="noopener"
+    >1</a></p>
+<h3 id="enrutamiento-persistentes-en-debian-ubuntu">Enrutamiento persistentes en (Debian, Ubuntu)</h3>
+<blockquote>
+<p>PENDIENTE DE ESCRIBIR CON NETPLAN</p>
+</blockquote>
+<h1 id="header3">Domain Name System o DNS</h1>
+<p>cat /etc/resolv.conf</p>
+<p>sudo ss -lpunta</p>
+<p>systemd-resolve &ndash;status</p>
+<p>dig <a class="link" href="https://www.mytcip.com"  target="_blank" rel="noopener"
+    >www.mytcip.com</a>
+para ver el server 127.0.0.53</p>
+<p>systemd-resolve &ndash;statistics
+sudo systemd-resolve &ndash;flush-caches
+systemd-resolve &ndash;statistics</p>
+<p>POSIBLEMENTE LA PARTE DE CONFIGURACION DE DNS VAYA EN NETPLAN</p>
+<p><a class="link" href="https://wiki.archlinux.org/index.php/Systemd-resolved_%28Espa%C3%B1ol%29"  target="_blank" rel="noopener"
+    >https://wiki.archlinux.org/index.php/Systemd-resolved_(Espa%C3%B1ol)</a></p>
+<p>sudo apt install resolvconf
+<a class="link" href="https://www.systeminside.net/como-soluciono-resolucion-dns-ubuntu/"  target="_blank" rel="noopener"
+    >https://www.systeminside.net/como-soluciono-resolucion-dns-ubuntu/</a></p>
+<p><a class="link" href="https://moss.sh/es/configuracion-problematica-systemd-resolved/"  target="_blank" rel="noopener"
+    >https://moss.sh/es/configuracion-problematica-systemd-resolved/</a></p>
+<p><a class="link" href="/downloads/rh_ip_command_cheatsheet_1214_jcs_print.pdf" >ip COMMAND Cheat Sheet for Red Hat Enterprise Linux</a></p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/ip/">ip</a>
+        
+            <a href="/tags/arp/">arp</a>
+        
+            <a href="/tags/vlan/">vlan</a>
+        
+            <a href="/tags/bridge/">bridge</a>
+        
+            <a href="/tags/netplan/">netplan</a>
+        
+            <a href="/tags/troubleshooting/">troubleshooting</a>
+        
+            <a href="/tags/dns/">dns</a>
+        
+            <a href="/tags/route/">route</a>
+        
+            <a href="/tags/systemd/">systemd</a>
+        
+            <a href="/tags/dig/">dig</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/katex.min.css"integrity="sha256-J&#43;iAE0sgH8QSz9hpcDxXIftnj65JEZgNhGcgReTTK9s="crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/katex.min.js"integrity="sha256-InsNdER1b2xUewP&#43;pKCUJpkhiqwHgqiPXDlIk7GzBu4="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/contrib/auto-render.min.js"integrity="sha256-y39Mpg7V3D4lhBX4x6O0bUqTV4pSrfgwEfGKfxkOdgI="crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.querySelector(`.article-content`), {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ]
+        });})
+</script>
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Contenidos relacionados</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/p/netplan/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/covers/draft.png" loading="lazy" data-key="netplan" data-hash="/covers/draft.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Netplan</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/configuracion_de_la_raspberry_pi_4/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/covers/draft.png" loading="lazy" data-key="configuracion_de_la_raspberry_pi_4" data-hash="/covers/draft.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Configuracion de la Raspberry Pi 4</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/autorun-script-linux-systemd/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/covers/linux.png" loading="lazy" data-key="autorun-script-linux-systemd" data-hash="/covers/linux.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">autorun script linux systemd</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/ip_statica/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/covers/linux.png" loading="lazy" data-key="ip_statica" data-hash="/covers/linux.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Poner ip statica</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/ip/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/covers/linux.png" loading="lazy" data-key="ip" data-hash="/covers/linux.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Script sacar ip linux</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "procamora-github" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2022 #&gt; fireroot
+    </section>
+    
+    <section class="powerby">
+        
+            Esto es el footer <br/>
+        Creado con <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Tema <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.13.0">Stack</a></b> diseñado por <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Tabla de contenido</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#mark0">Administración direcciones IP</a></li>
+    <li><a href="#mark1">Configuración del dispositivos físicos y lógicos</a></li>
+    <li><a href="#mark2">Administración de ARP</a></li>
+    <li><a href="#mark3">Configuración del dispositivo MACsec</a></li>
+  </ol>
+
+  <ol>
+    <li><a href="#mark20">Ver rutas del sistema</a></li>
+    <li><a href="#mark21">Añadir rutas estáticas</a></li>
+    <li><a href="#mark22">Borrar rutas estaticas</a></li>
+    <li><a href="#mark23">Hacer persistentes las rutas</a>
+      <ol>
+        <li><a href="#enrutamiento-persistentes-en-rhel-fedora-centos">Enrutamiento persistentes en (RHEL, Fedora, CentOS)</a></li>
+        <li><a href="#enrutamiento-persistentes-en-debian-ubuntu">Enrutamiento persistentes en (Debian, Ubuntu)</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

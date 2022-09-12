@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>pcb on #&gt; fireroot</title>
+        <link>https://www.procamora.com/tags/pcb/</link>
+        <description>Recent content in pcb on #&gt; fireroot</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>es</language>
+        <lastBuildDate>Sun, 29 Dec 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://www.procamora.com/tags/pcb/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Diseño de un PCB con EasyEDA</title>
+        <link>https://www.procamora.com/p/diseno_de_un_pcb_con_easyeda/</link>
+        <pubDate>Sun, 29 Dec 2019 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/p/diseno_de_un_pcb_con_easyeda/</guid>
+        <description>&lt;img src="https://www.procamora.com/covers/draft.png" alt="Featured image of post Diseño de un PCB con EasyEDA" /&gt;&lt;p&gt;A continuación se va a explicar como diseñar un circuito para poder crear un PCB usando el método del planchado. Este método consiste en imprimir el circuito en un papel fotográfico para posteriormente plancharlo en una plaqueta de cobre y después mediante el uso de un ácido eliminar las partes de cobre sobrantes. Se va a partir que se tiene el circuito diseñado y creado el PCB.&lt;/p&gt;
+&lt;h1 id=&#34;revisión-del-esquema&#34;&gt;Revisión del esquema&lt;/h1&gt;
+&lt;p&gt;Es recomendable realizar una serie de revisiones en el esquema para prevenir posibles errores, están son las siguientes:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Revisar haciendo zoom para asegurarse que todos las conexiones están realizadas correctamente.&lt;/li&gt;
+&lt;li&gt;Si hay pines no usados marcarlos como &amp;ldquo;not used&amp;rdquo;.&lt;/li&gt;
+&lt;li&gt;Poner una etiqueta en los cables para hacer mas sencilla la revisión posterior del PCB.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;revisión-en-el-pcb&#34;&gt;Revisión en el PCB&lt;/h1&gt;
+&lt;p&gt;La revisión del PCB es obligatoria antes de imprimar el PCB ya que un fallo en esta parte conllevaría una perdida de horas de trabajo.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Revisar que el autoruteo del PCB se ha realizado correctamente.&lt;/li&gt;
+&lt;li&gt;Revisar que todas las lineas tienen ángulos de 45° como máximo, modificando aquellas que puedan tener ángulos de 90°, ya que no es recomendable.&lt;/li&gt;
+&lt;li&gt;Regenerar la capa de tierra, por si se ha realizado alguna modificación.&lt;/li&gt;
+&lt;li&gt;Revisar que no hay errores en el PCB, esto se puede revisar en Design manager &amp;gt; DRC Errors.&lt;/li&gt;
+&lt;li&gt;Cambiar orificios de los componentes siguiendo la siguiente tabla. Esto se debe a que aunque en el esquema salen con el orificio correcto, al crear el PCB de forma casera es recomendable modificarlos para facilitar la realización de los agujeros con la broca.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Componente&lt;/th&gt;
+&lt;th&gt;Orificio original&lt;/th&gt;
+&lt;th&gt;Orificio optimo&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Componentes 1/8W&lt;/td&gt;
+&lt;td&gt;0.8mm&lt;/td&gt;
+&lt;td&gt;0.6mm&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Encapsulados TO-92&lt;/td&gt;
+&lt;td&gt;0.8mm&lt;/td&gt;
+&lt;td&gt;0.6mm&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Encapsulados DIP-8&lt;/td&gt;
+&lt;td&gt;0.8mm&lt;/td&gt;
+&lt;td&gt;0.6mm&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Componentes 1/4W&lt;/td&gt;
+&lt;td&gt;1mm&lt;/td&gt;
+&lt;td&gt;0.8mm&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Reles pequeño&lt;/td&gt;
+&lt;td&gt;1mm&lt;/td&gt;
+&lt;td&gt;0.8mm&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Reles grandes&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Conectores&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;1mm&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h1 id=&#34;exportar-el-pcb&#34;&gt;Exportar el PCB&lt;/h1&gt;
+&lt;p&gt;Para exportar hay que tener en cuenta el diseño del PCB, si se ha creado el PCB en la capa superior (no recomendable) sera necesario exportarlo en modo espejo, en nuestro caso se va a partir de que se ha diseñado el conexionado en la capa inferior y en la capa superior solo esta la serigrafía de los componentes, ahorrando que sea necesario exportarlo en modo espejo.&lt;/p&gt;
+&lt;p&gt;La exportación seria en formato PDF y las capas que habría que exportar son las siguientes:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Capas&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Capa inferior&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Bordes de placa&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Multi-Layer&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Orificio&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Como recomendación esta en usar como motor el ordenador local, haciendo que tarde bastante menos tiempo que si se genera el PDF por el servidor.&lt;/p&gt;
+&lt;p&gt;A continuación podemos ver una imagen de la ventana de exportación:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.procamora.com/images/2019/export_easueda.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;easy&#34;
+	
+	
+&gt;{:height=&amp;ldquo;auto&amp;rdquo; width=&amp;ldquo;100%&amp;rdquo;}&lt;/p&gt;
+&lt;h1 id=&#34;impresión-del-pcb&#34;&gt;Impresión del PCB&lt;/h1&gt;
+&lt;p&gt;Para imprimir en papel fotográfico es recomendable seguir estas recomendaciones:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Realizar un limpiado de los cabezales de la impresora, ya que se necesita que la imagen sea precisa.&lt;/li&gt;
+&lt;li&gt;Configurar la impresora para que use papel A6, con el objetivo de poder aprovechar ese papel para otras impresiones.&lt;/li&gt;
+&lt;li&gt;Configurar el papel como grueso, para que caliente mas el papel y se obtenga mejor impresión.&lt;/li&gt;
+&lt;li&gt;Configurar la resolución en alta (1200 Res)&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>easyeda on #&gt; fireroot</title>
+        <link>https://www.procamora.com/tags/easyeda/</link>
+        <description>Recent content in easyeda on #&gt; fireroot</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>es</language>
+        <lastBuildDate>Sun, 29 Dec 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://www.procamora.com/tags/easyeda/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Diseño de un PCB con EasyEDA</title>
+        <link>https://www.procamora.com/p/diseno_de_un_pcb_con_easyeda/</link>
+        <pubDate>Sun, 29 Dec 2019 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/p/diseno_de_un_pcb_con_easyeda/</guid>
+        <description>&lt;img src="https://www.procamora.com/covers/draft.png" alt="Featured image of post Diseño de un PCB con EasyEDA" /&gt;&lt;p&gt;A continuación se va a explicar como diseñar un circuito para poder crear un PCB usando el método del planchado. Este método consiste en imprimir el circuito en un papel fotográfico para posteriormente plancharlo en una plaqueta de cobre y después mediante el uso de un ácido eliminar las partes de cobre sobrantes. Se va a partir que se tiene el circuito diseñado y creado el PCB.&lt;/p&gt;
+&lt;h1 id=&#34;revisión-del-esquema&#34;&gt;Revisión del esquema&lt;/h1&gt;
+&lt;p&gt;Es recomendable realizar una serie de revisiones en el esquema para prevenir posibles errores, están son las siguientes:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Revisar haciendo zoom para asegurarse que todos las conexiones están realizadas correctamente.&lt;/li&gt;
+&lt;li&gt;Si hay pines no usados marcarlos como &amp;ldquo;not used&amp;rdquo;.&lt;/li&gt;
+&lt;li&gt;Poner una etiqueta en los cables para hacer mas sencilla la revisión posterior del PCB.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;revisión-en-el-pcb&#34;&gt;Revisión en el PCB&lt;/h1&gt;
+&lt;p&gt;La revisión del PCB es obligatoria antes de imprimar el PCB ya que un fallo en esta parte conllevaría una perdida de horas de trabajo.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Revisar que el autoruteo del PCB se ha realizado correctamente.&lt;/li&gt;
+&lt;li&gt;Revisar que todas las lineas tienen ángulos de 45° como máximo, modificando aquellas que puedan tener ángulos de 90°, ya que no es recomendable.&lt;/li&gt;
+&lt;li&gt;Regenerar la capa de tierra, por si se ha realizado alguna modificación.&lt;/li&gt;
+&lt;li&gt;Revisar que no hay errores en el PCB, esto se puede revisar en Design manager &amp;gt; DRC Errors.&lt;/li&gt;
+&lt;li&gt;Cambiar orificios de los componentes siguiendo la siguiente tabla. Esto se debe a que aunque en el esquema salen con el orificio correcto, al crear el PCB de forma casera es recomendable modificarlos para facilitar la realización de los agujeros con la broca.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Componente&lt;/th&gt;
+&lt;th&gt;Orificio original&lt;/th&gt;
+&lt;th&gt;Orificio optimo&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Componentes 1/8W&lt;/td&gt;
+&lt;td&gt;0.8mm&lt;/td&gt;
+&lt;td&gt;0.6mm&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Encapsulados TO-92&lt;/td&gt;
+&lt;td&gt;0.8mm&lt;/td&gt;
+&lt;td&gt;0.6mm&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Encapsulados DIP-8&lt;/td&gt;
+&lt;td&gt;0.8mm&lt;/td&gt;
+&lt;td&gt;0.6mm&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Componentes 1/4W&lt;/td&gt;
+&lt;td&gt;1mm&lt;/td&gt;
+&lt;td&gt;0.8mm&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Reles pequeño&lt;/td&gt;
+&lt;td&gt;1mm&lt;/td&gt;
+&lt;td&gt;0.8mm&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Reles grandes&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Conectores&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;1mm&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h1 id=&#34;exportar-el-pcb&#34;&gt;Exportar el PCB&lt;/h1&gt;
+&lt;p&gt;Para exportar hay que tener en cuenta el diseño del PCB, si se ha creado el PCB en la capa superior (no recomendable) sera necesario exportarlo en modo espejo, en nuestro caso se va a partir de que se ha diseñado el conexionado en la capa inferior y en la capa superior solo esta la serigrafía de los componentes, ahorrando que sea necesario exportarlo en modo espejo.&lt;/p&gt;
+&lt;p&gt;La exportación seria en formato PDF y las capas que habría que exportar son las siguientes:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Capas&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Capa inferior&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Bordes de placa&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Multi-Layer&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Orificio&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Como recomendación esta en usar como motor el ordenador local, haciendo que tarde bastante menos tiempo que si se genera el PDF por el servidor.&lt;/p&gt;
+&lt;p&gt;A continuación podemos ver una imagen de la ventana de exportación:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.procamora.com/images/2019/export_easueda.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;easy&#34;
+	
+	
+&gt;{:height=&amp;ldquo;auto&amp;rdquo; width=&amp;ldquo;100%&amp;rdquo;}&lt;/p&gt;
+&lt;h1 id=&#34;impresión-del-pcb&#34;&gt;Impresión del PCB&lt;/h1&gt;
+&lt;p&gt;Para imprimir en papel fotográfico es recomendable seguir estas recomendaciones:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Realizar un limpiado de los cabezales de la impresora, ya que se necesita que la imagen sea precisa.&lt;/li&gt;
+&lt;li&gt;Configurar la impresora para que use papel A6, con el objetivo de poder aprovechar ese papel para otras impresiones.&lt;/li&gt;
+&lt;li&gt;Configurar el papel como grueso, para que caliente mas el papel y se obtenga mejor impresión.&lt;/li&gt;
+&lt;li&gt;Configurar la resolución en alta (1200 Res)&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        <item>
+        <title>Export EasyEda</title>
+        <link>https://www.procamora.com/p/export-easyeda/</link>
+        <pubDate>Wed, 30 Oct 2019 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/p/export-easyeda/</guid>
+        <description>&lt;img src="https://www.procamora.com/covers/software.png" alt="Featured image of post Export EasyEda" /&gt;&lt;p&gt;Aquí se va a explicar como exportar el esquemático y el PCB como imágenes, si se quieren usar para diseñar un PCB sera necesario espejar la imagen y aquí no se explica por el momento.&lt;/p&gt;
+&lt;h1 id=&#34;exportar-esquemático&#34;&gt;Exportar Esquemático&lt;/h1&gt;
+&lt;p&gt;Para exportar el esquemático se puede hacer en formato SVG de la forma:&lt;/p&gt;
+&lt;p&gt;File &amp;gt; Exportar &amp;gt; SVG &amp;gt; Exportar&lt;/p&gt;
+&lt;p&gt;Una vez que esta localmente, se podría convertir a formato PDF en caso deseado usando Inkscape, de la forma:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;inkscape --file&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;Schematic.svg --export-area-drawing --without-gui --export-pdf&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;Schematic.pdf
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Tambien se puede convertir a formato PNG aumentando el DPI para mejorar la calidad, de la forma:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;inkscape -f&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;Schematic.svg --export-area-drawing --without-gui --export-png&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;Schematic.png &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;--export-dpi&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;800&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h1 id=&#34;exportar-pcb&#34;&gt;Exportar PCB&lt;/h1&gt;
+&lt;p&gt;A la hora de exportar el PCB, si se intenta exportar en formato SVG obtendremos una imagen completamente negra, no se el motivo, por lo que se tendrá que exportar en formato PDF para mantener una calidad buena.&lt;/p&gt;
+&lt;p&gt;File &amp;gt; Exportar &amp;gt; PDF&lt;/p&gt;
+&lt;p&gt;Aquí habrá que realizar un configuración antes de exportar, que será la siguiente:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Graphics: Full Graphics&lt;/li&gt;
+&lt;li&gt;Type: Capa fusionada&lt;/li&gt;
+&lt;li&gt;Color: Full Color&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;[jtable caption=&amp;ldquo;This is caption&amp;rdquo; th=&amp;ldquo;0&amp;rdquo;]
+Capas,Exportar
+Capa superior,Si
+Capa inferior,Si
+Capa de serigrafia superior,Si
+Capa de serigrafia inferir,Si
+Bordes de placa,Si
+Multi-Layer,Si
+Orificio,Si
+[/jtable]&lt;/p&gt;
+&lt;p&gt;Una vez que esta en formato PDF se puede convertir a formato PNG de la siguientes formas:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;inkscape -f&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;Schematic.pdf --export-area-drawing --without-gui --export-png&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;Schematic.png &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;--export-dpi&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;800&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;convert -density &lt;span class=&#34;m&#34;&gt;800&lt;/span&gt; Schematic.pdf Schematic.png
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description>
+        </item>
+        
+    </channel>
+</rss>

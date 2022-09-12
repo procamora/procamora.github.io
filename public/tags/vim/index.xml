@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>vim on #&gt; fireroot</title>
+        <link>https://www.procamora.com/tags/vim/</link>
+        <description>Recent content in vim on #&gt; fireroot</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>es</language>
+        <lastBuildDate>Sun, 15 Mar 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://www.procamora.com/tags/vim/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Configuración vim</title>
+        <link>https://www.procamora.com/p/configuracion_vim/</link>
+        <pubDate>Sun, 15 Mar 2020 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/p/configuracion_vim/</guid>
+        <description>&lt;img src="https://www.procamora.com/covers/htb.png" alt="Featured image of post Configuración vim" /&gt;&lt;p&gt;En ocasiones en las que hay que trabajar con ficheros yaml o similares (netplan, Dockerfile, docker-compose, etc) que son sensibles a la identación, puede ser interesante modificar vim para que ponga un tabulado de espacios y con la cantidad de espacios deseado, esto se realiza de la siguiente forma:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;:filetype plugin indent on
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# Forzamos a que la identacion sea de 2 caracteres (espacios)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;:set shiftwidth=2
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;:set expandtab
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;También puede ser interesante activar una especie de &amp;ldquo;modo debug&amp;rdquo; en la que ver todos los caracteres especiales, esto se activaría de la siguiente forma:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;:set listchars=eol:¬,tab:&amp;gt;·,trail:~,extends:&amp;gt;,precedes:&amp;lt;,space:␣
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;:set list
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Fuentes: &lt;a class=&#34;link&#34; href=&#34;https://stackoverflow.com/questions/234564/tab-key-4-spaces-and-auto-indent-after-curly-braces-in-vim&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;0&lt;/a&gt;, &lt;a class=&#34;link&#34; href=&#34;https://stackoverflow.com/questions/1675688/make-vim-show-all-white-spaces-as-a-character&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;1&lt;/a&gt;&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>Tips vim</title>
+        <link>https://www.procamora.com/p/tips_vim/</link>
+        <pubDate>Sat, 01 Aug 2015 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/p/tips_vim/</guid>
+        <description>&lt;img src="https://www.procamora.com/covers/software.png" alt="Featured image of post Tips vim" /&gt;&lt;h2 id=&#34;modo-edición&#34;&gt;Modo edición&lt;/h2&gt;
+&lt;h6 id=&#34;habilitar-la-edición&#34;&gt;habilitar la edición&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;i&lt;/code&gt; o &lt;code&gt;o&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;operaciones-básicas&#34;&gt;Operaciones básicas&lt;/h2&gt;
+&lt;h6 id=&#34;salir&#34;&gt;Salir&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;:q&lt;/code&gt;&lt;/p&gt;
+&lt;h6 id=&#34;salir-sin-confirmación&#34;&gt;Salir sin confirmación&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;:q!&lt;/code&gt;&lt;/p&gt;
+&lt;h6 id=&#34;salir-guardando-sin-confirmación&#34;&gt;Salir guardando sin confirmación&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;:wq!&lt;/code&gt;&lt;/p&gt;
+&lt;h6 id=&#34;guardar-en-un-fichero-x&#34;&gt;Guardar en un fichero x&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;:w fichero.txt&lt;/code&gt;&lt;/p&gt;
+&lt;h6 id=&#34;cierra-el-actual-y-abre-x&#34;&gt;Cierra el actual y abre x&lt;/h6&gt;
+&lt;p&gt;:e fichero.txt`&lt;/p&gt;
+&lt;h2 id=&#34;copiar-cortar-pegar&#34;&gt;Copiar, cortar, pegar&lt;/h2&gt;
+&lt;h6 id=&#34;modo-visual&#34;&gt;Modo visual&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;v&lt;/code&gt;&lt;/p&gt;
+&lt;h6 id=&#34;cortar&#34;&gt;Cortar&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;c&lt;/code&gt;&lt;/p&gt;
+&lt;h6 id=&#34;copiar&#34;&gt;Copiar&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;y&lt;/code&gt;&lt;/p&gt;
+&lt;h6 id=&#34;pegar&#34;&gt;Pegar&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;p&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;operadores-de-texto&#34;&gt;Operadores de texto&lt;/h2&gt;
+&lt;h6 id=&#34;suprimir-linea&#34;&gt;suprimir linea&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;dd&lt;/code&gt;&lt;/p&gt;
+&lt;h6 id=&#34;deshacer-ultimo-cambio&#34;&gt;deshacer ultimo cambio&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;u&lt;/code&gt;&lt;/p&gt;
+&lt;h6 id=&#34;rehacer-ultimo-cambio&#34;&gt;rehacer ultimo cambio&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;CTRL+R&lt;/code&gt;&lt;/p&gt;
+&lt;h6 id=&#34;convertir-a-minus-la-linea&#34;&gt;convertir a minus la linea&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;guu&lt;/code&gt;&lt;/p&gt;
+&lt;h6 id=&#34;convertir-a-mayus-la-linea&#34;&gt;convertir a mayus la linea&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;gUU&lt;/code&gt;&lt;/p&gt;
+&lt;h6 id=&#34;posicionarse-en-linea-num&#34;&gt;posicionarse en linea &amp;rsquo;num&#39;&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;:num&lt;/code&gt;&lt;/p&gt;
+&lt;h6 id=&#34;mostrar-el-número-de-líneas&#34;&gt;Mostrar el número de líneas&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;:set number&lt;/code&gt;&lt;/p&gt;
+&lt;h6 id=&#34;posicionarse-al-principio&#34;&gt;posicionarse al principio&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;gg&lt;/code&gt;&lt;/p&gt;
+&lt;h6 id=&#34;posicionarse-al-final&#34;&gt;posicionarse al final&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;G&lt;/code&gt;&lt;/p&gt;
+&lt;h6 id=&#34;código-ascii-hex-y-octal&#34;&gt;Código ASCII, hex y octal&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;ga&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;búsqueda-y-sustitución&#34;&gt;Búsqueda y sustitución&lt;/h2&gt;
+&lt;h6 id=&#34;buscar&#34;&gt;buscar&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;/palabra&lt;/code&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&amp;ldquo;n&amp;rdquo; o &amp;ldquo;N&amp;rdquo; para ir adelante o atras&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h6 id=&#34;remplazar&#34;&gt;remplazar&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;:%s/texto1/texto2/g&lt;/code&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&amp;ldquo;g&amp;rdquo; selecciona todas las coincidencias&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;comandos-internos&#34;&gt;Comandos internos&lt;/h2&gt;
+&lt;h6 id=&#34;ejecutar-comando-interno&#34;&gt;Ejecutar comando interno&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;:!ls&lt;/code&gt;&lt;/p&gt;
+&lt;h6 id=&#34;pausa-en-la-edicion&#34;&gt;Pausa en la edicion&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;:shell&lt;/code&gt;	despues	  &lt;code&gt;exit&lt;/code&gt;&lt;/p&gt;
+&lt;h6 id=&#34;compilar&#34;&gt;Compilar&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;:make&lt;/code&gt;	&lt;code&gt;:cc&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;características-avanzadas&#34;&gt;Características avanzadas&lt;/h2&gt;
+&lt;h6 id=&#34;dividir-pantalla-verticalmente&#34;&gt;Dividir pantalla verticalmente&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;:split fichero.txt&lt;/code&gt;&lt;/p&gt;
+&lt;h6 id=&#34;dividir-pantalla-horizontalmente&#34;&gt;Dividir pantalla horizontalmente&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;:vsplit fichero.txt&lt;/code&gt;&lt;/p&gt;
+&lt;h6 id=&#34;cambiar-entre-pantallas&#34;&gt;Cambiar entre pantallas&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;CTRL+W + flecha cursor&lt;/code&gt;&lt;/p&gt;
+&lt;h6 id=&#34;crear-pestañas&#34;&gt;Crear pestañas&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;:tabnew fichero.txt&lt;/code&gt;&lt;/p&gt;
+&lt;h6 id=&#34;moverse-entre-pestañas&#34;&gt;Moverse entre pestañas&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;:tabn&lt;/code&gt;  o  &lt;code&gt;:tabnext&lt;/code&gt;  o  &lt;code&gt;gt&lt;/code&gt;&lt;/p&gt;
+&lt;h6 id=&#34;sistema-autocompletado&#34;&gt;Sistema autocompletado&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;caracter inicial + CTRL+N&lt;/code&gt;&lt;/p&gt;
+&lt;h6 id=&#34;elimina-lineas-en-blanco&#34;&gt;Elimina lineas en blanco&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;:g/^\s*$/d&lt;/code&gt;&lt;/p&gt;
+&lt;h6 id=&#34;detecta-llave-mal-cerrada&#34;&gt;Detecta llave mal cerrada&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;{}&lt;/code&gt;&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

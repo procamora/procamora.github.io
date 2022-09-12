@@ -1,0 +1,17 @@
+/* the humans responsible & colophon */
+/* humanstxt.org */
+ 
+ 
+/* TEAM */
+Creator & Admin: Pablo Rocamora
+Site: procamora.com
+Contact: pablojoserocamora@gmail.com
+ 
+/* THANKS */
+Names (& URL):  
+ 
+/* SITE */
+Language: Castellano
+Standards: HTML5, CSS3, RSS 1.0
+Components: 
+Software: Pelican, Python, Linux.

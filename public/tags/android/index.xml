@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>android on #&gt; fireroot</title>
+        <link>https://www.procamora.com/tags/android/</link>
+        <description>Recent content in android on #&gt; fireroot</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>es</language>
+        <lastBuildDate>Sun, 10 May 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://www.procamora.com/tags/android/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Android cast screen to Linux</title>
+        <link>https://www.procamora.com/p/android_cast_screen_to_linux/</link>
+        <pubDate>Sun, 10 May 2020 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/p/android_cast_screen_to_linux/</guid>
+        <description>&lt;img src="https://www.procamora.com/covers/android.png" alt="Featured image of post Android cast screen to Linux" /&gt;&lt;p&gt;Summary: La aplicación_ scrcpy_ proporciona la visualización y control de dispositivos Android conectado por USB, aunque también tiene compatibilidad con el control por TCP/IP. No requiere acceso root y es multiplataforma, funcionando sobre Windows, Linux Y macOS.
+Status: published&lt;/p&gt;
+&lt;p&gt;La aplicación &lt;a class=&#34;link&#34; href=&#34;https://github.com/Genymobile/scrcpy&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;scrcpy&lt;/a&gt; proporciona la visualización y control de dispositivos Android conectado por USB, aunque también tiene compatibilidad con el control por TCP/IP. No requiere acceso root y es multiplataforma, funcionando sobre Windows, Linux Y macOS.&lt;/p&gt;
+&lt;p&gt;Sus características son:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Ligero (nativo, muestra sólo la pantalla del dispositivo).&lt;/li&gt;
+&lt;li&gt;Rendimiento (30 ~ 60 fps).&lt;/li&gt;
+&lt;li&gt;Calidad (1920 × 1080 o más).&lt;/li&gt;
+&lt;li&gt;Baja latencia (35 ~ 70ms).&lt;/li&gt;
+&lt;li&gt;Bajo tiempo de inicio (~ 1 segundo para mostrar la primera imagen).&lt;/li&gt;
+&lt;li&gt;No intrusivo (no se deja nada instalado en el dispositivo).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.procamora.com/images/2020/20200510_android_cast.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;android_cast&#34;
+	
+	
+&gt;{:height=&amp;ldquo;auto&amp;rdquo; width=&amp;ldquo;100%&amp;rdquo;}&lt;/p&gt;
+&lt;h1 id=&#34;instalación&#34;&gt;Instalación&lt;/h1&gt;
+&lt;p&gt;Requisitos previos:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;El dispositivo Android requiere al menos la API 21 (Android 5.0).&lt;/li&gt;
+&lt;li&gt;Tener habilitado la depuración &lt;em&gt;adb&lt;/em&gt; en el dispositivo.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Para instalarlo en Fedora podemos usar el gestor de paquetes &lt;em&gt;snap&lt;/em&gt;:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo snap install scrcpy
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;snap connections scrcpy
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo snap connect scrcpy:network :network
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo snap connect scrcpy:network-bind :network-bind
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo snap install core
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;En Ubuntu 20.04 ya se puede instalar desde el repositorio oficial.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&#34;uso&#34;&gt;Uso&lt;/h1&gt;
+&lt;p&gt;Un ejemplo básico de uso sería el siguiente:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;scrcpy --max-size &lt;span class=&#34;m&#34;&gt;1920&lt;/span&gt; --max-fps &lt;span class=&#34;m&#34;&gt;60&lt;/span&gt; --fullscreen
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id=&#34;rotación&#34;&gt;Rotación&lt;/h2&gt;
+&lt;p&gt;La ventana puede ser rotada con:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;scrcpy --rotation &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Los posibles valores son:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;0: no hay rotación.&lt;/li&gt;
+&lt;li&gt;1: 90 grados en sentido contrario a las agujas del reloj.&lt;/li&gt;
+&lt;li&gt;2: 180 grados.&lt;/li&gt;
+&lt;li&gt;3: 90 grados en el sentido de las agujas del reloj.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;grabación&#34;&gt;Grabación&lt;/h2&gt;
+&lt;p&gt;Es posible grabar la pantalla mientras se refleja con el comando:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;scrcpy --record file.mp4
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;scrcpy --record file.mkv
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Para deshabilitar el espejo mientras se graba:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;scrcpy --no-display --record file.mp4
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;Interrumpir la grabación con Ctrl+C
+Ctrl+C no termina correctamente en Windows, así que desconecta el dispositivo.&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+        </item>
+        <item>
+        <title>Instalar TWRP en android</title>
+        <link>https://www.procamora.com/p/instalar-twrp-en-android/</link>
+        <pubDate>Tue, 26 Jan 2016 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/p/instalar-twrp-en-android/</guid>
+        <description>&lt;img src="https://www.procamora.com/covers/android.png" alt="Featured image of post Instalar TWRP en android" /&gt;&lt;p&gt;Proceso para instalar el recovery de TWRP en Android debemos hacer lo siguiente:&lt;/p&gt;
+&lt;h1 id=&#34;requisitos&#34;&gt;Requisitos:&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;Tener el móvil con al menos el &lt;strong&gt;50%&lt;/strong&gt; de batería.&lt;/li&gt;
+&lt;li&gt;Tener instalados los &lt;strong&gt;drivers&lt;/strong&gt; del dispositivo. &lt;a class=&#34;link&#34; href=&#34;http://developer.android.com/intl/es/sdk/win-usb.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Descarga&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Tener instalado &lt;strong&gt;ADB Tools&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Tener habilitada la &lt;strong&gt;depuración USB&lt;/strong&gt;.
+&lt;img src=&#34;https://www.procamora.com/images/usbdebbug.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;usbdebbug.jpg&#34;
+	
+	
+&gt;{:height=&amp;ldquo;auto&amp;rdquo; width=&amp;ldquo;100%&amp;rdquo;}&lt;/li&gt;
+&lt;li&gt;Recomendado: Tener liberado el &lt;strong&gt;bootloader&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;pasos&#34;&gt;Pasos:&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Para buscar la imagen de TWRP de nuestro dispositivo tenemos que buscarla desde &lt;a class=&#34;link&#34; href=&#34;https://twrp.me/Devices/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;aquí&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Una vez que hemos buscado la pagina de nuestro dispositivo y nos hemos descargado la imagen hay que reiniciar el dispositivo en el modo bootloader, se puede hacer de 2 formas distintas:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Con el comando: &lt;code&gt;adb reboot bootloader&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Botón Power + Bajar Volumen&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Comprobamos que fastboot detecta el dispositivo con &lt;code&gt;fastboot devices&lt;/code&gt;, si lo detecta procedemos a instalar twrp&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;fastboot flash recovery twrp-2.8.x.x-xxx.img&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Una vez que lo hemos instalado procedemos a reiniciar el dispositivo y ya lo tenemos listo con twrp instalado&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;fastboot reboot&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;En resumen:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;adb reboot bootloader
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;fastboot flash recovery twrp-2.8.x.x-xxx.img
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;fastboot reboot
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h1 id=&#34;descargas-de-imágenes-y-paginas-oficiales-a-fecha-de-22012016&#34;&gt;Descargas de imágenes y paginas oficiales: (a fecha de 22/01/2016)&lt;/h1&gt;
+&lt;p&gt;Nexus 4: &lt;a class=&#34;link&#34; href=&#34;https://twrp.me/devices/lgnexus4.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Pagina&lt;/a&gt; &lt;a class=&#34;link&#34; href=&#34;https://dl.twrp.me/mako/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;url&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Nexus 9: &lt;a class=&#34;link&#34; href=&#34;https://twrp.me/devices/htcnexus9.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Pagina&lt;/a&gt; &lt;a class=&#34;link&#34; href=&#34;https://dl.twrp.me/flounder/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;url&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Nexus 5X: &lt;a class=&#34;link&#34; href=&#34;https://twrp.me/devices/lgnexus5x.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Pagina&lt;/a&gt; &lt;a class=&#34;link&#34; href=&#34;https://dl.twrp.me/bullhead/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;url&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Fuentes: &lt;a class=&#34;link&#34; href=&#34;http://androiding.how/how-to-install-twrp-recovery-via-fastboot/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;0&lt;/a&gt; &lt;a class=&#34;link&#34; href=&#34;https://getmovil.com/nexus/instalar-android-4-4-4/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;1&lt;/a&gt;&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>Uso de adb</title>
+        <link>https://www.procamora.com/p/uso-de-adb/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/p/uso-de-adb/</guid>
+        <description>&lt;img src="https://www.procamora.com/covers/draft.png" alt="Featured image of post Uso de adb" /&gt;&lt;p&gt;Para mostrar si tu dispositivo esta instalado&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;adb devices&lt;/code&gt;
+&lt;code&gt;fastboot devices&lt;/code&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Sino lo esta después de haber instalado los usb drivers desconectar y conectar y tendrás que aceptar el certificado&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Para iniciar el modo bootloader
+&lt;code&gt;adb reboot bootloader&lt;/code&gt;
+&lt;code&gt;fastboot reboot-bootloader&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Iniciar el modo recovery
+&lt;code&gt;adb reboot recovery&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Reiniciar el teléfono
+&lt;code&gt;fastboot reboot&lt;/code&gt;
+&lt;code&gt;adb reboot&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Bloquear y desbloquear el bootloader
+&lt;code&gt;fastboot oem unlock&lt;/code&gt;
+&lt;code&gt;fastboot oem lock&lt;/code&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Precaución, elimina todo el contenido de nuestro dispositivo.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;code&gt;fastboot flash bootloader bootloader-mako-makoz10l.img&lt;/code&gt;
+&lt;code&gt;fastboot flash radio radio-mako-m9615a-cefwmazm-2.0.1700.33.img&lt;/code&gt;
+&lt;code&gt;fastboot flash system system.img&lt;/code&gt;
+&lt;code&gt;fastboot flash userdata userdata.img&lt;/code&gt;
+&lt;code&gt;fastboot flash boot boot.img&lt;/code&gt;
+&lt;code&gt;fastboot flash recovery recovery.img&lt;/code&gt;
+&lt;code&gt;fastboot erase cache&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;22
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;23
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;24
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;25
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;26
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;27
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;28
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Acabo de actualizar mi Nexus 4 siguiendo los pasos de un post de XDA:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;http://forum.xda-developers.com/showthread.php?p=43918377
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Para poder actualizar sin perder los datos hay que borrar el archivo &amp;#34;userdata.img&amp;#34; dentro de &amp;#34;image-***-***.zip&amp;#34;. Os dejo el tutorial modificado para no perder datos y traducido para quien le interese y no sepa inglés:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;1. Descargar la imagen de fábrica de Android 4.3 desde este enlace:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;https://developers.google.com/android/nexus/images
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;2. Extraer los archivos con Winrar o similar
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;3. Abrir el archivo &amp;#34;image-***-*****.zip&amp;#34; con Winrar y borrar el archivo &amp;#34;userdata.img&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;4. Copiar todos los archivos extraídos a la carpeta android-sdk/platform-tools/ o a la carpeta donde tengas adb y fastboot
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;5. Conectar tu Nexus por USB con la opción de Debug activada en las Opciones de desarrollo
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;6. Ejecutar estos comandos por orden:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;6.a: adb reboot bootloader
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;6.b: fastboot flash bootloader bootloader-***-***.img
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;6.c: fastboot reboot-bootloader
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;6.d: fastboot flash radio radio-***-***.img
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;6.e: fastboot reboot-bootloader
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;6.f: fastboot update image-***-***.zip
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;PD: Se que hay mucha gente que no sabe usar la consola (por miedo o porque nunca lo han probado), en ese caso recomiendo esperar a la OTA..
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;PD2: Si no tienes el bootloader desbloqueado es imposible actualizar manualmente sin perder los datos, hay que esperar a la OTA..
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description>
+        </item>
+        
+    </channel>
+</rss>

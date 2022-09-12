@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>spotify on #&gt; fireroot</title>
+        <link>https://www.procamora.com/tags/spotify/</link>
+        <description>Recent content in spotify on #&gt; fireroot</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>es</language>
+        <lastBuildDate>Sun, 31 Jan 2016 00:00:00 +0000</lastBuildDate><atom:link href="https://www.procamora.com/tags/spotify/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Instalar spotify en kali</title>
+        <link>https://www.procamora.com/p/instalar-spotify-kali/</link>
+        <pubDate>Sun, 31 Jan 2016 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/p/instalar-spotify-kali/</guid>
+        <description>&lt;img src="https://www.procamora.com/covers/software.png" alt="Featured image of post Instalar spotify en kali" /&gt;&lt;p&gt;Descargar paquete de spotify de su &lt;a class=&#34;link&#34; href=&#34;http://repository.spotify.com/pool/non-free/s/spotify/&#34;  title=&#34;repositorio spotify&#34;
+     target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;repositorio oficial&lt;/a&gt;, o del directorio de &lt;a class=&#34;link&#34; href=&#34;https://www.procamora.com/../descargas/spotify-client-0.9.17_0.9.17.8.gd06432d.31-1_amd64.deb&#34; &gt;descargas&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Una vez descargado instalarlo con dpkg&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;dpkg -i Descargas/spotify-client-0.9.17_0.9.17.8.gd06432d.31-1_amd64.deb&lt;/code&gt;&lt;/p&gt;
+&lt;br /&gt;
+***Precaución***
+&lt;p&gt;No hacerlo de modo gráfico ya que se queda colgado a mitad de la instalación, instalar con dpkg&lt;/p&gt;
+&lt;p&gt;En kali me da este error&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;spotify: error while loading shared libraries: libgcrypt.so.11:  cannot open shared object file: No such file or directory &lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Se soluciona instalando la librería libgcrypt11, puedes descargarla desde su repositorio &lt;a class=&#34;link&#34; href=&#34;https://packages.debian.org/wheezy/libgcrypt11&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;oficial&lt;/a&gt; o del directorio de &lt;a class=&#34;link&#34; href=&#34;https://www.procamora.com/../descargas/libgcrypt11_1.5.0-5&amp;#43;deb7u3_amd64.deb&#34; &gt;descargas&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Una vez descargado ejecutar:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;dpkg -i libgcrypt11_1.5.0-5+deb7u1_amd64.deb&lt;/code&gt;&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

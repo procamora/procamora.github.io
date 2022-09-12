@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>bootloader on #&gt; fireroot</title>
+        <link>https://www.procamora.com/tags/bootloader/</link>
+        <description>Recent content in bootloader on #&gt; fireroot</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>es</language>
+        <lastBuildDate>Tue, 08 Oct 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://www.procamora.com/tags/bootloader/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Arduino burn bootloader</title>
+        <link>https://www.procamora.com/p/arduino-bootloader/</link>
+        <pubDate>Tue, 08 Oct 2019 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/p/arduino-bootloader/</guid>
+        <description>&lt;img src="https://www.procamora.com/covers/software.png" alt="Featured image of post Arduino burn bootloader" /&gt;&lt;h1 id=&#34;introducción&#34;&gt;Introducción&lt;/h1&gt;
+&lt;p&gt;En ocasiones es necesario instalar un bootloader o actualizarlo en una placa Arduino, para realizar esto podemos usar un programador externo o usar otra placa Arduino como programador.&lt;/p&gt;
+&lt;p&gt;Un Arduino actuá como programador, al que se le llamara master y el otro que es al que se le va a instalar el bootloader, se le llamará slave. La comunicación entre el PC y el master se hace a través del protocolo serie de esta placa, y la comunicación entre el master y el slave se hace a través del protocolo SPI.&lt;/p&gt;
+&lt;p&gt;Este proceso se realizara en dos pasos:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;El primer paso consiste en programar la Arduino para que actúe como programador.&lt;/li&gt;
+&lt;li&gt;El segundo paso consiste en interconectar los Arduinos y quemar el bootloader.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;En este caso especifico se va a usar una Arduino Uno como master y una Arduino Pro Mini como slave.&lt;/p&gt;
+&lt;h1 id=&#34;programar-arduino-master-como-arduinoisp&#34;&gt;Programar Arduino master como ArduinoISP&lt;/h1&gt;
+&lt;p&gt;Para preparar la Arduino master como programador, lo único que será necesario es cargar el Sketch &amp;ldquo;Arduino as ISP&amp;rdquo;, esto se realiza de la siguiente forma:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Cargar el Sketch:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt; File &amp;gt; Examples &amp;gt; 11.ArduinoISP &amp;gt; ArduinoISP
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Seleccionar el tipo de placa al que se le va a cargar el Sketch:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt; Tools &amp;gt; Board &amp;gt; Arduino / Genuino Uno
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Seleccionamos el programador por defecto:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt; Tools &amp;gt; Programmer &amp;gt; &amp;quot;AVRISP mkll&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Cargar el Sketch:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt; Upload
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Una vez cargado el Sketch ya podemos proceder a interconectar las Arduinos como master y slave para proceder con el quemado del bootloader.&lt;/p&gt;
+&lt;h1 id=&#34;conectar-arduino-pro-mini-como-slave&#34;&gt;Conectar Arduino Pro Mini como slave&lt;/h1&gt;
+&lt;p&gt;Las conexiones se realizan con el protocolo SPI, en la Arduino Uno y Arduino Pro Mini están en los pines 10 al 13, podemos ver las conexión de los pines en la siguiente tabla:&lt;/p&gt;
+&lt;p&gt;[jtable caption=&amp;ldquo;This is caption&amp;rdquo; th=&amp;ldquo;0&amp;rdquo;]
+Master (Arduino Uno),Slave (Arduino Pro mini)
+Pin 13 (SCK),Pin 13 (SCK)
+Pin 12 (MISO),Pin 12 (MISO)
+Pin 11 (MOSI),Pin 11 (MOSI)
+Pin 10 (SS),Reset
+5V,5V
+GND,GND
+[/jtable]&lt;/p&gt;
+&lt;p&gt;Podemos ver la imagen de las conexiones realizadas a continuación:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.procamora.com/images/2019/burn_bootloader.svg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Conexiones&#34;
+	
+	
+&gt;{:height=&amp;ldquo;auto&amp;rdquo; width=&amp;ldquo;100%&amp;rdquo;}&lt;/p&gt;
+&lt;h1 id=&#34;quemar-bootloader&#34;&gt;Quemar bootloader&lt;/h1&gt;
+&lt;p&gt;Una vez que están realizadas todas las conexiones solo queda quemar el bootloader, para esto hay que seguir los siguientes pasos:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Seleccionar el tipo de placa del tipo que es el slave:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt; Tools &amp;gt; Board &amp;gt; Arduino Pro or Arduino Pro Mini
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Seleccionamos el programador:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt; Tools &amp;gt; Programmer &amp;gt; &amp;quot;Arduino as ISP&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Quemamos el bootloader:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt; Tools &amp;gt; Burn Bootloader
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Veremos como parpadean las luces de la Arduino master durante unos segundos y después se completara el proceso.&lt;/p&gt;
+&lt;h1 id=&#34;esquema-placa-para-quemar-el-bootloader-en-un-procesador-atmega328p&#34;&gt;Esquema placa para quemar el bootloader en un procesador ATmega328P&lt;/h1&gt;
+&lt;p&gt;En el caso de querer quemar el bootloader en una placa microcontroladora ATmega328P, podremos hacerlo siguiendo el siguiente esquema:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.procamora.com/images/2019/BurnBootloaderEsquematic.svg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Conexiones&#34;
+	
+	
+&gt;{:height=&amp;ldquo;auto&amp;rdquo; width=&amp;ldquo;100%&amp;rdquo;}&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.procamora.com/images/2019/BurnBootloaderPCB.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Conexiones&#34;
+	
+	
+&gt;{:height=&amp;ldquo;auto&amp;rdquo; width=&amp;ldquo;100%&amp;rdquo;}&lt;/p&gt;
+&lt;p&gt;Podemos descargar el esquemático y el PCB de EasyEDA desde aquí: &lt;a class=&#34;link&#34; href=&#34;https://www.procamora.com/downloads/easyeda/BurnBootloaderArduino.json&#34; &gt;Esquemático&lt;/a&gt;, &lt;a class=&#34;link&#34; href=&#34;https://www.procamora.com/downloads/easyeda/BurnBootloaderArduinoPCB.json&#34; &gt;PCB&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Fuentes: &lt;a class=&#34;link&#34; href=&#34;https://www.luisllamas.es/usar-arduino-para-reprogramar-el-bootloader/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;0&lt;/a&gt;&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

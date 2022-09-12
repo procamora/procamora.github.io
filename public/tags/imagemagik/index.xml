@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>imagemagik on #&gt; fireroot</title>
+        <link>https://www.procamora.com/tags/imagemagik/</link>
+        <description>Recent content in imagemagik on #&gt; fireroot</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>es</language>
+        <lastBuildDate>Wed, 11 Nov 2015 00:00:00 +0000</lastBuildDate><atom:link href="https://www.procamora.com/tags/imagemagik/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Modificar imágenes con ImageMagik</title>
+        <link>https://www.procamora.com/p/imagemagik/</link>
+        <pubDate>Wed, 11 Nov 2015 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/p/imagemagik/</guid>
+        <description>&lt;img src="https://www.procamora.com/covers/linux.png" alt="Featured image of post Modificar imágenes con ImageMagik" /&gt;&lt;p&gt;El comando convert nos permite realizar distintos tipos de conversiones en una imagen. La opción -resize sirve cambiar el tamaño. Veamos unos ejemplo sencillos:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;sudo convert elefante.jpg elefante.png&lt;/code&gt;
+&lt;code&gt;sudo convert elefante.jpg -resize 640×480 elefantemini.jpg&lt;/code&gt;
+&lt;code&gt;sudo convert elefante.jpg -resize 640×480 elefante.png&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;En el primer ejemplo hemos cambiado de formato, en el segundo de tamaño y en el tercero de formato y tamaño a la vez.&lt;/p&gt;
+&lt;p&gt;##Reducir imágenes&lt;/p&gt;
+&lt;p&gt;######Tenemos varias imágenes. Podemos escribir uno a uno los nombres de cada imagen, pero si son muchas resultaría demasiado lento. Lo mejor es meterlas todas en una misma carpeta. Luego abrimos una terminal, dentro de la carpeta, y escribimos:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;sudo convert &amp;quot;*.jpg&amp;quot; -resize 150×150 imagen%02d.png&lt;/code&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Con &amp;ldquo;*.jpg&amp;rdquo; le estamos diciendo al programa que tome como entrada a todos los archivos que terminen en .jpg que hay en ese directorio; con imagen%02d.png estamos diciendo que los archivos de salida serán en formato png y su nombre estará formado por la palabra imagen seguida de un número formado por dos dígitos (imagen00, imagen01, imagen02, imagen03,…); si tenemos más de 100 y necesitamos usar 3 dígitos escribiremos %03d, en lugar de %02d.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Aunque le hayamos dicho que las reduzca todas a una tamaño de 150×150 pixeles, convert respetara siempre las proporciones de la imagen original (asignando los 150 pixeles a uno solo de los lados). Si queremos que la anchura sea siempre la misma, y sea la altura lo que varíe, escribiremos solo el primero de los valores (-resize 150). Si, por el contrario, queremos que sea la altura lo que permanezca constante, escribiremos el segundo valor precedido del signo x  (-resize x150). Y si lo que queremos es que se ajuste al ancho y alto que hemos determinado, ignorando las proporciones de la imagen original, añadiremos ! (barra invertida exclamación); ejemplo:  -resize 150×150!, cuando las proporciones no coincidan la imagen se deformará para ajustarse al tamaño asignado.&lt;/p&gt;
+&lt;p&gt;######Si tenemos muchas imágenes puede ser más rápido si escribimos:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;sudo convert &amp;quot;*.jpg&amp;quot;[150x150] imagen%02d.png&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Esto hará que, en lugar de leer primero todas las imágenes y luego reducirlas, las vaya reduciendo según las va leyendo; con esto el ordenador irá más rápido y consumirá menos recursos.&lt;/p&gt;
+&lt;p&gt;Podemos, también, reducir las imágenes en un tanto por ciento, por ejemplo escribiendo -resize 50% las reduciremos a la mitad.&lt;/p&gt;
+&lt;p&gt;Ahora vamos a ver otras opciones para reducir imágenes:&lt;/p&gt;
+&lt;p&gt;thumbnail&lt;/p&gt;
+&lt;p&gt;######Esta opción esta pensada para reducir el tamaño de imágenes muy muy grandes. Combina tres opciones: -strip elimina la información adicional que suele acompañar a las fotos de las cámaras digitales y a las imágenes tratadas con algunos programas de retoque fotográfico; -sample reduce varias veces la imagen; y -resize da el tamaño final. Por ejemplo:&lt;/p&gt;
+&lt;p&gt;`sudo convert &amp;ldquo;*.jpg&amp;rdquo; -thumbnail 150×150 imagen%02d.png&lt;/p&gt;
+&lt;p&gt;scale&lt;/p&gt;
+&lt;p&gt;######Es una versión simplificada de resize. Es más rápido y ligero, pero la imagen resultante puede perder algo de calidad.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;convert &amp;quot;*.jpg&amp;quot; -scale 150×150 imagen%02d.png&lt;/code&gt;&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

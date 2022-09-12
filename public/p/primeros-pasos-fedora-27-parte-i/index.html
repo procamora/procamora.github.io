@@ -1,0 +1,1133 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='En esta primera parte pondré todos las librerías y programas que suelo instalar en Fedora 25 con KDE, en la segunda parte haré una configuración del entorno de trabajo (fstab, crontab, .ssh, etc)'><title>Primeros pasos Fedora 27 KDE Parte I</title>
+
+<link rel='canonical' href='https://www.procamora.com/p/primeros-pasos-fedora-27-parte-i/'>
+
+<link rel="stylesheet" href="/scss/style.min.ac77dcf8b111b51da39a92990f431923f210f3876d85798a2125667f96dc33a4.css"><meta property='og:title' content='Primeros pasos Fedora 27 KDE Parte I'>
+<meta property='og:description' content='En esta primera parte pondré todos las librerías y programas que suelo instalar en Fedora 25 con KDE, en la segunda parte haré una configuración del entorno de trabajo (fstab, crontab, .ssh, etc)'>
+<meta property='og:url' content='https://www.procamora.com/p/primeros-pasos-fedora-27-parte-i/'>
+<meta property='og:site_name' content='#&gt; fireroot'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='fedora' /><meta property='article:tag' content='console' /><meta property='article:tag' content='fedora27' /><meta property='article:tag' content='rpmfusion' /><meta property='article:tag' content='dnf' /><meta property='article:published_time' content='2017-03-30T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2017-03-30T00:00:00&#43;00:00'/><meta property='og:image' content='https://www.procamora.com/covers/linux.png' />
+<meta name="twitter:title" content="Primeros pasos Fedora 27 KDE Parte I">
+<meta name="twitter:description" content="En esta primera parte pondré todos las librerías y programas que suelo instalar en Fedora 25 con KDE, en la segunda parte haré una configuración del entorno de trabajo (fstab, crontab, .ssh, etc)"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://www.procamora.com/covers/linux.png' />
+    <link rel="shortcut icon" href="img/favicon.ico" />
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/icons/procamora_30_hua3d16f4d7ffad1a52a64c31db4447108_16949_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">#&gt; fireroot</a></h1>
+            <h2 class="site-description">Mi wiki donde escribo artículos sobre Linux, Ciberseguridad y temas relacionados.</h2>
+        </div>
+    </header><ol class="social-menu">
+            
+                <li>
+                    <a 
+                        href='https://github.com/procamora'
+                        target="_blank"
+                        title="GitHub"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='mailto:pablojoserocamora@gmail.com'
+                        target="_blank"
+                        title="Gmail"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-gmail" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"> <path stroke="none" d="M0 0h24v24H0z" fill="none"/> <path d="M16 20h3a1 1 0 0 0 1 -1v-14a1 1 0 0 0 -1 -1h-3v16z" /> <path d="M5 20h3v-16h-3a1 1 0 0 0 -1 1v14a1 1 0 0 0 1 1z" /> <path d="M16 4l-4 4l-4 -4" /> <path d="M4 6.5l8 7.5l8 -7.5" /> </svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://es.linkedin.com/in/pablo-rocamora'
+                        target="_blank"
+                        title="Linkedin"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-linkedin" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"> <path stroke="none" d="M0 0h24v24H0z" fill="none"/> <rect x="4" y="4" width="16" height="16" rx="2" /> <line x1="8" y1="11" x2="8" y2="16" /> <line x1="8" y1="8" x2="8" y2="8.01" /> <line x1="12" y1="16" x2="12" y2="11" /> <path d="M16 16v-3a2 2 0 0 0 -4 0" /> </svg>
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archivos</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Buscar</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/acerca-de/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>Acerca de</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/index.xml' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-rss" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="5" cy="19" r="1" />
+  <path d="M4 4a16 16 0 0 1 16 16" />
+  <path d="M4 11a9 9 0 0 1 9 9" />
+</svg>
+
+
+
+                
+                <span>Feed</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+                <li id="i18n-switch">  
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                    <select name="language" onchange="window.location.href = this.selectedOptions[0].value">
+                        
+                            <option value="https://www.procamora.com/" selected>Español</option>
+                        
+                            <option value="https://www.procamora.com/en/" >English</option>
+                        
+                    </select>
+                </li>
+            
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Modo oscuro</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+<main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/primeros-pasos-fedora-27-parte-i/">
+                
+                    <img src="/covers/linux.png" loading="lazy" alt="Featured image of post Primeros pasos Fedora 27 KDE Parte I" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/linux/" >
+                Linux
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/primeros-pasos-fedora-27-parte-i/">Primeros pasos Fedora 27 KDE Parte I</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            En esta primera parte pondré todos las librerías y programas que suelo instalar en Fedora 25 con KDE, en la segunda parte haré una configuración del entorno de trabajo (fstab, crontab, .ssh, etc)
+        </h3>
+        
+    </div>
+
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Mar 30, 2017</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    4 minutos a leer
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+
+    <div class="article-category">
+        
+            
+                
+            
+            
+                <a href='https://github.com/procamora/dummy/edit/main/content/post/Linux/primeros-pasos-fedora-27-parte-i.md' style="background-color: #5bc0de" >Edit this page on GitHub</a>
+            
+            
+                <a href='https://github.com/procamora/dummy/edit/main/content/post/Linux/primeros-pasos-fedora-27-parte-i.md' style="background-color: #5bc0de" >Download article PDF</a>
+            
+        
+    </div>
+</div>
+</header>
+
+    <section class="article-content">
+    
+    
+    <h1 id="introducción">Introducción</h1>
+<p>En esta primera parte pondré todos las librerías y programas que suelo instalar en Fedora 25, en la segunda parte haré una configuración del entorno de trabajo (fstab, crontab, .ssh, etc)</p>
+<ul>
+<li><a class="link" href="#mark0" >RPMFusion</a></li>
+<li><a class="link" href="#mark1" >Librerias basicas</a></li>
+<li><a class="link" href="#mark2" >Compilación</a></li>
+<li><a class="link" href="#mark3" >Compresión</a></li>
+<li><a class="link" href="#mark4" >Codecs</a></li>
+<li><a class="link" href="#mark5" >DVD&rsquo;s</a></li>
+<li><a class="link" href="#mark6" >Programas basicos</a></li>
+<li><a class="link" href="#mark7" >HP</a></li>
+<li><a class="link" href="#mark8" >Insync</a></li>
+<li><a class="link" href="#mark9" >Pandoc</a></li>
+<li><a class="link" href="#mark10" >Spotify</a></li>
+<li><a class="link" href="#mark11" >Atom</a></li>
+<li><a class="link" href="#mark12" >Visual Studio Code</a></li>
+<li><a class="link" href="#mark13" >Skype</a></li>
+<li><a class="link" href="#mark14" >Teamviewer</a></li>
+<li><a class="link" href="#mark15" >Dropbox</a></li>
+<li><a class="link" href="#mark16" >Gitkraken</a></li>
+<li><a class="link" href="#mark17" >Pycharm</a></li>
+<li><a class="link" href="#mark18" >Telegram</a></li>
+<li><a class="link" href="#mark19" >Eclipse</a></li>
+<li><a class="link" href="#mark21" >Google Chrome</a></li>
+<li><a class="link" href="#mark22" >Google Music</a></li>
+<li><a class="link" href="#mark23" >system-config-samba</a></li>
+<li><a class="link" href="#mark24" >Drivers nvidia</a></li>
+<li><a class="link" href="#mark25" >Peek</a></li>
+</ul>
+<h2 id="actualización-inicial">Actualización inicial</h2>
+<p>Lo primero  que hay que hacer es actualizar el sistema y lo reiniciamos, posiblemente haya una gran cantidad de paquetes a actualizar, junto con la actualización del kernel por lo que después es bueno hacer un reinicio del sistema.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo dnf update
+</span></span><span class="line"><span class="cl">reboot
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="eliminar-programas-no-necesarios">Eliminar programas no necesarios</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo dnf remove dragon calligra-core
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="mark0">Añadir repositorio RPMFusion</h2>
+<p>Este repositorio es necesario para varios paquetes que instalaremos después (contiene programas importantes y paquetes nonfree).</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo dnf install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-<span class="k">$(</span>rpm -E %fedora<span class="k">)</span>.noarch.rpm
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="mark1">Paquetes y librerías que mas uso</h2>
+<p>Conjunto de librerías y utilidades básicas, traducciones de programas a español, corrector ortográficos, etc.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo dnf install kde-i18n-Spanish mythes-es hyphen-es autocorr-es hunspell-es langpacks-es <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>aspell-es man-pages-es-extra kde-l10n-es android-tools expect flac-libs <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>fluid-soundfont-common  encfs samba wine curl system-config-users meld youtube-dl <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>wget iftop 
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="java">Java</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo dnf install java-openjdk java-1.8.0-openjdk-javadoc java-1.8.0-openjdk-devel
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="mark2">Herramientas básicas de compilación</h2>
+<p>Conjunto de librerías básicas de compilación</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo dnf install kernel-headers kernel-devel git make libxml2 libxml2-devel mercurial <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>cmake python-devel python3-devel gcc-c++ dkms openssl-devel
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h1 id="mark3">Compresión y descompresión</h1>
+<p>Conjunto de librerías básicas de compresión y descompresión</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo dnf install p7zip p7zip-plugins zip unzip unrar
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="mark4">Codecs</h2>
+<p>Conjunto de codecs necesarios para la reproducción de audio con código privado (mp3, etc)</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo dnf install gstreamer gstreamer1-libav gstreamer1-plugins-bad-free-extras <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>gstreamer1-plugins-bad-freeworld gstreamer1-plugins-good-extras pavucontrol <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>gstreamer-ffmpeg gstreamer-plugins-bad gstreamer-plugins-bad-free-extras <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>gstreamer-plugins-ugly ffmpeg ffmpeg-libs libmatroska xvidcore libva-vdpau-driver <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>libvdpau libvdpau-devel gstreamer1-vaapi gstreamer1-plugins-base-tools mencoder <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>alsa-firmware gstreamer1-plugins-ugly
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="mark5">Soporte para DVD&rsquo;s</h2>
+<p>Conjunto de librerías necesarias para la reproducción de DVD&rsquo;s</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo dnf install lsdvd libdvbpsi libdvdread libdvdnav
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="mark6">Programas básicos</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo dnf install VirtualBox vim yakuake libreoffice libreoffice-langpack-es <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>gnome-disk-utility sqlitebrowser gimp vlc fritzing kdenlive frei0r-plugins <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>calibre picard chromaprint-tools arduino vokoscreen filezilla
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="mark7">Dispositivos HP (impresora)</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo dnf install hplip hplip-common libsane-hpaio hplip-gui
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h1 id="mark8">Insync</h1>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo rpm --import https://d2t3ff60b2tol4.cloudfront.net/repomd.xml.key
+</span></span><span class="line"><span class="cl">sudo <span class="nb">echo</span> <span class="s2">&#34;[insync]
+</span></span></span><span class="line"><span class="cl"><span class="s2">name=insync repo
+</span></span></span><span class="line"><span class="cl"><span class="s2">baseurl=http://yum.insynchq.com/fedora/\$releasever/
+</span></span></span><span class="line"><span class="cl"><span class="s2">gpgcheck=1
+</span></span></span><span class="line"><span class="cl"><span class="s2">gpgkey=https://d2t3ff60b2tol4.cloudfront.net/repomd.xml.key
+</span></span></span><span class="line"><span class="cl"><span class="s2">enabled=1
+</span></span></span><span class="line"><span class="cl"><span class="s2">metadata_expire=120m&#34;</span> &gt; /etc/yum.repos.d/insync.repo
+</span></span><span class="line"><span class="cl">sudo dnf install insync insync-dolphin
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h1 id="mark9">Pandoc</h1>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo dnf install pandoc texlive texlive texlive-latex texlive-xetex texlive-xetex-def <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>texlive-collection-latexrecommended texlive-collection-xetex texlive-collection-latex
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="mark10">Spotify</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo dnf config-manager --add-repo<span class="o">=</span>http://negativo17.org/repos/fedora-spotify.repo
+</span></span><span class="line"><span class="cl">sudo dnf install spotify-client
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="mark11">Atom</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">programa</span><span class="o">=</span><span class="s2">&#34;atom.x86_64.rpm&#34;</span>
+</span></span><span class="line"><span class="cl">wget -O <span class="nv">$programa</span> https://atom.io/download/rpm
+</span></span><span class="line"><span class="cl">sudo dnf -y install <span class="nv">$programa</span>
+</span></span><span class="line"><span class="cl">rm <span class="nv">$programa</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="mark12">Visual Studio Code</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
+</span></span><span class="line"><span class="cl">sudo sh -c <span class="s1">&#39;echo -e &#34;[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc&#34; &gt; /etc/yum.repos.d/vscode.repo&#39;</span>
+</span></span><span class="line"><span class="cl">dnf check-update
+</span></span><span class="line"><span class="cl">sudo dnf install code
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="mark13">Skype</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo dnf install https://go.skype.com/skypeforlinux-64.rpm
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="mark14">Teamviewer</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo dnf install https://download.teamviewer.com/download/linux/teamviewer.x86_64.rpm
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="mark15">Dropbox</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo dnf install https://www.dropbox.com/download?dl<span class="o">=</span>packages/fedora/nautilus-dropbox-2015.10.28-1.fedora.x86_64.rpm
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="mark16">Gitkraken</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">programa</span><span class="o">=</span><span class="s2">&#34;gitkraken-amd64.tar.gz&#34;</span>
+</span></span><span class="line"><span class="cl">wget -O <span class="nv">$programa</span> https://release.gitkraken.com/linux/gitkraken-amd64.tar.gz
+</span></span><span class="line"><span class="cl">mv <span class="nv">$programa</span> ~/Programas/ <span class="o">&amp;&amp;</span> <span class="nb">cd</span> ~/Programas/
+</span></span><span class="line"><span class="cl">tar -xvf <span class="nv">$programa</span> <span class="o">&amp;&amp;</span> rm <span class="nv">$programa</span> <span class="o">&amp;&amp;</span> <span class="nb">cd</span> -
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="mark17">Pycharm Community</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">programa</span><span class="o">=</span><span class="s2">&#34;pycharm-community-2017.1.tar.gz&#34;</span>
+</span></span><span class="line"><span class="cl">wget -O <span class="nv">$programa</span> https://download.jetbrains.com/python/pycharm-community-2017.1.tar.gz
+</span></span><span class="line"><span class="cl">mv <span class="nv">$programa</span> ~/Programas/ <span class="o">&amp;&amp;</span> <span class="nb">cd</span> ~/Programas/
+</span></span><span class="line"><span class="cl">tar -xvf <span class="nv">$programa</span> <span class="o">&amp;&amp;</span> rm <span class="nv">$programa</span> <span class="o">&amp;&amp;</span> <span class="nb">cd</span> -
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="mark18">Telegram</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">programa</span><span class="o">=</span><span class="s2">&#34;telegram.tar.xz&#34;</span>
+</span></span><span class="line"><span class="cl">wget -O <span class="nv">$programa</span> https://tdesktop.com/linux
+</span></span><span class="line"><span class="cl">mv <span class="nv">$programa</span> ~/Programas/ <span class="o">&amp;&amp;</span> <span class="nb">cd</span> ~/Programas/
+</span></span><span class="line"><span class="cl">tar -xvf <span class="nv">$programa</span> <span class="o">&amp;&amp;</span> rm <span class="nv">$programa</span> <span class="o">&amp;&amp;</span> <span class="nb">cd</span> -
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="mark19">Eclipse</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">programa</span><span class="o">=</span><span class="s2">&#34;eclipse-inst-linux64.tar.gz&#34;</span>
+</span></span><span class="line"><span class="cl">wget -O <span class="nv">$programa</span> http://mirror.ibcp.fr/pub/eclipse//oomph/epp/neon/R2a/eclipse-inst-linux64.tar.gz
+</span></span><span class="line"><span class="cl">mv <span class="nv">$programa</span> ~/Programas/ <span class="o">&amp;&amp;</span> <span class="nb">cd</span> ~/Programas/
+</span></span><span class="line"><span class="cl">tar -xvf <span class="nv">$programa</span> <span class="o">&amp;&amp;</span> rm <span class="nv">$programa</span> <span class="o">&amp;&amp;</span> <span class="nb">cd</span> -
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="mark21">Google Chrome</h2>
+<p>Descargar RPM de aqui: <a class="link" href="https://www.google.com/chrome/browser/desktop/index.html"  target="_blank" rel="noopener"
+    >url</a></p>
+<h2 id="mark22">Google Music</h2>
+<p>Descargar RPM de aqui: <a class="link" href="https://www.googleplaymusicdesktopplayer.com/#!"  target="_blank" rel="noopener"
+    >url</a></p>
+<h2 id="mark23">system-config-samba</h2>
+<p>Descargar RPM de aqui: <a class="link" href="https://rpmfind.net/linux/rpm2html/search.php?query=system-config-samba"  target="_blank" rel="noopener"
+    >url</a></p>
+<h2 id="mark24">Instalar drivers nvdia</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">https://www.if-not-true-then-false.com/2015/fedora-nvidia-guide/
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Fuente: <a class="link" href="http://unix.stackexchange.com/questions/251629/how-to-install-nvidia-proprietary-drivers-on-fedora-23"  target="_blank" rel="noopener"
+    >url</a></p>
+<h2 id="mark25">Peek para grabar la pantalla y crear gif/mp4</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo dnf config-manager --add-repo http://download.opensuse.org/repositories/home:/Bajoja/Fedora_25/home:Bajoja.repo
+</span></span><span class="line"><span class="cl">sudo dnf install peek
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="mark26">Sublime Text 3</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo rpm -v --import https://download.sublimetext.com/sublimehq-rpm-pub.gpg
+</span></span><span class="line"><span class="cl">sudo dnf config-manager --add-repo https://download.sublimetext.com/rpm/stable/x86_64/sublime-text.repo
+</span></span><span class="line"><span class="cl">sudo dnf install sublime-text
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Url <a class="link" href="https://github.com/phw/peek#fedora"  target="_blank" rel="noopener"
+    >gitgub</a></p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/fedora/">fedora</a>
+        
+            <a href="/tags/console/">console</a>
+        
+            <a href="/tags/fedora27/">fedora27</a>
+        
+            <a href="/tags/rpmfusion/">rpmfusion</a>
+        
+            <a href="/tags/dnf/">dnf</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/katex.min.css"integrity="sha256-J&#43;iAE0sgH8QSz9hpcDxXIftnj65JEZgNhGcgReTTK9s="crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/katex.min.js"integrity="sha256-InsNdER1b2xUewP&#43;pKCUJpkhiqwHgqiPXDlIk7GzBu4="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/contrib/auto-render.min.js"integrity="sha256-y39Mpg7V3D4lhBX4x6O0bUqTV4pSrfgwEfGKfxkOdgI="crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.querySelector(`.article-content`), {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ]
+        });})
+</script>
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Contenidos relacionados</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/p/primeros-pasos-fedora-30-parte-i/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/covers/linux.png" loading="lazy" data-key="primeros-pasos-fedora-30-parte-i" data-hash="/covers/linux.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Primeros pasos Fedora 30 KDE Parte I</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/primeros-pasos-fedora-27-parte-ii/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/covers/linux.png" loading="lazy" data-key="primeros-pasos-fedora-27-parte-ii" data-hash="/covers/linux.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Primeros pasos Fedora 27 KDE Parte II</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/primeros-pasos-fedora-32-parte-i/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/covers/draft.png" loading="lazy" data-key="primeros-pasos-fedora-32-parte-i" data-hash="/covers/draft.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Primeros pasos Fedora 32 KDE Parte I</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/primeros-pasos-fedora-32-parte-ii/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/covers/draft.png" loading="lazy" data-key="primeros-pasos-fedora-32-parte-ii" data-hash="/covers/draft.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Primeros pasos Fedora 32 KDE Parte II</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/verdiferentespaquetes/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/covers/linux.png" loading="lazy" data-key="verdiferentespaquetes" data-hash="/covers/linux.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Ver Diferentes Paquetes</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "procamora-github" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2022 #&gt; fireroot
+    </section>
+    
+    <section class="powerby">
+        
+            Esto es el footer <br/>
+        Creado con <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Tema <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.13.0">Stack</a></b> diseñado por <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Tabla de contenido</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#actualización-inicial">Actualización inicial</a></li>
+    <li><a href="#eliminar-programas-no-necesarios">Eliminar programas no necesarios</a></li>
+    <li><a href="#mark0">Añadir repositorio RPMFusion</a></li>
+    <li><a href="#mark1">Paquetes y librerías que mas uso</a></li>
+    <li><a href="#java">Java</a></li>
+    <li><a href="#mark2">Herramientas básicas de compilación</a></li>
+  </ol>
+
+  <ol>
+    <li><a href="#mark4">Codecs</a></li>
+    <li><a href="#mark5">Soporte para DVD&rsquo;s</a></li>
+    <li><a href="#mark6">Programas básicos</a></li>
+    <li><a href="#mark7">Dispositivos HP (impresora)</a></li>
+  </ol>
+
+  <ol>
+    <li><a href="#mark10">Spotify</a></li>
+    <li><a href="#mark11">Atom</a></li>
+    <li><a href="#mark12">Visual Studio Code</a></li>
+    <li><a href="#mark13">Skype</a></li>
+    <li><a href="#mark14">Teamviewer</a></li>
+    <li><a href="#mark15">Dropbox</a></li>
+    <li><a href="#mark16">Gitkraken</a></li>
+    <li><a href="#mark17">Pycharm Community</a></li>
+    <li><a href="#mark18">Telegram</a></li>
+    <li><a href="#mark19">Eclipse</a></li>
+    <li><a href="#mark21">Google Chrome</a></li>
+    <li><a href="#mark22">Google Music</a></li>
+    <li><a href="#mark23">system-config-samba</a></li>
+    <li><a href="#mark24">Instalar drivers nvdia</a></li>
+    <li><a href="#mark25">Peek para grabar la pantalla y crear gif/mp4</a></li>
+    <li><a href="#mark26">Sublime Text 3</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

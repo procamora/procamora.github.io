@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>mencoder on #&gt; fireroot</title>
+        <link>https://www.procamora.com/tags/mencoder/</link>
+        <description>Recent content in mencoder on #&gt; fireroot</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>es</language>
+        <lastBuildDate>Thu, 22 Oct 2015 00:00:00 +0000</lastBuildDate><atom:link href="https://www.procamora.com/tags/mencoder/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Cambiar formato videos</title>
+        <link>https://www.procamora.com/p/mencoder/</link>
+        <pubDate>Thu, 22 Oct 2015 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/p/mencoder/</guid>
+        <description>&lt;img src="https://www.procamora.com/covers/linux.png" alt="Featured image of post Cambiar formato videos" /&gt;&lt;h6 id=&#34;cambiar-formato-de-los-vídeos&#34;&gt;Cambiar formato de los vídeos&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;mencoder -idx &#39;videooriginal.ogv&#39; -ovc lavc -oac mp3lame -o &#39;videofinal.flv&#39;&lt;/code&gt;&lt;/p&gt;
+&lt;h6 id=&#34;incluir-subtítulos-en-un-vídeo&#34;&gt;Incluir subtítulos en un vídeo&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;mencoder &#39;VideoOriginal.avi&#39; -sub &#39;ArchivoDeSubtitulos.srt&#39; -subcp utf-8 -oac copy -ovc xvid -xvidencopts pass=1 -o &#39;VideoDeSalida.avi&#39;&lt;/code&gt;&lt;/p&gt;
+&lt;h6 id=&#34;unir-2-vídeos&#34;&gt;Unir 2 vídeos&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;mencoder -oac copy -ovc copy -o &#39;video_completo.avi&#39; &#39;parte1.avi&#39; &#39;parte2.avi&#39;&lt;/code&gt;&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

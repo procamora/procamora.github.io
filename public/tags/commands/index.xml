@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>commands on #&gt; fireroot</title>
+        <link>https://www.procamora.com/tags/commands/</link>
+        <description>Recent content in commands on #&gt; fireroot</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>es</language>
+        <lastBuildDate>Mon, 21 Dec 2015 00:00:00 +0000</lastBuildDate><atom:link href="https://www.procamora.com/tags/commands/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Comando Split</title>
+        <link>https://www.procamora.com/p/comando_split/</link>
+        <pubDate>Mon, 21 Dec 2015 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/p/comando_split/</guid>
+        <description>&lt;img src="https://www.procamora.com/covers/linux.png" alt="Featured image of post Comando Split" /&gt;&lt;p&gt;El programa split es una utilidad de los sistemas operativos tipo Unix, usada para partir un archivo en uno o más de menor tamaño. De ahí su nombre, que en inglés significa partir.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;Sintaxis: split [parámetros opcionales] [archivo de entrada] [archivo de salida]&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;El comportamiento por defecto de split es generar archivos de salida de hasta 1000 líneas. Estos archivos se nombran añadiéndole aa, ab, ac, etcétera, a archivo de salida; si no se da el nombre del archivo de salida, se usa el nombre por defecto de x, resultando en los archivos xaa, xab, etcétera. Si se usa un guion (-) como archivo de entrada, se leen los datos de la entrada estándar.&lt;/p&gt;
+&lt;p&gt;Para unir de nuevo los archivos se usa el comando cat.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;22
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;23
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;24
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;25
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;26
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;27
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;28
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;29
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;30
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;31
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ split --help
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Usage: split [OPTION]... [INPUT [PREFIX]]
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Output fixed-size pieces of INPUT to PREFIXaa, PREFIXab, ...; default
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;size is 1000 lines, and default PREFIX is `x&amp;#39;.  With no INPUT, or when INPUT
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;is -, read standard input.
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Mandatory arguments to long options are mandatory for short options too.
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  -a, –suffix-length=N    utiliza sufijos de longitud N (por omisión 2)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  -b, –bytes=TAMAÑO       escribe TAMAÑO bytes en cada fichero de salida
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  -C, –line-bytes=BYTES   escribe un máximo de BYTES bytes sin cortar líneas
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  -d, –numeric-suffixes   utiliza sufijos numéricos en vez de alfabéticos
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  -e, --elide-empty-files do not generate empty output files with `-n&amp;#39;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      --filter=COMMAND    write to shell COMMAND; file name is $FILE
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  -l, –lines=NÚMERO       pone NÚMERO de líneas en cada fichero de salida
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  -n, --number=CHUNKS     generate CHUNKS output files.  See below
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  -u, --unbuffered        immediately copy input to output with `-n r/...&amp;#39;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      --verbose           print a diagnostic just before each
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                            output file is opened
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      --help     display this help and exit
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      --version  output version information and exit
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;SIZE may be (or may be an integer optionally followed by) one of following:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;KB 1000, K 1024, MB 1000*1000, M 1024*1024, and so on for G, T, P, E, Z, Y.
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;CHUNKS may be:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;N       split into N files based on size of input
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;K/N     output Kth of N to stdout
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;l/N     split into N files without splitting lines
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;l/K/N   output Kth of N to stdout without splitting lines
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;r/N     like `l&amp;#39; but use round robin distribution
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;r/K/N   likewise but only output Kth of N to stdout
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;#Dividir&lt;/p&gt;
+&lt;p&gt;#####Partir por tamaño de fichero de 20Mb
+&lt;code&gt;split dict.lst -b 20MB&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Y el resultado:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;-rw-rw-r-- 1 user user   20000 Mar 12 20:48 xaa
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;-rw-rw-r-- 1 user user   20000 Mar 12 20:48 xab
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;-rw-rw-r-- 1 user user   20000 Mar 12 20:48 xac
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;-rw-rw-r-- 1 user user   20000 Mar 12 20:48 xad
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;-rw-rw-r-- 1 user user   20000 Mar 12 20:48 xae
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;-rw-rw-r-- 1 user user   20000 Mar 12 20:48 xaf
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;#####Partir por tamaño de fichero de 20Mb con nombre con letras
+&lt;code&gt;split dict.lst -b 20MB dict_&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Y el resultado:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;-rw-rw-r-- 1 user user   20000 Mar 12 20:48 dict_aa
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;-rw-rw-r-- 1 user user   20000 Mar 12 20:48 dict_ab
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;-rw-rw-r-- 1 user user   20000 Mar 12 20:48 dict_ac
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;-rw-rw-r-- 1 user user   20000 Mar 12 20:48 dict_ad
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;-rw-rw-r-- 1 user user   20000 Mar 12 20:48 dict_ae
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;-rw-rw-r-- 1 user user   20000 Mar 12 20:48 dict_af
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;#####Partir por tamaño de fichero de 20Mb con nombre con números
+&lt;code&gt;split dict.lst -b 20MB -d dict&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Y el resultado:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;-rw-rw-r-- 1 user user   20000 Mar 12 20:48 dict00
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;-rw-rw-r-- 1 user user   20000 Mar 12 20:48 dict01
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;-rw-rw-r-- 1 user user   20000 Mar 12 20:48 dict02
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;-rw-rw-r-- 1 user user   20000 Mar 12 20:48 dict03
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;-rw-rw-r-- 1 user user   20000 Mar 12 20:48 dict04
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;-rw-rw-r-- 1 user user   20000 Mar 12 20:48 dict05
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;#####Partir por cada 20000 lineas
+&lt;code&gt;split dict.lst -l 20000&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Y el resultado:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;-rw-rw-r-- 1 user user   2000 Mar 12 20:48 xaa
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;-rw-rw-r-- 1 user user   2000 Mar 12 20:48 xab
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;-rw-rw-r-- 1 user user   2000 Mar 12 20:48 xac
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;-rw-rw-r-- 1 user user   2000 Mar 12 20:48 xad
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;-rw-rw-r-- 1 user user   2000 Mar 12 20:48 xae
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;-rw-rw-r-- 1 user user   2000 Mar 12 20:48 xaf
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h1 id=&#34;unir&#34;&gt;Unir&lt;/h1&gt;
+&lt;p&gt;&lt;code&gt;cat dict* &amp;gt; dict.lst&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;http://hipertextual.com/archivo/2010/04/comando-linux-split/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;http://hipertextual.com/archivo/2010/04/comando-linux-split/&lt;/a&gt;&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>Comandos básicos</title>
+        <link>https://www.procamora.com/p/comandos_basicos/</link>
+        <pubDate>Sun, 15 Nov 2015 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/p/comandos_basicos/</guid>
+        <description>&lt;img src="https://www.procamora.com/covers/linux.png" alt="Featured image of post Comandos básicos" /&gt;&lt;p&gt;&lt;code&gt;adduser&lt;/code&gt;: Se utiliza para añadir un usuario.&lt;/p&gt;
+&lt;p&gt;*Uso: adduser &lt;nombreusuario&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;Alias&lt;/code&gt; (este esta bien explicado en un post anterior)&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Uso: alias nombrequeledamos=’comando’&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;apt-get install nombredelprograma&lt;/code&gt; =  instala el paquete.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;apt-get remove nombredelprograma&lt;/code&gt; = Borra el paquete. Con la opción –purge borra también la configuración del paquete instalado.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;apt-get update&lt;/code&gt; = Actualiza la lista de paquetes disponibles para instalar.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;apt-get upgrade&lt;/code&gt;  = Instala las nuevas versiones de los diferentes paquetes disponibles.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;cd&lt;/code&gt; = Cambia el directorio.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Uso: cd nombredirectorio&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Continuar leyendo el resto de comandos:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;chmod&lt;/code&gt;: Cambia los permisos de los archivos.&lt;/p&gt;
+&lt;p&gt;r:lectura w:escritura x:ejecución
++: añade permisos -:quita permisos
+u:usuario g:grupo del usuario o:otros
+&lt;em&gt;Uso: chmod permisos nombrearchivo&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;chown&lt;/code&gt;: Cambia el propietario de un archivo.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Uso: chown &lt;nombrepropietario&gt; &lt;nombrearchivo&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;cp&lt;/code&gt;:Copia archivos en el directorio indicado.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Uso: cp archivoorigen archivodestino&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;deluser&lt;/code&gt;: Elimina una cuenta de usuario&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Uso: deluser &lt;nombreusuario&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;exit&lt;/code&gt;: Cierra las ventanas o las conexiones remotas establecidas&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;fsck&lt;/code&gt;: Sirve para chequear si hay errores en nuestro disco duro.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Uso: fsck -t &amp;lt;fs_typo&amp;gt; &lt;dispositivo&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;ftp&lt;/code&gt;: Protocolo de Transferencia de Archivos, permite transferir archivos de y para computadores remotos.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Uso: ftp &amp;lt;maquina_remota&amp;gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;grep&lt;/code&gt;: Su funcionalidad es la de escribir en salida estándar aquellas líneas que concuerden con un patrón. Busca patrones en archivos.&lt;/p&gt;
+&lt;p&gt;grep: grep &lt;patronabuscar&gt; &lt;nombrearchivos&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;ifconfig&lt;/code&gt;: Obtener información de la configuración de red&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;kill&lt;/code&gt;: Termina un proceso&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Uso: kill numeroPID&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;ls&lt;/code&gt;:Lista los archivos y directorios dentro del directorio de trabajo.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;make&lt;/code&gt;: Crea ejecutables a partir de los archivos fuente.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;man&lt;/code&gt;: muestra el manual de un programa o comando si este esta disponible&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Uso: man &lt;nombredelcomando&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;mkdir&lt;/code&gt;: Crea un nuevo directorio.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Uso: mkdir nombredirectorio&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;mount&lt;/code&gt;: Monta una unidad.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Uso: mount -t&amp;lt; sistema_de_archivo&amp;gt; &lt;dispositivo&gt; &lt;nombredirectorio&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;mv&lt;/code&gt;: Este comando sirve para renombrar un archivo.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Uso: mv &lt;nombrearchivo&gt; &lt;nuevonombrearchivo&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;netstat&lt;/code&gt;:Muestra las conexiones y puertos abiertos por los que se establecen las comunicaciones.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;poweroff&lt;/code&gt;: Apaga el ordenador.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;ps&lt;/code&gt;: Muestra información acerca de los procesos activos.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;rlogin&lt;/code&gt;: Conecta un host local con un host remoto.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Uso: rlogin &amp;lt;maquina_remota&amp;gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;rm&lt;/code&gt;: Remueve o elimina un archivo.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Uso: rm &lt;rutaynombrearchivo&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;rmdir&lt;/code&gt;: Elimina el directorio indicado, el cual debe estar vacío.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Uso: rmdir nombredirectorio&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;sudo&lt;/code&gt; o &lt;code&gt;su&lt;/code&gt;: Con este comando accedemos al sistema como root.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;umount&lt;/code&gt;: Desmontar unidades montadas anteriormente&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Uso: umount &lt;nombredirectorio&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;wc&lt;/code&gt;:Cuenta los caráteres, palabras y líneas del archivo de texto.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Uso: wc nom_archivo&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;whereis&lt;/code&gt;: Devuelve la ubicación del archivo especificado, si existe.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Uso: whereis nomb_archivo&lt;/em&gt;&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

@@ -1,0 +1,440 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>proxmox on #&gt; fireroot</title>
+        <link>https://www.procamora.com/tags/proxmox/</link>
+        <description>Recent content in proxmox on #&gt; fireroot</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>es</language>
+        <lastBuildDate>Mon, 12 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://www.procamora.com/tags/proxmox/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Escenario para Pentesting (II). Servicios desplegados (WIP)</title>
+        <link>https://www.procamora.com/p/escenario_para_pentesting_ii_servicios/</link>
+        <pubDate>Mon, 12 Oct 2020 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/p/escenario_para_pentesting_ii_servicios/</guid>
+        <description>&lt;img src="https://www.procamora.com/covers/pentesting.png" alt="Featured image of post Escenario para Pentesting (II). Servicios desplegados (WIP)" /&gt;&lt;p&gt;En este artículo se detallan los servicios que se van a usar junto con una pequeña descripción de los distintos niveles de madurez de estos. Estos niveles de madurez los vamos a clasificar como &lt;em&gt;basic&lt;/em&gt;, &lt;em&gt;advanced&lt;/em&gt; y &lt;em&gt;hardening&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.procamora.com/images/prometeo/Complete_Scenario.svg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Escenario avanzado&#34;
+	
+	
+&gt;{:height=&amp;ldquo;auto&amp;rdquo; width=&amp;ldquo;100%&amp;rdquo;}&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;#header1&#34; &gt;DMZ Servers&lt;/a&gt;:
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;#mark0&#34; &gt;DB SQL (MariaDB)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;#mark1&#34; &gt;DB NoSQL (MongoDB)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;#mark2&#34; &gt;FTP (vsftpd)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;#mark3&#34; &gt;Web Security Dojo&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;#mark4&#34; &gt;WAF (ModSecurity)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;#mark5&#34; &gt;WEB (Apache2)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;#mark6&#34; &gt;Monitorización (Nagios)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;#mark7&#34; &gt;Almacenamiento (Owncloud)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;#mark8&#34; &gt;Muña&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;#mark9&#34; &gt;Wordpress&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;#mark10&#34; &gt;Prestashop&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;#mark11&#34; &gt;Joomla&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;#mark12&#34; &gt;Drupal&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;#mark13&#34; &gt;Radius (freeradius)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;#mark14&#34; &gt;DNS (bind9)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;#mark15&#34; &gt;Honeypot (Cowrie)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;#mark16&#34; &gt;Correo (Postfix)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;#header2&#34; &gt;Router&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;#mark21&#34; &gt;firewall&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;#mark22&#34; &gt;VPN&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;#mark23&#34; &gt;IPv6&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;#header3&#34; &gt;IDS&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;#header4&#34; &gt;LAN Servers&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;#mark41&#34; &gt;VoIP (Asterisk)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;#mark42&#34; &gt;LDAP (OpenLDAP)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;#mark43&#34; &gt;SIEM (ELK)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;#mark44&#34; &gt;SIEM (Splunk)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;#mark441&#34; &gt;SIEM (EventLog Analyzer)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;#mark45&#34; &gt;Active Directory&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;#mark46&#34; &gt;WEB (IIS)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;#mark47&#34; &gt;Almacenamiento (SharePoint)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;#mark48&#34; &gt;DB SQL (SQL Server)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;#mark491&#34; &gt;ory/hydra OpenID&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;#mark492&#34; &gt;ory/hydra OAuth2&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;#header5&#34; &gt;LAN PCs&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;#mark51&#34; &gt;Windows XP&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;#mark52&#34; &gt;Windows 7&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;#mark53&#34; &gt;Windows 10&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;header1&#34;&gt;DMZ Servers&lt;/h1&gt;
+&lt;p&gt;En esta subred se encuentran todos aquellos servicios que son alcanzables desde el exterior. Algunos de estos servicios tienes un acceso limitad a la subred interna de servidores, como por ejemplo para enviar los logs generados.&lt;/p&gt;
+&lt;h2 id=&#34;mark0&#34;&gt;DB SQL (MariaDB)&lt;/h2&gt;
+&lt;p&gt;Se usará MariaDB como base da datos SQL que almacena los datos de los siguientes servicios:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Owncloud&lt;/li&gt;
+&lt;li&gt;Asterisk&lt;/li&gt;
+&lt;li&gt;Wordpress&lt;/li&gt;
+&lt;li&gt;Prestashop&lt;/li&gt;
+&lt;li&gt;Joomla&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;basic&#34;&gt;Basic&lt;/h3&gt;
+&lt;p&gt;Está será la configuración que viene por defecto, con la excepción de que tiene que permitir conexiones desde cualquier IP, ya que será usada por servicios que tienen distintas IPs y que tendrá habilitada la auditoria para poder enviar.&lt;/p&gt;
+&lt;h3 id=&#34;advanced&#34;&gt;Advanced&lt;/h3&gt;
+&lt;p&gt;Está configuración tendrá mayores medidas de seguridad, como limitar el acceso por IP únicamente a los servicios que necesitan acceso a la base de datos.&lt;/p&gt;
+&lt;h3 id=&#34;hardening&#34;&gt;Hardening&lt;/h3&gt;
+&lt;p&gt;Esta configuración será mucho más avanzada, se usará la guía del CIS para hardenizar la base de datos.&lt;/p&gt;
+&lt;p&gt;//TODO Poner url pdf cis mysql&lt;/p&gt;
+&lt;h2 id=&#34;mark1&#34;&gt;DB NoSQL (MongoDB)&lt;/h2&gt;
+&lt;p&gt;//TODO ver el uso que se le da&lt;/p&gt;
+&lt;h3 id=&#34;basic-1&#34;&gt;Basic&lt;/h3&gt;
+&lt;h3 id=&#34;advanced-1&#34;&gt;Advanced&lt;/h3&gt;
+&lt;h3 id=&#34;hardening-1&#34;&gt;Hardening&lt;/h3&gt;
+&lt;h2 id=&#34;mark2&#34;&gt;FTP (vsftpd)&lt;/h2&gt;
+&lt;p&gt;Se usará vsftpd como servidor FTP de la organización para la descarga de datos.&lt;/p&gt;
+&lt;h3 id=&#34;basic-2&#34;&gt;Basic&lt;/h3&gt;
+&lt;p&gt;Está será la configuración que viene por defecto.&lt;/p&gt;
+&lt;h3 id=&#34;advanced-2&#34;&gt;Advanced&lt;/h3&gt;
+&lt;p&gt;Está configuración tendrá mayores medidas de seguridad, como pueden ser:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Usar un servicio LDAP para la gestión de usuarios&lt;/li&gt;
+&lt;li&gt;Usar únicamente FTPS (FTP over SSL) o SFTP (SSH File Transfer Protocol)&lt;/li&gt;
+&lt;li&gt;Usar algún servicio como fail2ban para evitar ataques de fuerza bruta.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;hardening-2&#34;&gt;Hardening&lt;/h3&gt;
+&lt;p&gt;Esta configuración será mucho más avanzada, se usará la guía del CIS para hardenizar el servicio.&lt;/p&gt;
+&lt;h2 id=&#34;mark3&#34;&gt;Web Security Dojo&lt;/h2&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.mavensecurity.com/resources/web-security-dojo&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Web Security Dojo&lt;/a&gt; es un entorno de aprendizaje autónomo de código abierto para pruebas de penetración de seguridad de aplicaciones web, cuyos objetivos son:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;OWASP&amp;rsquo;s WebGoat&lt;/li&gt;
+&lt;li&gt;Google’s Gruyere&lt;/li&gt;
+&lt;li&gt;Damn Vulnerable Web App&lt;/li&gt;
+&lt;li&gt;Hacme Casino&lt;/li&gt;
+&lt;li&gt;OWASP InsecureWebApp&lt;/li&gt;
+&lt;li&gt;w3af&amp;rsquo;s test website&lt;/li&gt;
+&lt;li&gt;simple training targets by Maven Security (including REST and JSON)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;mark4&#34;&gt;WAF (ModSecurity)&lt;/h2&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://modsecurity.org/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;ModSecurity&lt;/a&gt; es un firewall de aplicaciones Web (WAF) embebible que se ejecuta como un módulo del servidor web Apache, provee protección contra diversos ataques hacia aplicaciones Web y permite monitorizar tráfico HTTP.&lt;/p&gt;
+&lt;p&gt;\TODO Investigar si tiene que estar como server proxy inverso o puede estar con el Apache junto con el resto de servicios (Menos consumo de recursos)&lt;/p&gt;
+&lt;h3 id=&#34;basic-3&#34;&gt;Basic&lt;/h3&gt;
+&lt;p&gt;No va a estar configurado y únicamente redireccionará todas las peticiones HTTP al su respectivo servidor web&lt;/p&gt;
+&lt;h3 id=&#34;advanced-3&#34;&gt;Advanced&lt;/h3&gt;
+&lt;p&gt;Se va a configurar con el objetivo de que sea capaz de evitar SQL Injection y otros tipos de ataques web.&lt;/p&gt;
+&lt;h3 id=&#34;hardening-3&#34;&gt;Hardening&lt;/h3&gt;
+&lt;p&gt;Esta configuración será mucho más avanzada, se usará la guía del CIS para hardenizar el servidor web.&lt;/p&gt;
+&lt;h2 id=&#34;mark5&#34;&gt;WEB (Apache2)&lt;/h2&gt;
+&lt;p&gt;Se va a usar el servidor web Apache para desplegar una serie de servicios y CMS como son:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Muña&lt;/li&gt;
+&lt;li&gt;Nagios&lt;/li&gt;
+&lt;li&gt;Owncloud&lt;/li&gt;
+&lt;li&gt;Muña&lt;/li&gt;
+&lt;li&gt;Wordpress&lt;/li&gt;
+&lt;li&gt;Prestashop&lt;/li&gt;
+&lt;li&gt;Joomla&lt;/li&gt;
+&lt;li&gt;Drupal&lt;/li&gt;
+&lt;li&gt;WebGoat&lt;/li&gt;
+&lt;li&gt;phpmyadmin&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Además se van a probar diferentes configuraciones de Apache para poner determinadas partes de una web con contraseña o usar el nuevo protocolo QUIC – HTTP/3.&lt;/p&gt;
+&lt;h3 id=&#34;basic-4&#34;&gt;Basic&lt;/h3&gt;
+&lt;p&gt;Está será la configuración que viene por defecto, con la excepción de que se crearán virtualhost para cada una de las aplicaciones que se van a levantar usando Apache.&lt;/p&gt;
+&lt;h3 id=&#34;advanced-4&#34;&gt;Advanced&lt;/h3&gt;
+&lt;p&gt;Esta configuración hará uso de SSL y de certificados generados y firmados por una CA auto-firmada.&lt;/p&gt;
+&lt;h3 id=&#34;hardening-4&#34;&gt;Hardening&lt;/h3&gt;
+&lt;p&gt;Esta configuración será mucho más avanzada, se usará la guía del CIS para hardenizar el servidor web.&lt;/p&gt;
+&lt;h2 id=&#34;mark6&#34;&gt;Monitorización (Nagios)&lt;/h2&gt;
+&lt;p&gt;Se va a usar este servicio par monitorizar el funcionamiento de todos los hosts de la arquitectura, usando el protocolo SNMP, por lo que todos tendrán que tener configurado este protocolo.&lt;/p&gt;
+&lt;h3 id=&#34;basic-5&#34;&gt;Basic&lt;/h3&gt;
+&lt;p&gt;Está será la configuración que viene por defecto, utilizando SNMPv2 para la monitorización de los hosts.&lt;/p&gt;
+&lt;h3 id=&#34;advanced-5&#34;&gt;Advanced&lt;/h3&gt;
+&lt;p&gt;Esta configuración hará uso de un certificado para cifrar las comunicaciones. Además que se cambiara SNMPv2 por SNMPv3 para que el tráfico de monitorización vaya cifrado.&lt;/p&gt;
+&lt;h3 id=&#34;hardening-5&#34;&gt;Hardening&lt;/h3&gt;
+&lt;p&gt;\TODO&lt;/p&gt;
+&lt;h2 id=&#34;mark7&#34;&gt;Almacenamiento (Owncloud)&lt;/h2&gt;
+&lt;h3 id=&#34;basic-6&#34;&gt;Basic&lt;/h3&gt;
+&lt;h3 id=&#34;advanced-6&#34;&gt;Advanced&lt;/h3&gt;
+&lt;h3 id=&#34;hardening-6&#34;&gt;Hardening&lt;/h3&gt;
+&lt;h2 id=&#34;mark8&#34;&gt;Muña&lt;/h2&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://munahack.github.io/index.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Muña&lt;/a&gt; es una aplicación vulnerable cuyo objetivo es practicar seguridad y hacking ético de aplicaciones y servicios web.&lt;/p&gt;
+&lt;p&gt;Permite practica como atacar usando técnicas como inyección SQL, XSS, exposición de Recursos, exposición de Credenciales, seguridad de Base de Datos, etc.&lt;/p&gt;
+&lt;p&gt;También permite aprender como defenderte escribiendo código seguro y otras formas de prevención para las aplicaciones.&lt;/p&gt;
+&lt;h3 id=&#34;basic-7&#34;&gt;Basic&lt;/h3&gt;
+&lt;p&gt;Está será la configuración que viene por defecto.&lt;/p&gt;
+&lt;h3 id=&#34;advanced-7&#34;&gt;Advanced&lt;/h3&gt;
+&lt;p&gt;Está configuración se realizará tras un análisis del código y realizando la programación necesaria para securizar la aplicación web y eliminar las vulnerabilidades detectadas en la fase anterior.&lt;/p&gt;
+&lt;h2 id=&#34;mark9&#34;&gt;Wordpress&lt;/h2&gt;
+&lt;h3 id=&#34;basic-8&#34;&gt;Basic&lt;/h3&gt;
+&lt;h3 id=&#34;advanced-8&#34;&gt;Advanced&lt;/h3&gt;
+&lt;h3 id=&#34;hardening-7&#34;&gt;Hardening&lt;/h3&gt;
+&lt;h2 id=&#34;mark10&#34;&gt;Prestashop&lt;/h2&gt;
+&lt;h3 id=&#34;basic-9&#34;&gt;Basic&lt;/h3&gt;
+&lt;h3 id=&#34;advanced-9&#34;&gt;Advanced&lt;/h3&gt;
+&lt;h3 id=&#34;hardening-8&#34;&gt;Hardening&lt;/h3&gt;
+&lt;h2 id=&#34;mark11&#34;&gt;Joomla&lt;/h2&gt;
+&lt;h3 id=&#34;basic-10&#34;&gt;Basic&lt;/h3&gt;
+&lt;h3 id=&#34;advanced-10&#34;&gt;Advanced&lt;/h3&gt;
+&lt;h3 id=&#34;hardening-9&#34;&gt;Hardening&lt;/h3&gt;
+&lt;h2 id=&#34;mark12&#34;&gt;Drupal&lt;/h2&gt;
+&lt;h3 id=&#34;basic-11&#34;&gt;Basic&lt;/h3&gt;
+&lt;h3 id=&#34;advanced-11&#34;&gt;Advanced&lt;/h3&gt;
+&lt;h3 id=&#34;hardening-10&#34;&gt;Hardening&lt;/h3&gt;
+&lt;h2 id=&#34;mark13&#34;&gt;Radius (freeradius)&lt;/h2&gt;
+&lt;h3 id=&#34;basic-12&#34;&gt;Basic&lt;/h3&gt;
+&lt;h3 id=&#34;advanced-12&#34;&gt;Advanced&lt;/h3&gt;
+&lt;h3 id=&#34;hardening-11&#34;&gt;Hardening&lt;/h3&gt;
+&lt;h2 id=&#34;mark14&#34;&gt;DNS (bind9)&lt;/h2&gt;
+&lt;h3 id=&#34;basic-13&#34;&gt;Basic&lt;/h3&gt;
+&lt;h3 id=&#34;advanced-13&#34;&gt;Advanced&lt;/h3&gt;
+&lt;h3 id=&#34;hardening-12&#34;&gt;Hardening&lt;/h3&gt;
+&lt;h2 id=&#34;mark15&#34;&gt;Honeypot (Cowrie)&lt;/h2&gt;
+&lt;h3 id=&#34;basic-14&#34;&gt;Basic&lt;/h3&gt;
+&lt;h3 id=&#34;advanced-14&#34;&gt;Advanced&lt;/h3&gt;
+&lt;h3 id=&#34;hardening-13&#34;&gt;Hardening&lt;/h3&gt;
+&lt;h2 id=&#34;mark16&#34;&gt;Correo (Postfix)&lt;/h2&gt;
+&lt;h3 id=&#34;basic-15&#34;&gt;Basic&lt;/h3&gt;
+&lt;h3 id=&#34;advanced-15&#34;&gt;Advanced&lt;/h3&gt;
+&lt;h3 id=&#34;hardening-14&#34;&gt;Hardening&lt;/h3&gt;
+&lt;h1 id=&#34;header2&#34;&gt;Router&lt;/h1&gt;
+&lt;h1 id=&#34;header3&#34;&gt;IDS&lt;/h1&gt;
+&lt;h1 id=&#34;header4&#34;&gt;LAN Servers&lt;/h1&gt;
+&lt;h2 id=&#34;mark41&#34;&gt;VoIP (Asterisk)&lt;/h2&gt;
+&lt;h2 id=&#34;mark42&#34;&gt;LDAP (OpenLDAP)&lt;/h2&gt;
+&lt;h2 id=&#34;mark43&#34;&gt;SIEM (ELK)&lt;/h2&gt;
+&lt;h2 id=&#34;mark44&#34;&gt;SIEM (Splunk)&lt;/h2&gt;
+&lt;h2 id=&#34;mark441&#34;&gt;SIEM (EventLog Analyzer)&lt;/h2&gt;
+&lt;h2 id=&#34;mark45&#34;&gt;Active Directory&lt;/h2&gt;
+&lt;h2 id=&#34;mark46&#34;&gt;WEB (IIS)&lt;/h2&gt;
+&lt;h2 id=&#34;mark47&#34;&gt;Almacenamiento (SharePoint)&lt;/h2&gt;
+&lt;h2 id=&#34;mark48&#34;&gt;DB SQL (SQL Server)&lt;/h2&gt;
+&lt;h2 id=&#34;mark491&#34;&gt;ory/hydra OpenID&lt;/h2&gt;
+&lt;h2 id=&#34;mark492&#34;&gt;ory/hydra OAuth2&lt;/h2&gt;
+&lt;h1 id=&#34;header5&#34;&gt;LAN PCs&lt;/h1&gt;
+</description>
+        </item>
+        <item>
+        <title>Escenario para Pentesting (I). Introducción y objetivos (WIP)</title>
+        <link>https://www.procamora.com/p/escenario_para_pentesting_i_introduccion/</link>
+        <pubDate>Tue, 15 Sep 2020 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/p/escenario_para_pentesting_i_introduccion/</guid>
+        <description>&lt;img src="https://www.procamora.com/covers/pentesting.png" alt="Featured image of post Escenario para Pentesting (I). Introducción y objetivos (WIP)" /&gt;&lt;p&gt;Se va a diseñar un escenario virtual que emule una infraestructura de una empresa de cierto tamaño, aunque para reducir el uso de recursos necesarios para el despliegue del escenario, se van a juntar los servicios que tienen coherencia en la misma máquina, haciendo por ejemplo que distintas bases de datos estén en el mismo host.&lt;/p&gt;
+&lt;br/&gt;
+&lt;p&gt;Los principales objetivos para el desarrollo de este escenario son los siguientes:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Estudio en profundidad de los principales servicios usados en la actualidad, ya que va a ser necesario instalarlos y configurarlos adecuadamente.&lt;/li&gt;
+&lt;li&gt;Creación de un escenario (basic) con las distintas configuraciones de los servicios por defecto a excepción de los logs, que serán enviados a un servidor centralizado de logs, lo que nos permitirá posicionarnos desde dos puntos de vista diferentes:
+&lt;ul&gt;
+&lt;li&gt;Red Team: que tiene como objetivo realizar un estudio de estas configuraciones buscando fallos de seguridad en estas para posteriormente realizar ataques aprovechándose de esas configuraciones por defecto.&lt;/li&gt;
+&lt;li&gt;Blue Team: Al mismo tiempo, desde este punto de vista realizaremos un análisis de los logs para ver que rastros se dejan durante el ataque.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Creación de un escenario (advanced) al que se le van a aplicar configuraciones adecuadas según las necesidades de cada servicio desplegado. En esta etapa también se probará a realizar distintos tipos de ataque y analizar los logs para ver los registros generados.&lt;/li&gt;
+&lt;li&gt;Creación de un escenario (hardening) en el que todas las maquinas y servicios van a tener aplicadas configuraciones más robustas siguiendo estándares de guías como el CIS o el NIST.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;br/&gt;
+&lt;p&gt;Las principales herramientas que se van a utilizar para el despliegue del escenario son las siguientes:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://es.wikipedia.org/wiki/Proxmox_Virtual_Environment&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Proxmox&lt;/strong&gt;&lt;/a&gt;: Proxmox Virtual Environment, o Proxmox VE, es un entorno de virtualización de servidores de código abierto. Está en distribuciones GNU/Linux basadas en Debian con una versión modificada del Kernel RHEL y permite el despliegue y la gestión de máquinas virtuales y contenedores. Proxmox VE incluye una consola Web y herramientas de línea de comandos, y proporciona una API REST para herramientas de terceros. Dos tipos de virtualización son compatibles: los contenedores basados con LXC y la virtualización con KVM. Viene con un instalador e incluye un sitio Web basado en la interfaz de administración.&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://es.wikipedia.org/wiki/Terraform_%28software%29&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Terraform&lt;/strong&gt;&lt;/a&gt;: Terraform es un software de infraestructura como código (IaaC) desarrollado por &lt;a class=&#34;link&#34; href=&#34;https://www.hashicorp.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;HashiCorp&lt;/a&gt;. Permite a los usuarios definir y configurar la infraestructura de un centro de datos en un lenguaje de alto nivel, generando un plan de ejecución para desplegar la infraestructura en Proxmox, OpenStack, AWS, Azure, etc.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Bash&lt;/strong&gt;: Para la automatización de configuración y despliegue de Proxmox, hosts y los distintos contenedores se van a utilizar scripts hechos en bash que realicen una configuración inicial.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Ansible&lt;/strong&gt;: Para la instalación y configuración de los servicios en todos los hosts. El objetivo es crear distintos entornos siendo AnNsible el encargado de aplicar las configuraciones más o menos robustas según el entorno.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;br/&gt;
+&lt;p&gt;Los sistemas operativos que se van a usar para desplegar los distintos servicios son:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Linux: Se usarán distintas distribuciones Linux para hacer un escenario más heterogéneo, estos Sistemas Operativos están basados en las principales distribuciones Linux y son los siguientes:
+&lt;ul&gt;
+&lt;li&gt;Debian 10&lt;/li&gt;
+&lt;li&gt;CentOS 7&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Windows: Se usaran Sistemas Operativo basados en Windows para los hosts de los usuarios y para dos servidores que tienen un Active Directory, estos son los siguientes:
+&lt;ul&gt;
+&lt;li&gt;Windows Server 2019&lt;/li&gt;
+&lt;li&gt;Windows Server 2012&lt;/li&gt;
+&lt;li&gt;Windows 10&lt;/li&gt;
+&lt;li&gt;Windows 7&lt;/li&gt;
+&lt;li&gt;Windows XP&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;br/&gt;
+&lt;p&gt;A continuación podemos ver un diagrama simplificado de como será la arquitectura desplegada, los equipos que están dentro del cuadrado son aquellos que serán virtualizados.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.procamora.com/images/prometeo/Basic_Scenario.svg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Escenario básico&#34;
+	
+	
+&gt;{:height=&amp;ldquo;auto&amp;rdquo; width=&amp;ldquo;100%&amp;rdquo;}&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>Import ova proxmox</title>
+        <link>https://www.procamora.com/p/import_ova_proxmox/</link>
+        <pubDate>Sun, 08 Mar 2020 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/p/import_ova_proxmox/</guid>
+        <description>&lt;img src="https://www.procamora.com/covers/htb.png" alt="Featured image of post Import ova proxmox" /&gt;&lt;p&gt;Para convertir una ova generada por Virtualbox o equivalentes en una imagen valida para Proxmox, hay que realizar una serie de pasos, que serian los siguientes:&lt;/p&gt;
+&lt;p&gt;Lo primero que hay que tener en cuenta es que una ova es un archivo tar que contiene tres ficheros&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;arch-disk001.vmdk: Contiene el disco.&lt;/li&gt;
+&lt;li&gt;arch.mf: Contiene los hash de los otros dos ficheros.&lt;/li&gt;
+&lt;li&gt;arch.ovf: Contiene la información de la máquina, para importarla con los mismos ajustes.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;El primer  paso sera enviar la ova al servidor, esto se puede hacer fácilmente con el comando &lt;em&gt;scp&lt;/em&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;scp arch.ova root@192.168.1.254:~
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Una vez que ya tenemos la máquina dentro de Proxmox tendremos que descomprimir la ova.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;tar xf arch.ova
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;A Partir de este punto tenemos dos métodos para proceder, el primero método es el mas automático, ya que se puede hacer prácticamente todo por consola, en segundo método requiere de interfaz gráfica.&lt;/p&gt;
+&lt;h1 id=&#34;método-1-pendiente-de-testear&#34;&gt;Método 1 (Pendiente de testear)&lt;/h1&gt;
+&lt;p&gt;Lo primero es saber cual va a ser el &lt;em&gt;VMid&lt;/em&gt; de la máquina, para saber cual es el siguiente podemos verlo gráficamente o con el comando &lt;em&gt;qm list&lt;/em&gt;. Una vez que sabemos el id lo que haremos sera indicarlo en la variable de entorno para que lo usen los siguientes comandos.&lt;/p&gt;
+&lt;p&gt;El primer paso sera convertir el disco de formato &lt;em&gt;vmdk&lt;/em&gt; a formato &lt;em&gt;qcow2&lt;/em&gt;. Además este comando ya deja el disco en la ruta que usará la máquina virtual cuando se cree.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;VMID&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;115&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;qemu-img convert &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt; -f vmdk &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt; -O qcow2 &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt; arch-disk001.vmdk &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt; /var/lib/vz/images/&lt;span class=&#34;nv&#34;&gt;$VMID&lt;/span&gt;/vm-&lt;span class=&#34;nv&#34;&gt;$VMID&lt;/span&gt;-disk-1.qcow2
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Una vez que esta creado el disco en su ruta unicamente sera necesario crear la máquina usando este disco. En general se puede modificar este comando para que se ajuste mas a los requisitos de la máquina final, pero personalmente me parece mas cómodo y seguro hacerlo gráficamente una vez que este creada.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;NAME&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;arch&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;qm create &lt;span class=&#34;nv&#34;&gt;$VMID&lt;/span&gt; &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt; --name &lt;span class=&#34;nv&#34;&gt;$NAME&lt;/span&gt; &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt; --net0 virtio,bridge&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;vmbr0 &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt; --bootdisk virtio0 &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt; --ostype l26 &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt; --memory &lt;span class=&#34;m&#34;&gt;1024&lt;/span&gt; &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt; --onboot no &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt; --sockets &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt; --cores &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt; --virtio0 local:&lt;span class=&#34;nv&#34;&gt;$VMID&lt;/span&gt;/vm-&lt;span class=&#34;nv&#34;&gt;$VMID&lt;/span&gt;-disk-1.qcow2
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Una vez hecho esto solo seria necesario ajustar la configuración y arrancar la máquina para probar su correcto funcionamiento.&lt;/p&gt;
+&lt;h1 id=&#34;método-2&#34;&gt;Método 2&lt;/h1&gt;
+&lt;p&gt;Este método es el que he estado usando y funciona por el momento bastante bien, la diferencia con el otro reside en donde se guardan las imágenes, en este se guardan en &lt;em&gt;local-lvm&lt;/em&gt; mientras que en otro se guardan en el disco &lt;em&gt;local&lt;/em&gt;. Además este proceso es mas gráfico y por lo tanto mas lento.&lt;/p&gt;
+&lt;p&gt;El primero paso consiste en crear una máquina, se puede hacer gráficamente o con el comando mostrado anteriormente. Lo importante de este paso es que el disco que se crea hay que hacerle &lt;em&gt;deteach&lt;/em&gt; y despues borrarlo, ya que no lo vamos a usar.&lt;/p&gt;
+&lt;h2 id=&#34;confirmar-que-este-comando-funciona-bien-si-poner-el-disco&#34;&gt;CONFIRMAR QUE ESTE COMANDO FUNCIONA BIEN SI PONER EL DISCO&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;VMID&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;115&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;NAME&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;arch&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;qm create &lt;span class=&#34;nv&#34;&gt;$VMID&lt;/span&gt; &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt; --name &lt;span class=&#34;nv&#34;&gt;$NAME&lt;/span&gt; &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt; --net0 virtio,bridge&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;vmbr0 &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt; --bootdisk virtio0 &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt; --ostype l26 &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt; --memory &lt;span class=&#34;m&#34;&gt;1024&lt;/span&gt; &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt; --onboot no &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt; --sockets &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt; --cores &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Una vez que se ha borrado el disco de la imagen, el siguiente paso sera importar el nuevo disco, esto se realiza con el siguiente comando:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;VMID&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;115&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;qm importdisk &lt;span class=&#34;nv&#34;&gt;$VMID&lt;/span&gt; &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt; arch-disk001.vmdk &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt; local-lvm
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; -format qcow2
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Finalmente el disco aparece gráficamente, pero no esta conectado con la máquina, es necesario editarlo y darle a aplicar para que se registre accesible para la máquina. También seria posible editar el tipo de conectar usando y ponerlo como SATA o IDE.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Un dato interesante es la ruta donde se guardan los fichero ISOs subidos gráficamente, esta ruta es: &lt;em&gt;/var/lib/vz/template/sio/&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

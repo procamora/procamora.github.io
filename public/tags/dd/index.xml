@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>dd on #&gt; fireroot</title>
+        <link>https://www.procamora.com/tags/dd/</link>
+        <description>Recent content in dd on #&gt; fireroot</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>es</language>
+        <lastBuildDate>Sun, 08 Nov 2015 00:00:00 +0000</lastBuildDate><atom:link href="https://www.procamora.com/tags/dd/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Uso de dd</title>
+        <link>https://www.procamora.com/p/dd/</link>
+        <pubDate>Sun, 08 Nov 2015 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/p/dd/</guid>
+        <description>&lt;img src="https://www.procamora.com/covers/linux.png" alt="Featured image of post Uso de dd" /&gt;&lt;p&gt;La orden &lt;strong&gt;dd&lt;/strong&gt; hace una copia exacta byte a byte.&lt;/p&gt;
+&lt;p&gt;Ejemplos:&lt;/p&gt;
+&lt;h6 id=&#34;clonar-un-disco-duro&#34;&gt;Clonar un disco duro:&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;dd if=/dev/sda |pv|dd of=/dev/sdb&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;######Clonar una partición:
+&lt;code&gt;dd if=/dev/sdc2 |pv|dd of=/dev/sda1&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;######Crear una imagen iso de una partición o disco duro (excelente opción para backups):
+&lt;code&gt;dd if=/dev/sda1 |pv|dd of=/home/usuario/backup.iso&lt;/code&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;En algunas distros puede que pv no venga instalado, así que bastará con instalarlo para poder usar este tip.&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

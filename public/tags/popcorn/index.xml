@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>popcorn on #&gt; fireroot</title>
+        <link>https://www.procamora.com/tags/popcorn/</link>
+        <description>Recent content in popcorn on #&gt; fireroot</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>es</language>
+        <lastBuildDate>Sun, 02 Aug 2015 00:00:00 +0000</lastBuildDate><atom:link href="https://www.procamora.com/tags/popcorn/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Instalar popcorn-time</title>
+        <link>https://www.procamora.com/p/popcorn_time/</link>
+        <pubDate>Sun, 02 Aug 2015 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/p/popcorn_time/</guid>
+        <description>&lt;img src="https://www.procamora.com/covers/software.png" alt="Featured image of post Instalar popcorn-time" /&gt;&lt;h2 id=&#34;popcorn-time-es-un-programa-para-streaming-de-películas-y-series&#34;&gt;popcorn time es un programa para streaming de películas y series&lt;/h2&gt;
+&lt;h5 id=&#34;primero-añadimos-lso-repositorios-a-nuestro-sistema&#34;&gt;Primero añadimos lso repositorios a nuestro sistema&lt;/h5&gt;
+&lt;p&gt;&lt;code&gt;sudo echo &amp;quot;deb http://ppa.launchpad.net/webupd8team/popcorntime/ubuntu trusty main&amp;quot; | tee /etc/apt/sources.list.d/webupd8team-popcorntime.list&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;sudo echo &amp;quot;deb-src http://ppa.launchpad.net/webupd8team/popcorntime/ubuntu trusty main&amp;quot; | tee -a /etc/apt/sources.list.d/webupd8team-popcorntime.list&lt;/code&gt;&lt;/p&gt;
+&lt;h5 id=&#34;añadimos-la-clave-publica-para-certificar-que-es-un-paquete-valido&#34;&gt;Añadimos la clave publica para certificar que es un paquete valido&lt;/h5&gt;
+&lt;p&gt;&lt;code&gt;sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys EEA14886&lt;/code&gt;&lt;/p&gt;
+&lt;h5 id=&#34;actualizamos-nuestros-repositorios&#34;&gt;Actualizamos nuestros repositorios&lt;/h5&gt;
+&lt;p&gt;&lt;code&gt;sudo apt-get update&lt;/code&gt;&lt;/p&gt;
+&lt;h5 id=&#34;instalar-popcorn-time&#34;&gt;Instalar popcorn time&lt;/h5&gt;
+&lt;p&gt;&lt;code&gt;sudo apt-get install popcorn-time&lt;/code&gt;&lt;/p&gt;
+&lt;h5 id=&#34;ya-podemos-ejecutarlo-se-pondrá-en-la-lista-de-internet-en-gnome&#34;&gt;Ya podemos ejecutarlo, se pondrá en la lista de &lt;em&gt;internet&lt;/em&gt; en gnome&lt;/h5&gt;
+&lt;p&gt;&lt;code&gt;popcorn-time&lt;/code&gt;&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

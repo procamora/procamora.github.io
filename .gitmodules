@@ -1,0 +1,9 @@
+[submodule "themes/hugo-theme-stack"]
+	path = themes/hugo-theme-stack
+	url = https://github.com/CaiJimmy/hugo-theme-stack/
+[submodule "themes/hugo-theme-learn"]
+	path = themes/hugo-theme-learn
+	url = https://github.com/matcornic/hugo-theme-learn.git
+[submodule "generate_pdf/xelatex-emoji"]
+	path = generate_pdf/xelatex-emoji
+	url = https://github.com/mreq/xelatex-emoji

@@ -1,0 +1,1771 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Tags on #&gt; fireroot</title>
+        <link>https://www.procamora.com/tags/</link>
+        <description>Recent content in Tags on #&gt; fireroot</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>es</language>
+        <lastBuildDate>Mon, 12 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://www.procamora.com/tags/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>pentesting</title>
+        <link>https://www.procamora.com/tags/pentesting/</link>
+        <pubDate>Mon, 12 Oct 2020 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/pentesting/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>proxmox</title>
+        <link>https://www.procamora.com/tags/proxmox/</link>
+        <pubDate>Mon, 12 Oct 2020 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/proxmox/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>terraform</title>
+        <link>https://www.procamora.com/tags/terraform/</link>
+        <pubDate>Mon, 12 Oct 2020 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/terraform/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>apt</title>
+        <link>https://www.procamora.com/tags/apt/</link>
+        <pubDate>Fri, 11 Sep 2020 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/apt/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>backuppc</title>
+        <link>https://www.procamora.com/tags/backuppc/</link>
+        <pubDate>Fri, 11 Sep 2020 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/backuppc/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>crontab</title>
+        <link>https://www.procamora.com/tags/crontab/</link>
+        <pubDate>Fri, 11 Sep 2020 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/crontab/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>debian</title>
+        <link>https://www.procamora.com/tags/debian/</link>
+        <pubDate>Fri, 11 Sep 2020 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/debian/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>fstab</title>
+        <link>https://www.procamora.com/tags/fstab/</link>
+        <pubDate>Fri, 11 Sep 2020 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/fstab/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>insync</title>
+        <link>https://www.procamora.com/tags/insync/</link>
+        <pubDate>Fri, 11 Sep 2020 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/insync/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>openvpn</title>
+        <link>https://www.procamora.com/tags/openvpn/</link>
+        <pubDate>Fri, 11 Sep 2020 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/openvpn/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>pi</title>
+        <link>https://www.procamora.com/tags/pi/</link>
+        <pubDate>Fri, 11 Sep 2020 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/pi/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>raspberry</title>
+        <link>https://www.procamora.com/tags/raspberry/</link>
+        <pubDate>Fri, 11 Sep 2020 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/raspberry/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>raspbian</title>
+        <link>https://www.procamora.com/tags/raspbian/</link>
+        <pubDate>Fri, 11 Sep 2020 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/raspbian/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>ssh</title>
+        <link>https://www.procamora.com/tags/ssh/</link>
+        <pubDate>Fri, 11 Sep 2020 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/ssh/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>systemd</title>
+        <link>https://www.procamora.com/tags/systemd/</link>
+        <pubDate>Fri, 11 Sep 2020 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/systemd/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>transmission</title>
+        <link>https://www.procamora.com/tags/transmission/</link>
+        <pubDate>Fri, 11 Sep 2020 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/transmission/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>vpn</title>
+        <link>https://www.procamora.com/tags/vpn/</link>
+        <pubDate>Fri, 11 Sep 2020 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/vpn/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>zsh</title>
+        <link>https://www.procamora.com/tags/zsh/</link>
+        <pubDate>Fri, 11 Sep 2020 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/zsh/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>mariadb</title>
+        <link>https://www.procamora.com/tags/mariadb/</link>
+        <pubDate>Mon, 07 Sep 2020 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/mariadb/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>mysql</title>
+        <link>https://www.procamora.com/tags/mysql/</link>
+        <pubDate>Mon, 07 Sep 2020 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/mysql/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>oracle</title>
+        <link>https://www.procamora.com/tags/oracle/</link>
+        <pubDate>Mon, 07 Sep 2020 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/oracle/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>postgresql</title>
+        <link>https://www.procamora.com/tags/postgresql/</link>
+        <pubDate>Mon, 07 Sep 2020 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/postgresql/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>sql</title>
+        <link>https://www.procamora.com/tags/sql/</link>
+        <pubDate>Mon, 07 Sep 2020 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/sql/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>sqlserver</title>
+        <link>https://www.procamora.com/tags/sqlserver/</link>
+        <pubDate>Mon, 07 Sep 2020 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/sqlserver/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>android</title>
+        <link>https://www.procamora.com/tags/android/</link>
+        <pubDate>Sun, 10 May 2020 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/android/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>cast</title>
+        <link>https://www.procamora.com/tags/cast/</link>
+        <pubDate>Sun, 10 May 2020 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/cast/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>linux</title>
+        <link>https://www.procamora.com/tags/linux/</link>
+        <pubDate>Sun, 10 May 2020 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/linux/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>scrcpy</title>
+        <link>https://www.procamora.com/tags/scrcpy/</link>
+        <pubDate>Sun, 10 May 2020 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/scrcpy/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>screen</title>
+        <link>https://www.procamora.com/tags/screen/</link>
+        <pubDate>Sun, 10 May 2020 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/screen/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>windows</title>
+        <link>https://www.procamora.com/tags/windows/</link>
+        <pubDate>Sun, 10 May 2020 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/windows/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>fedora</title>
+        <link>https://www.procamora.com/tags/fedora/</link>
+        <pubDate>Tue, 07 Apr 2020 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/fedora/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>guest additions</title>
+        <link>https://www.procamora.com/tags/guest-additions/</link>
+        <pubDate>Tue, 07 Apr 2020 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/guest-additions/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>linux mint</title>
+        <link>https://www.procamora.com/tags/linux-mint/</link>
+        <pubDate>Tue, 07 Apr 2020 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/linux-mint/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>opensuse</title>
+        <link>https://www.procamora.com/tags/opensuse/</link>
+        <pubDate>Tue, 07 Apr 2020 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/opensuse/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>ubuntu</title>
+        <link>https://www.procamora.com/tags/ubuntu/</link>
+        <pubDate>Tue, 07 Apr 2020 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/ubuntu/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>virtualbox</title>
+        <link>https://www.procamora.com/tags/virtualbox/</link>
+        <pubDate>Tue, 07 Apr 2020 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/virtualbox/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>todo</title>
+        <link>https://www.procamora.com/tags/todo/</link>
+        <pubDate>Tue, 31 Mar 2020 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/todo/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>curl</title>
+        <link>https://www.procamora.com/tags/curl/</link>
+        <pubDate>Thu, 19 Mar 2020 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/curl/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>delete</title>
+        <link>https://www.procamora.com/tags/delete/</link>
+        <pubDate>Thu, 19 Mar 2020 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/delete/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>get</title>
+        <link>https://www.procamora.com/tags/get/</link>
+        <pubDate>Thu, 19 Mar 2020 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/get/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>http</title>
+        <link>https://www.procamora.com/tags/http/</link>
+        <pubDate>Thu, 19 Mar 2020 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/http/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>post</title>
+        <link>https://www.procamora.com/tags/post/</link>
+        <pubDate>Thu, 19 Mar 2020 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/post/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>put</title>
+        <link>https://www.procamora.com/tags/put/</link>
+        <pubDate>Thu, 19 Mar 2020 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/put/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>web</title>
+        <link>https://www.procamora.com/tags/web/</link>
+        <pubDate>Thu, 19 Mar 2020 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/web/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>arp</title>
+        <link>https://www.procamora.com/tags/arp/</link>
+        <pubDate>Sun, 15 Mar 2020 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/arp/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>bridge</title>
+        <link>https://www.procamora.com/tags/bridge/</link>
+        <pubDate>Sun, 15 Mar 2020 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/bridge/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>dhcp</title>
+        <link>https://www.procamora.com/tags/dhcp/</link>
+        <pubDate>Sun, 15 Mar 2020 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/dhcp/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>dig</title>
+        <link>https://www.procamora.com/tags/dig/</link>
+        <pubDate>Sun, 15 Mar 2020 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/dig/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>dns</title>
+        <link>https://www.procamora.com/tags/dns/</link>
+        <pubDate>Sun, 15 Mar 2020 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/dns/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>interfaces</title>
+        <link>https://www.procamora.com/tags/interfaces/</link>
+        <pubDate>Sun, 15 Mar 2020 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/interfaces/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>ip</title>
+        <link>https://www.procamora.com/tags/ip/</link>
+        <pubDate>Sun, 15 Mar 2020 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/ip/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>ipv4</title>
+        <link>https://www.procamora.com/tags/ipv4/</link>
+        <pubDate>Sun, 15 Mar 2020 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/ipv4/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>ipv6</title>
+        <link>https://www.procamora.com/tags/ipv6/</link>
+        <pubDate>Sun, 15 Mar 2020 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/ipv6/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>netplan</title>
+        <link>https://www.procamora.com/tags/netplan/</link>
+        <pubDate>Sun, 15 Mar 2020 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/netplan/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>network</title>
+        <link>https://www.procamora.com/tags/network/</link>
+        <pubDate>Sun, 15 Mar 2020 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/network/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>networking</title>
+        <link>https://www.procamora.com/tags/networking/</link>
+        <pubDate>Sun, 15 Mar 2020 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/networking/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>route</title>
+        <link>https://www.procamora.com/tags/route/</link>
+        <pubDate>Sun, 15 Mar 2020 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/route/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>static</title>
+        <link>https://www.procamora.com/tags/static/</link>
+        <pubDate>Sun, 15 Mar 2020 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/static/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>troubleshooting</title>
+        <link>https://www.procamora.com/tags/troubleshooting/</link>
+        <pubDate>Sun, 15 Mar 2020 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/troubleshooting/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>vim</title>
+        <link>https://www.procamora.com/tags/vim/</link>
+        <pubDate>Sun, 15 Mar 2020 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/vim/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>vlan</title>
+        <link>https://www.procamora.com/tags/vlan/</link>
+        <pubDate>Sun, 15 Mar 2020 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/vlan/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>easyeda</title>
+        <link>https://www.procamora.com/tags/easyeda/</link>
+        <pubDate>Sun, 29 Dec 2019 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/easyeda/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>pcb</title>
+        <link>https://www.procamora.com/tags/pcb/</link>
+        <pubDate>Sun, 29 Dec 2019 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/pcb/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>vyatta</title>
+        <link>https://www.procamora.com/tags/vyatta/</link>
+        <pubDate>Thu, 05 Dec 2019 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/vyatta/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>burp</title>
+        <link>https://www.procamora.com/tags/burp/</link>
+        <pubDate>Sun, 01 Dec 2019 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/burp/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>hackthebox</title>
+        <link>https://www.procamora.com/tags/hackthebox/</link>
+        <pubDate>Sun, 01 Dec 2019 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/hackthebox/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>python</title>
+        <link>https://www.procamora.com/tags/python/</link>
+        <pubDate>Sun, 01 Dec 2019 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/python/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>writeup</title>
+        <link>https://www.procamora.com/tags/writeup/</link>
+        <pubDate>Sun, 01 Dec 2019 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/writeup/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>bruteforce</title>
+        <link>https://www.procamora.com/tags/bruteforce/</link>
+        <pubDate>Thu, 28 Nov 2019 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/bruteforce/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>hydra</title>
+        <link>https://www.procamora.com/tags/hydra/</link>
+        <pubDate>Thu, 28 Nov 2019 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/hydra/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>secret</title>
+        <link>https://www.procamora.com/tags/secret/</link>
+        <pubDate>Thu, 31 Oct 2019 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/secret/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>pdf</title>
+        <link>https://www.procamora.com/tags/pdf/</link>
+        <pubDate>Wed, 30 Oct 2019 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/pdf/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>png</title>
+        <link>https://www.procamora.com/tags/png/</link>
+        <pubDate>Wed, 30 Oct 2019 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/png/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>svg</title>
+        <link>https://www.procamora.com/tags/svg/</link>
+        <pubDate>Wed, 30 Oct 2019 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/svg/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>console</title>
+        <link>https://www.procamora.com/tags/console/</link>
+        <pubDate>Thu, 17 Oct 2019 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/console/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>arduino</title>
+        <link>https://www.procamora.com/tags/arduino/</link>
+        <pubDate>Tue, 08 Oct 2019 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/arduino/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>bootloader</title>
+        <link>https://www.procamora.com/tags/bootloader/</link>
+        <pubDate>Tue, 08 Oct 2019 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/bootloader/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>consola</title>
+        <link>https://www.procamora.com/tags/consola/</link>
+        <pubDate>Tue, 08 Oct 2019 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/consola/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>git</title>
+        <link>https://www.procamora.com/tags/git/</link>
+        <pubDate>Tue, 08 Oct 2019 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/git/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>programacion</title>
+        <link>https://www.procamora.com/tags/programacion/</link>
+        <pubDate>Tue, 08 Oct 2019 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/programacion/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>ramas</title>
+        <link>https://www.procamora.com/tags/ramas/</link>
+        <pubDate>Tue, 08 Oct 2019 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/ramas/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>repositorio</title>
+        <link>https://www.procamora.com/tags/repositorio/</link>
+        <pubDate>Tue, 08 Oct 2019 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/repositorio/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>adb</title>
+        <link>https://www.procamora.com/tags/adb/</link>
+        <pubDate>Thu, 03 Oct 2019 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/adb/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>lineageos</title>
+        <link>https://www.procamora.com/tags/lineageos/</link>
+        <pubDate>Thu, 03 Oct 2019 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/lineageos/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>nexus9</title>
+        <link>https://www.procamora.com/tags/nexus9/</link>
+        <pubDate>Thu, 03 Oct 2019 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/nexus9/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>sideload</title>
+        <link>https://www.procamora.com/tags/sideload/</link>
+        <pubDate>Thu, 03 Oct 2019 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/sideload/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>slimroms</title>
+        <link>https://www.procamora.com/tags/slimroms/</link>
+        <pubDate>Thu, 03 Oct 2019 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/slimroms/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>twrp</title>
+        <link>https://www.procamora.com/tags/twrp/</link>
+        <pubDate>Thu, 03 Oct 2019 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/twrp/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>dnf</title>
+        <link>https://www.procamora.com/tags/dnf/</link>
+        <pubDate>Sun, 14 Apr 2019 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/dnf/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>fedora30</title>
+        <link>https://www.procamora.com/tags/fedora30/</link>
+        <pubDate>Sun, 14 Apr 2019 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/fedora30/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>rpmfusion</title>
+        <link>https://www.procamora.com/tags/rpmfusion/</link>
+        <pubDate>Sun, 14 Apr 2019 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/rpmfusion/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>cowrie</title>
+        <link>https://www.procamora.com/tags/cowrie/</link>
+        <pubDate>Mon, 29 Oct 2018 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/cowrie/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>docker</title>
+        <link>https://www.procamora.com/tags/docker/</link>
+        <pubDate>Mon, 29 Oct 2018 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/docker/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>gitkracken</title>
+        <link>https://www.procamora.com/tags/gitkracken/</link>
+        <pubDate>Fri, 14 Sep 2018 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/gitkracken/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>backup</title>
+        <link>https://www.procamora.com/tags/backup/</link>
+        <pubDate>Fri, 16 Feb 2018 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/backup/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>clonezilla</title>
+        <link>https://www.procamora.com/tags/clonezilla/</link>
+        <pubDate>Fri, 16 Feb 2018 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/clonezilla/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>optimizar</title>
+        <link>https://www.procamora.com/tags/optimizar/</link>
+        <pubDate>Tue, 30 Jan 2018 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/optimizar/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>osmc</title>
+        <link>https://www.procamora.com/tags/osmc/</link>
+        <pubDate>Thu, 06 Jul 2017 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/osmc/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>raspberrypi</title>
+        <link>https://www.procamora.com/tags/raspberrypi/</link>
+        <pubDate>Thu, 06 Jul 2017 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/raspberrypi/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>fedora27</title>
+        <link>https://www.procamora.com/tags/fedora27/</link>
+        <pubDate>Thu, 30 Mar 2017 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/fedora27/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>atom</title>
+        <link>https://www.procamora.com/tags/atom/</link>
+        <pubDate>Fri, 27 Jan 2017 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/atom/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>cloudconvert</title>
+        <link>https://www.procamora.com/tags/cloudconvert/</link>
+        <pubDate>Fri, 27 Jan 2017 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/cloudconvert/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>gimli</title>
+        <link>https://www.procamora.com/tags/gimli/</link>
+        <pubDate>Fri, 27 Jan 2017 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/gimli/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>markdown</title>
+        <link>https://www.procamora.com/tags/markdown/</link>
+        <pubDate>Fri, 27 Jan 2017 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/markdown/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>markdownpad</title>
+        <link>https://www.procamora.com/tags/markdownpad/</link>
+        <pubDate>Fri, 27 Jan 2017 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/markdownpad/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>markdowntopdf</title>
+        <link>https://www.procamora.com/tags/markdowntopdf/</link>
+        <pubDate>Fri, 27 Jan 2017 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/markdowntopdf/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>pandoc</title>
+        <link>https://www.procamora.com/tags/pandoc/</link>
+        <pubDate>Fri, 27 Jan 2017 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/pandoc/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>valgrind</title>
+        <link>https://www.procamora.com/tags/valgrind/</link>
+        <pubDate>Sun, 25 Dec 2016 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/valgrind/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>esp8266</title>
+        <link>https://www.procamora.com/tags/esp8266/</link>
+        <pubDate>Tue, 06 Sep 2016 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/esp8266/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>telegram</title>
+        <link>https://www.procamora.com/tags/telegram/</link>
+        <pubDate>Tue, 06 Sep 2016 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/telegram/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>telegrambot</title>
+        <link>https://www.procamora.com/tags/telegrambot/</link>
+        <pubDate>Tue, 06 Sep 2016 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/telegrambot/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>wemos</title>
+        <link>https://www.procamora.com/tags/wemos/</link>
+        <pubDate>Tue, 06 Sep 2016 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/wemos/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>arm</title>
+        <link>https://www.procamora.com/tags/arm/</link>
+        <pubDate>Tue, 21 Jun 2016 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/arm/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>ghostscript</title>
+        <link>https://www.procamora.com/tags/ghostscript/</link>
+        <pubDate>Wed, 11 May 2016 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/ghostscript/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>gs</title>
+        <link>https://www.procamora.com/tags/gs/</link>
+        <pubDate>Wed, 11 May 2016 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/gs/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>imagemagick</title>
+        <link>https://www.procamora.com/tags/imagemagick/</link>
+        <pubDate>Wed, 11 May 2016 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/imagemagick/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>pdfjam</title>
+        <link>https://www.procamora.com/tags/pdfjam/</link>
+        <pubDate>Wed, 11 May 2016 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/pdfjam/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>pdfunite</title>
+        <link>https://www.procamora.com/tags/pdfunite/</link>
+        <pubDate>Wed, 11 May 2016 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/pdfunite/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>pypdf2</title>
+        <link>https://www.procamora.com/tags/pypdf2/</link>
+        <pubDate>Wed, 11 May 2016 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/pypdf2/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>smallpdf</title>
+        <link>https://www.procamora.com/tags/smallpdf/</link>
+        <pubDate>Wed, 11 May 2016 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/smallpdf/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>samba</title>
+        <link>https://www.procamora.com/tags/samba/</link>
+        <pubDate>Fri, 22 Apr 2016 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/samba/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>SUDO</title>
+        <link>https://www.procamora.com/tags/sudo/</link>
+        <pubDate>Wed, 20 Apr 2016 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/sudo/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>bluetooth</title>
+        <link>https://www.procamora.com/tags/bluetooth/</link>
+        <pubDate>Tue, 23 Feb 2016 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/bluetooth/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>kali</title>
+        <link>https://www.procamora.com/tags/kali/</link>
+        <pubDate>Tue, 23 Feb 2016 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/kali/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>reopsitorio</title>
+        <link>https://www.procamora.com/tags/reopsitorio/</link>
+        <pubDate>Fri, 19 Feb 2016 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/reopsitorio/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>submodulo</title>
+        <link>https://www.procamora.com/tags/submodulo/</link>
+        <pubDate>Fri, 19 Feb 2016 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/submodulo/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>ntfs</title>
+        <link>https://www.procamora.com/tags/ntfs/</link>
+        <pubDate>Thu, 11 Feb 2016 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/ntfs/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>spotify</title>
+        <link>https://www.procamora.com/tags/spotify/</link>
+        <pubDate>Sun, 31 Jan 2016 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/spotify/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>make</title>
+        <link>https://www.procamora.com/tags/make/</link>
+        <pubDate>Sat, 30 Jan 2016 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/make/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>vlc</title>
+        <link>https://www.procamora.com/tags/vlc/</link>
+        <pubDate>Fri, 29 Jan 2016 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/vlc/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>chroma</title>
+        <link>https://www.procamora.com/tags/chroma/</link>
+        <pubDate>Thu, 28 Jan 2016 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/chroma/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>nexus4</title>
+        <link>https://www.procamora.com/tags/nexus4/</link>
+        <pubDate>Thu, 28 Jan 2016 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/nexus4/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>remix</title>
+        <link>https://www.procamora.com/tags/remix/</link>
+        <pubDate>Wed, 27 Jan 2016 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/remix/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>remixos</title>
+        <link>https://www.procamora.com/tags/remixos/</link>
+        <pubDate>Wed, 27 Jan 2016 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/remixos/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>pip</title>
+        <link>https://www.procamora.com/tags/pip/</link>
+        <pubDate>Mon, 25 Jan 2016 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/pip/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>youtube</title>
+        <link>https://www.procamora.com/tags/youtube/</link>
+        <pubDate>Mon, 25 Jan 2016 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/youtube/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>phoenix</title>
+        <link>https://www.procamora.com/tags/phoenix/</link>
+        <pubDate>Tue, 19 Jan 2016 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/phoenix/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>phoenixos</title>
+        <link>https://www.procamora.com/tags/phoenixos/</link>
+        <pubDate>Tue, 19 Jan 2016 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/phoenixos/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>chrome</title>
+        <link>https://www.procamora.com/tags/chrome/</link>
+        <pubDate>Sat, 16 Jan 2016 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/chrome/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>vnc</title>
+        <link>https://www.procamora.com/tags/vnc/</link>
+        <pubDate>Fri, 15 Jan 2016 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/vnc/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>guake</title>
+        <link>https://www.procamora.com/tags/guake/</link>
+        <pubDate>Sat, 09 Jan 2016 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/guake/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>code</title>
+        <link>https://www.procamora.com/tags/code/</link>
+        <pubDate>Tue, 29 Dec 2015 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/code/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>meterpreter</title>
+        <link>https://www.procamora.com/tags/meterpreter/</link>
+        <pubDate>Tue, 29 Dec 2015 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/meterpreter/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>gnome shell</title>
+        <link>https://www.procamora.com/tags/gnome-shell/</link>
+        <pubDate>Sun, 27 Dec 2015 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/gnome-shell/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>c&#43;&#43;</title>
+        <link>https://www.procamora.com/tags/c&#43;&#43;/</link>
+        <pubDate>Wed, 23 Dec 2015 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/c&#43;&#43;/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>sublimetext</title>
+        <link>https://www.procamora.com/tags/sublimetext/</link>
+        <pubDate>Wed, 23 Dec 2015 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/sublimetext/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>commands</title>
+        <link>https://www.procamora.com/tags/commands/</link>
+        <pubDate>Mon, 21 Dec 2015 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/commands/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>split</title>
+        <link>https://www.procamora.com/tags/split/</link>
+        <pubDate>Mon, 21 Dec 2015 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/split/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>github</title>
+        <link>https://www.procamora.com/tags/github/</link>
+        <pubDate>Sat, 19 Dec 2015 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/github/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>privatekey</title>
+        <link>https://www.procamora.com/tags/privatekey/</link>
+        <pubDate>Sat, 19 Dec 2015 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/privatekey/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>eclipse</title>
+        <link>https://www.procamora.com/tags/eclipse/</link>
+        <pubDate>Fri, 18 Dec 2015 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/eclipse/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>c</title>
+        <link>https://www.procamora.com/tags/c/</link>
+        <pubDate>Thu, 17 Dec 2015 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/c/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>path</title>
+        <link>https://www.procamora.com/tags/path/</link>
+        <pubDate>Wed, 16 Dec 2015 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/path/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>ps</title>
+        <link>https://www.procamora.com/tags/ps/</link>
+        <pubDate>Tue, 15 Dec 2015 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/ps/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>java</title>
+        <link>https://www.procamora.com/tags/java/</link>
+        <pubDate>Mon, 14 Dec 2015 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/java/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>software</title>
+        <link>https://www.procamora.com/tags/software/</link>
+        <pubDate>Mon, 14 Dec 2015 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/software/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>parser</title>
+        <link>https://www.procamora.com/tags/parser/</link>
+        <pubDate>Sun, 13 Dec 2015 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/parser/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>command</title>
+        <link>https://www.procamora.com/tags/command/</link>
+        <pubDate>Thu, 03 Dec 2015 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/command/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>rsync</title>
+        <link>https://www.procamora.com/tags/rsync/</link>
+        <pubDate>Thu, 03 Dec 2015 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/rsync/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>egrep</title>
+        <link>https://www.procamora.com/tags/egrep/</link>
+        <pubDate>Tue, 01 Dec 2015 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/egrep/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>find</title>
+        <link>https://www.procamora.com/tags/find/</link>
+        <pubDate>Tue, 01 Dec 2015 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/find/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>grep</title>
+        <link>https://www.procamora.com/tags/grep/</link>
+        <pubDate>Tue, 01 Dec 2015 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/grep/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>perl</title>
+        <link>https://www.procamora.com/tags/perl/</link>
+        <pubDate>Tue, 01 Dec 2015 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/perl/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>regex</title>
+        <link>https://www.procamora.com/tags/regex/</link>
+        <pubDate>Tue, 01 Dec 2015 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/regex/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>sed</title>
+        <link>https://www.procamora.com/tags/sed/</link>
+        <pubDate>Tue, 01 Dec 2015 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/sed/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>pelican</title>
+        <link>https://www.procamora.com/tags/pelican/</link>
+        <pubDate>Mon, 30 Nov 2015 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/pelican/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>gpg</title>
+        <link>https://www.procamora.com/tags/gpg/</link>
+        <pubDate>Sat, 28 Nov 2015 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/gpg/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>amixer</title>
+        <link>https://www.procamora.com/tags/amixer/</link>
+        <pubDate>Fri, 27 Nov 2015 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/amixer/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>port</title>
+        <link>https://www.procamora.com/tags/port/</link>
+        <pubDate>Wed, 25 Nov 2015 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/port/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>serial</title>
+        <link>https://www.procamora.com/tags/serial/</link>
+        <pubDate>Wed, 25 Nov 2015 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/serial/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>man</title>
+        <link>https://www.procamora.com/tags/man/</link>
+        <pubDate>Fri, 20 Nov 2015 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/man/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>manpages</title>
+        <link>https://www.procamora.com/tags/manpages/</link>
+        <pubDate>Fri, 20 Nov 2015 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/manpages/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>lshw</title>
+        <link>https://www.procamora.com/tags/lshw/</link>
+        <pubDate>Wed, 18 Nov 2015 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/lshw/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>shared</title>
+        <link>https://www.procamora.com/tags/shared/</link>
+        <pubDate>Tue, 17 Nov 2015 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/shared/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>nbtscan</title>
+        <link>https://www.procamora.com/tags/nbtscan/</link>
+        <pubDate>Sat, 14 Nov 2015 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/nbtscan/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>grub</title>
+        <link>https://www.procamora.com/tags/grub/</link>
+        <pubDate>Fri, 13 Nov 2015 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/grub/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>iamge</title>
+        <link>https://www.procamora.com/tags/iamge/</link>
+        <pubDate>Wed, 11 Nov 2015 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/iamge/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>imagemagik</title>
+        <link>https://www.procamora.com/tags/imagemagik/</link>
+        <pubDate>Wed, 11 Nov 2015 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/imagemagik/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>dd</title>
+        <link>https://www.procamora.com/tags/dd/</link>
+        <pubDate>Sun, 08 Nov 2015 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/dd/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>fsck</title>
+        <link>https://www.procamora.com/tags/fsck/</link>
+        <pubDate>Sat, 07 Nov 2015 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/fsck/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>gnome</title>
+        <link>https://www.procamora.com/tags/gnome/</link>
+        <pubDate>Fri, 06 Nov 2015 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/gnome/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>chmod</title>
+        <link>https://www.procamora.com/tags/chmod/</link>
+        <pubDate>Wed, 04 Nov 2015 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/chmod/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>permissions</title>
+        <link>https://www.procamora.com/tags/permissions/</link>
+        <pubDate>Wed, 04 Nov 2015 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/permissions/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>init.d</title>
+        <link>https://www.procamora.com/tags/init.d/</link>
+        <pubDate>Mon, 02 Nov 2015 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/init.d/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>ftp</title>
+        <link>https://www.procamora.com/tags/ftp/</link>
+        <pubDate>Sun, 01 Nov 2015 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/ftp/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>rar</title>
+        <link>https://www.procamora.com/tags/rar/</link>
+        <pubDate>Sat, 24 Oct 2015 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/rar/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>mount</title>
+        <link>https://www.procamora.com/tags/mount/</link>
+        <pubDate>Fri, 23 Oct 2015 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/mount/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>mencoder</title>
+        <link>https://www.procamora.com/tags/mencoder/</link>
+        <pubDate>Thu, 22 Oct 2015 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/mencoder/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>binary</title>
+        <link>https://www.procamora.com/tags/binary/</link>
+        <pubDate>Sat, 10 Oct 2015 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/binary/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>nc</title>
+        <link>https://www.procamora.com/tags/nc/</link>
+        <pubDate>Thu, 08 Oct 2015 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/nc/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>netcat</title>
+        <link>https://www.procamora.com/tags/netcat/</link>
+        <pubDate>Thu, 08 Oct 2015 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/netcat/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>netstat</title>
+        <link>https://www.procamora.com/tags/netstat/</link>
+        <pubDate>Wed, 07 Oct 2015 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/netstat/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>permission</title>
+        <link>https://www.procamora.com/tags/permission/</link>
+        <pubDate>Tue, 06 Oct 2015 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/permission/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>kill</title>
+        <link>https://www.procamora.com/tags/kill/</link>
+        <pubDate>Sun, 04 Oct 2015 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/kill/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>process</title>
+        <link>https://www.procamora.com/tags/process/</link>
+        <pubDate>Sun, 04 Oct 2015 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/process/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>nmap</title>
+        <link>https://www.procamora.com/tags/nmap/</link>
+        <pubDate>Sat, 03 Oct 2015 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/nmap/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>tcp</title>
+        <link>https://www.procamora.com/tags/tcp/</link>
+        <pubDate>Sat, 03 Oct 2015 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/tcp/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>repository</title>
+        <link>https://www.procamora.com/tags/repository/</link>
+        <pubDate>Fri, 02 Oct 2015 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/repository/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>keyboard</title>
+        <link>https://www.procamora.com/tags/keyboard/</link>
+        <pubDate>Thu, 01 Oct 2015 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/keyboard/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>setxkbmap</title>
+        <link>https://www.procamora.com/tags/setxkbmap/</link>
+        <pubDate>Thu, 01 Oct 2015 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/setxkbmap/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>spanish</title>
+        <link>https://www.procamora.com/tags/spanish/</link>
+        <pubDate>Thu, 01 Oct 2015 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/spanish/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>estenagrogafia</title>
+        <link>https://www.procamora.com/tags/estenagrogafia/</link>
+        <pubDate>Sat, 12 Sep 2015 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/estenagrogafia/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>sniffer</title>
+        <link>https://www.procamora.com/tags/sniffer/</link>
+        <pubDate>Mon, 07 Sep 2015 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/sniffer/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>wireshark</title>
+        <link>https://www.procamora.com/tags/wireshark/</link>
+        <pubDate>Mon, 07 Sep 2015 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/wireshark/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>aircrack</title>
+        <link>https://www.procamora.com/tags/aircrack/</link>
+        <pubDate>Sun, 06 Sep 2015 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/aircrack/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>wep</title>
+        <link>https://www.procamora.com/tags/wep/</link>
+        <pubDate>Sun, 06 Sep 2015 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/wep/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>wifi</title>
+        <link>https://www.procamora.com/tags/wifi/</link>
+        <pubDate>Sat, 05 Sep 2015 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/wifi/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>wpa</title>
+        <link>https://www.procamora.com/tags/wpa/</link>
+        <pubDate>Sat, 05 Sep 2015 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/wpa/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>sslstrip</title>
+        <link>https://www.procamora.com/tags/sslstrip/</link>
+        <pubDate>Fri, 04 Sep 2015 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/sslstrip/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>reaver</title>
+        <link>https://www.procamora.com/tags/reaver/</link>
+        <pubDate>Thu, 03 Sep 2015 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/reaver/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>ssltrip</title>
+        <link>https://www.procamora.com/tags/ssltrip/</link>
+        <pubDate>Wed, 02 Sep 2015 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/ssltrip/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>bash</title>
+        <link>https://www.procamora.com/tags/bash/</link>
+        <pubDate>Tue, 01 Sep 2015 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/bash/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>bomba</title>
+        <link>https://www.procamora.com/tags/bomba/</link>
+        <pubDate>Tue, 01 Sep 2015 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/bomba/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>fork</title>
+        <link>https://www.procamora.com/tags/fork/</link>
+        <pubDate>Tue, 01 Sep 2015 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/fork/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>pureftpd</title>
+        <link>https://www.procamora.com/tags/pureftpd/</link>
+        <pubDate>Mon, 03 Aug 2015 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/pureftpd/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>linunx</title>
+        <link>https://www.procamora.com/tags/linunx/</link>
+        <pubDate>Sun, 02 Aug 2015 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/linunx/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>popcorn</title>
+        <link>https://www.procamora.com/tags/popcorn/</link>
+        <pubDate>Sun, 02 Aug 2015 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/popcorn/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>fastboot</title>
+        <link>https://www.procamora.com/tags/fastboot/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/fastboot/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>fedora32</title>
+        <link>https://www.procamora.com/tags/fedora32/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/fedora32/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>nexus</title>
+        <link>https://www.procamora.com/tags/nexus/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/tags/nexus/</guid>
+        <description></description>
+        </item>
+        
+    </channel>
+</rss>

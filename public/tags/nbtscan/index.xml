@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>nbtscan on #&gt; fireroot</title>
+        <link>https://www.procamora.com/tags/nbtscan/</link>
+        <description>Recent content in nbtscan on #&gt; fireroot</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>es</language>
+        <lastBuildDate>Sat, 14 Nov 2015 00:00:00 +0000</lastBuildDate><atom:link href="https://www.procamora.com/tags/nbtscan/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Escáner puertos con nbtscan</title>
+        <link>https://www.procamora.com/p/nbtscan/</link>
+        <pubDate>Sat, 14 Nov 2015 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/p/nbtscan/</guid>
+        <description>&lt;img src="https://www.procamora.com/covers/linux.png" alt="Featured image of post Escáner puertos con nbtscan" /&gt;&lt;p&gt;&lt;code&gt;sudo apt-get install nbtscan&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;sudo nbtscan -v -s : 192.168.1.0/24&lt;/code&gt;&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>remix on #&gt; fireroot</title>
+        <link>https://www.procamora.com/tags/remix/</link>
+        <description>Recent content in remix on #&gt; fireroot</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>es</language>
+        <lastBuildDate>Wed, 27 Jan 2016 00:00:00 +0000</lastBuildDate><atom:link href="https://www.procamora.com/tags/remix/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Instalar Remix OS en Nexus 9</title>
+        <link>https://www.procamora.com/p/instalar-remix-os-en-nexus-9/</link>
+        <pubDate>Wed, 27 Jan 2016 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/p/instalar-remix-os-en-nexus-9/</guid>
+        <description>&lt;img src="https://www.procamora.com/covers/android.png" alt="Featured image of post Instalar Remix OS en Nexus 9" /&gt;&lt;p&gt;Instrucciones para instalar la rom de Remix OS 1.5 en una Nexus 9&lt;/p&gt;
+&lt;p&gt;#Requisitos:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Tener el móvil con al menos el &lt;strong&gt;50%&lt;/strong&gt; de batería.&lt;/li&gt;
+&lt;li&gt;Tener liberado el &lt;strong&gt;bootloader&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Tener &lt;strong&gt;twrp&lt;/strong&gt; instalado, en caso de no tenerlo instalarlo.
+(url de donde explico como instalarlo).&lt;/li&gt;
+&lt;li&gt;tener &lt;strong&gt;Android 5.0.1&lt;/strong&gt; (no se si es necesario).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;#Pasos:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Descargarse el zip de la rom de: &lt;a class=&#34;link&#34; href=&#34;https://www.androidfilehost.com/?fid=24369303960687942&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;descarga&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Con twrp hacer un advanced wipe de:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Dalvik Cache&lt;/li&gt;
+&lt;li&gt;System&lt;/li&gt;
+&lt;li&gt;Data&lt;/li&gt;
+&lt;li&gt;Cache&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.procamora.com/images/wipe.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;wipe.jpg&#34;
+	
+	
+&gt;{:height=&amp;ldquo;auto&amp;rdquo; width=&amp;ldquo;100%&amp;rdquo;}&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Poner el zip de la rom en la memoria interna del dispositivo&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;mv chroma_mako-2016-01-18.zip /media/nexus9/Internal Storage/&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;instalar la zip con twrp
+&lt;img src=&#34;https://www.procamora.com/images/installrom.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;installrom.jpg&#34;
+	
+	
+&gt;{:height=&amp;ldquo;auto&amp;rdquo; width=&amp;ldquo;100%&amp;rdquo;}
+&lt;img src=&#34;https://www.procamora.com/images/install_rom.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;install_rom.jpg&#34;
+	
+	
+&gt;{:height=&amp;ldquo;auto&amp;rdquo; width=&amp;ldquo;100%&amp;rdquo;}&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Instalar gaps&lt;/p&gt;
+&lt;p&gt;poner foto&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Hacer un wipe(No se si es necesario)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Reiniciar dispositivo y esperar unos 5-10 min a que se inicie correctamente&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;http://forum.xda-developers.com/nexus-9/development/5-1-1r6-resurrection-remix-unofficial-t3157330&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;http://forum.xda-developers.com/nexus-9/development/5-1-1r6-resurrection-remix-unofficial-t3157330&lt;/a&gt;&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

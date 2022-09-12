@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>process on #&gt; fireroot</title>
+        <link>https://www.procamora.com/tags/process/</link>
+        <description>Recent content in process on #&gt; fireroot</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>es</language>
+        <lastBuildDate>Sun, 04 Oct 2015 00:00:00 +0000</lastBuildDate><atom:link href="https://www.procamora.com/tags/process/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Eliminar procesos por id</title>
+        <link>https://www.procamora.com/p/procesos/</link>
+        <pubDate>Sun, 04 Oct 2015 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/p/procesos/</guid>
+        <description>&lt;img src="https://www.procamora.com/covers/linux.png" alt="Featured image of post Eliminar procesos por id" /&gt;&lt;h6 id=&#34;mostrar-procesos&#34;&gt;Mostrar procesos&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;ps -A&lt;/code&gt;&lt;/p&gt;
+&lt;h6 id=&#34;matar-proceso-por-pid&#34;&gt;Matar proceso por pid&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;sudo kill &#39;pid&#39;&lt;/code&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;hay distintos números para mandar al proceso a la hora de matarlo 1..9&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h6 id=&#34;matar-procesos-por-nombre&#34;&gt;Matar procesos por nombre&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;sudo killall php&lt;/code&gt;&lt;/p&gt;
+&lt;h6 id=&#34;matar-por-entorno-gráfico&#34;&gt;Matar por entorno gráfico&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;sudo xkill&lt;/code&gt;&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

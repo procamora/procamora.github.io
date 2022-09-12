@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>gnome on #&gt; fireroot</title>
+        <link>https://www.procamora.com/tags/gnome/</link>
+        <description>Recent content in gnome on #&gt; fireroot</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>es</language>
+        <lastBuildDate>Fri, 06 Nov 2015 00:00:00 +0000</lastBuildDate><atom:link href="https://www.procamora.com/tags/gnome/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Crear un acceso directo por consola</title>
+        <link>https://www.procamora.com/p/crear_lanzadores/</link>
+        <pubDate>Fri, 06 Nov 2015 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/p/crear_lanzadores/</guid>
+        <description>&lt;img src="https://www.procamora.com/covers/linux.png" alt="Featured image of post Crear un acceso directo por consola" /&gt;&lt;p&gt;Para crear lanzadores en gnome 2:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;gnome-desktop-item-edit --create-new ~/Escritorio&lt;/code&gt;&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

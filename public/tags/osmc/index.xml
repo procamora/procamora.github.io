@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>osmc on #&gt; fireroot</title>
+        <link>https://www.procamora.com/tags/osmc/</link>
+        <description>Recent content in osmc on #&gt; fireroot</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>es</language>
+        <lastBuildDate>Thu, 06 Jul 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://www.procamora.com/tags/osmc/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Primeros pasos OSMC</title>
+        <link>https://www.procamora.com/p/primeros-pasos-osmc/</link>
+        <pubDate>Thu, 06 Jul 2017 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/p/primeros-pasos-osmc/</guid>
+        <description>&lt;img src="https://www.procamora.com/covers/draft.png" alt="Featured image of post Primeros pasos OSMC" /&gt;&lt;p&gt;indice&lt;/p&gt;
+&lt;h1 id=&#34;basico&#34;&gt;basico&lt;/h1&gt;
+&lt;p&gt;sudo apt-get install vim encfs rsync&lt;/p&gt;
+&lt;p&gt;#insync&lt;/p&gt;
+&lt;p&gt;./insync-portable add_account -a &amp;ldquo;CÓDIGO_AUTORIZACIÓN&amp;rdquo; -p &amp;ldquo;RUTA&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;Código de autorización: es un código mediante el cual Google autoriza a Insync a acceder a tus archivos en Drive. Se obtiene en la siguiente URL: &lt;a class=&#34;link&#34; href=&#34;https://goo.gl/jv797S&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://goo.gl/jv797S&lt;/a&gt;
+os&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://miraspberrypi.wordpress.com/2016/04/24/insync-en-raspian-desde-linea-de-comando/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://miraspberrypi.wordpress.com/2016/04/24/insync-en-raspian-desde-linea-de-comando/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;export LC_ALL=C.UTF-8   ## IMPORTANTE PARA QUE FUNCIONE descomprime_rar.py
+export LC_CTYPE=ISO_8859_1&lt;/p&gt;
+&lt;h1 id=&#34;wiki&#34;&gt;wiki&lt;/h1&gt;
+&lt;p&gt;python3-devel&lt;/p&gt;
+&lt;p&gt;pip3 install -r re&lt;/p&gt;
+&lt;h2 id=&#34;osmc&#34;&gt;OSMC&lt;/h2&gt;
+&lt;p&gt;instalar herramieentas desarrollo make, cmake, gcc. etc&lt;/p&gt;
+&lt;p&gt;no tiene instalado el autocompletado de bash&lt;/p&gt;
+&lt;p&gt;sudo apt-get install bash-completion&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

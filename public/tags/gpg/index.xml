@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>gpg on #&gt; fireroot</title>
+        <link>https://www.procamora.com/tags/gpg/</link>
+        <description>Recent content in gpg on #&gt; fireroot</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>es</language>
+        <lastBuildDate>Sat, 28 Nov 2015 00:00:00 +0000</lastBuildDate><atom:link href="https://www.procamora.com/tags/gpg/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Uso de gpg</title>
+        <link>https://www.procamora.com/p/usos_gpg/</link>
+        <pubDate>Sat, 28 Nov 2015 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/p/usos_gpg/</guid>
+        <description>&lt;img src="https://www.procamora.com/covers/linux.png" alt="Featured image of post Uso de gpg" /&gt;&lt;h2 id=&#34;creación-de-un-nuevo-key-pair&#34;&gt;Creación de un nuevo key-pair&lt;/h2&gt;
+&lt;h6 id=&#34;generaremos-nuestra-pareja-de-llaves-pública-y-privada-que-posteriormente-utilizaremos-para-la-encriptación-de-ficheros-utilizaremos-el-siguiente-comando&#34;&gt;Generaremos nuestra pareja de llaves (pública y privada), que posteriormente utilizaremos para la encriptación de ficheros, utilizaremos el siguiente comando:&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;sudo gpg --gen-key&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;importar-y-exportar-keys&#34;&gt;Importar y exportar keys&lt;/h2&gt;
+&lt;h6 id=&#34;tras-crear-nuestra-llave-podemos-importarla-o-exportarla-en-distintos-equipos-desde-los-que-tenemos-intención-de-compartir-ficheros-encriptados-para-importar-una-llave-ejecutamos&#34;&gt;Tras crear nuestra llave, podemos importarla o exportarla en distintos equipos, desde los que tenemos intención de compartir ficheros encriptados, para importar una llave ejecutamos:&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;sudo gpg --import Public-key.asc&lt;/code&gt;&lt;/p&gt;
+&lt;h6 id=&#34;podemos-exportar-nuestra-key-del-siguiente-modo-ascii-luego-podríamos-utilizar-el-comando-anterior-para-importarla-en-otro-equipo-ascii-crea-una-salida-ascii-con-armadura&#34;&gt;Podemos exportar nuestra key del siguiente modo (ascii), luego podríamos utilizar el comando anterior para importarla en otro equipo. –ascii crea una salida ascii con armadura.:&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;sudo gpg --armor --export UID &amp;gt; Public-key.asc&lt;/code&gt;&lt;/p&gt;
+&lt;h6 id=&#34;una-vez-importada-la-key-en-nuestro-sistema-conviene-firmarla-para-verificar-la-veracidad-de-la-llave-utilizaremos-el-siguiente-comando-donde-uid-es-el-idnombre-de-la-llave&#34;&gt;Una vez importada la key en nuestro sistema, conviene firmarla para verificar la veracidad de la llave, utilizaremos el siguiente comando, donde UID es el ID/nombre de la llave.:&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;sudo gpg --sign-key &#39;UID&#39;&lt;/code&gt;&lt;/p&gt;
+&lt;h6 id=&#34;para-exportar-clave-privada&#34;&gt;para exportar clave privada:&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;sudo gpg --armor --export-secret-key UID &amp;gt; Private-key.asc&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;##Encriptar y desencriptar
+######Una vez que tenemos la llave creada, instalada y firmada en el sistema, ya podemos empezar a encriptar y desencriptar ficheros. En el siguiente ejemplo vamos a encriptar un fichero de texto, los parámetros indican que se firma y cifra (-ser) para el usuario con su determinado UID/nombre creando una salida ascii con armadura (-a). tendremos que escribir la frase contraseña de la llave para hacer efectivo el cifrado:
+&lt;code&gt;sudo gpg -sear &#39;UID&#39; test2.txt&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Necesita una frase contraseña para desbloquear la clave secreta del usuario. &amp;ldquo;xxxx xxxx (xxx xxx) &amp;quot; clave DSA de 2048 bits, ID 7EEECF36, creada el 2010-11-08:&lt;/p&gt;
+&lt;p&gt;gpg el agente gpg no esta disponible en esta sesión Introduzca frase contraseña:&lt;/p&gt;
+&lt;p&gt;######Para hacer el proceso inverso de descifrado, utilizaríamos el siguiente comando, donde -d indica desencriptar y mensaje-cifrado.asc es el fichero generado en el anterior comando, que guardaremos en salida.txt:
+&lt;code&gt;sudo gpg --output salida.txt -d mensaje-cifrado.asc&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;El proceso de desencriptar ficheros de equipos remotos es el mismo siempre que haya sido encriptado utilizando tu misma llave pública.:&lt;/p&gt;
+&lt;p&gt;La gestión básica de llaves resumiría los siguientes comandos:&lt;/p&gt;
+&lt;p&gt;######Listar las llaves instaladas en el sistema:
+&lt;code&gt;sudo gpg --list-keys&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;######Borrar llave &amp;ldquo;&lt;a class=&#34;link&#34; href=&#34;mailto:test@test.com&#34; &gt;test@test.com&lt;/a&gt;&amp;rdquo; instalada en nuestro sistema:
+&lt;code&gt;sudo gpg --delete-key &#39;test@test.com&#39;&lt;/code&gt;&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

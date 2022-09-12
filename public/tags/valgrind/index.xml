@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>valgrind on #&gt; fireroot</title>
+        <link>https://www.procamora.com/tags/valgrind/</link>
+        <description>Recent content in valgrind on #&gt; fireroot</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>es</language>
+        <lastBuildDate>Sun, 25 Dec 2016 00:00:00 +0000</lastBuildDate><atom:link href="https://www.procamora.com/tags/valgrind/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Calcular consumo c con valgrind</title>
+        <link>https://www.procamora.com/p/calcular-consumo-c-con-valgrind/</link>
+        <pubDate>Sun, 25 Dec 2016 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/p/calcular-consumo-c-con-valgrind/</guid>
+        <description>&lt;img src="https://www.procamora.com/covers/draft.png" alt="Featured image of post Calcular consumo c con valgrind" /&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;http://valgrind.org/docs/manual/quick-start.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;http://valgrind.org/docs/manual/quick-start.html&lt;/a&gt;&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

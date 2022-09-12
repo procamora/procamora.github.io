@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>pelican on #&gt; fireroot</title>
+        <link>https://www.procamora.com/tags/pelican/</link>
+        <description>Recent content in pelican on #&gt; fireroot</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>es</language>
+        <lastBuildDate>Mon, 30 Nov 2015 00:00:00 +0000</lastBuildDate><atom:link href="https://www.procamora.com/tags/pelican/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Guia Básica Pelican</title>
+        <link>https://www.procamora.com/p/guiabasicapelican/</link>
+        <pubDate>Mon, 30 Nov 2015 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/p/guiabasicapelican/</guid>
+        <description>&lt;img src="https://www.procamora.com/covers/draft.png" alt="Featured image of post Guia Básica Pelican" /&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;http://docs.getpelican.com/en/stable/content.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;http://docs.getpelican.com/en/stable/content.html&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;http://docs.getpelican.com/en/stable/publish.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;http://docs.getpelican.com/en/stable/publish.html&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;http://docs.getpelican.com/en/stable/tips.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;http://docs.getpelican.com/en/stable/tips.html&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;http://spapas.github.io/2013/10/07/pelican-static-windows/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;http://spapas.github.io/2013/10/07/pelican-static-windows/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Para ver las opciones hacer un:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;make&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;$ ~/projects/pagina $ make devserver&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;$ ~/projects/pagina $ make stopserver&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;~/projects/pagina $ pelican -s pelicanconf.py
+python -m pelican.server&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;http://www.pelicanthemes.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;http://www.pelicanthemes.com/&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;modifying-pelican-tools-for-windows&#34;&gt;Modifying pelican tools for windows&lt;/h2&gt;
+&lt;p&gt;Pelican uses a Makefile and a unix shell script to generate the static html files and start an http server for development. Because I prefer to use windows, I answered no to the questions of generating these when pelican-quickstarte asked me. Instead I have included the following files inside the spapas.github.io directory:&lt;/p&gt;
+&lt;p&gt;pelrun.bat, to generate the content for your debug site in the output directory:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;pelican content --debug --autoreload  --output output --settings pelicanconf.py&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;pelserve.bat, to localy serve the generated debug site:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;pushd output
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;python -m pelican.server
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;popd
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;pelpub.bat, to generate the production site in the output directory:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;pelican content --output output --settings publishconf.py&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Now, when you want to develop your site locally, enter:&lt;/p&gt;
+&lt;p&gt;spapas.github.io&amp;gt;start pelrun.bat
+spapas.github.io&amp;gt;start pelserv.bat&lt;/p&gt;
+&lt;p&gt;If everything was ok until now, you can visit http://127.0.0.1:8000 and will get the following output:&lt;/p&gt;
+&lt;p&gt;Fuentes: &lt;a class=&#34;link&#34; href=&#34;http://joedicastro.com/pelican-publicacion-y-automatizacion.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;1&lt;/a&gt;&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

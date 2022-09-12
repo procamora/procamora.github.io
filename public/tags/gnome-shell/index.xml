@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>gnome shell on #&gt; fireroot</title>
+        <link>https://www.procamora.com/tags/gnome-shell/</link>
+        <description>Recent content in gnome shell on #&gt; fireroot</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>es</language>
+        <lastBuildDate>Sun, 27 Dec 2015 00:00:00 +0000</lastBuildDate><atom:link href="https://www.procamora.com/tags/gnome-shell/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Activar Tecla Suprimir</title>
+        <link>https://www.procamora.com/p/activarteclasuprimir/</link>
+        <pubDate>Sun, 27 Dec 2015 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/p/activarteclasuprimir/</guid>
+        <description>&lt;img src="https://www.procamora.com/covers/linux.png" alt="Featured image of post Activar Tecla Suprimir" /&gt;&lt;p&gt;Parece ser que la combinación en las versiones de GNOME Shell a utilizar son: CTRL + supr si quieres que pasen por la papelera o SHIFT + supr si quieres eliminar archivos o carpetas directamente.&lt;/p&gt;
+&lt;p&gt;En las ediciones modernas de este escritorio (GNOME Shell 3.6 para arriba) una forma sencilla de hacerlo es siguiendo el método que nos proponen en la wiki de Arch que consiste en editar el archivo oculto de nuestro directorio personal &lt;code&gt;~/.config/nautilus/accels&lt;/code&gt; (una copia de seguridad del archivo antes de tocarlo nunca de está de más..)&lt;/p&gt;
+&lt;p&gt;Se trata de modificar la linea:
+1&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;; (gtk_accel_path &amp;quot;&amp;lt;Actions&amp;gt;/DirViewActions/Trash&amp;quot; &amp;quot;&amp;lt;Primary&amp;gt;Delete&amp;quot;)&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;descomentándola quitándole el punto y coma (;) del principio de la linea y eliminando donde pone &lt;Primary&gt;, tal que como figura en la captura de imagen:
+1&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;(gtk_accel_path &amp;quot;&amp;lt;Actions&amp;gt;/DirViewActions/Trash&amp;quot; &amp;quot;Delete&amp;quot;)&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Después tan solo tenemos que guardar los cambios, reiniciar nautilus y ya dispondremos de nuestra tecla de suprimir activada :-)&lt;/p&gt;
+&lt;p&gt;Hay que decir que este cambio no deshabilita ninguno de los atajos de teclado que tengáis establecidos previamente.&lt;/p&gt;
+&lt;p&gt;Fuentes: [1][0]
+[0]: &lt;a class=&#34;link&#34; href=&#34;http://lamiradadelreplicante.com/2014/11/17/activar-la-tecla-suprimir-en-gnome-shell/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;http://lamiradadelreplicante.com/2014/11/17/activar-la-tecla-suprimir-en-gnome-shell/&lt;/a&gt;&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>Crear Fichero con el menú contextual</title>
+        <link>https://www.procamora.com/p/crearmenucrearfichero/</link>
+        <pubDate>Tue, 08 Dec 2015 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/p/crearmenucrearfichero/</guid>
+        <description>&lt;img src="https://www.procamora.com/covers/linux.png" alt="Featured image of post Crear Fichero con el menú contextual" /&gt;&lt;p&gt;En gnome shell para poder crear un fichero con el menú contextual tenemos que crear un documento nuevo (con gedit o cualquier otro editor de texto) y guardarlo vacío dentro la carpeta &lt;code&gt;~/Plantillas&lt;/code&gt; (templates) de nuestro directorio personal. El nombre que elijáis será el que os aparezca después en el menú de nautilus (Files).&lt;/p&gt;
+&lt;p&gt;Una vez creado el documento, lanzamos el ejecutor de órdenes con la combinación de teclas &lt;code&gt;Alt+F2&lt;/code&gt; y reiniciamos Gnome Shell con la orden
+&lt;code&gt;r&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.procamora.com/../../../static/images/crearmenucrearfichero.jpeg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;ordenes.jpeg&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Y ya tenemos la función de crear documento nuevo activada&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>Crear Lanzador GnomeShell</title>
+        <link>https://www.procamora.com/p/crearlanzadorgnomeshell/</link>
+        <pubDate>Sun, 06 Dec 2015 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/p/crearlanzadorgnomeshell/</guid>
+        <description>&lt;img src="https://www.procamora.com/covers/linux.png" alt="Featured image of post Crear Lanzador GnomeShell" /&gt;&lt;p&gt;Title: Crear Lanzador GnomeShell
+Date: 2015-12-6 17:30
+Category: Linux
+Tags: linux, gnome shell
+Slug: crearlanzadorgnomeshell
+Summary: Para crear accesos directos en el menu de gnome shell tienes que tener un fichero en.
+Status: published&lt;/p&gt;
+&lt;p&gt;Below is a sample of desktop file:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;9
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;[Desktop Entry]
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Type=Application
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Encoding=UTF-8
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Name=Application Name
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Comment=Application description
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Icon=/path/to/icon.xpm
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Exec=/path/to/application/executable
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Terminal=false
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Categories=Tags;Describing;Application
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Explanation&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;[Desktop Entry]&lt;/code&gt; the &lt;code&gt;Desktop Entry&lt;/code&gt; group header identifies the file as a desktop entry&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Type&lt;/code&gt; the type of the entry, valid values are &lt;code&gt;Application&lt;/code&gt;, &lt;code&gt;Link&lt;/code&gt; and &lt;code&gt;Directory&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Encoding&lt;/code&gt; the character encoding of the desktop file&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Name&lt;/code&gt; the application name visible in menus or launchers&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Comment&lt;/code&gt; a description of the application used in tooltips&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Icon&lt;/code&gt; the icon shown for the application in menus or launchers&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Exec&lt;/code&gt; the command that is used to start the application from a shell.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Terminal&lt;/code&gt; whether the application should be run in a terminal, valid values are true or false&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Categories&lt;/code&gt; semi-colon (&lt;code&gt;;&lt;/code&gt;) separated list of menu categories in which the entry should be shown&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Command line arguments in the Exec key can be signified with the following variables:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;%f&lt;/code&gt; a single filename.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;%F&lt;/code&gt; multiple filenames.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;%u&lt;/code&gt; a single URL.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;%U&lt;/code&gt; multiple URLs.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;%d&lt;/code&gt; a single directory. Used in conjunction with %f to locate a file.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;%D&lt;/code&gt; multiple directories. Used in conjunction with %F to locate files.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;%n&lt;/code&gt; a single filename without a path.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;%N&lt;/code&gt; multiple filenames without paths.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;%k&lt;/code&gt; a URI or local filename of the location of the desktop file.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;%v&lt;/code&gt; the name of the Device entry.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Este serie un ejemplo de un fichero&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;vim /usr/share/applications/thunderbird.desktop&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;9
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;[Desktop Entry]
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Encoding=UTF-8
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Name=Thunderbird
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Comment=Access the Internet
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Exec=/opt/thunderbird/thunderbird
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Terminal=false
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Icon=/opt/thunderbird/icons/logo.png
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Type=Application
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Categories=Networkr;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;##Importante
+Para hacer que se pueda hacer: &amp;ldquo;abrir con&amp;rdquo; de cualquier tipo de fichero/extension hay que añadir &lt;strong&gt;%F&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;Exec=geany %F&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Fuentes: &lt;a class=&#34;link&#34; href=&#34;http://unix.stackexchange.com/questions/103213/how-can-i-add-an-application-to-the-gnome-window-manager&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;1&lt;/a&gt;&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>Instalar gnome shell</title>
+        <link>https://www.procamora.com/p/gnome-shell/</link>
+        <pubDate>Mon, 09 Nov 2015 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/p/gnome-shell/</guid>
+        <description>&lt;img src="https://www.procamora.com/covers/linux.png" alt="Featured image of post Instalar gnome shell" /&gt;&lt;p&gt;&lt;code&gt;sudo apt-get install gnome-shell&lt;/code&gt;&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

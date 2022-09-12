@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>keyboard on #&gt; fireroot</title>
+        <link>https://www.procamora.com/tags/keyboard/</link>
+        <description>Recent content in keyboard on #&gt; fireroot</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>es</language>
+        <lastBuildDate>Thu, 01 Oct 2015 00:00:00 +0000</lastBuildDate><atom:link href="https://www.procamora.com/tags/keyboard/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Cambiar el idioma del teclado</title>
+        <link>https://www.procamora.com/p/teclado_espa%C3%B1ol/</link>
+        <pubDate>Thu, 01 Oct 2015 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/p/teclado_espa%C3%B1ol/</guid>
+        <description>&lt;img src="https://www.procamora.com/covers/linux.png" alt="Featured image of post Cambiar el idioma del teclado" /&gt;&lt;h6 id=&#34;para-poner-nuestro-teclado-en-español-en-la-mayoría-de-distribuciones&#34;&gt;Para poner nuestro teclado en español en la mayoría de distribuciones&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;setxkbmap es&lt;/code&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;He encontrado unas cuantas distribuciones en las que no funciona, sobre todo las minimalistas o compiladas para antenas, router, etc&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

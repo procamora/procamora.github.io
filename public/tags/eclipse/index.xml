@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>eclipse on #&gt; fireroot</title>
+        <link>https://www.procamora.com/tags/eclipse/</link>
+        <description>Recent content in eclipse on #&gt; fireroot</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>es</language>
+        <lastBuildDate>Fri, 18 Dec 2015 00:00:00 +0000</lastBuildDate><atom:link href="https://www.procamora.com/tags/eclipse/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Cambiar codificación en Eclipse</title>
+        <link>https://www.procamora.com/p/cambiarcodificacioneclipse/</link>
+        <pubDate>Fri, 18 Dec 2015 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/p/cambiarcodificacioneclipse/</guid>
+        <description>&lt;img src="https://www.procamora.com/covers/software.png" alt="Featured image of post Cambiar codificación en Eclipse" /&gt;&lt;p&gt;Eclipse codifica los ficheros por defecto con ANSI, para cambiar la codificación por defecto ir a:&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Window / Preferences / General / Content types&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Seleccionar Text en la lista de Content Types y en default enconding poner &lt;em&gt;UTF-8&lt;/em&gt;&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>Tips de Eclipse</title>
+        <link>https://www.procamora.com/p/tipseclipse/</link>
+        <pubDate>Mon, 30 Nov 2015 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/p/tipseclipse/</guid>
+        <description>&lt;img src="https://www.procamora.com/covers/draft.png" alt="Featured image of post Tips de Eclipse" /&gt;&lt;p&gt;En proceso&lt;/p&gt;
+&lt;p&gt;###Paso 2&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;http://www.eclipseonetips.com/2009/11/30/move-copy-delete-lines-with-a-single-keystroke/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;http://www.eclipseonetips.com/2009/11/30/move-copy-delete-lines-with-a-single-keystroke/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Fuentes: &lt;a class=&#34;link&#34; href=&#34;http://www.tutorialspoint.com/eclipse/eclipse_tips_tricks.htm&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;tutorialspoint&lt;/a&gt;, &lt;a class=&#34;link&#34; href=&#34;http://www.opcoach.com/es/10-consejos-para-trabajar-en-equipo-con-eclipse/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;opcoach&lt;/a&gt;, &lt;a class=&#34;link&#34; href=&#34;http://www.eclipseonetips.com/2009/11/30/move-copy-delete-lines-with-a-single-keystroke/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;eclipseonetips&lt;/a&gt;&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

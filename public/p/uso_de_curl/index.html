@@ -1,0 +1,1218 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='El comando _curl_ esta diseñado para verificar una url y ademas permite la transferencia de datos. Hace uso de la librería opensource _libcurl_ disponible en todas las distribuciones Linux.'><title>Uso de curl</title>
+
+<link rel='canonical' href='https://www.procamora.com/p/uso_de_curl/'>
+
+<link rel="stylesheet" href="/scss/style.min.ac77dcf8b111b51da39a92990f431923f210f3876d85798a2125667f96dc33a4.css"><meta property='og:title' content='Uso de curl'>
+<meta property='og:description' content='El comando _curl_ esta diseñado para verificar una url y ademas permite la transferencia de datos. Hace uso de la librería opensource _libcurl_ disponible en todas las distribuciones Linux.'>
+<meta property='og:url' content='https://www.procamora.com/p/uso_de_curl/'>
+<meta property='og:site_name' content='#&gt; fireroot'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='curl' /><meta property='article:tag' content='http' /><meta property='article:tag' content='web' /><meta property='article:tag' content='post' /><meta property='article:tag' content='put' /><meta property='article:tag' content='get' /><meta property='article:tag' content='delete' /><meta property='article:published_time' content='2020-03-19T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2020-03-19T00:00:00&#43;00:00'/><meta property='og:image' content='https://www.procamora.com/covers/draft.png' />
+<meta name="twitter:title" content="Uso de curl">
+<meta name="twitter:description" content="El comando _curl_ esta diseñado para verificar una url y ademas permite la transferencia de datos. Hace uso de la librería opensource _libcurl_ disponible en todas las distribuciones Linux."><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://www.procamora.com/covers/draft.png' />
+    <link rel="shortcut icon" href="img/favicon.ico" />
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/icons/procamora_30_hua3d16f4d7ffad1a52a64c31db4447108_16949_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">#&gt; fireroot</a></h1>
+            <h2 class="site-description">Mi wiki donde escribo artículos sobre Linux, Ciberseguridad y temas relacionados.</h2>
+        </div>
+    </header><ol class="social-menu">
+            
+                <li>
+                    <a 
+                        href='https://github.com/procamora'
+                        target="_blank"
+                        title="GitHub"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='mailto:pablojoserocamora@gmail.com'
+                        target="_blank"
+                        title="Gmail"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-gmail" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"> <path stroke="none" d="M0 0h24v24H0z" fill="none"/> <path d="M16 20h3a1 1 0 0 0 1 -1v-14a1 1 0 0 0 -1 -1h-3v16z" /> <path d="M5 20h3v-16h-3a1 1 0 0 0 -1 1v14a1 1 0 0 0 1 1z" /> <path d="M16 4l-4 4l-4 -4" /> <path d="M4 6.5l8 7.5l8 -7.5" /> </svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://es.linkedin.com/in/pablo-rocamora'
+                        target="_blank"
+                        title="Linkedin"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-linkedin" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"> <path stroke="none" d="M0 0h24v24H0z" fill="none"/> <rect x="4" y="4" width="16" height="16" rx="2" /> <line x1="8" y1="11" x2="8" y2="16" /> <line x1="8" y1="8" x2="8" y2="8.01" /> <line x1="12" y1="16" x2="12" y2="11" /> <path d="M16 16v-3a2 2 0 0 0 -4 0" /> </svg>
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archivos</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Buscar</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/acerca-de/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>Acerca de</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/index.xml' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-rss" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="5" cy="19" r="1" />
+  <path d="M4 4a16 16 0 0 1 16 16" />
+  <path d="M4 11a9 9 0 0 1 9 9" />
+</svg>
+
+
+
+                
+                <span>Feed</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+                <li id="i18n-switch">  
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                    <select name="language" onchange="window.location.href = this.selectedOptions[0].value">
+                        
+                            <option value="https://www.procamora.com/" selected>Español</option>
+                        
+                            <option value="https://www.procamora.com/en/" >English</option>
+                        
+                    </select>
+                </li>
+            
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Modo oscuro</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+<main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/uso_de_curl/">
+                
+                    <img src="/covers/draft.png" loading="lazy" alt="Featured image of post Uso de curl" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/software/" >
+                Software
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/uso_de_curl/">Uso de curl</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            El comando _curl_ esta diseñado para verificar una url y ademas permite la transferencia de datos. Hace uso de la librería opensource _libcurl_ disponible en todas las distribuciones Linux.
+        </h3>
+        
+    </div>
+
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Mar 19, 2020</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    6 minutos a leer
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+
+    <div class="article-category">
+        
+            
+                
+            
+            
+                <a href='https://github.com/procamora/dummy/edit/main/content/post/draft/uso_de_curl.md' style="background-color: #5bc0de" >Edit this page on GitHub</a>
+            
+            
+                <a href='https://github.com/procamora/dummy/edit/main/content/post/draft/uso_de_curl.md' style="background-color: #5bc0de" >Download article PDF</a>
+            
+        
+    </div>
+</div>
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>El comando <em>curl</em> esta diseñado para verificar una url y ademas permite la transferencia de datos. Hace uso de la librería opensource <em>libcurl</em> disponible en todas las distribuciones Linux.</p>
+<ul>
+<li><a class="link" href="#header0" >Operaciones básicas</a></li>
+<li><a class="link" href="#header1" >HTTP con curl</a>:
+<ul>
+<li><a class="link" href="#mark0" >Gestión certificados</a></li>
+<li><a class="link" href="#mark1" >User Agent</a></li>
+<li><a class="link" href="#mark2" >Customize headers</a></li>
+<li><a class="link" href="#mark3" >Referer</a></li>
+<li><a class="link" href="#mark4" >Proxy con autenticación</a></li>
+<li><a class="link" href="#mark5" >Cookies</a></li>
+<li><a class="link" href="#mark6" >GET</a></li>
+<li><a class="link" href="#mark7" >POST</a></li>
+<li><a class="link" href="#mark8" >PUT</a></li>
+<li><a class="link" href="#mark9" >DELETE</a></li>
+<li><a class="link" href="#mark10" >PATCH</a></li>
+<li><a class="link" href="#mark11" >MOVE</a></li>
+<li><a class="link" href="#mark12" >OPTIONS</a></li>
+<li><a class="link" href="#mark13" >MKCOL</a></li>
+</ul>
+</li>
+<li><a class="link" href="#header2" >FTP/FTPS/SFTP/SCP con curl</a>:
+<ul>
+<li><a class="link" href="#mark14" >Descarga</a></li>
+<li><a class="link" href="#mark15" >Subida</a></li>
+</ul>
+</li>
+<li><a class="link" href="#header3" >SMB con curl</a>:</li>
+<li><a class="link" href="#header4" >LDAP/LDAPS con curl</a></li>
+</ul>
+<p>El comando Curl es compatible con la siguiente lista de protocolos:</p>
+<ul>
+<li>HTTP y HTTPS</li>
+<li>FTP y FTPS</li>
+<li>IMAP e IMAPS</li>
+<li>POP3 y POP3S</li>
+<li>SMB y SMBS</li>
+<li>SFTP</li>
+<li>SCP</li>
+<li>TELNET</li>
+<li>GOPHER</li>
+<li>LDAP y LDAPS</li>
+<li>SMTP y SMTPS</li>
+</ul>
+<h1 id="header0">Operaciones básicas</h1>
+<p>La sintaxis básica del comando es la siguiente:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">curl [OPTIONS] [URL]
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Algunas de las opciones mas relevantes son:</p>
+<ul>
+<li>-#, &ndash;progress-bar Make curl display a simple progress bar instead of the more informational standard meter.</li>
+<li>-b, &ndash;cookie &lt;name=data&gt; Supply cookie with request. If no =, then specifies the cookie file to use (see -c).</li>
+<li>-c, &ndash;cookie-jar <file name> File to save response cookies to.</li>
+<li>-d, &ndash;data <data> Send specified data in POST request. Details provided below.</li>
+<li>-f, &ndash;fail Fail silently (don&rsquo;t output HTML error form if returned).</li>
+<li>-F, &ndash;form &lt;name=content&gt; Submit form data.</li>
+<li>-H, &ndash;header <header> Headers to supply with request.</li>
+<li>-i, &ndash;include Include HTTP headers in the output.</li>
+<li>-I, &ndash;head Fetch headers only.</li>
+<li>-k, &ndash;insecure Allow insecure connections to succeed.</li>
+<li>-L, &ndash;location Follow redirects.</li>
+<li>-o, &ndash;output <file> Write output to . Can use &ndash;create-dirs in conjunction with this to create any directories specified in the -o path.</li>
+<li>-O, &ndash;remote-name Write output to file named like the remote file (only writes to current directory).</li>
+<li>-s, &ndash;silent Silent (quiet) mode. Use with -S to force it to show errors.</li>
+<li>-v, &ndash;verbose Provide more information (useful for debugging).</li>
+<li>-w, &ndash;write-out <format> Make curl display information on stdout after a completed transfer. See man page for more details on available variables. Convenient way to force curl to append a newline to output: -w &ldquo;\n&rdquo; (can add to ~/.curlrc).</li>
+<li>-X, &ndash;request The request method to use.</li>
+</ul>
+<p>Se puede realizar la peticion por una IP o un interfaz especifico con el flag <em>&ndash;interface</em>:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl --interface eth0:1 http://host.com/
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">curl --interface 192.168.1.10 http://host.com/
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h1 id="header1">HTTP con curl</h1>
+<p>Es posible reanudar una descarga interrumpida con el siguiente comando:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -C - -O  http://host.com/file.tar
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Podemos limitar la velocidad de descarga con:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl --limit-rate 200k -O http://host.com/file.tar
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="mark0">Gestión certificados</h2>
+<p>Podemos verificar un certificado SSL con:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ curl --cacert cacert.crt http://host.com
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Podemos ignorar certificado SSL con:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -k http://host.com
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="mark1">User Agent</h2>
+<p>Podemos indicar un User-Agent especifico con el flag <em>-A</em>:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -A <span class="s1">&#39;Mozilla/3.0 (Win95; I)&#39;</span> http://host.com
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Aquí hay una lista de User-Agent validos:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Mozilla/5.0 (X11; Linux x86_64; rv:58.0) Gecko/20100101 Firefox/58.0
+</span></span><span class="line"><span class="cl">Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.132 Safari/537.36
+</span></span><span class="line"><span class="cl">Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:73.0) Gecko/20100101 Firefox/73.0
+</span></span><span class="line"><span class="cl">Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_3) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.5 Safari/605.1.15
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="mark2">Customize headers</h2>
+<p>Podemos modificar las cabeceras con el flag <em>-H</em>:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -H <span class="s2">&#34;Host: test.example&#34;</span> http://host.com/
+</span></span><span class="line"><span class="cl">curl -H <span class="s2">&#34;User-Agent:&#34;</span> http://host.com/
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="mark3">Referer</h2>
+<p>Podemos indicar que estamos realizando una referencia de otra url con el flag <em>&ndash;referer</em>:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl --referer http://comes-from.example.com https://host.com/
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="mark4">Proxy con autenticación</h2>
+<p>Podemos indicar un proxy y las credenciales si son necesarias para el proxy con el flag <em>-u</em>:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl PROXY:8000 -u username:password -O http://host.com/file.tar
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Si el proxy requiere una autenticación especifica, habría que usar el flag <em>-U</em>:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl PROXY:8000 -U username:password -O http://host.com/file.tar
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="mark5">Cookies</h2>
+<p>Podemos navegar usando unas cookies previamente descargadas:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl --cookie-jar cookie.txt https://www.host.com/index.html
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="mark6">GET</h2>
+<p>Para usar el método GET basta con usar el comando:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl http://localhost:5000
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="mark7">POST</h2>
+<p>Para usar el método POST hay que usar <em>-X POST</em>. Es necesario indicar el campo data y opcionalmente se puede enviar el Content-Type.</p>
+<p>Formas de enviar datos:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">form urlencoded: -d &#34;param1=value1&amp;param2=value2&#34; or -d @data.txt
+</span></span><span class="line"><span class="cl">json: -d &#39;{&#34;key1&#34;:&#34;value1&#34;, &#34;key2&#34;:&#34;value2&#34;}&#39; or -d @data.json
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>El formato para enviar un POST con un JSON con los flags en formato largo sería:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl --header <span class="s2">&#34;Content-Type: application/json&#34;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --request POST <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --data <span class="s1">&#39;{&#34;username&#34;:&#34;abc&#34;,&#34;password&#34;:&#34;xyz&#34;}&#39;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  http://localhost:5000
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>El mismo comando pero en formato corto sería:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -H <span class="s2">&#34;Content-Type: application/json&#34;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  -X POST <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  -d <span class="s1">&#39;{&#34;username&#34;:&#34;abc&#34;,&#34;password&#34;:&#34;xyz&#34;}&#39;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  http://localhost:5000
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Para enviar un fichero en vez de un string se usa el data <em>@fichero</em>:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -H <span class="s2">&#34;Content-Type: application/json&#34;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  -X POST <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  -d <span class="s1">&#39;@example.json&#39;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  http://localhost:5000
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Para enviar un POST con Content-Type www-form podemos ponerlo en el flag <em>-H</em> o eliminarlo, ya que es el Content-Type por defecto en curl.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -H <span class="s2">&#34;Content-Type: application/x-www-form-urlencoded&#34;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  -X POST <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  -d <span class="s1">&#39;username=abc&amp;password=xyz&#39;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  http://localhost:5000
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="mark8">PUT</h2>
+<p>El proceso es el mismo que con POST.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -H <span class="s2">&#34;Content-Type: application/json&#34;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  -X PUT <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  -d <span class="s1">&#39;{&#34;username&#34;:&#34;abc&#34;,&#34;password&#34;:&#34;xyz&#34;}&#39;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  http://localhost:5000
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -H <span class="s2">&#34;Content-Type: application/x-www-form-urlencoded&#34;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  -X PUT <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  -d <span class="s1">&#39;username=abc&amp;password=xyz&#39;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  http://localhost:5000
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="mark9">DELETE</h2>
+<p>Podemos borrar un fichero con el comando:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -X <span class="s2">&#34;DELETE&#34;</span> http://localhost:5000/file
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="mark10">PATCH</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -X PATCH http://localhost:5000/file?status<span class="o">=</span>closed
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="mark11">MOVE</h2>
+<p>Podemos mover un fichero con el comando:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -X MOVE --header <span class="s1">&#39;Destination:http://host.org/new.txt&#39;</span> <span class="s1">&#39;https://host.com/old.txt&#39;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="mark12">OPTIONS</h2>
+<p>Podemos ver los métodos que están permitidos en un servidor HTTP con el comando:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -X OPTIONS http://localhost:5000 -i
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="mark13">MKCOL</h2>
+<p>Podemos crear un directorio con el comando:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -X MKCOL <span class="s1">&#39;https://example.com/new_folder&#39;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h1 id="header2">FTP/FTPS/SFTP/SCP con curl</h1>
+<h2 id="mark14">Descarga</h2>
+<p>Podemos descargar ficheros de un servidores FTP con los comandos:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -u username:password -O ftp://server_ftp/test.tar.gz
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">curl ftps://files.are.secure.com/secrets.txt
+</span></span><span class="line"><span class="cl">curl --ftp-ssl ftp://files.are.secure.com/secrets.txt <span class="c1"># equivalente</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>También podemos descargar ficheros de servidores SSH usando SFTP o SCP con los siguientes comandos:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -u username sftp://example.com/etc/issue
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Clave prinvada sin contraseña</span>
+</span></span><span class="line"><span class="cl">curl -u username: --key ~/.ssh/id_rsa scp://example.com/~/file.txt
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Clave privada con contraseña</span>
+</span></span><span class="line"><span class="cl">curl -u username: --key ~/.ssh/id_rsa --pass private_key_password scp://example.com/~/file.txt
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="mark15">Subida</h2>
+<p>También es posible subir ficheros al servidor FTP con el flag <em>-T</em>:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -u username:password -T test.tar.gz ftp://server_ftp
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h1 id="header3">SMB con curl</h1>
+<p>Podemos descargar ficheros de un servidor SMB con el comando:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -u <span class="s2">&#34;domain\username:password&#34;</span> smb://server.example.com/share/file.txt
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>También es posible subir ficheros al servidor SMB con el flag <em>-T</em>:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -T file.txt -u <span class="s2">&#34;domain\username:passwd&#34;</span> smb://server.example.com/share/
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h1 id="header4">LDAP/LDAPS con curl</h1>
+<p>Si se tiene instalada la librería OpenLDAP, es posible usar curl para real;izar peticiones utilizando el protocolo <em>ldap://</em>. Por defecto se usará LDAPv3 y en caso de que este falle se usará LDAPv2.</p>
+<p>La sintaxis de una consulta con LDAP es algo compleja, para obtener ayuda seria relevante usar el <a class="link" href="https://tools.ietf.org/html/rfc2255"  target="_blank" rel="noopener"
+    >RFC 2255</a></p>
+<p>Algunos ejemplos de consultas son las siguientes:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># LDAP sin autenticación</span>
+</span></span><span class="line"><span class="cl">curl -B <span class="s2">&#34;ldap://ldap.frontec.se/o=frontec??sub?mail=*sth.frontec.se&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># LDAP con autenticación</span>
+</span></span><span class="line"><span class="cl">curl -u user:passwd <span class="s2">&#34;ldap://ldap.frontec.se/o=frontec??sub?mail=*&#34;</span>
+</span></span><span class="line"><span class="cl">curl <span class="s2">&#34;ldap://user:passwd@ldap.frontec.se/o=frontec??sub?mail=*&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Por defecto se usa autenticacion basica. --basic, --ntlm o --digest</span>
+</span></span><span class="line"><span class="cl">curl --ntlm <span class="s2">&#34;ldap://user:passwd@ldap.frontec.se/o=frontec??sub?mail=*&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Fuentes: <a class="link" href="https://www.hostinger.es/tutoriales/comando-curl/"  target="_blank" rel="noopener"
+    >0</a>, <a class="link" href="https://gist.github.com/subfuzion/08c5d85437d5d4f00e58"  target="_blank" rel="noopener"
+    >1</a>, <a class="link" href="https://curl.haxx.se/docs/manual.html"  target="_blank" rel="noopener"
+    >2</a></p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/curl/">curl</a>
+        
+            <a href="/tags/http/">http</a>
+        
+            <a href="/tags/web/">web</a>
+        
+            <a href="/tags/post/">post</a>
+        
+            <a href="/tags/put/">put</a>
+        
+            <a href="/tags/get/">get</a>
+        
+            <a href="/tags/delete/">delete</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/katex.min.css"integrity="sha256-J&#43;iAE0sgH8QSz9hpcDxXIftnj65JEZgNhGcgReTTK9s="crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/katex.min.js"integrity="sha256-InsNdER1b2xUewP&#43;pKCUJpkhiqwHgqiPXDlIk7GzBu4="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/contrib/auto-render.min.js"integrity="sha256-y39Mpg7V3D4lhBX4x6O0bUqTV4pSrfgwEfGKfxkOdgI="crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.querySelector(`.article-content`), {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ]
+        });})
+</script>
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Contenidos relacionados</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/p/emdee-five-for-life-writeup-hackthebox-web-challenge/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/covers/htb.png" loading="lazy" data-key="emdee-five-for-life-writeup-hackthebox-web-challenge" data-hash="/covers/htb.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Emdee five for life Writeup HackTheBox Web Challenge</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/configuracion_vim/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/covers/htb.png" loading="lazy" data-key="configuracion_vim" data-hash="/covers/htb.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Configuración vim</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/diseno_de_un_pcb_con_easyeda/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/covers/draft.png" loading="lazy" data-key="diseno_de_un_pcb_con_easyeda" data-hash="/covers/draft.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Diseño de un PCB con EasyEDA</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/vyatta/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/covers/draft.png" loading="lazy" data-key="vyatta" data-hash="/covers/draft.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Vyatta</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/ecartographer-writeup-hackthebox-web-challenge/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/covers/htb.png" loading="lazy" data-key="ecartographer-writeup-hackthebox-web-challenge" data-hash="/covers/htb.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Cartographer Writeup HackTheBox Web Challenge</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "procamora-github" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2022 #&gt; fireroot
+    </section>
+    
+    <section class="powerby">
+        
+            Esto es el footer <br/>
+        Creado con <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Tema <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.13.0">Stack</a></b> diseñado por <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Tabla de contenido</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#mark0">Gestión certificados</a></li>
+    <li><a href="#mark1">User Agent</a></li>
+    <li><a href="#mark2">Customize headers</a></li>
+    <li><a href="#mark3">Referer</a></li>
+    <li><a href="#mark4">Proxy con autenticación</a></li>
+    <li><a href="#mark5">Cookies</a></li>
+    <li><a href="#mark6">GET</a></li>
+    <li><a href="#mark7">POST</a></li>
+    <li><a href="#mark8">PUT</a></li>
+    <li><a href="#mark9">DELETE</a></li>
+    <li><a href="#mark10">PATCH</a></li>
+    <li><a href="#mark11">MOVE</a></li>
+    <li><a href="#mark12">OPTIONS</a></li>
+    <li><a href="#mark13">MKCOL</a></li>
+  </ol>
+
+  <ol>
+    <li><a href="#mark14">Descarga</a></li>
+    <li><a href="#mark15">Subida</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>grub on #&gt; fireroot</title>
+        <link>https://www.procamora.com/tags/grub/</link>
+        <description>Recent content in grub on #&gt; fireroot</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>es</language>
+        <lastBuildDate>Fri, 13 Nov 2015 00:00:00 +0000</lastBuildDate><atom:link href="https://www.procamora.com/tags/grub/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Modificar el grub</title>
+        <link>https://www.procamora.com/p/grub/</link>
+        <pubDate>Fri, 13 Nov 2015 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/p/grub/</guid>
+        <description>&lt;img src="https://www.procamora.com/covers/linux.png" alt="Featured image of post Modificar el grub" /&gt;&lt;h6 id=&#34;instalar-paquete-de-imágenes&#34;&gt;instalar paquete de imágenes&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;sudo aptitude install grub2-splashimages&lt;/code&gt;&lt;/p&gt;
+&lt;h6 id=&#34;carpeta-de-imágenes-del-grub&#34;&gt;carpeta de imágenes del grub&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;/usr/share/images/grub/&lt;/code&gt;&lt;/p&gt;
+&lt;h6 id=&#34;archivo-configuración-grub&#34;&gt;archivo configuración grub&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;sudo gedit /etc/grub.d/05_debian_theme&lt;/code&gt;&lt;/p&gt;
+&lt;h6 id=&#34;actualizar-grub&#34;&gt;actualizar grub&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;update-grub2&lt;/code&gt;&lt;/p&gt;
+&lt;h6 id=&#34;en-caso-de-no-ser-suficiente&#34;&gt;en caso de no ser suficiente&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;sudo grub-mkconfig -o /boot/grub/grub.cfg&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;las imágenes del grub deben estar a 640x480&lt;/p&gt;
+&lt;h2 id=&#34;recuperar-el-arranque-grub&#34;&gt;RECUPERAR EL ARRANQUE GRUB&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Método 1&lt;/strong&gt;
+Consiste en usar una distribución en modo LiveCD para instalar nuevamente el GRUB. Usaremos el LiveCD de Ubuntu 9.10 o superior (debe ser la versión Live o Desktop), aunque puede ser cualquier otra distribución que use GRUB2 como gestor de arranque y no LILO ni Grub 1.&lt;/p&gt;
+&lt;h6 id=&#34;lo-primero-que-debemos-hacer-es-arrancar-el-live-cd-y-abrir-una-terminal-después-escribimos-los-siguiente-para-ver-las-particiones-de-los-distintos-discos-duros&#34;&gt;Lo primero que debemos hacer es arrancar el live-cd y abrir una terminal. Después escribimos los siguiente para ver las particiones de los distintos discos duros:&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;sudo fdisk -l&lt;/code&gt;&lt;/p&gt;
+&lt;h6 id=&#34;después-vemos-cual-es-la-partición-donde-tenemos-ubuntu-y-la-montamos-en-mnt-en-la-mayoría-de-los-casos-esta-partición-será-sda1-el-ejemplo-lo-haré-con-esa-partición-pero-mira-cual-es-tu-partición-con-el-comando-fdisk&#34;&gt;Después vemos cual es la partición donde tenemos Ubuntu y la montamos en /mnt (en la mayoría de los casos esta partición será sda1, el ejemplo lo haré con esa partición pero mira cual es tu partición con el comando fdisk):&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;sudo mount /dev/sda8 /mnt&lt;/code&gt;&lt;/p&gt;
+&lt;h6 id=&#34;ahora-monta-el-resto-de-los-dispositivos&#34;&gt;Ahora, monta el resto de los dispositivos:&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;sudo mount --bind /dev /mnt/dev&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;sudo mount --bind /dev/pts  /mnt/dev/pts&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;sudo mount --bind /proc /mnt/proc&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;sudo mount --bind /sys  /mnt/sys&lt;/code&gt;&lt;/p&gt;
+&lt;h6 id=&#34;y-ejecuta-el-comando-chroot-de-forma-que-accedemos-como-root-al-sistema-de-archivos-de-nuestro-antiguo-ubuntu&#34;&gt;Y ejecuta el comando chroot de forma que accedemos como root al sistema de archivos de nuestro antiguo Ubuntu:&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;sudo chroot /mnt&lt;/code&gt;&lt;/p&gt;
+&lt;h6 id=&#34;por-último-cargamos-el-grub-en-el-mbr-ejecutando-el-siguiente-comando&#34;&gt;Por último cargamos el Grub en el MBR ejecutando el siguiente comando:&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;# grub-install --recheck /dev/sda&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;(sda lo debemos substituir por el disco duro que utilizamos para arrancar los sistemas operativos, casi siempre es sda. Ojo!! no poner el número de partición, solo sda).&lt;/p&gt;
+&lt;h6 id=&#34;reiniciamos-y-cuando-vuelva-a-arrancar-ubuntu-no-el-del-livecd-podemos-ajustar-en-el-menú-del-grub-manualmente-para-que-aparezca-en-el-menú-de-arranque-el-nuevo-sistema-operativo-que-nos-borró-el-mbr-o-dejar-que-lo-haga-el-automáticamente-con-el-siguiente-comando&#34;&gt;Reiniciamos y cuando vuelva a arrancar Ubuntu (no el del LiveCD), podemos ajustar en el menú del GRUB manualmente para que aparezca en el menú de arranque el nuevo sistema operativo que nos borró el MBR, o dejar que lo haga el automáticamente con el siguiente comando:&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;sudo update-grub2&lt;/code&gt;&lt;/p&gt;
+&lt;h6 id=&#34;si-el-comando-no-te-funciona-quizás-necesites-instalar-el-paquete-grub2&#34;&gt;Si el comando no te funciona, quizás necesites instalar el paquete grub2:&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;sudo apt-get install grub2&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;`&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

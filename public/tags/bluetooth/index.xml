@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>bluetooth on #&gt; fireroot</title>
+        <link>https://www.procamora.com/tags/bluetooth/</link>
+        <description>Recent content in bluetooth on #&gt; fireroot</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>es</language>
+        <lastBuildDate>Tue, 23 Feb 2016 00:00:00 +0000</lastBuildDate><atom:link href="https://www.procamora.com/tags/bluetooth/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Cascos bluetooth en Kali</title>
+        <link>https://www.procamora.com/p/cascos-bluetooth-en-kali/</link>
+        <pubDate>Tue, 23 Feb 2016 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/p/cascos-bluetooth-en-kali/</guid>
+        <description>&lt;img src="https://www.procamora.com/covers/draft.png" alt="Featured image of post Cascos bluetooth en Kali" /&gt;&lt;h2 id=&#34;primeros-instalamos-la-librería-para-gestionar-el-bluetooth-con-pulseaudio&#34;&gt;Primeros instalamos la librería para gestionar el bluetooth con pulseaudio&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;sudo apt-get install pulseaudio-module-bluetooth&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Iniciamos el servicio de bluetooth&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;/etc/init.d/bluetooth start&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;foto&lt;/p&gt;
+&lt;p&gt;Para poder activarlo en la configuración n hay que activar el modulo
+&lt;code&gt;sudo pactl load-module module-bluetooth-discover&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;después vamos a configuración de sonido y establecemos que el sonido salga por el casco en vez de por el altavoz&lt;/p&gt;
+&lt;p&gt;foto&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

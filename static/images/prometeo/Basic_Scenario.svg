@@ -1,0 +1,3519 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:xhtml="http://www.w3.org/1999/xhtml"
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   style="background-color: rgb(255, 255, 255);"
+   version="1.1"
+   width="986px"
+   height="842px"
+   viewBox="-0.5 -0.5 986 842"
+   content="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1arhGVcd"
+   id="svg837"
+   sodipodi:docname="Basic_Scenario.svg"
+   inkscape:version="0.92.4 (unknown)">
+  <metadata
+     id="metadata841">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1080"
+     id="namedview839"
+     showgrid="false"
+     inkscape:zoom="12.684253"
+     inkscape:cx="281.98916"
+     inkscape:cy="828.11243"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="g827" />
+  <defs
+     id="defs4">
+    <style
+       type="text/css"
+       id="style2">ul { margin-top: 0px; margin-bottom: 10px } 
+ol { margin-top: 0px; margin-bottom: 10px } 
+ul { margin-top: 0px; margin-bottom: 10px } 
+ol { margin-top: 0px; margin-bottom: 10px } 
+ul { margin-top: 0px; margin-bottom: 10px } 
+ol { margin-top: 0px; margin-bottom: 10px } 
+</style>
+  </defs>
+  <g
+     id="g827">
+    <rect
+       x="263"
+       y="267.5"
+       width="100"
+       height="25.86"
+       rx="5.17"
+       ry="5.17"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="2"
+       pointer-events="none"
+       id="rect6" />
+    <rect
+       x="273"
+       y="293.36"
+       width="80"
+       height="4.14"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="2"
+       pointer-events="none"
+       id="rect8" />
+    <path
+       d="M 266 274.74 L 272 274.74 L 272 277.84 L 270 277.84 L 270 278.88 L 268 278.88 L 268 277.84 L 266 277.84 Z M 274.5 274.74 L 280.5 274.74 L 280.5 277.84 L 278.5 277.84 L 278.5 278.88 L 276.5 278.88 L 276.5 277.84 L 274.5 277.84 Z M 283 274.74 L 289 274.74 L 289 277.84 L 287 277.84 L 287 278.88 L 285 278.88 L 285 277.84 L 283 277.84 Z M 291.5 274.74 L 297.5 274.74 L 297.5 277.84 L 295.5 277.84 L 295.5 278.88 L 293.5 278.88 L 293.5 277.84 L 291.5 277.84 Z M 300 274.74 L 306 274.74 L 306 277.84 L 304 277.84 L 304 278.88 L 302 278.88 L 302 277.84 L 300 277.84 Z M 308.5 274.74 L 314.5 274.74 L 314.5 277.84 L 312.5 277.84 L 312.5 278.88 L 310.5 278.88 L 310.5 277.84 L 308.5 277.84 Z M 317 274.74 L 323 274.74 L 323 277.84 L 321 277.84 L 321 278.88 L 319 278.88 L 319 277.84 L 317 277.84 Z M 325.5 274.74 L 331.5 274.74 L 331.5 277.84 L 329.5 277.84 L 329.5 278.88 L 327.5 278.88 L 327.5 277.84 L 325.5 277.84 Z"
+       fill="#ffffff"
+       stroke="none"
+       pointer-events="none"
+       id="path10" />
+    <ellipse
+       cx="351"
+       cy="280.43"
+       rx="8"
+       ry="8.275862068965518"
+       fill="#ffffff"
+       stroke="none"
+       pointer-events="none"
+       id="ellipse12" />
+    <ellipse
+       cx="338"
+       cy="272.67"
+       rx="2"
+       ry="2.0689655172413794"
+       fill="#ffffff"
+       stroke="none"
+       pointer-events="none"
+       id="ellipse14" />
+    <ellipse
+       cx="338"
+       cy="288.19"
+       rx="2"
+       ry="2.0689655172413794"
+       fill="#ffffff"
+       stroke="none"
+       pointer-events="none"
+       id="ellipse16" />
+    <ellipse
+       cx="338"
+       cy="280.43"
+       rx="2"
+       ry="2.0689655172413794"
+       fill="#ffffff"
+       stroke="none"
+       pointer-events="none"
+       id="ellipse18" />
+    <ellipse
+       cx="328.5"
+       cy="285.09"
+       rx="2"
+       ry="2.0689655172413794"
+       fill="#ffffff"
+       stroke="none"
+       pointer-events="none"
+       id="ellipse20" />
+    <ellipse
+       cx="320"
+       cy="285.09"
+       rx="2"
+       ry="2.0689655172413794"
+       fill="#ffffff"
+       stroke="none"
+       pointer-events="none"
+       id="ellipse22" />
+    <ellipse
+       cx="311.5"
+       cy="285.09"
+       rx="2"
+       ry="2.0689655172413794"
+       fill="#ffffff"
+       stroke="none"
+       pointer-events="none"
+       id="ellipse24" />
+    <ellipse
+       cx="303"
+       cy="285.09"
+       rx="2"
+       ry="2.0689655172413794"
+       fill="#ffffff"
+       stroke="none"
+       pointer-events="none"
+       id="ellipse26" />
+    <ellipse
+       cx="294.5"
+       cy="285.09"
+       rx="2"
+       ry="2.0689655172413794"
+       fill="#ffffff"
+       stroke="none"
+       pointer-events="none"
+       id="ellipse28" />
+    <ellipse
+       cx="286"
+       cy="285.09"
+       rx="2"
+       ry="2.0689655172413794"
+       fill="#ffffff"
+       stroke="none"
+       pointer-events="none"
+       id="ellipse30" />
+    <ellipse
+       cx="277.5"
+       cy="285.09"
+       rx="2"
+       ry="2.0689655172413794"
+       fill="#ffffff"
+       stroke="none"
+       pointer-events="none"
+       id="ellipse32" />
+    <ellipse
+       cx="269"
+       cy="285.09"
+       rx="2"
+       ry="2.0689655172413794"
+       fill="#ffffff"
+       stroke="none"
+       pointer-events="none"
+       id="ellipse34" />
+    <path
+       d="M 351 274.74 L 351 286.12 M 344.5 280.43 L 348.5 280.43 M 353.5 280.43 L 357.5 280.43 M 349 276.81 L 351 274.74 L 353 276.81 M 349 284.05 L 351 286.12 L 353 284.05 M 346.5 278.36 L 348.5 280.43 L 346.5 282.5 M 355.5 278.36 L 353.5 280.43 L 355.5 282.5"
+       fill="none"
+       stroke="#6881b3"
+       stroke-miterlimit="10"
+       pointer-events="none"
+       id="path36" />
+    <g
+       transform="translate(274.5,305.5)"
+       id="g51">
+      <switch
+         id="switch49">
+        <foreignObject
+           style="overflow:visible;"
+           pointer-events="all"
+           width="76"
+           height="12"
+           requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+          <xhtml:div
+             style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 102, 204); line-height: 1.2; vertical-align: top; white-space: nowrap; text-align: center;">
+            <xhtml:div
+               style="display:inline-block;text-align:inherit;text-decoration:inherit;">VyOS/Mikrotik</xhtml:div>
+          </xhtml:div>
+        </foreignObject>
+        <svg
+           style="width: 76px; height: 12px;"
+           width="76"
+           height="12"
+           version="1.1"
+           id="svg47">
+          <defs
+             id="defs39">
+            <path
+               id="78u1fo6BMGkYYQFn"
+               d="M0,12.6 h75.98333740234375" />
+          </defs>
+          <text
+             fill="rgb(0, 102, 204)"
+             font-size="12px"
+             font-family="Helvetica"
+             font-weight="400"
+             id="text45">
+            <textPath
+               xlink:href="#78u1fo6BMGkYYQFn"
+               startOffset="50%"
+               text-anchor="middle"
+               id="textPath43"><tspan
+   xml:space="preserve"
+   id="tspan41">VyOS/Mikrotik</tspan></textPath>
+          </text>
+        </svg>
+      </switch>
+    </g>
+    <rect
+       x="35"
+       y="232.5"
+       width="10.5"
+       height="8"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="2"
+       pointer-events="none"
+       id="rect53" />
+    <rect
+       x="48.3"
+       y="232.5"
+       width="23"
+       height="8"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="2"
+       pointer-events="none"
+       id="rect55" />
+    <rect
+       x="73.5"
+       y="232.5"
+       width="23"
+       height="8"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="2"
+       pointer-events="none"
+       id="rect57" />
+    <rect
+       x="99.3"
+       y="232.5"
+       width="23"
+       height="8"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="2"
+       pointer-events="none"
+       id="rect59" />
+    <rect
+       x="124.5"
+       y="232.5"
+       width="10.5"
+       height="8"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="2"
+       pointer-events="none"
+       id="rect61" />
+    <rect
+       x="35"
+       y="242.75"
+       width="23"
+       height="8"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="2"
+       pointer-events="none"
+       id="rect63" />
+    <rect
+       x="60.7"
+       y="242.75"
+       width="23"
+       height="8"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="2"
+       pointer-events="none"
+       id="rect65" />
+    <rect
+       x="86.4"
+       y="242.75"
+       width="23"
+       height="8"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="2"
+       pointer-events="none"
+       id="rect67" />
+    <rect
+       x="112"
+       y="242.75"
+       width="23"
+       height="8"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="2"
+       pointer-events="none"
+       id="rect69" />
+    <rect
+       x="35"
+       y="253"
+       width="10.5"
+       height="8"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="2"
+       pointer-events="none"
+       id="rect71" />
+    <rect
+       x="48.3"
+       y="253"
+       width="23"
+       height="8"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="2"
+       pointer-events="none"
+       id="rect73" />
+    <rect
+       x="73.5"
+       y="253"
+       width="23"
+       height="8"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="2"
+       pointer-events="none"
+       id="rect75" />
+    <rect
+       x="99.3"
+       y="253"
+       width="23"
+       height="8"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="2"
+       pointer-events="none"
+       id="rect77" />
+    <rect
+       x="124.5"
+       y="253"
+       width="10.5"
+       height="8"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="2"
+       pointer-events="none"
+       id="rect79" />
+    <rect
+       x="35"
+       y="263.25"
+       width="23"
+       height="8"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="2"
+       pointer-events="none"
+       id="rect81" />
+    <rect
+       x="60.7"
+       y="263.25"
+       width="23"
+       height="8"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="2"
+       pointer-events="none"
+       id="rect83" />
+    <rect
+       x="86.4"
+       y="263.25"
+       width="23"
+       height="8"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="2"
+       pointer-events="none"
+       id="rect85" />
+    <rect
+       x="112"
+       y="263.25"
+       width="23"
+       height="8"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="2"
+       pointer-events="none"
+       id="rect87" />
+    <rect
+       x="35"
+       y="273.5"
+       width="10.5"
+       height="8"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="2"
+       pointer-events="none"
+       id="rect89" />
+    <rect
+       x="48.3"
+       y="273.5"
+       width="23"
+       height="8"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="2"
+       pointer-events="none"
+       id="rect91" />
+    <rect
+       x="74"
+       y="273.5"
+       width="23"
+       height="8"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="2"
+       pointer-events="none"
+       id="rect93" />
+    <rect
+       x="99.3"
+       y="273.5"
+       width="23"
+       height="8"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="2"
+       pointer-events="none"
+       id="rect95" />
+    <rect
+       x="124.5"
+       y="273.5"
+       width="10.5"
+       height="8"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="2"
+       pointer-events="none"
+       id="rect97" />
+    <rect
+       x="35"
+       y="284"
+       width="23"
+       height="8"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="2"
+       pointer-events="none"
+       id="rect99" />
+    <rect
+       x="60.7"
+       y="284"
+       width="23"
+       height="8"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="2"
+       pointer-events="none"
+       id="rect101" />
+    <rect
+       x="86.4"
+       y="284"
+       width="23"
+       height="8"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="2"
+       pointer-events="none"
+       id="rect103" />
+    <rect
+       x="112"
+       y="284"
+       width="23"
+       height="8"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="2"
+       pointer-events="none"
+       id="rect105" />
+    <rect
+       x="35"
+       y="294.25"
+       width="10.5"
+       height="8"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="2"
+       pointer-events="none"
+       id="rect107" />
+    <rect
+       x="48.3"
+       y="294.25"
+       width="23"
+       height="8"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="2"
+       pointer-events="none"
+       id="rect109" />
+    <rect
+       x="74"
+       y="294.25"
+       width="23"
+       height="8"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="2"
+       pointer-events="none"
+       id="rect111" />
+    <rect
+       x="99.3"
+       y="294.25"
+       width="23"
+       height="8"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="2"
+       pointer-events="none"
+       id="rect113" />
+    <rect
+       x="124.5"
+       y="294.25"
+       width="10.5"
+       height="8"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="2"
+       pointer-events="none"
+       id="rect115" />
+    <rect
+       x="35"
+       y="304.5"
+       width="23"
+       height="8"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="2"
+       pointer-events="none"
+       id="rect117" />
+    <rect
+       x="60.7"
+       y="304.5"
+       width="23"
+       height="8"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="2"
+       pointer-events="none"
+       id="rect119" />
+    <rect
+       x="86.4"
+       y="304.5"
+       width="23"
+       height="8"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="2"
+       pointer-events="none"
+       id="rect121" />
+    <rect
+       x="112"
+       y="304.5"
+       width="23"
+       height="8"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="2"
+       pointer-events="none"
+       id="rect123" />
+    <rect
+       x="35"
+       y="314.5"
+       width="10.5"
+       height="8"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="2"
+       pointer-events="none"
+       id="rect125" />
+    <rect
+       x="48.3"
+       y="314.5"
+       width="23"
+       height="8"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="2"
+       pointer-events="none"
+       id="rect127" />
+    <rect
+       x="73.5"
+       y="314.5"
+       width="23"
+       height="8"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="2"
+       pointer-events="none"
+       id="rect129" />
+    <rect
+       x="99.3"
+       y="314.5"
+       width="23"
+       height="8"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="2"
+       pointer-events="none"
+       id="rect131" />
+    <rect
+       x="124.5"
+       y="314.5"
+       width="10.5"
+       height="8"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="2"
+       pointer-events="none"
+       id="rect133" />
+    <rect
+       x="35"
+       y="324.5"
+       width="23"
+       height="8"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="2"
+       pointer-events="none"
+       id="rect135" />
+    <rect
+       x="60.7"
+       y="324.5"
+       width="23"
+       height="8"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="2"
+       pointer-events="none"
+       id="rect137" />
+    <rect
+       x="86.4"
+       y="324.5"
+       width="23"
+       height="8"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="2"
+       pointer-events="none"
+       id="rect139" />
+    <rect
+       x="112"
+       y="324.5"
+       width="23"
+       height="8"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="2"
+       pointer-events="none"
+       id="rect141" />
+    <path
+       d="M 78.4 314.1 C 78.99 309.75 80.53 305.59 82.9 301.9 C 83.65 300.71 84.32 299.48 84.9 298.2 C 85.62 297 85.8 295.54 85.4 294.2 C 86.61 295.38 87.26 297.01 87.2 298.7 C 86.74 302.08 87.15 305.52 88.4 308.7 C 89.66 311.13 91.56 313.17 93.9 314.6 C 99 313.47 103.61 310.78 107.1 306.9 C 110.48 303 111.61 297.63 110.1 292.7 C 108.39 287.81 106.11 283.15 103.3 278.8 C 101.67 276.41 100.77 273.59 100.7 270.7 C 101.04 269.44 101.87 268.36 103 267.7 C 101.32 267.67 99.69 268.23 98.4 269.3 C 95.75 271.94 94.18 275.47 94 279.2 C 92.97 276.34 92.83 273.24 93.6 270.3 C 94.57 266.37 94.11 262.22 92.3 258.6 C 91.07 256.71 89.59 254.99 87.9 253.5 C 86.5 252.39 85.32 251.03 84.4 249.5 C 84.2 251.41 84.37 253.35 84.9 255.2 C 85.61 258.15 85.18 261.26 83.7 263.9 C 82.69 265.56 81.59 267.17 80.4 268.7 C 78.71 271.22 77.62 274.09 77.2 277.1 C 76.78 273.65 75.77 270.3 74.2 267.2 C 72.73 264.21 70.53 261.63 67.8 259.7 C 68.98 262.61 69.46 265.77 69.2 268.9 C 68.84 271.57 68.16 274.19 67.2 276.7 C 64.83 281.61 63.27 286.88 62.6 292.3 C 62.16 297.65 63.89 302.94 67.4 307 C 70.26 310.43 74.1 312.9 78.4 314.1 Z"
+       fill="#ffffff"
+       stroke="#6881b3"
+       stroke-width="2"
+       stroke-miterlimit="10"
+       pointer-events="none"
+       id="path143" />
+    <g
+       transform="translate(49.5,340.5)"
+       id="g158">
+      <switch
+         id="switch156">
+        <foreignObject
+           style="overflow:visible;"
+           pointer-events="all"
+           width="70"
+           height="12"
+           requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+          <xhtml:div
+             style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 102, 204); line-height: 1.2; vertical-align: top; white-space: nowrap; text-align: center;">
+            <xhtml:div
+               style="display:inline-block;text-align:inherit;text-decoration:inherit;">Firewall DMZ</xhtml:div>
+          </xhtml:div>
+        </foreignObject>
+        <svg
+           style="width: 70px; height: 12px;"
+           width="70"
+           height="12"
+           version="1.1"
+           id="svg154">
+          <defs
+             id="defs146">
+            <path
+               id="X8u1fo6BMGkYYQFo"
+               d="M0,12.6 h70" />
+          </defs>
+          <text
+             fill="rgb(0, 102, 204)"
+             font-size="12px"
+             font-family="Helvetica"
+             font-weight="400"
+             id="text152">
+            <textPath
+               xlink:href="#X8u1fo6BMGkYYQFo"
+               startOffset="50%"
+               text-anchor="middle"
+               id="textPath150"><tspan
+   xml:space="preserve"
+   id="tspan148">Firewall DMZ</tspan></textPath>
+          </text>
+        </svg>
+      </switch>
+    </g>
+    <path
+       d="M 602.5 282.71 L 638 282.71 L 674 282.71"
+       fill="none"
+       stroke="#000000"
+       stroke-miterlimit="10"
+       pointer-events="none"
+       id="path160" />
+    <rect
+       x="502.5"
+       y="232.5"
+       width="10.5"
+       height="8"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="2"
+       pointer-events="none"
+       id="rect162" />
+    <rect
+       x="515.8"
+       y="232.5"
+       width="23"
+       height="8"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="2"
+       pointer-events="none"
+       id="rect164" />
+    <rect
+       x="541"
+       y="232.5"
+       width="23"
+       height="8"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="2"
+       pointer-events="none"
+       id="rect166" />
+    <rect
+       x="566.8"
+       y="232.5"
+       width="23"
+       height="8"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="2"
+       pointer-events="none"
+       id="rect168" />
+    <rect
+       x="592"
+       y="232.5"
+       width="10.5"
+       height="8"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="2"
+       pointer-events="none"
+       id="rect170" />
+    <rect
+       x="502.5"
+       y="242.75"
+       width="23"
+       height="8"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="2"
+       pointer-events="none"
+       id="rect172" />
+    <rect
+       x="528.2"
+       y="242.75"
+       width="23"
+       height="8"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="2"
+       pointer-events="none"
+       id="rect174" />
+    <rect
+       x="553.9"
+       y="242.75"
+       width="23"
+       height="8"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="2"
+       pointer-events="none"
+       id="rect176" />
+    <rect
+       x="579.5"
+       y="242.75"
+       width="23"
+       height="8"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="2"
+       pointer-events="none"
+       id="rect178" />
+    <rect
+       x="502.5"
+       y="253"
+       width="10.5"
+       height="8"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="2"
+       pointer-events="none"
+       id="rect180" />
+    <rect
+       x="515.8"
+       y="253"
+       width="23"
+       height="8"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="2"
+       pointer-events="none"
+       id="rect182" />
+    <rect
+       x="541"
+       y="253"
+       width="23"
+       height="8"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="2"
+       pointer-events="none"
+       id="rect184" />
+    <rect
+       x="566.8"
+       y="253"
+       width="23"
+       height="8"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="2"
+       pointer-events="none"
+       id="rect186" />
+    <rect
+       x="592"
+       y="253"
+       width="10.5"
+       height="8"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="2"
+       pointer-events="none"
+       id="rect188" />
+    <rect
+       x="502.5"
+       y="263.25"
+       width="23"
+       height="8"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="2"
+       pointer-events="none"
+       id="rect190" />
+    <rect
+       x="528.2"
+       y="263.25"
+       width="23"
+       height="8"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="2"
+       pointer-events="none"
+       id="rect192" />
+    <rect
+       x="553.9"
+       y="263.25"
+       width="23"
+       height="8"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="2"
+       pointer-events="none"
+       id="rect194" />
+    <rect
+       x="579.5"
+       y="263.25"
+       width="23"
+       height="8"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="2"
+       pointer-events="none"
+       id="rect196" />
+    <rect
+       x="502.5"
+       y="273.5"
+       width="10.5"
+       height="8"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="2"
+       pointer-events="none"
+       id="rect198" />
+    <rect
+       x="515.8"
+       y="273.5"
+       width="23"
+       height="8"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="2"
+       pointer-events="none"
+       id="rect200" />
+    <rect
+       x="541.5"
+       y="273.5"
+       width="23"
+       height="8"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="2"
+       pointer-events="none"
+       id="rect202" />
+    <rect
+       x="566.8"
+       y="273.5"
+       width="23"
+       height="8"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="2"
+       pointer-events="none"
+       id="rect204" />
+    <rect
+       x="592"
+       y="273.5"
+       width="10.5"
+       height="8"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="2"
+       pointer-events="none"
+       id="rect206" />
+    <rect
+       x="502.5"
+       y="284"
+       width="23"
+       height="8"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="2"
+       pointer-events="none"
+       id="rect208" />
+    <rect
+       x="528.2"
+       y="284"
+       width="23"
+       height="8"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="2"
+       pointer-events="none"
+       id="rect210" />
+    <rect
+       x="553.9"
+       y="284"
+       width="23"
+       height="8"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="2"
+       pointer-events="none"
+       id="rect212" />
+    <rect
+       x="579.5"
+       y="284"
+       width="23"
+       height="8"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="2"
+       pointer-events="none"
+       id="rect214" />
+    <rect
+       x="502.5"
+       y="294.25"
+       width="10.5"
+       height="8"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="2"
+       pointer-events="none"
+       id="rect216" />
+    <rect
+       x="515.8"
+       y="294.25"
+       width="23"
+       height="8"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="2"
+       pointer-events="none"
+       id="rect218" />
+    <rect
+       x="541.5"
+       y="294.25"
+       width="23"
+       height="8"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="2"
+       pointer-events="none"
+       id="rect220" />
+    <rect
+       x="566.8"
+       y="294.25"
+       width="23"
+       height="8"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="2"
+       pointer-events="none"
+       id="rect222" />
+    <rect
+       x="592"
+       y="294.25"
+       width="10.5"
+       height="8"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="2"
+       pointer-events="none"
+       id="rect224" />
+    <rect
+       x="502.5"
+       y="304.5"
+       width="23"
+       height="8"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="2"
+       pointer-events="none"
+       id="rect226" />
+    <rect
+       x="528.2"
+       y="304.5"
+       width="23"
+       height="8"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="2"
+       pointer-events="none"
+       id="rect228" />
+    <rect
+       x="553.9"
+       y="304.5"
+       width="23"
+       height="8"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="2"
+       pointer-events="none"
+       id="rect230" />
+    <rect
+       x="579.5"
+       y="304.5"
+       width="23"
+       height="8"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="2"
+       pointer-events="none"
+       id="rect232" />
+    <rect
+       x="502.5"
+       y="314.5"
+       width="10.5"
+       height="8"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="2"
+       pointer-events="none"
+       id="rect234" />
+    <rect
+       x="515.8"
+       y="314.5"
+       width="23"
+       height="8"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="2"
+       pointer-events="none"
+       id="rect236" />
+    <rect
+       x="541"
+       y="314.5"
+       width="23"
+       height="8"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="2"
+       pointer-events="none"
+       id="rect238" />
+    <rect
+       x="566.8"
+       y="314.5"
+       width="23"
+       height="8"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="2"
+       pointer-events="none"
+       id="rect240" />
+    <rect
+       x="592"
+       y="314.5"
+       width="10.5"
+       height="8"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="2"
+       pointer-events="none"
+       id="rect242" />
+    <rect
+       x="502.5"
+       y="324.5"
+       width="23"
+       height="8"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="2"
+       pointer-events="none"
+       id="rect244" />
+    <rect
+       x="528.2"
+       y="324.5"
+       width="23"
+       height="8"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="2"
+       pointer-events="none"
+       id="rect246" />
+    <rect
+       x="553.9"
+       y="324.5"
+       width="23"
+       height="8"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="2"
+       pointer-events="none"
+       id="rect248" />
+    <rect
+       x="579.5"
+       y="324.5"
+       width="23"
+       height="8"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="2"
+       pointer-events="none"
+       id="rect250" />
+    <path
+       d="M 545.9 314.1 C 546.49 309.75 548.03 305.59 550.4 301.9 C 551.15 300.71 551.82 299.48 552.4 298.2 C 553.12 297 553.3 295.54 552.9 294.2 C 554.11 295.38 554.76 297.01 554.7 298.7 C 554.24 302.08 554.65 305.52 555.9 308.7 C 557.16 311.13 559.06 313.17 561.4 314.6 C 566.5 313.47 571.11 310.78 574.6 306.9 C 577.98 303 579.11 297.63 577.6 292.7 C 575.89 287.81 573.61 283.15 570.8 278.8 C 569.17 276.41 568.27 273.59 568.2 270.7 C 568.54 269.44 569.37 268.36 570.5 267.7 C 568.82 267.67 567.19 268.23 565.9 269.3 C 563.25 271.94 561.68 275.47 561.5 279.2 C 560.47 276.34 560.33 273.24 561.1 270.3 C 562.07 266.37 561.61 262.22 559.8 258.6 C 558.57 256.71 557.09 254.99 555.4 253.5 C 554 252.39 552.82 251.03 551.9 249.5 C 551.7 251.41 551.87 253.35 552.4 255.2 C 553.11 258.15 552.68 261.26 551.2 263.9 C 550.19 265.56 549.09 267.17 547.9 268.7 C 546.21 271.22 545.12 274.09 544.7 277.1 C 544.28 273.65 543.27 270.3 541.7 267.2 C 540.23 264.21 538.03 261.63 535.3 259.7 C 536.48 262.61 536.96 265.77 536.7 268.9 C 536.34 271.57 535.66 274.19 534.7 276.7 C 532.33 281.61 530.77 286.88 530.1 292.3 C 529.66 297.65 531.39 302.94 534.9 307 C 537.76 310.43 541.6 312.9 545.9 314.1 Z"
+       fill="#ffffff"
+       stroke="#6881b3"
+       stroke-width="2"
+       stroke-miterlimit="10"
+       pointer-events="none"
+       id="path252" />
+    <g
+       transform="translate(518.5,340.5)"
+       id="g267">
+      <switch
+         id="switch265">
+        <foreignObject
+           style="overflow:visible;"
+           pointer-events="all"
+           width="68"
+           height="12"
+           requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+          <xhtml:div
+             style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 102, 204); line-height: 1.2; vertical-align: top; white-space: nowrap; text-align: center;">
+            <xhtml:div
+               style="display:inline-block;text-align:inherit;text-decoration:inherit;">Firewall LAN</xhtml:div>
+          </xhtml:div>
+        </foreignObject>
+        <svg
+           style="width: 68px; height: 12px;"
+           width="68"
+           height="12"
+           version="1.1"
+           id="svg263">
+          <defs
+             id="defs255">
+            <path
+               id="P8u1fo6BMGkYYQFp"
+               d="M0,12.6 h67.69999694824219" />
+          </defs>
+          <text
+             fill="rgb(0, 102, 204)"
+             font-size="12px"
+             font-family="Helvetica"
+             font-weight="400"
+             id="text261">
+            <textPath
+               xlink:href="#P8u1fo6BMGkYYQFp"
+               startOffset="50%"
+               text-anchor="middle"
+               id="textPath259"><tspan
+   xml:space="preserve"
+   id="tspan257">Firewall LAN</tspan></textPath>
+          </text>
+        </svg>
+      </switch>
+    </g>
+    <path
+       d="M 739.45 97.5 C 746.2 96.65 751.01 90.19 750.2 83.07 C 749.39 75.95 743.26 70.88 736.52 71.73 C 736.44 61.1 729.38 51.96 719.52 49.73 C 709.67 47.5 699.67 52.79 695.48 62.46 C 692.36 58.7 687.42 57.29 682.94 58.86 C 678.46 60.44 675.31 64.7 674.95 69.67 C 667.67 69.39 661.54 75.39 661.27 83.07 C 661 90.75 666.69 97.22 673.98 97.5 Z"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="1.95"
+       stroke-miterlimit="10"
+       pointer-events="none"
+       id="path269" />
+    <g
+       transform="translate(692.5,76.5)"
+       id="g284">
+      <switch
+         id="switch282">
+        <foreignObject
+           style="overflow:visible;"
+           pointer-events="all"
+           width="27"
+           height="12"
+           requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+          <xhtml:div
+             style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 102, 204); line-height: 1.2; vertical-align: top; white-space: nowrap; text-align: center;">
+            <xhtml:div
+               style="display:inline-block;text-align:inherit;text-decoration:inherit;">WAN</xhtml:div>
+          </xhtml:div>
+        </foreignObject>
+        <svg
+           style="width: 27px; height: 12px;"
+           width="27"
+           height="12"
+           version="1.1"
+           id="svg280">
+          <defs
+             id="defs272">
+            <path
+               id="f8u1fo6BMGkYYQFq"
+               d="M0,12.6 h27.399993896484375" />
+          </defs>
+          <text
+             fill="rgb(0, 102, 204)"
+             font-size="12px"
+             font-family="Helvetica"
+             font-weight="400"
+             id="text278">
+            <textPath
+               xlink:href="#f8u1fo6BMGkYYQFq"
+               startOffset="50%"
+               text-anchor="middle"
+               id="textPath276"><tspan
+   xml:space="preserve"
+   id="tspan274">WAN</tspan></textPath>
+          </text>
+        </svg>
+      </switch>
+    </g>
+    <rect
+       x="260.5"
+       y="497.41"
+       width="91.75"
+       height="14.72"
+       rx="1.96"
+       ry="1.96"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="1.96"
+       pointer-events="none"
+       id="rect286" />
+    <rect
+       x="260.5"
+       y="480.24"
+       width="91.75"
+       height="14.72"
+       rx="1.96"
+       ry="1.96"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="1.96"
+       pointer-events="none"
+       id="rect288" />
+    <rect
+       x="260.5"
+       y="463.07"
+       width="91.75"
+       height="14.72"
+       rx="1.96"
+       ry="1.96"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="1.96"
+       pointer-events="none"
+       id="rect290" />
+    <rect
+       x="260.5"
+       y="445.89"
+       width="91.75"
+       height="14.72"
+       rx="1.96"
+       ry="1.96"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="1.96"
+       pointer-events="none"
+       id="rect292" />
+    <rect
+       x="260.5"
+       y="428.72"
+       width="91.75"
+       height="14.72"
+       rx="1.96"
+       ry="1.96"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="1.96"
+       pointer-events="none"
+       id="rect294" />
+    <path
+       d="M 264.58 426.76 L 285.99 414 L 326.76 414 L 348.17 426.76 Z"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="1.96"
+       stroke-miterlimit="10"
+       pointer-events="none"
+       id="path296" />
+    <ellipse
+       cx="344.09"
+       cy="504.77"
+       rx="4.077669902912621"
+       ry="3.925233644859813"
+       fill="#ffffff"
+       stroke="none"
+       pointer-events="none"
+       id="ellipse298" />
+    <ellipse
+       cx="343.76"
+       cy="487.6"
+       rx="4.077669902912621"
+       ry="3.925233644859813"
+       fill="#ffffff"
+       stroke="none"
+       pointer-events="none"
+       id="ellipse300" />
+    <ellipse
+       cx="344.09"
+       cy="470.43"
+       rx="4.077669902912621"
+       ry="3.925233644859813"
+       fill="#ffffff"
+       stroke="none"
+       pointer-events="none"
+       id="ellipse302" />
+    <ellipse
+       cx="344.09"
+       cy="453.25"
+       rx="4.077669902912621"
+       ry="3.925233644859813"
+       fill="#ffffff"
+       stroke="none"
+       pointer-events="none"
+       id="ellipse304" />
+    <ellipse
+       cx="344.09"
+       cy="436.08"
+       rx="4.077669902912621"
+       ry="3.925233644859813"
+       fill="#ffffff"
+       stroke="none"
+       pointer-events="none"
+       id="ellipse306" />
+    <path
+       d="M 265.6 510.17 L 270.69 499.37 L 275.79 499.37 L 270.69 510.17 Z M 275.79 510.17 L 280.89 499.37 L 285.99 499.37 L 280.89 510.17 Z M 285.99 510.17 L 291.08 499.37 L 296.18 499.37 L 291.08 510.17 Z M 296.18 510.17 L 301.28 499.37 L 306.37 499.37 L 301.28 510.17 Z M 306.37 510.17 L 311.47 499.37 L 316.57 499.37 L 311.47 510.17 Z M 316.57 510.17 L 321.67 499.37 L 326.76 499.37 L 321.67 510.17 Z M 265.6 493 L 270.69 482.2 L 275.79 482.2 L 270.69 493 Z M 275.79 493 L 280.89 482.2 L 285.99 482.2 L 280.89 493 Z M 285.99 493 L 291.08 482.2 L 296.18 482.2 L 291.08 493 Z M 296.18 493 L 301.28 482.2 L 306.37 482.2 L 301.28 493 Z M 306.37 493 L 311.47 482.2 L 316.57 482.2 L 311.47 493 Z M 316.57 493 L 321.67 482.2 L 326.76 482.2 L 321.67 493 Z M 265.6 475.82 L 270.69 465.03 L 275.79 465.03 L 270.69 475.82 Z M 275.79 475.82 L 280.89 465.03 L 285.99 465.03 L 280.89 475.82 Z M 285.99 475.82 L 290.57 465.03 L 295.67 465.03 L 290.57 475.82 Z M 296.18 475.82 L 301.28 465.03 L 306.37 465.03 L 301.28 475.82 Z M 306.37 475.82 L 311.47 465.03 L 316.57 465.03 L 311.47 475.82 Z M 316.57 475.82 L 321.67 465.03 L 326.76 465.03 L 321.67 475.82 Z M 265.6 458.65 L 270.69 447.86 L 275.79 447.86 L 270.69 458.65 Z M 275.79 458.65 L 280.89 447.86 L 285.99 447.86 L 280.89 458.65 Z M 285.99 458.65 L 291.08 447.86 L 296.18 447.86 L 291.08 458.65 Z M 296.18 458.65 L 301.28 447.86 L 306.37 447.86 L 301.28 458.65 Z M 306.37 458.65 L 311.47 447.86 L 316.57 447.86 L 311.47 458.65 Z M 316.57 458.65 L 321.67 447.86 L 326.76 447.86 L 321.67 458.65 Z M 265.6 441.48 L 270.69 430.68 L 275.79 430.68 L 270.69 441.48 Z M 275.79 441.48 L 280.89 430.68 L 285.99 430.68 L 280.89 441.48 Z M 285.99 441.48 L 291.08 430.68 L 296.18 430.68 L 291.08 441.48 Z M 296.18 441.48 L 301.28 430.68 L 306.37 430.68 L 301.28 441.48 Z M 306.37 441.48 L 311.47 430.68 L 316.57 430.68 L 311.47 441.48 Z M 316.57 441.48 L 321.67 430.68 L 326.76 430.68 L 321.67 441.48 Z"
+       fill="#ffffff"
+       stroke="none"
+       pointer-events="none"
+       id="path308" />
+    <rect
+       x="260.5"
+       y="414"
+       width="0"
+       height="0"
+       fill="none"
+       stroke="#6881b3"
+       stroke-width="1.96"
+       pointer-events="none"
+       id="rect310" />
+    <ellipse
+       cx="347.15"
+       cy="501.34"
+       rx="18.349514563106794"
+       ry="17.66355140186916"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="1.96"
+       pointer-events="none"
+       id="ellipse312" />
+    <rect
+       x="335.43"
+       y="492.5"
+       width="23.45"
+       height="17.66"
+       fill="none"
+       stroke="#ffffff"
+       stroke-width="1.96"
+       pointer-events="none"
+       id="rect314" />
+    <rect
+       x="337.98"
+       y="494.96"
+       width="18.35"
+       height="13.25"
+       fill="#ffffff"
+       stroke="none"
+       pointer-events="none"
+       id="rect316" />
+    <g
+       transform="translate(291.5,526.5)"
+       id="g331">
+      <switch
+         id="switch329">
+        <foreignObject
+           style="overflow:visible;"
+           pointer-events="all"
+           width="43"
+           height="12"
+           requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+          <xhtml:div
+             style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 102, 204); line-height: 1.2; vertical-align: top; white-space: nowrap; text-align: center;">
+            <xhtml:div
+               style="display:inline-block;text-align:inherit;text-decoration:inherit;">IDS/IPS</xhtml:div>
+          </xhtml:div>
+        </foreignObject>
+        <svg
+           style="width: 43px; height: 12px;"
+           width="43"
+           height="12"
+           version="1.1"
+           id="svg327">
+          <defs
+             id="defs319">
+            <path
+               id="ACu1fo6BMGkYYQFr"
+               d="M0,12.6 h42.73333740234375" />
+          </defs>
+          <text
+             fill="rgb(0, 102, 204)"
+             font-size="12px"
+             font-family="Helvetica"
+             font-weight="400"
+             id="text325">
+            <textPath
+               xlink:href="#ACu1fo6BMGkYYQFr"
+               startOffset="50%"
+               text-anchor="middle"
+               id="textPath323"><tspan
+   xml:space="preserve"
+   id="tspan321">IDS/IPS</tspan></textPath>
+          </text>
+        </svg>
+      </switch>
+    </g>
+    <path
+       d="M 313 297.5 L 313 414"
+       fill="none"
+       stroke="#000000"
+       stroke-miterlimit="10"
+       pointer-events="none"
+       id="path333" />
+    <path
+       d="M 263 282.71 L 209.14 282.71 Q 199.14 282.71 189.14 282.71 L 135 282.71"
+       fill="none"
+       stroke="#000000"
+       stroke-miterlimit="10"
+       pointer-events="none"
+       id="path335" />
+    <path
+       d="M 502.5 282.71 L 442.86 282.71 Q 432.86 282.71 422.86 282.71 L 363 282.71"
+       fill="none"
+       stroke="#000000"
+       stroke-miterlimit="10"
+       pointer-events="none"
+       id="path337" />
+    <path
+       d="M 85 404.5 L 85 332.5"
+       fill="none"
+       stroke="#000000"
+       stroke-miterlimit="10"
+       pointer-events="none"
+       id="path339" />
+    <rect
+       x="287"
+       y="12.5"
+       width="52"
+       height="120"
+       rx="3.47"
+       ry="3.47"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="3.47"
+       pointer-events="none"
+       id="rect341" />
+    <path
+       d="M 287 32.5 L 339 32.5 M 287 72.5 L 339 72.5"
+       fill="none"
+       stroke="#6881b3"
+       stroke-width="3.47"
+       stroke-miterlimit="10"
+       pointer-events="none"
+       id="path343" />
+    <ellipse
+       cx="295.67"
+       cy="82.5"
+       rx="3.466666666666667"
+       ry="4"
+       fill="#ffffff"
+       stroke="none"
+       pointer-events="none"
+       id="ellipse345" />
+    <g
+       transform="translate(289.5,140.5)"
+       id="g360">
+      <switch
+         id="switch358">
+        <foreignObject
+           style="overflow:visible;"
+           pointer-events="all"
+           width="47"
+           height="12"
+           requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+          <xhtml:div
+             style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 102, 204); line-height: 1.2; vertical-align: top; white-space: nowrap; text-align: center;">
+            <xhtml:div
+               style="display:inline-block;text-align:inherit;text-decoration:inherit;">Proxmox</xhtml:div>
+          </xhtml:div>
+        </foreignObject>
+        <svg
+           style="width: 47px; height: 12px;"
+           width="47"
+           height="12"
+           version="1.1"
+           id="svg356">
+          <defs
+             id="defs348">
+            <path
+               id="gCu1fo6BMGkYYQFs"
+               d="M0,12.6 h46.616668701171875" />
+          </defs>
+          <text
+             fill="rgb(0, 102, 204)"
+             font-size="12px"
+             font-family="Helvetica"
+             font-weight="400"
+             id="text354">
+            <textPath
+               xlink:href="#gCu1fo6BMGkYYQFs"
+               startOffset="50%"
+               text-anchor="middle"
+               id="textPath352"><tspan
+   xml:space="preserve"
+   id="tspan350">Proxmox</tspan></textPath>
+          </text>
+        </svg>
+      </switch>
+    </g>
+    <rect
+       x="489.5"
+       y="57.5"
+       width="100"
+       height="25.86"
+       rx="5.17"
+       ry="5.17"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="2"
+       pointer-events="none"
+       id="rect362" />
+    <rect
+       x="499.5"
+       y="83.36"
+       width="80"
+       height="4.14"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="2"
+       pointer-events="none"
+       id="rect364" />
+    <path
+       d="M 492.5 64.74 L 498.5 64.74 L 498.5 67.84 L 496.5 67.84 L 496.5 68.88 L 494.5 68.88 L 494.5 67.84 L 492.5 67.84 Z M 501 64.74 L 507 64.74 L 507 67.84 L 505 67.84 L 505 68.88 L 503 68.88 L 503 67.84 L 501 67.84 Z M 509.5 64.74 L 515.5 64.74 L 515.5 67.84 L 513.5 67.84 L 513.5 68.88 L 511.5 68.88 L 511.5 67.84 L 509.5 67.84 Z M 518 64.74 L 524 64.74 L 524 67.84 L 522 67.84 L 522 68.88 L 520 68.88 L 520 67.84 L 518 67.84 Z M 526.5 64.74 L 532.5 64.74 L 532.5 67.84 L 530.5 67.84 L 530.5 68.88 L 528.5 68.88 L 528.5 67.84 L 526.5 67.84 Z M 535 64.74 L 541 64.74 L 541 67.84 L 539 67.84 L 539 68.88 L 537 68.88 L 537 67.84 L 535 67.84 Z M 543.5 64.74 L 549.5 64.74 L 549.5 67.84 L 547.5 67.84 L 547.5 68.88 L 545.5 68.88 L 545.5 67.84 L 543.5 67.84 Z M 552 64.74 L 558 64.74 L 558 67.84 L 556 67.84 L 556 68.88 L 554 68.88 L 554 67.84 L 552 67.84 Z"
+       fill="#ffffff"
+       stroke="none"
+       pointer-events="none"
+       id="path366" />
+    <ellipse
+       cx="577.5"
+       cy="70.43"
+       rx="8"
+       ry="8.275862068965518"
+       fill="#ffffff"
+       stroke="none"
+       pointer-events="none"
+       id="ellipse368" />
+    <ellipse
+       cx="564.5"
+       cy="62.67"
+       rx="2"
+       ry="2.0689655172413794"
+       fill="#ffffff"
+       stroke="none"
+       pointer-events="none"
+       id="ellipse370" />
+    <ellipse
+       cx="564.5"
+       cy="78.19"
+       rx="2"
+       ry="2.0689655172413794"
+       fill="#ffffff"
+       stroke="none"
+       pointer-events="none"
+       id="ellipse372" />
+    <ellipse
+       cx="564.5"
+       cy="70.43"
+       rx="2"
+       ry="2.0689655172413794"
+       fill="#ffffff"
+       stroke="none"
+       pointer-events="none"
+       id="ellipse374" />
+    <ellipse
+       cx="555"
+       cy="75.09"
+       rx="2"
+       ry="2.0689655172413794"
+       fill="#ffffff"
+       stroke="none"
+       pointer-events="none"
+       id="ellipse376" />
+    <ellipse
+       cx="546.5"
+       cy="75.09"
+       rx="2"
+       ry="2.0689655172413794"
+       fill="#ffffff"
+       stroke="none"
+       pointer-events="none"
+       id="ellipse378" />
+    <ellipse
+       cx="538"
+       cy="75.09"
+       rx="2"
+       ry="2.0689655172413794"
+       fill="#ffffff"
+       stroke="none"
+       pointer-events="none"
+       id="ellipse380" />
+    <ellipse
+       cx="529.5"
+       cy="75.09"
+       rx="2"
+       ry="2.0689655172413794"
+       fill="#ffffff"
+       stroke="none"
+       pointer-events="none"
+       id="ellipse382" />
+    <ellipse
+       cx="521"
+       cy="75.09"
+       rx="2"
+       ry="2.0689655172413794"
+       fill="#ffffff"
+       stroke="none"
+       pointer-events="none"
+       id="ellipse384" />
+    <ellipse
+       cx="512.5"
+       cy="75.09"
+       rx="2"
+       ry="2.0689655172413794"
+       fill="#ffffff"
+       stroke="none"
+       pointer-events="none"
+       id="ellipse386" />
+    <ellipse
+       cx="504"
+       cy="75.09"
+       rx="2"
+       ry="2.0689655172413794"
+       fill="#ffffff"
+       stroke="none"
+       pointer-events="none"
+       id="ellipse388" />
+    <ellipse
+       cx="495.5"
+       cy="75.09"
+       rx="2"
+       ry="2.0689655172413794"
+       fill="#ffffff"
+       stroke="none"
+       pointer-events="none"
+       id="ellipse390" />
+    <path
+       d="M 577.5 64.74 L 577.5 76.12 M 571 70.43 L 575 70.43 M 580 70.43 L 584 70.43 M 575.5 66.81 L 577.5 64.74 L 579.5 66.81 M 575.5 74.05 L 577.5 76.12 L 579.5 74.05 M 573 68.36 L 575 70.43 L 573 72.5 M 582 68.36 L 580 70.43 L 582 72.5"
+       fill="none"
+       stroke="#6881b3"
+       stroke-miterlimit="10"
+       pointer-events="none"
+       id="path392" />
+    <g
+       transform="translate(507.5,95.5)"
+       id="g407">
+      <switch
+         id="switch405">
+        <foreignObject
+           style="overflow:visible;"
+           pointer-events="all"
+           width="64"
+           height="12"
+           requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+          <xhtml:div
+             style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 102, 204); line-height: 1.2; vertical-align: top; white-space: nowrap; text-align: center;">
+            <xhtml:div
+               style="display:inline-block;text-align:inherit;text-decoration:inherit;">home router</xhtml:div>
+          </xhtml:div>
+        </foreignObject>
+        <svg
+           style="width: 64px; height: 12px;"
+           width="64"
+           height="12"
+           version="1.1"
+           id="svg403">
+          <defs
+             id="defs395">
+            <path
+               id="wCu1fo6BMGkYYQFt"
+               d="M0,12.6 h64.41667175292969" />
+          </defs>
+          <text
+             fill="rgb(0, 102, 204)"
+             font-size="12px"
+             font-family="Helvetica"
+             font-weight="400"
+             id="text401">
+            <textPath
+               xlink:href="#wCu1fo6BMGkYYQFt"
+               startOffset="50%"
+               text-anchor="middle"
+               id="textPath399"><tspan
+   xml:space="preserve"
+   id="tspan397">home router</tspan></textPath>
+          </text>
+        </svg>
+      </switch>
+    </g>
+    <path
+       d="M 339 72.43 L 404 72.43 Q 414 72.43 424 72.43 L 489.5 72.43"
+       fill="none"
+       stroke="#000000"
+       stroke-miterlimit="10"
+       pointer-events="none"
+       id="path409" />
+    <path
+       d="M 589.5 72.43 L 615.43 72.43 Q 625.43 72.43 635.43 72.43 L 666.57 72.43"
+       fill="none"
+       stroke="#000000"
+       stroke-miterlimit="10"
+       pointer-events="none"
+       id="path411" />
+    <path
+       d="M 313 267.5 L 313 132.5"
+       fill="none"
+       stroke="#000000"
+       stroke-miterlimit="10"
+       pointer-events="none"
+       id="path413" />
+    <path
+       d="M 552.06 585.5 L 552.3 521"
+       fill="none"
+       stroke="#000000"
+       stroke-miterlimit="10"
+       pointer-events="none"
+       id="path415" />
+    <rect
+       x="501"
+       y="585.5"
+       width="102"
+       height="25.86"
+       rx="5.17"
+       ry="5.17"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="2.04"
+       pointer-events="none"
+       id="rect417" />
+    <rect
+       x="511.2"
+       y="611.36"
+       width="81.6"
+       height="4.14"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="2.04"
+       pointer-events="none"
+       id="rect419" />
+    <ellipse
+       cx="590.76"
+       cy="598.43"
+       rx="8.16"
+       ry="8.275862068965518"
+       fill="#ffffff"
+       stroke="none"
+       pointer-events="none"
+       id="ellipse421" />
+    <ellipse
+       cx="577.5"
+       cy="590.67"
+       rx="2.04"
+       ry="2.0689655172413794"
+       fill="#ffffff"
+       stroke="none"
+       pointer-events="none"
+       id="ellipse423" />
+    <ellipse
+       cx="577.5"
+       cy="606.19"
+       rx="2.04"
+       ry="2.0689655172413794"
+       fill="#ffffff"
+       stroke="none"
+       pointer-events="none"
+       id="ellipse425" />
+    <ellipse
+       cx="577.5"
+       cy="598.43"
+       rx="2.04"
+       ry="2.0689655172413794"
+       fill="#ffffff"
+       stroke="none"
+       pointer-events="none"
+       id="ellipse427" />
+    <ellipse
+       cx="567.81"
+       cy="603.09"
+       rx="2.04"
+       ry="2.0689655172413794"
+       fill="#ffffff"
+       stroke="none"
+       pointer-events="none"
+       id="ellipse429" />
+    <ellipse
+       cx="559.14"
+       cy="603.09"
+       rx="2.04"
+       ry="2.0689655172413794"
+       fill="#ffffff"
+       stroke="none"
+       pointer-events="none"
+       id="ellipse431" />
+    <ellipse
+       cx="550.47"
+       cy="603.09"
+       rx="2.04"
+       ry="2.0689655172413794"
+       fill="#ffffff"
+       stroke="none"
+       pointer-events="none"
+       id="ellipse433" />
+    <ellipse
+       cx="541.8"
+       cy="603.09"
+       rx="2.04"
+       ry="2.0689655172413794"
+       fill="#ffffff"
+       stroke="none"
+       pointer-events="none"
+       id="ellipse435" />
+    <ellipse
+       cx="533.13"
+       cy="603.09"
+       rx="2.04"
+       ry="2.0689655172413794"
+       fill="#ffffff"
+       stroke="none"
+       pointer-events="none"
+       id="ellipse437" />
+    <ellipse
+       cx="524.46"
+       cy="603.09"
+       rx="2.04"
+       ry="2.0689655172413794"
+       fill="#ffffff"
+       stroke="none"
+       pointer-events="none"
+       id="ellipse439" />
+    <ellipse
+       cx="515.79"
+       cy="603.09"
+       rx="2.04"
+       ry="2.0689655172413794"
+       fill="#ffffff"
+       stroke="none"
+       pointer-events="none"
+       id="ellipse441" />
+    <ellipse
+       cx="507.12"
+       cy="603.09"
+       rx="2.04"
+       ry="2.0689655172413794"
+       fill="#ffffff"
+       stroke="none"
+       pointer-events="none"
+       id="ellipse443" />
+    <path
+       d="M 504.06 592.74 L 510.18 592.74 L 510.18 595.84 L 508.14 595.84 L 508.14 596.88 L 506.1 596.88 L 506.1 595.84 L 504.06 595.84 Z M 512.73 592.74 L 518.85 592.74 L 518.85 595.84 L 516.81 595.84 L 516.81 596.88 L 514.77 596.88 L 514.77 595.84 L 512.73 595.84 Z M 521.4 592.74 L 527.52 592.74 L 527.52 595.84 L 525.48 595.84 L 525.48 596.88 L 523.44 596.88 L 523.44 595.84 L 521.4 595.84 Z M 530.07 592.74 L 536.19 592.74 L 536.19 595.84 L 534.15 595.84 L 534.15 596.88 L 532.11 596.88 L 532.11 595.84 L 530.07 595.84 Z M 538.74 592.74 L 544.86 592.74 L 544.86 595.84 L 542.82 595.84 L 542.82 596.88 L 540.78 596.88 L 540.78 595.84 L 538.74 595.84 Z M 547.41 592.74 L 553.53 592.74 L 553.53 595.84 L 551.49 595.84 L 551.49 596.88 L 549.45 596.88 L 549.45 595.84 L 547.41 595.84 Z M 556.08 592.74 L 562.2 592.74 L 562.2 595.84 L 560.16 595.84 L 560.16 596.88 L 558.12 596.88 L 558.12 595.84 L 556.08 595.84 Z M 564.75 592.74 L 570.87 592.74 L 570.87 595.84 L 568.83 595.84 L 568.83 596.88 L 566.79 596.88 L 566.79 595.84 L 564.75 595.84 Z"
+       fill="#ffffff"
+       stroke="none"
+       pointer-events="none"
+       id="path445" />
+    <path
+       d="M 584.64 594.81 L 586.68 592.74 L 588.72 594.81 M 584.64 602.05 L 586.68 604.12 L 588.72 602.05 M 592.8 594.81 L 594.84 592.74 L 596.88 594.81 M 592.8 602.05 L 594.84 604.12 L 596.88 602.05 M 594.84 604.12 L 594.84 601.02 L 586.68 595.84 L 586.68 592.74 M 586.68 604.12 L 586.68 601.02 L 594.84 595.84 L 594.84 592.74"
+       fill="none"
+       stroke="#6881b3"
+       stroke-width="1.02"
+       stroke-miterlimit="10"
+       pointer-events="none"
+       id="path447" />
+    <g
+       transform="translate(542.5,623.5)"
+       id="g462">
+      <switch
+         id="switch460">
+        <foreignObject
+           style="overflow:visible;"
+           pointer-events="all"
+           width="19"
+           height="12"
+           requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+          <xhtml:div
+             style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 102, 204); line-height: 1.2; vertical-align: top; white-space: nowrap; text-align: center;">
+            <xhtml:div
+               style="display:inline-block;text-align:inherit;text-decoration:inherit;">SW</xhtml:div>
+          </xhtml:div>
+        </foreignObject>
+        <svg
+           style="width: 19px; height: 12px;"
+           width="19"
+           height="12"
+           version="1.1"
+           id="svg458">
+          <defs
+             id="defs450">
+            <path
+               id="YCu1fo6BMGkYYQFu"
+               d="M0,12.6 h19.033340454101562" />
+          </defs>
+          <text
+             fill="rgb(0, 102, 204)"
+             font-size="12px"
+             font-family="Helvetica"
+             font-weight="400"
+             id="text456">
+            <textPath
+               xlink:href="#YCu1fo6BMGkYYQFu"
+               startOffset="50%"
+               text-anchor="middle"
+               id="textPath454"><tspan
+   xml:space="preserve"
+   id="tspan452">SW</tspan></textPath>
+          </text>
+        </svg>
+      </switch>
+    </g>
+    <rect
+       x="674"
+       y="267.5"
+       width="98"
+       height="25.86"
+       rx="5.17"
+       ry="5.17"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="1.96"
+       pointer-events="none"
+       id="rect464" />
+    <rect
+       x="683.8"
+       y="293.36"
+       width="78.4"
+       height="4.14"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="1.96"
+       pointer-events="none"
+       id="rect466" />
+    <ellipse
+       cx="760.24"
+       cy="280.43"
+       rx="7.84"
+       ry="8.275862068965518"
+       fill="#ffffff"
+       stroke="none"
+       pointer-events="none"
+       id="ellipse468" />
+    <ellipse
+       cx="747.5"
+       cy="272.67"
+       rx="1.96"
+       ry="2.0689655172413794"
+       fill="#ffffff"
+       stroke="none"
+       pointer-events="none"
+       id="ellipse470" />
+    <ellipse
+       cx="747.5"
+       cy="288.19"
+       rx="1.96"
+       ry="2.0689655172413794"
+       fill="#ffffff"
+       stroke="none"
+       pointer-events="none"
+       id="ellipse472" />
+    <ellipse
+       cx="747.5"
+       cy="280.43"
+       rx="1.96"
+       ry="2.0689655172413794"
+       fill="#ffffff"
+       stroke="none"
+       pointer-events="none"
+       id="ellipse474" />
+    <ellipse
+       cx="738.19"
+       cy="285.09"
+       rx="1.96"
+       ry="2.0689655172413794"
+       fill="#ffffff"
+       stroke="none"
+       pointer-events="none"
+       id="ellipse476" />
+    <ellipse
+       cx="729.86"
+       cy="285.09"
+       rx="1.96"
+       ry="2.0689655172413794"
+       fill="#ffffff"
+       stroke="none"
+       pointer-events="none"
+       id="ellipse478" />
+    <ellipse
+       cx="721.53"
+       cy="285.09"
+       rx="1.96"
+       ry="2.0689655172413794"
+       fill="#ffffff"
+       stroke="none"
+       pointer-events="none"
+       id="ellipse480" />
+    <ellipse
+       cx="713.2"
+       cy="285.09"
+       rx="1.96"
+       ry="2.0689655172413794"
+       fill="#ffffff"
+       stroke="none"
+       pointer-events="none"
+       id="ellipse482" />
+    <ellipse
+       cx="704.87"
+       cy="285.09"
+       rx="1.96"
+       ry="2.0689655172413794"
+       fill="#ffffff"
+       stroke="none"
+       pointer-events="none"
+       id="ellipse484" />
+    <ellipse
+       cx="696.54"
+       cy="285.09"
+       rx="1.96"
+       ry="2.0689655172413794"
+       fill="#ffffff"
+       stroke="none"
+       pointer-events="none"
+       id="ellipse486" />
+    <ellipse
+       cx="688.21"
+       cy="285.09"
+       rx="1.96"
+       ry="2.0689655172413794"
+       fill="#ffffff"
+       stroke="none"
+       pointer-events="none"
+       id="ellipse488" />
+    <ellipse
+       cx="679.88"
+       cy="285.09"
+       rx="1.96"
+       ry="2.0689655172413794"
+       fill="#ffffff"
+       stroke="none"
+       pointer-events="none"
+       id="ellipse490" />
+    <path
+       d="M 676.94 274.74 L 682.82 274.74 L 682.82 277.84 L 680.86 277.84 L 680.86 278.88 L 678.9 278.88 L 678.9 277.84 L 676.94 277.84 Z M 685.27 274.74 L 691.15 274.74 L 691.15 277.84 L 689.19 277.84 L 689.19 278.88 L 687.23 278.88 L 687.23 277.84 L 685.27 277.84 Z M 693.6 274.74 L 699.48 274.74 L 699.48 277.84 L 697.52 277.84 L 697.52 278.88 L 695.56 278.88 L 695.56 277.84 L 693.6 277.84 Z M 701.93 274.74 L 707.81 274.74 L 707.81 277.84 L 705.85 277.84 L 705.85 278.88 L 703.89 278.88 L 703.89 277.84 L 701.93 277.84 Z M 710.26 274.74 L 716.14 274.74 L 716.14 277.84 L 714.18 277.84 L 714.18 278.88 L 712.22 278.88 L 712.22 277.84 L 710.26 277.84 Z M 718.59 274.74 L 724.47 274.74 L 724.47 277.84 L 722.51 277.84 L 722.51 278.88 L 720.55 278.88 L 720.55 277.84 L 718.59 277.84 Z M 726.92 274.74 L 732.8 274.74 L 732.8 277.84 L 730.84 277.84 L 730.84 278.88 L 728.88 278.88 L 728.88 277.84 L 726.92 277.84 Z M 735.25 274.74 L 741.13 274.74 L 741.13 277.84 L 739.17 277.84 L 739.17 278.88 L 737.21 278.88 L 737.21 277.84 L 735.25 277.84 Z"
+       fill="#ffffff"
+       stroke="none"
+       pointer-events="none"
+       id="path492" />
+    <path
+       d="M 754.36 276.81 L 756.32 274.74 L 758.28 276.81 M 754.36 284.05 L 756.32 286.12 L 758.28 284.05 M 762.2 276.81 L 764.16 274.74 L 766.12 276.81 M 762.2 284.05 L 764.16 286.12 L 766.12 284.05 M 764.16 286.12 L 764.16 283.02 L 756.32 277.84 L 756.32 274.74 M 756.32 286.12 L 756.32 283.02 L 764.16 277.84 L 764.16 274.74"
+       fill="none"
+       stroke="#6881b3"
+       stroke-miterlimit="10"
+       pointer-events="none"
+       id="path494" />
+    <g
+       transform="translate(713.5,305.5)"
+       id="g509">
+      <switch
+         id="switch507">
+        <foreignObject
+           style="overflow:visible;"
+           pointer-events="all"
+           width="19"
+           height="12"
+           requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+          <xhtml:div
+             style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 102, 204); line-height: 1.2; vertical-align: top; white-space: nowrap; text-align: center;">
+            <xhtml:div
+               style="display:inline-block;text-align:inherit;text-decoration:inherit;">SW</xhtml:div>
+          </xhtml:div>
+        </foreignObject>
+        <svg
+           style="width: 19px; height: 12px;"
+           width="19"
+           height="12"
+           version="1.1"
+           id="svg505">
+          <defs
+             id="defs497">
+            <path
+               id="ECu1fo6BMGkYYQFv"
+               d="M0,12.6 h19.033340454101562" />
+          </defs>
+          <text
+             fill="rgb(0, 102, 204)"
+             font-size="12px"
+             font-family="Helvetica"
+             font-weight="400"
+             id="text503">
+            <textPath
+               xlink:href="#ECu1fo6BMGkYYQFv"
+               startOffset="50%"
+               text-anchor="middle"
+               id="textPath501"><tspan
+   xml:space="preserve"
+   id="tspan499">SW</tspan></textPath>
+          </text>
+        </svg>
+      </switch>
+    </g>
+    <path
+       d="M 84.68 509 L 84.95 432.5"
+       fill="none"
+       stroke="#000000"
+       stroke-miterlimit="10"
+       pointer-events="none"
+       id="path511" />
+    <rect
+       x="31.5"
+       y="592.41"
+       width="92.62"
+       height="14.72"
+       rx="1.96"
+       ry="1.96"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="1.96"
+       pointer-events="none"
+       id="rect513" />
+    <rect
+       x="31.5"
+       y="575.24"
+       width="92.62"
+       height="14.72"
+       rx="1.96"
+       ry="1.96"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="1.96"
+       pointer-events="none"
+       id="rect515" />
+    <rect
+       x="31.5"
+       y="558.07"
+       width="92.62"
+       height="14.72"
+       rx="1.96"
+       ry="1.96"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="1.96"
+       pointer-events="none"
+       id="rect517" />
+    <rect
+       x="31.5"
+       y="540.89"
+       width="92.62"
+       height="14.72"
+       rx="1.96"
+       ry="1.96"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="1.96"
+       pointer-events="none"
+       id="rect519" />
+    <rect
+       x="31.5"
+       y="523.72"
+       width="92.62"
+       height="14.72"
+       rx="1.96"
+       ry="1.96"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="1.96"
+       pointer-events="none"
+       id="rect521" />
+    <path
+       d="M 35.62 521.76 L 57.23 509 L 98.39 509 L 120 521.76 Z"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="1.96"
+       stroke-miterlimit="10"
+       pointer-events="none"
+       id="path523" />
+    <ellipse
+       cx="115.89"
+       cy="599.77"
+       rx="4.116504854368932"
+       ry="3.925233644859813"
+       fill="#ffffff"
+       stroke="none"
+       pointer-events="none"
+       id="ellipse525" />
+    <ellipse
+       cx="115.55"
+       cy="582.6"
+       rx="4.116504854368932"
+       ry="3.925233644859813"
+       fill="#ffffff"
+       stroke="none"
+       pointer-events="none"
+       id="ellipse527" />
+    <ellipse
+       cx="115.89"
+       cy="565.43"
+       rx="4.116504854368932"
+       ry="3.925233644859813"
+       fill="#ffffff"
+       stroke="none"
+       pointer-events="none"
+       id="ellipse529" />
+    <ellipse
+       cx="115.89"
+       cy="548.25"
+       rx="4.116504854368932"
+       ry="3.925233644859813"
+       fill="#ffffff"
+       stroke="none"
+       pointer-events="none"
+       id="ellipse531" />
+    <ellipse
+       cx="115.89"
+       cy="531.08"
+       rx="4.116504854368932"
+       ry="3.925233644859813"
+       fill="#ffffff"
+       stroke="none"
+       pointer-events="none"
+       id="ellipse533" />
+    <path
+       d="M 36.65 605.17 L 41.79 594.37 L 46.94 594.37 L 41.79 605.17 Z M 46.94 605.17 L 52.08 594.37 L 57.23 594.37 L 52.08 605.17 Z M 57.23 605.17 L 62.37 594.37 L 67.52 594.37 L 62.37 605.17 Z M 67.52 605.17 L 72.67 594.37 L 77.81 594.37 L 72.67 605.17 Z M 77.81 605.17 L 82.96 594.37 L 88.1 594.37 L 82.96 605.17 Z M 88.1 605.17 L 93.25 594.37 L 98.39 594.37 L 93.25 605.17 Z M 36.65 588 L 41.79 577.2 L 46.94 577.2 L 41.79 588 Z M 46.94 588 L 52.08 577.2 L 57.23 577.2 L 52.08 588 Z M 57.23 588 L 62.37 577.2 L 67.52 577.2 L 62.37 588 Z M 67.52 588 L 72.67 577.2 L 77.81 577.2 L 72.67 588 Z M 77.81 588 L 82.96 577.2 L 88.1 577.2 L 82.96 588 Z M 88.1 588 L 93.25 577.2 L 98.39 577.2 L 93.25 588 Z M 36.65 570.82 L 41.79 560.03 L 46.94 560.03 L 41.79 570.82 Z M 46.94 570.82 L 52.08 560.03 L 57.23 560.03 L 52.08 570.82 Z M 57.23 570.82 L 61.86 560.03 L 67 560.03 L 61.86 570.82 Z M 67.52 570.82 L 72.67 560.03 L 77.81 560.03 L 72.67 570.82 Z M 77.81 570.82 L 82.96 560.03 L 88.1 560.03 L 82.96 570.82 Z M 88.1 570.82 L 93.25 560.03 L 98.39 560.03 L 93.25 570.82 Z M 36.65 553.65 L 41.79 542.86 L 46.94 542.86 L 41.79 553.65 Z M 46.94 553.65 L 52.08 542.86 L 57.23 542.86 L 52.08 553.65 Z M 57.23 553.65 L 62.37 542.86 L 67.52 542.86 L 62.37 553.65 Z M 67.52 553.65 L 72.67 542.86 L 77.81 542.86 L 72.67 553.65 Z M 77.81 553.65 L 82.96 542.86 L 88.1 542.86 L 82.96 553.65 Z M 88.1 553.65 L 93.25 542.86 L 98.39 542.86 L 93.25 553.65 Z M 36.65 536.48 L 41.79 525.68 L 46.94 525.68 L 41.79 536.48 Z M 46.94 536.48 L 52.08 525.68 L 57.23 525.68 L 52.08 536.48 Z M 57.23 536.48 L 62.37 525.68 L 67.52 525.68 L 62.37 536.48 Z M 67.52 536.48 L 72.67 525.68 L 77.81 525.68 L 72.67 536.48 Z M 77.81 536.48 L 82.96 525.68 L 88.1 525.68 L 82.96 536.48 Z M 88.1 536.48 L 93.25 525.68 L 98.39 525.68 L 93.25 536.48 Z"
+       fill="#ffffff"
+       stroke="none"
+       pointer-events="none"
+       id="path535" />
+    <rect
+       x="31.5"
+       y="509"
+       width="0"
+       height="0"
+       fill="none"
+       stroke="#6881b3"
+       stroke-width="1.96"
+       pointer-events="none"
+       id="rect537" />
+    <ellipse
+       cx="118.98"
+       cy="596.34"
+       rx="18.524271844660195"
+       ry="17.66355140186916"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="1.96"
+       pointer-events="none"
+       id="ellipse539" />
+    <rect
+       x="107.14"
+       y="587.5"
+       width="23.67"
+       height="17.66"
+       fill="none"
+       stroke="#ffffff"
+       stroke-width="1.96"
+       pointer-events="none"
+       id="rect541" />
+    <rect
+       x="109.71"
+       y="589.96"
+       width="18.52"
+       height="13.25"
+       fill="#ffffff"
+       stroke="none"
+       pointer-events="none"
+       id="rect543" />
+    <g
+       transform="translate(71.5,621.5)"
+       id="g558">
+      <switch
+         id="switch556">
+        <foreignObject
+           style="overflow:visible;"
+           pointer-events="all"
+           width="26"
+           height="12"
+           requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+          <xhtml:div
+             style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 102, 204); line-height: 1.2; vertical-align: top; white-space: nowrap; text-align: center;">
+            <xhtml:div
+               style="display:inline-block;text-align:inherit;text-decoration:inherit;">WAF</xhtml:div>
+          </xhtml:div>
+        </foreignObject>
+        <svg
+           style="width: 26px; height: 12px;"
+           width="26"
+           height="12"
+           version="1.1"
+           id="svg554">
+          <defs
+             id="defs546">
+            <path
+               id="UCu1fo6BMGkYYQFw"
+               d="M0,12.6 h26.066665649414062" />
+          </defs>
+          <text
+             fill="rgb(0, 102, 204)"
+             font-size="12px"
+             font-family="Helvetica"
+             font-weight="400"
+             id="text552">
+            <textPath
+               xlink:href="#UCu1fo6BMGkYYQFw"
+               startOffset="50%"
+               text-anchor="middle"
+               id="textPath550"><tspan
+   xml:space="preserve"
+   id="tspan548">WAF</tspan></textPath>
+          </text>
+        </svg>
+      </switch>
+    </g>
+    <rect
+       x="35"
+       y="404.5"
+       width="100"
+       height="24.14"
+       rx="4.83"
+       ry="4.83"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="1.93"
+       pointer-events="none"
+       id="rect560" />
+    <rect
+       x="45"
+       y="428.64"
+       width="80"
+       height="3.86"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="1.93"
+       pointer-events="none"
+       id="rect562" />
+    <ellipse
+       cx="123"
+       cy="416.57"
+       rx="8"
+       ry="7.724137931034483"
+       fill="#ffffff"
+       stroke="none"
+       pointer-events="none"
+       id="ellipse564" />
+    <ellipse
+       cx="110"
+       cy="409.33"
+       rx="2"
+       ry="1.9310344827586208"
+       fill="#ffffff"
+       stroke="none"
+       pointer-events="none"
+       id="ellipse566" />
+    <ellipse
+       cx="110"
+       cy="423.81"
+       rx="2"
+       ry="1.9310344827586208"
+       fill="#ffffff"
+       stroke="none"
+       pointer-events="none"
+       id="ellipse568" />
+    <ellipse
+       cx="110"
+       cy="416.57"
+       rx="2"
+       ry="1.9310344827586208"
+       fill="#ffffff"
+       stroke="none"
+       pointer-events="none"
+       id="ellipse570" />
+    <ellipse
+       cx="100.5"
+       cy="420.91"
+       rx="2"
+       ry="1.9310344827586208"
+       fill="#ffffff"
+       stroke="none"
+       pointer-events="none"
+       id="ellipse572" />
+    <ellipse
+       cx="92"
+       cy="420.91"
+       rx="2"
+       ry="1.9310344827586208"
+       fill="#ffffff"
+       stroke="none"
+       pointer-events="none"
+       id="ellipse574" />
+    <ellipse
+       cx="83.5"
+       cy="420.91"
+       rx="2"
+       ry="1.9310344827586208"
+       fill="#ffffff"
+       stroke="none"
+       pointer-events="none"
+       id="ellipse576" />
+    <ellipse
+       cx="75"
+       cy="420.91"
+       rx="2"
+       ry="1.9310344827586208"
+       fill="#ffffff"
+       stroke="none"
+       pointer-events="none"
+       id="ellipse578" />
+    <ellipse
+       cx="66.5"
+       cy="420.91"
+       rx="2"
+       ry="1.9310344827586208"
+       fill="#ffffff"
+       stroke="none"
+       pointer-events="none"
+       id="ellipse580" />
+    <ellipse
+       cx="58"
+       cy="420.91"
+       rx="2"
+       ry="1.9310344827586208"
+       fill="#ffffff"
+       stroke="none"
+       pointer-events="none"
+       id="ellipse582" />
+    <ellipse
+       cx="49.5"
+       cy="420.91"
+       rx="2"
+       ry="1.9310344827586208"
+       fill="#ffffff"
+       stroke="none"
+       pointer-events="none"
+       id="ellipse584" />
+    <ellipse
+       cx="41"
+       cy="420.91"
+       rx="2"
+       ry="1.9310344827586208"
+       fill="#ffffff"
+       stroke="none"
+       pointer-events="none"
+       id="ellipse586" />
+    <path
+       d="M 38 411.26 L 44 411.26 L 44 414.16 L 42 414.16 L 42 415.12 L 40 415.12 L 40 414.16 L 38 414.16 Z M 46.5 411.26 L 52.5 411.26 L 52.5 414.16 L 50.5 414.16 L 50.5 415.12 L 48.5 415.12 L 48.5 414.16 L 46.5 414.16 Z M 55 411.26 L 61 411.26 L 61 414.16 L 59 414.16 L 59 415.12 L 57 415.12 L 57 414.16 L 55 414.16 Z M 63.5 411.26 L 69.5 411.26 L 69.5 414.16 L 67.5 414.16 L 67.5 415.12 L 65.5 415.12 L 65.5 414.16 L 63.5 414.16 Z M 72 411.26 L 78 411.26 L 78 414.16 L 76 414.16 L 76 415.12 L 74 415.12 L 74 414.16 L 72 414.16 Z M 80.5 411.26 L 86.5 411.26 L 86.5 414.16 L 84.5 414.16 L 84.5 415.12 L 82.5 415.12 L 82.5 414.16 L 80.5 414.16 Z M 89 411.26 L 95 411.26 L 95 414.16 L 93 414.16 L 93 415.12 L 91 415.12 L 91 414.16 L 89 414.16 Z M 97.5 411.26 L 103.5 411.26 L 103.5 414.16 L 101.5 414.16 L 101.5 415.12 L 99.5 415.12 L 99.5 414.16 L 97.5 414.16 Z"
+       fill="#ffffff"
+       stroke="none"
+       pointer-events="none"
+       id="path588" />
+    <path
+       d="M 117 413.19 L 119 411.26 L 121 413.19 M 117 419.95 L 119 421.88 L 121 419.95 M 125 413.19 L 127 411.26 L 129 413.19 M 125 419.95 L 127 421.88 L 129 419.95 M 127 421.88 L 127 418.98 L 119 414.16 L 119 411.26 M 119 421.88 L 119 418.98 L 127 414.16 L 127 411.26"
+       fill="none"
+       stroke="#6881b3"
+       stroke-miterlimit="10"
+       pointer-events="none"
+       id="path590" />
+    <g
+       transform="translate(75.5,440.5)"
+       id="g605">
+      <switch
+         id="switch603">
+        <foreignObject
+           style="overflow:visible;"
+           pointer-events="all"
+           width="19"
+           height="12"
+           requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+          <xhtml:div
+             style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 102, 204); line-height: 1.2; vertical-align: top; white-space: nowrap; text-align: center;">
+            <xhtml:div
+               style="display:inline-block;text-align:inherit;text-decoration:inherit;">SW</xhtml:div>
+          </xhtml:div>
+        </foreignObject>
+        <svg
+           style="width: 19px; height: 12px;"
+           width="19"
+           height="12"
+           version="1.1"
+           id="svg601">
+          <defs
+             id="defs593">
+            <path
+               id="MCu1fo6BMGkYYQFx"
+               d="M0,12.6 h19.033340454101562" />
+          </defs>
+          <text
+             fill="rgb(0, 102, 204)"
+             font-size="12px"
+             font-family="Helvetica"
+             font-weight="400"
+             id="text599">
+            <textPath
+               xlink:href="#MCu1fo6BMGkYYQFx"
+               startOffset="50%"
+               text-anchor="middle"
+               id="textPath597"><tspan
+   xml:space="preserve"
+   id="tspan595">SW</tspan></textPath>
+          </text>
+        </svg>
+      </switch>
+    </g>
+    <path
+       d="M 552.29 416 L 552.29 374.14 L 552.29 332.43"
+       fill="none"
+       stroke="#000000"
+       stroke-miterlimit="10"
+       pointer-events="none"
+       id="path607" />
+    <rect
+       x="500"
+       y="499.41"
+       width="91.75"
+       height="14.72"
+       rx="1.96"
+       ry="1.96"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="1.96"
+       pointer-events="none"
+       id="rect609" />
+    <rect
+       x="500"
+       y="482.24"
+       width="91.75"
+       height="14.72"
+       rx="1.96"
+       ry="1.96"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="1.96"
+       pointer-events="none"
+       id="rect611" />
+    <rect
+       x="500"
+       y="465.07"
+       width="91.75"
+       height="14.72"
+       rx="1.96"
+       ry="1.96"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="1.96"
+       pointer-events="none"
+       id="rect613" />
+    <rect
+       x="500"
+       y="447.89"
+       width="91.75"
+       height="14.72"
+       rx="1.96"
+       ry="1.96"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="1.96"
+       pointer-events="none"
+       id="rect615" />
+    <rect
+       x="500"
+       y="430.72"
+       width="91.75"
+       height="14.72"
+       rx="1.96"
+       ry="1.96"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="1.96"
+       pointer-events="none"
+       id="rect617" />
+    <path
+       d="M 504.08 428.76 L 525.49 416 L 566.26 416 L 587.67 428.76 Z"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="1.96"
+       stroke-miterlimit="10"
+       pointer-events="none"
+       id="path619" />
+    <ellipse
+       cx="583.59"
+       cy="506.77"
+       rx="4.077669902912621"
+       ry="3.925233644859813"
+       fill="#ffffff"
+       stroke="none"
+       pointer-events="none"
+       id="ellipse621" />
+    <ellipse
+       cx="583.26"
+       cy="489.6"
+       rx="4.077669902912621"
+       ry="3.925233644859813"
+       fill="#ffffff"
+       stroke="none"
+       pointer-events="none"
+       id="ellipse623" />
+    <ellipse
+       cx="583.59"
+       cy="472.43"
+       rx="4.077669902912621"
+       ry="3.925233644859813"
+       fill="#ffffff"
+       stroke="none"
+       pointer-events="none"
+       id="ellipse625" />
+    <ellipse
+       cx="583.59"
+       cy="455.25"
+       rx="4.077669902912621"
+       ry="3.925233644859813"
+       fill="#ffffff"
+       stroke="none"
+       pointer-events="none"
+       id="ellipse627" />
+    <ellipse
+       cx="583.59"
+       cy="438.08"
+       rx="4.077669902912621"
+       ry="3.925233644859813"
+       fill="#ffffff"
+       stroke="none"
+       pointer-events="none"
+       id="ellipse629" />
+    <path
+       d="M 505.1 512.17 L 510.19 501.37 L 515.29 501.37 L 510.19 512.17 Z M 515.29 512.17 L 520.39 501.37 L 525.49 501.37 L 520.39 512.17 Z M 525.49 512.17 L 530.58 501.37 L 535.68 501.37 L 530.58 512.17 Z M 535.68 512.17 L 540.78 501.37 L 545.87 501.37 L 540.78 512.17 Z M 545.87 512.17 L 550.97 501.37 L 556.07 501.37 L 550.97 512.17 Z M 556.07 512.17 L 561.17 501.37 L 566.26 501.37 L 561.17 512.17 Z M 505.1 495 L 510.19 484.2 L 515.29 484.2 L 510.19 495 Z M 515.29 495 L 520.39 484.2 L 525.49 484.2 L 520.39 495 Z M 525.49 495 L 530.58 484.2 L 535.68 484.2 L 530.58 495 Z M 535.68 495 L 540.78 484.2 L 545.87 484.2 L 540.78 495 Z M 545.87 495 L 550.97 484.2 L 556.07 484.2 L 550.97 495 Z M 556.07 495 L 561.17 484.2 L 566.26 484.2 L 561.17 495 Z M 505.1 477.82 L 510.19 467.03 L 515.29 467.03 L 510.19 477.82 Z M 515.29 477.82 L 520.39 467.03 L 525.49 467.03 L 520.39 477.82 Z M 525.49 477.82 L 530.07 467.03 L 535.17 467.03 L 530.07 477.82 Z M 535.68 477.82 L 540.78 467.03 L 545.87 467.03 L 540.78 477.82 Z M 545.87 477.82 L 550.97 467.03 L 556.07 467.03 L 550.97 477.82 Z M 556.07 477.82 L 561.17 467.03 L 566.26 467.03 L 561.17 477.82 Z M 505.1 460.65 L 510.19 449.86 L 515.29 449.86 L 510.19 460.65 Z M 515.29 460.65 L 520.39 449.86 L 525.49 449.86 L 520.39 460.65 Z M 525.49 460.65 L 530.58 449.86 L 535.68 449.86 L 530.58 460.65 Z M 535.68 460.65 L 540.78 449.86 L 545.87 449.86 L 540.78 460.65 Z M 545.87 460.65 L 550.97 449.86 L 556.07 449.86 L 550.97 460.65 Z M 556.07 460.65 L 561.17 449.86 L 566.26 449.86 L 561.17 460.65 Z M 505.1 443.48 L 510.19 432.68 L 515.29 432.68 L 510.19 443.48 Z M 515.29 443.48 L 520.39 432.68 L 525.49 432.68 L 520.39 443.48 Z M 525.49 443.48 L 530.58 432.68 L 535.68 432.68 L 530.58 443.48 Z M 535.68 443.48 L 540.78 432.68 L 545.87 432.68 L 540.78 443.48 Z M 545.87 443.48 L 550.97 432.68 L 556.07 432.68 L 550.97 443.48 Z M 556.07 443.48 L 561.17 432.68 L 566.26 432.68 L 561.17 443.48 Z"
+       fill="#ffffff"
+       stroke="none"
+       pointer-events="none"
+       id="path631" />
+    <rect
+       x="500"
+       y="416"
+       width="0"
+       height="0"
+       fill="none"
+       stroke="#6881b3"
+       stroke-width="1.96"
+       pointer-events="none"
+       id="rect633" />
+    <ellipse
+       cx="586.65"
+       cy="503.34"
+       rx="18.349514563106794"
+       ry="17.66355140186916"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="1.96"
+       pointer-events="none"
+       id="ellipse635" />
+    <rect
+       x="574.93"
+       y="494.5"
+       width="23.45"
+       height="17.66"
+       fill="none"
+       stroke="#ffffff"
+       stroke-width="1.96"
+       pointer-events="none"
+       id="rect637" />
+    <rect
+       x="577.48"
+       y="496.96"
+       width="18.35"
+       height="13.25"
+       fill="#ffffff"
+       stroke="none"
+       pointer-events="none"
+       id="rect639" />
+    <g
+       transform="translate(505.5,528.5)"
+       id="g654">
+      <switch
+         id="switch652">
+        <foreignObject
+           style="overflow:visible;"
+           pointer-events="all"
+           width="93"
+           height="12"
+           requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+          <xhtml:div
+             style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 102, 204); line-height: 1.2; vertical-align: top; white-space: nowrap; text-align: center;">
+            <xhtml:div
+               style="display:inline-block;text-align:inherit;text-decoration:inherit;">trasnparent proxy</xhtml:div>
+          </xhtml:div>
+        </foreignObject>
+        <svg
+           style="width: 93px; height: 12px;"
+           width="93"
+           height="12"
+           version="1.1"
+           id="svg650">
+          <defs
+             id="defs642">
+            <path
+               id="cCu1fo6BMGkYYQFy"
+               d="M0,12.6 h92.89999389648438" />
+          </defs>
+          <text
+             fill="rgb(0, 102, 204)"
+             font-size="12px"
+             font-family="Helvetica"
+             font-weight="400"
+             id="text648">
+            <textPath
+               xlink:href="#cCu1fo6BMGkYYQFy"
+               startOffset="50%"
+               text-anchor="middle"
+               id="textPath646"><tspan
+   xml:space="preserve"
+   id="tspan644">trasnparent proxy</tspan></textPath>
+          </text>
+        </svg>
+      </switch>
+    </g>
+    <rect
+       x="39"
+       y="769.5"
+       width="90"
+       height="15"
+       rx="2"
+       ry="2"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="2"
+       pointer-events="none"
+       id="rect656" />
+    <rect
+       x="39"
+       y="752"
+       width="90"
+       height="15"
+       rx="2"
+       ry="2"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="2"
+       pointer-events="none"
+       id="rect658" />
+    <rect
+       x="39"
+       y="734.5"
+       width="90"
+       height="15"
+       rx="2"
+       ry="2"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="2"
+       pointer-events="none"
+       id="rect660" />
+    <rect
+       x="39"
+       y="717"
+       width="90"
+       height="15"
+       rx="2"
+       ry="2"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="2"
+       pointer-events="none"
+       id="rect662" />
+    <rect
+       x="39"
+       y="699.5"
+       width="90"
+       height="15"
+       rx="2"
+       ry="2"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="2"
+       pointer-events="none"
+       id="rect664" />
+    <path
+       d="M 43 697.5 L 64 684.5 L 104 684.5 L 125 697.5 Z"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="2"
+       stroke-miterlimit="10"
+       pointer-events="none"
+       id="path666" />
+    <ellipse
+       cx="121"
+       cy="777"
+       rx="4"
+       ry="4"
+       fill="#ffffff"
+       stroke="none"
+       pointer-events="none"
+       id="ellipse668" />
+    <ellipse
+       cx="121"
+       cy="759.5"
+       rx="4"
+       ry="4"
+       fill="#ffffff"
+       stroke="none"
+       pointer-events="none"
+       id="ellipse670" />
+    <ellipse
+       cx="121"
+       cy="742"
+       rx="4"
+       ry="4"
+       fill="#ffffff"
+       stroke="none"
+       pointer-events="none"
+       id="ellipse672" />
+    <ellipse
+       cx="121"
+       cy="724.5"
+       rx="4"
+       ry="4"
+       fill="#ffffff"
+       stroke="none"
+       pointer-events="none"
+       id="ellipse674" />
+    <ellipse
+       cx="121"
+       cy="707"
+       rx="4"
+       ry="4"
+       fill="#ffffff"
+       stroke="none"
+       pointer-events="none"
+       id="ellipse676" />
+    <path
+       d="M 44 782.5 L 49 771.5 L 54 771.5 L 49 782.5 Z M 54 782.5 L 59 771.5 L 64 771.5 L 59 782.5 Z M 64 782.5 L 69 771.5 L 74 771.5 L 69 782.5 Z M 74 782.5 L 79 771.5 L 84 771.5 L 79 782.5 Z M 84 782.5 L 89 771.5 L 94 771.5 L 89 782.5 Z M 94 782.5 L 99 771.5 L 104 771.5 L 99 782.5 Z M 44 765 L 49 754 L 54 754 L 49 765 Z M 54 765 L 59 754 L 64 754 L 59 765 Z M 64 765 L 69 754 L 74 754 L 69 765 Z M 74 765 L 79 754 L 84 754 L 79 765 Z M 84 765 L 89 754 L 94 754 L 89 765 Z M 94 765 L 99 754 L 104 754 L 99 765 Z M 44 747.5 L 49 736.5 L 54 736.5 L 49 747.5 Z M 54 747.5 L 59 736.5 L 64 736.5 L 59 747.5 Z M 64 747.5 L 68.5 736.5 L 73.5 736.5 L 68.5 747.5 Z M 74 747.5 L 79 736.5 L 84 736.5 L 79 747.5 Z M 84 747.5 L 89 736.5 L 94 736.5 L 89 747.5 Z M 94 747.5 L 99 736.5 L 104 736.5 L 99 747.5 Z M 44 730 L 49 719 L 54 719 L 49 730 Z M 54 730 L 59 719 L 64 719 L 59 730 Z M 64 730 L 69 719 L 74 719 L 69 730 Z M 74 730 L 79 719 L 84 719 L 79 730 Z M 84 730 L 89 719 L 94 719 L 89 730 Z M 94 730 L 99 719 L 104 719 L 99 730 Z M 44 712.5 L 49 701.5 L 54 701.5 L 49 712.5 Z M 54 712.5 L 59 701.5 L 64 701.5 L 59 712.5 Z M 64 712.5 L 69 701.5 L 74 701.5 L 69 712.5 Z M 74 712.5 L 79 701.5 L 84 701.5 L 79 712.5 Z M 84 712.5 L 89 701.5 L 94 701.5 L 89 712.5 Z M 94 712.5 L 99 701.5 L 104 701.5 L 99 712.5 Z"
+       fill="#ffffff"
+       stroke="none"
+       pointer-events="none"
+       id="path678" />
+    <rect
+       x="29"
+       y="674.5"
+       width="110"
+       height="120"
+       rx="5"
+       ry="5"
+       fill="none"
+       stroke="#6881b3"
+       stroke-width="2"
+       stroke-dasharray="10 10"
+       pointer-events="none"
+       id="rect680" />
+    <g
+       transform="translate(40.5,802.5)"
+       id="g695">
+      <switch
+         id="switch693">
+        <foreignObject
+           style="overflow:visible;"
+           pointer-events="all"
+           width="86"
+           height="12"
+           requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+          <xhtml:div
+             style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 102, 204); line-height: 1.2; vertical-align: top; white-space: nowrap; text-align: center;">
+            <xhtml:div
+               style="display:inline-block;text-align:inherit;text-decoration:inherit;">DMZ SERVERS</xhtml:div>
+          </xhtml:div>
+        </foreignObject>
+        <svg
+           style="width: 86px; height: 12px;"
+           width="86"
+           height="12"
+           version="1.1"
+           id="svg691">
+          <defs
+             id="defs683">
+            <path
+               id="iCu1fo6BMGkYYQFz"
+               d="M0,12.6 h85.64999389648438" />
+          </defs>
+          <text
+             fill="rgb(0, 102, 204)"
+             font-size="12px"
+             font-family="Helvetica"
+             font-weight="400"
+             id="text689">
+            <textPath
+               xlink:href="#iCu1fo6BMGkYYQFz"
+               startOffset="50%"
+               text-anchor="middle"
+               id="textPath687"><tspan
+   xml:space="preserve"
+   id="tspan685">DMZ SERVERS</tspan></textPath>
+          </text>
+        </svg>
+      </switch>
+    </g>
+    <rect
+       x="502.43"
+       y="695.91"
+       width="29.74"
+       height="59.3"
+       rx="1.98"
+       ry="1.98"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="1.98"
+       pointer-events="none"
+       id="rect697" />
+    <path
+       d="M 502.43 705.79 L 532.17 705.79 M 502.43 725.56 L 532.17 725.56"
+       fill="none"
+       stroke="#6881b3"
+       stroke-width="1.98"
+       stroke-linejoin="round"
+       stroke-miterlimit="10"
+       pointer-events="none"
+       id="path699" />
+    <rect
+       x="522.26"
+       y="700.85"
+       width="79.31"
+       height="44.48"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="1.98"
+       pointer-events="none"
+       id="rect701" />
+    <rect
+       x="552"
+       y="745.33"
+       width="19.83"
+       height="9.88"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="1.98"
+       pointer-events="none"
+       id="rect703" />
+    <path
+       d="M 537.13 754.22 L 586.7 754.22 L 596.61 765.09 L 527.22 765.09 Z"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="1.98"
+       stroke-linejoin="round"
+       stroke-miterlimit="10"
+       pointer-events="none"
+       id="path705" />
+    <path
+       d="M 551.01 762.62 L 568.85 762.62 M 538.12 759.66 L 576.78 759.66 M 540.1 756.69 L 575.79 756.69 M 578.77 756.69 L 585.71 756.69 M 580.75 759.66 L 587.69 759.66 M 582.73 762.62 L 589.67 762.62"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="1.98"
+       stroke-linejoin="round"
+       stroke-miterlimit="10"
+       pointer-events="none"
+       id="path707" />
+    <rect
+       x="525.23"
+       y="703.81"
+       width="72.37"
+       height="38.55"
+       fill="#ffffff"
+       stroke="none"
+       pointer-events="none"
+       id="rect709" />
+    <ellipse
+       cx="507.39"
+       cy="730.5"
+       rx="1.9827586206896552"
+       ry="1.9767441860465116"
+       fill="#ffffff"
+       stroke="none"
+       pointer-events="none"
+       id="ellipse711" />
+    <rect
+       x="494.5"
+       y="688"
+       width="115"
+       height="85"
+       rx="4.94"
+       ry="4.94"
+       fill="none"
+       stroke="#6881b3"
+       stroke-width="1.98"
+       stroke-dasharray="9.768793942671714 9.768793942671714"
+       pointer-events="none"
+       id="rect713" />
+    <g
+       transform="translate(527.5,780.5)"
+       id="g728">
+      <switch
+         id="switch726">
+        <foreignObject
+           style="overflow:visible;"
+           pointer-events="all"
+           width="49"
+           height="12"
+           requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+          <xhtml:div
+             style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 102, 204); line-height: 1.2; vertical-align: top; white-space: nowrap; text-align: center;">
+            <xhtml:div
+               style="display:inline-block;text-align:inherit;text-decoration:inherit;">LAN PCs</xhtml:div>
+          </xhtml:div>
+        </foreignObject>
+        <svg
+           style="width: 49px; height: 12px;"
+           width="49"
+           height="12"
+           version="1.1"
+           id="svg724">
+          <defs
+             id="defs716">
+            <path
+               id="yCu1fo6BMGkYYQF0"
+               d="M0,12.6 h49.19999694824219" />
+          </defs>
+          <text
+             fill="rgb(0, 102, 204)"
+             font-size="12px"
+             font-family="Helvetica"
+             font-weight="400"
+             id="text722">
+            <textPath
+               xlink:href="#yCu1fo6BMGkYYQF0"
+               startOffset="50%"
+               text-anchor="middle"
+               id="textPath720"><tspan
+   xml:space="preserve"
+   id="tspan718">LAN PCs</tspan></textPath>
+          </text>
+        </svg>
+      </switch>
+    </g>
+    <rect
+       x="860"
+       y="318"
+       width="90"
+       height="15"
+       rx="2"
+       ry="2"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="2"
+       pointer-events="none"
+       id="rect730" />
+    <rect
+       x="860"
+       y="300.5"
+       width="90"
+       height="15"
+       rx="2"
+       ry="2"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="2"
+       pointer-events="none"
+       id="rect732" />
+    <rect
+       x="860"
+       y="283"
+       width="90"
+       height="15"
+       rx="2"
+       ry="2"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="2"
+       pointer-events="none"
+       id="rect734" />
+    <rect
+       x="860"
+       y="265.5"
+       width="90"
+       height="15"
+       rx="2"
+       ry="2"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="2"
+       pointer-events="none"
+       id="rect736" />
+    <rect
+       x="860"
+       y="248"
+       width="90"
+       height="15"
+       rx="2"
+       ry="2"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="2"
+       pointer-events="none"
+       id="rect738" />
+    <path
+       d="M 864 246 L 885 233 L 925 233 L 946 246 Z"
+       fill="#cccccc"
+       stroke="#6881b3"
+       stroke-width="2"
+       stroke-miterlimit="10"
+       pointer-events="none"
+       id="path740" />
+    <ellipse
+       cx="942"
+       cy="325.5"
+       rx="4"
+       ry="4"
+       fill="#ffffff"
+       stroke="none"
+       pointer-events="none"
+       id="ellipse742" />
+    <ellipse
+       cx="942"
+       cy="308"
+       rx="4"
+       ry="4"
+       fill="#ffffff"
+       stroke="none"
+       pointer-events="none"
+       id="ellipse744" />
+    <ellipse
+       cx="942"
+       cy="290.5"
+       rx="4"
+       ry="4"
+       fill="#ffffff"
+       stroke="none"
+       pointer-events="none"
+       id="ellipse746" />
+    <ellipse
+       cx="942"
+       cy="273"
+       rx="4"
+       ry="4"
+       fill="#ffffff"
+       stroke="none"
+       pointer-events="none"
+       id="ellipse748" />
+    <ellipse
+       cx="942"
+       cy="255.5"
+       rx="4"
+       ry="4"
+       fill="#ffffff"
+       stroke="none"
+       pointer-events="none"
+       id="ellipse750" />
+    <path
+       d="M 865 331 L 870 320 L 875 320 L 870 331 Z M 875 331 L 880 320 L 885 320 L 880 331 Z M 885 331 L 890 320 L 895 320 L 890 331 Z M 895 331 L 900 320 L 905 320 L 900 331 Z M 905 331 L 910 320 L 915 320 L 910 331 Z M 915 331 L 920 320 L 925 320 L 920 331 Z M 865 313.5 L 870 302.5 L 875 302.5 L 870 313.5 Z M 875 313.5 L 880 302.5 L 885 302.5 L 880 313.5 Z M 885 313.5 L 890 302.5 L 895 302.5 L 890 313.5 Z M 895 313.5 L 900 302.5 L 905 302.5 L 900 313.5 Z M 905 313.5 L 910 302.5 L 915 302.5 L 910 313.5 Z M 915 313.5 L 920 302.5 L 925 302.5 L 920 313.5 Z M 865 296 L 870 285 L 875 285 L 870 296 Z M 875 296 L 880 285 L 885 285 L 880 296 Z M 885 296 L 889.5 285 L 894.5 285 L 889.5 296 Z M 895 296 L 900 285 L 905 285 L 900 296 Z M 905 296 L 910 285 L 915 285 L 910 296 Z M 915 296 L 920 285 L 925 285 L 920 296 Z M 865 278.5 L 870 267.5 L 875 267.5 L 870 278.5 Z M 875 278.5 L 880 267.5 L 885 267.5 L 880 278.5 Z M 885 278.5 L 890 267.5 L 895 267.5 L 890 278.5 Z M 895 278.5 L 900 267.5 L 905 267.5 L 900 278.5 Z M 905 278.5 L 910 267.5 L 915 267.5 L 910 278.5 Z M 915 278.5 L 920 267.5 L 925 267.5 L 920 278.5 Z M 865 261 L 870 250 L 875 250 L 870 261 Z M 875 261 L 880 250 L 885 250 L 880 261 Z M 885 261 L 890 250 L 895 250 L 890 261 Z M 895 261 L 900 250 L 905 250 L 900 261 Z M 905 261 L 910 250 L 915 250 L 910 261 Z M 915 261 L 920 250 L 925 250 L 920 261 Z"
+       fill="#ffffff"
+       stroke="none"
+       pointer-events="none"
+       id="path752" />
+    <rect
+       x="850"
+       y="223"
+       width="110"
+       height="120"
+       rx="5"
+       ry="5"
+       fill="none"
+       stroke="#6881b3"
+       stroke-width="2"
+       stroke-dasharray="10 10"
+       pointer-events="none"
+       id="rect754" />
+    <g
+       transform="translate(863.5,350.5)"
+       id="g769">
+      <switch
+         id="switch767">
+        <foreignObject
+           style="overflow:visible;"
+           pointer-events="all"
+           width="83"
+           height="12"
+           requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+          <xhtml:div
+             style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 102, 204); line-height: 1.2; vertical-align: top; white-space: nowrap; text-align: center;">
+            <xhtml:div
+               style="display:inline-block;text-align:inherit;text-decoration:inherit;">LAN SERVERS</xhtml:div>
+          </xhtml:div>
+        </foreignObject>
+        <svg
+           style="width: 83px; height: 12px;"
+           width="83"
+           height="12"
+           version="1.1"
+           id="svg765">
+          <defs
+             id="defs757">
+            <path
+               id="aCu1fo6BMGkYYQF1"
+               d="M0,12.6 h83.35000610351562" />
+          </defs>
+          <text
+             fill="rgb(0, 102, 204)"
+             font-size="12px"
+             font-family="Helvetica"
+             font-weight="400"
+             id="text763">
+            <textPath
+               xlink:href="#aCu1fo6BMGkYYQF1"
+               startOffset="50%"
+               text-anchor="middle"
+               id="textPath761"><tspan
+   xml:space="preserve"
+   id="tspan759">LAN SERVERS</tspan></textPath>
+          </text>
+        </svg>
+      </switch>
+    </g>
+    <path
+       d="M 772 282.71 L 801.14 282.71 Q 811.14 282.71 811.14 283 L 811.14 283.14 Q 811.14 283.29 821.14 283.29 L 850 283.29"
+       fill="none"
+       stroke="#000000"
+       stroke-miterlimit="10"
+       pointer-events="none"
+       id="path771" />
+    <path
+       d="M 288.73 1.22 L 288.73 7.78 L 294.27 7.79 L 294.27 1.22 Z"
+       fill="#ffffff"
+       stroke="none"
+       pointer-events="none"
+       id="path775" />
+    <rect
+       x="290.78"
+       y="8"
+       width="1.44"
+       height="0.29"
+       rx="0.14"
+       ry="0.14"
+       fill="#ffffff"
+       stroke="none"
+       pointer-events="none"
+       id="rect777" />
+    <rect
+       x="7"
+       y="208"
+       width="970"
+       height="622"
+       rx="10"
+       ry="10"
+       fill="none"
+       stroke="#6881b3"
+       stroke-dasharray="1 3 9 3"
+       pointer-events="none"
+       id="rect779" />
+    <rect
+       x="7"
+       y="208"
+       width="970"
+       height="622"
+       rx="10"
+       ry="10"
+       fill="none"
+       stroke="#6881b3"
+       stroke-dasharray="1 3 9 3"
+       pointer-events="none"
+       id="rect781" />
+    <path
+       d="M 84.29 674.5 L 84.29 654.43 Q 84.29 644.43 84.29 634.43 L 84.29 614"
+       fill="none"
+       stroke="#000000"
+       stroke-miterlimit="10"
+       pointer-events="none"
+       id="path783" />
+    <path
+       d="M 552.29 688 L 552.29 661.86 Q 552.29 651.86 552.29 641.86 L 552.29 615.29"
+       fill="none"
+       stroke="#000000"
+       stroke-miterlimit="10"
+       pointer-events="none"
+       id="path785" />
+    <path
+       d="M 1.23 204.22 L 1.23 210.78 L 6.77 210.79 L 6.77 204.22 Z"
+       fill="#ffffff"
+       stroke="none"
+       pointer-events="none"
+       id="path789" />
+    <rect
+       x="3.28"
+       y="211"
+       width="1.44"
+       height="0.29"
+       rx="0.14"
+       ry="0.14"
+       fill="#ffffff"
+       stroke="none"
+       pointer-events="none"
+       id="rect791" />
+    <rect
+       x="979.28"
+       y="837.5"
+       width="1.44"
+       height="0.29"
+       rx="0.14"
+       ry="0.14"
+       fill="#ffffff"
+       stroke="none"
+       pointer-events="none"
+       id="rect797" />
+    <path
+       d="M 602.5 282.71 L 638 282.71 L 674 282.71"
+       fill="none"
+       stroke="#000000"
+       stroke-miterlimit="10"
+       pointer-events="none"
+       id="path799" />
+    <path
+       d="M 313 297.5 L 313 414"
+       fill="none"
+       stroke="#000000"
+       stroke-miterlimit="10"
+       pointer-events="none"
+       id="path801" />
+    <path
+       d="M 263 282.71 L 209.14 282.71 Q 199.14 282.71 189.14 282.71 L 135 282.71"
+       fill="none"
+       stroke="#000000"
+       stroke-miterlimit="10"
+       pointer-events="none"
+       id="path803" />
+    <path
+       d="M 502.5 282.71 L 442.86 282.71 Q 432.86 282.71 422.86 282.71 L 363 282.71"
+       fill="none"
+       stroke="#000000"
+       stroke-miterlimit="10"
+       pointer-events="none"
+       id="path805" />
+    <path
+       d="M 85 404.5 L 85 332.5"
+       fill="none"
+       stroke="#000000"
+       stroke-miterlimit="10"
+       pointer-events="none"
+       id="path807" />
+    <path
+       d="M 339 72.43 L 404 72.43 Q 414 72.43 424 72.43 L 489.5 72.43"
+       fill="none"
+       stroke="#000000"
+       stroke-miterlimit="10"
+       pointer-events="none"
+       id="path809" />
+    <path
+       d="M 589.5 72.43 L 615.43 72.43 Q 625.43 72.43 635.43 72.43 L 666.57 72.43"
+       fill="none"
+       stroke="#000000"
+       stroke-miterlimit="10"
+       pointer-events="none"
+       id="path811" />
+    <path
+       d="M 313 267.5 L 313 132.5"
+       fill="none"
+       stroke="#000000"
+       stroke-miterlimit="10"
+       pointer-events="none"
+       id="path813" />
+    <path
+       d="M 552.06 585.5 L 552.3 521"
+       fill="none"
+       stroke="#000000"
+       stroke-miterlimit="10"
+       pointer-events="none"
+       id="path815" />
+    <path
+       d="M 84.68 509 L 84.95 432.5"
+       fill="none"
+       stroke="#000000"
+       stroke-miterlimit="10"
+       pointer-events="none"
+       id="path817" />
+    <path
+       d="M 552.29 416 L 552.29 374.14 L 552.29 332.43"
+       fill="none"
+       stroke="#000000"
+       stroke-miterlimit="10"
+       pointer-events="none"
+       id="path819" />
+    <path
+       d="M 772 282.71 L 801.14 282.71 Q 811.14 282.71 811.14 283 L 811.14 283.14 Q 811.14 283.29 821.14 283.29 L 850 283.29"
+       fill="none"
+       stroke="#000000"
+       stroke-miterlimit="10"
+       pointer-events="none"
+       id="path821" />
+    <path
+       d="M 84.29 674.5 L 84.29 654.43 Q 84.29 644.43 84.29 634.43 L 84.29 614"
+       fill="none"
+       stroke="#000000"
+       stroke-miterlimit="10"
+       pointer-events="none"
+       id="path823" />
+    <path
+       d="M 552.29 688 L 552.29 661.86 Q 552.29 651.86 552.29 641.86 L 552.29 615.29"
+       fill="none"
+       stroke="#000000"
+       stroke-miterlimit="10"
+       pointer-events="none"
+       id="path825" />
+  </g>
+</svg>

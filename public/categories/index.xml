@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Categories on #&gt; fireroot</title>
+        <link>https://www.procamora.com/categories/</link>
+        <description>Recent content in Categories on #&gt; fireroot</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>es</language>
+        <lastBuildDate>Mon, 12 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://www.procamora.com/categories/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Prometeo</title>
+        <link>https://www.procamora.com/categories/prometeo/</link>
+        <pubDate>Mon, 12 Oct 2020 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/categories/prometeo/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Linux</title>
+        <link>https://www.procamora.com/categories/linux/</link>
+        <pubDate>Fri, 11 Sep 2020 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/categories/linux/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Pentesting</title>
+        <link>https://www.procamora.com/categories/pentesting/</link>
+        <pubDate>Mon, 07 Sep 2020 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/categories/pentesting/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Android</title>
+        <link>https://www.procamora.com/categories/android/</link>
+        <pubDate>Sun, 10 May 2020 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/categories/android/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Software</title>
+        <link>https://www.procamora.com/categories/software/</link>
+        <pubDate>Thu, 19 Mar 2020 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/categories/software/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>HTB</title>
+        <link>https://www.procamora.com/categories/htb/</link>
+        <pubDate>Sun, 01 Dec 2019 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/categories/htb/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Programacion</title>
+        <link>https://www.procamora.com/categories/programacion/</link>
+        <pubDate>Tue, 06 Sep 2016 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/categories/programacion/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Windows</title>
+        <link>https://www.procamora.com/categories/windows/</link>
+        <pubDate>Sat, 12 Sep 2015 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/categories/windows/</guid>
+        <description></description>
+        </item>
+        
+    </channel>
+</rss>

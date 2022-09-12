@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>shared on #&gt; fireroot</title>
+        <link>https://www.procamora.com/tags/shared/</link>
+        <description>Recent content in shared on #&gt; fireroot</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>es</language>
+        <lastBuildDate>Tue, 17 Nov 2015 00:00:00 +0000</lastBuildDate><atom:link href="https://www.procamora.com/tags/shared/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Compartir archivos localmente</title>
+        <link>https://www.procamora.com/p/compartir_archivos_localmente/</link>
+        <pubDate>Tue, 17 Nov 2015 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/p/compartir_archivos_localmente/</guid>
+        <description>&lt;img src="https://www.procamora.com/covers/linux.png" alt="Featured image of post Compartir archivos localmente" /&gt;&lt;p&gt;&lt;code&gt;cd /home/nombre-de-usuario/Documentos&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;python -m SimpleHTTPServer&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Y abras creado un servidor web, que permite a otros usuarios acceder al contenido de tu carpeta desde un navegador si utilizan la siguiente URL:&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;http://IP_de_tu_equipo:8000&lt;/em&gt;&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>pureftpd on #&gt; fireroot</title>
+        <link>https://www.procamora.com/tags/pureftpd/</link>
+        <description>Recent content in pureftpd on #&gt; fireroot</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>es</language>
+        <lastBuildDate>Mon, 03 Aug 2015 00:00:00 +0000</lastBuildDate><atom:link href="https://www.procamora.com/tags/pureftpd/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Configurar pure-ftpd</title>
+        <link>https://www.procamora.com/p/pure_ftpd/</link>
+        <pubDate>Mon, 03 Aug 2015 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/p/pure_ftpd/</guid>
+        <description>&lt;img src="https://www.procamora.com/covers/software.png" alt="Featured image of post Configurar pure-ftpd" /&gt;&lt;h6 id=&#34;0-instalar-los-paquetes-necesarios&#34;&gt;0. Instalar los paquetes necesarios&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;apt-get install pure-ftpd pureadmin&lt;/code&gt;&lt;/p&gt;
+&lt;h6 id=&#34;1-creación-de-un-usuario-y-grupo-para-el-ftp&#34;&gt;1. Creación de un usuario y grupo para el FTP&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;sudo groupadd ftpgroup&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;sudo useradd -g ftpgroup -d /dev/null -s /etc ftpuser&lt;/code&gt;&lt;/p&gt;
+&lt;h6 id=&#34;2-creación-de-un-directorio-para-el-ftp&#34;&gt;2. Creación de un directorio para el FTP&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;sudo mkdir /home/ftp&lt;/code&gt;&lt;/p&gt;
+&lt;h6 id=&#34;3-creación-de-un-usuario-ftp&#34;&gt;3. Creación de un usuario FTP&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;sudo pure-pw useradd usuario -u ftpuser -d /home/ftp&lt;/code&gt;&lt;/p&gt;
+&lt;h6 id=&#34;4-creación-de-base-de-datos-del-usuario&#34;&gt;4. Creación de base de datos del usuario&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;sudo pure-pw mkdb&lt;/code&gt;&lt;/p&gt;
+&lt;h6 id=&#34;5-hacemos-un-link-al-archivo-puredb&#34;&gt;5. Hacemos un link al archivo PureDB&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;sudo ln -s /etc/pure-ftpd/conf/PureDB /etc/pure-ftpd/auth/PureDB&lt;/code&gt;&lt;/p&gt;
+&lt;h6 id=&#34;6-denegamos-acceso-a-anonymous&#34;&gt;6. Denegamos acceso a anonymous&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;sudo echo yes &amp;gt; /etc/pure-ftpd/conf/NoAnonymous&lt;/code&gt;&lt;/p&gt;
+&lt;h6 id=&#34;7-denegamos-autenticación-pam&#34;&gt;7. Denegamos autenticación PAM&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;sudo echo no &amp;gt; /etc/pure-ftpd/conf/PAMAuthentication&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;#####Algunas configuraciones adicionales serían:&lt;/p&gt;
+&lt;h6 id=&#34;8-limitar-el-número-de-usuarios&#34;&gt;8. Limitar el número de usuarios&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;sudo echo 10 &amp;gt; /etc/pure-ftpd/conf/MaxClientsNumber&lt;/code&gt;&lt;/p&gt;
+&lt;h6 id=&#34;9-no-permitir-mostrar-los-ficheros-ocultos&#34;&gt;9. No permitir mostrar los ficheros ocultos&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;sudo echo no &amp;gt; /etc/pure-ftpd/conf/DisplayDotFiles&lt;/code&gt;&lt;/p&gt;
+&lt;h6 id=&#34;10-denegar-lectura-y-escritura-de-ficheros-ocultos&#34;&gt;10. Denegar lectura y escritura de ficheros ocultos&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;sudo echo yes &amp;gt; /etc/pure-ftpd/conf/ProhibitDotFilesRead&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;sudo echo yes &amp;gt; /etc/pure-ftpd/conf/ProhibitDotFilesWrite&lt;/code&gt;&lt;/p&gt;
+&lt;h6 id=&#34;11-prohibimos-ejecución-de-chmod&#34;&gt;11. Prohibimos ejecución de chmod&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;sudo echo yes &amp;gt; /etc/pure-ftpd/conf/NoChmod&lt;/code&gt;&lt;/p&gt;
+&lt;h6 id=&#34;12-reiniciamos-el-servicio&#34;&gt;12. Reiniciamos el servicio&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;sudo invoke-rc.d pure-ftpd restart&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;######11. Verificamos que la configuración concuerde con la que hicimos
+&lt;code&gt;sudo pure-pw show usuario&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Y ya podemos disfrutar de nuestro FTP!&lt;/p&gt;
+&lt;p&gt;El monitoreo puede ser por consola a gráficamente&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;sudo pure-ftpwho&lt;/code&gt;
+&lt;code&gt;sudo pureadmin&lt;/code&gt;&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

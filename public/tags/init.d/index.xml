@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>init.d on #&gt; fireroot</title>
+        <link>https://www.procamora.com/tags/init.d/</link>
+        <description>Recent content in init.d on #&gt; fireroot</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>es</language>
+        <lastBuildDate>Mon, 02 Nov 2015 00:00:00 +0000</lastBuildDate><atom:link href="https://www.procamora.com/tags/init.d/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Uso de rc.local</title>
+        <link>https://www.procamora.com/p/rc_local/</link>
+        <pubDate>Mon, 02 Nov 2015 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/p/rc_local/</guid>
+        <description>&lt;img src="https://www.procamora.com/covers/linux.png" alt="Featured image of post Uso de rc.local" /&gt;&lt;h2 id=&#34;los-directorios-rc&#34;&gt;Los directorios rc&lt;/h2&gt;
+&lt;p&gt;Debajo de &lt;em&gt;/etc&lt;/em&gt; se encuentra el directorio &lt;strong&gt;rc.d&lt;/strong&gt; que a la vez contiene un directorio para cada nivel de ejecución, así tenemos &lt;em&gt;rc0.d&lt;/em&gt;, &lt;em&gt;rc1.d&lt;/em&gt;, &lt;em&gt;rc2.d&lt;/em&gt;, &lt;em&gt;rc3.d&lt;/em&gt;, etc. Hay algunas distros que estos directorios están ubicados directamente en &lt;em&gt;/etc&lt;/em&gt;. Como ya te imaginaras, cada uno de estos directorios contiene scripts (o mas bien enlaces a scripts) que apuntan al directorio &lt;em&gt;init.d&lt;/em&gt;, entonces el comando init (ya sea ejecutado manualmente o cuando se inicia el sistema), dependiendo del nivel indicado leerá cada uno de los enlaces o accesos directos del directorio respectivo.&lt;/p&gt;
+&lt;p&gt;Ahora bien, un ejemplo (parcial) típico de estos directorios puede ser el siguiente, tomado de rc3.d&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;lrwxrwxrwx   1 root root    7 Oct 20 20:05 K22dbus -&amp;gt; ../init.d/dbus
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;lrwxrwxrwx   1 root root    9 Oct 20 20:05 K22resmgr -&amp;gt; ../init.d/resmgr
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;lrwxrwxrwx   1 root root    8 Oct 20 20:05 K24fbset -&amp;gt; ../init.d/fbset
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;lrwxrwxrwx   1 root root    9 Oct 20 20:05 K24random -&amp;gt; ../init.d/random
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;lrwxrwxrwx   1 root root    8 Oct 20 18:23 S01fbset -&amp;gt; ../init.d/fbset
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;lrwxrwxrwx   1 root root    9 Oct 20 18:22 S01random -&amp;gt; ../init.d/random
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;lrwxrwxrwx   1 root root    7 Oct 20 18:29 S03dbus -&amp;gt; ../init.d/dbus
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;lrwxrwxrwx   1 root root    9 Oct 20 18:23 S03resmgr -&amp;gt; ../init.d/resmgr
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;lrwxrwxrwx   1 root root   12 Oct 20 18:24 S04boot.udev -&amp;gt; ../init.d/boot.udev
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;lrwxrwxrwx   1 root root   10 Oct 20 21:16 S05network -&amp;gt; ../init.d/network
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;lrwxrwxrwx   1 root root    9 Oct 20 18:23 S06syslog -&amp;gt; ../init.d/syslog
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Nótese que todos son enlaces al directorio init.d que como ya se vio previamente es donde realmente están ubicados los scripts de arranque de los servicios o servidores. También, todos los enlaces comienzan con K (kill) o con S (start), es pues fácil deducir que los que comienzan con K son scripts que recibirán el argumento stop y los que comienzan con S el de start, es decir, se inician. Esta gran simplicidad ofrece una enorme potencia al momento de configurar servicios ya que basta con agregar o quitar enlaces con el formato indicado para personalizar los niveles de ejecución a nuestro gusto.&lt;/p&gt;
+&lt;p&gt;Después de la K o S sigue un número consecutivo, seguido generalmente del nombre del servicio que afectan, el número secuencial es simplemente el orden en que se leerán los scripts, primero los K comenzando con el 01 y hacía adelante y después los S. Entonces si por ejemplo no queremos que se inicie el samba en el nivel 3 bastaría con borrar su enlace en este directorio:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;pwd&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;/etc/rc.d/rc3.d
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;code&gt;rm S54smb&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Y listo, el servidor samba ya no arrancaría cuando entremos en este nivel de ejecución. Si por lo contrario lo que deseamos es iniciar (o apagar) un servicio, basta con crear su enlace en el directorio respectivo:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;pwd&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;/etc/rc.d/rc5.d
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;`ln -s /etc/rc.d/init.d/mysql S90mysql&lt;/p&gt;
+&lt;p&gt;`ls -l S90mysql&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;lrwxrwxrwx   1 root root    9 Oct 20 18:23 S90mysql -&amp;gt; ../init.d/mysql
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Con esto la siguiente vez que iniciemos el equipo o cambiemos a nivel 5 con init, también se iniciará el servidor de la base de datos MySQL. El número 90 es escogido al azar entre 01 y 99 es simplemente el orden en que serán iniciados o detenidos los servicios.&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

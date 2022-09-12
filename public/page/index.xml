@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Pages on #&gt; fireroot</title>
+        <link>https://www.procamora.com/page/</link>
+        <description>Recent content in Pages on #&gt; fireroot</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>es</language>
+        <lastBuildDate>Fri, 27 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://www.procamora.com/page/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Acerca de</title>
+        <link>https://www.procamora.com/acerca-de/</link>
+        <pubDate>Fri, 27 Aug 2021 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/acerca-de/</guid>
+        <description>&lt;p&gt;Me llamo Pablo y soy un ingeniero informático que se está especializando en ciberseguridad y hacking ético a través de un máster. Mis principales hobbies son la programación y la electrónica.&lt;/p&gt;
+&lt;p&gt;Cuando era pequeño me gustaba desmontar objetos para entender su funcionamiento y, aunque en esa época no solía conseguir montarlas de nuevo correctamente, ahora si que lo suelo conseguir.&lt;/p&gt;
+&lt;p&gt;Durante mi etapa académica, dedicaba más horas a investigar por mi cuenta conceptos relacionados con los vistos en clase que el temario que se impartía, por lo que mis compañeros me consultaban las dudas que les surgían.&lt;/p&gt;
+&lt;p&gt;Soy una persona a la que le encanta enfrentarse a nuevos retos y estar constantemente aprendiendo. Si algo me define es la cultura DIY (Do it yourself).&lt;/p&gt;
+&lt;p&gt;Mis principales hard skills son:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Análisis de vulnerabilidades y pentesting.&lt;/li&gt;
+&lt;li&gt;Configuración de Firewalls.&lt;/li&gt;
+&lt;li&gt;Gestión de riesgos y Auditoría de red.&lt;/li&gt;
+&lt;li&gt;Ciberseguridad de la información: Autorización y Control de Acceso.&lt;/li&gt;
+&lt;li&gt;Configuración de Sistemas de Detección y Prevención de Intrusos.&lt;/li&gt;
+&lt;li&gt;Administración de Sistemas Operativos Linux.&lt;/li&gt;
+&lt;li&gt;Conocimiento de lenguajes de programación como Python, Java y C/C++.&lt;/li&gt;
+&lt;li&gt;Diseño de proyectos basados en sistemas embebidos como Arduino.&lt;/li&gt;
+&lt;li&gt;Administración y gestión de redes.&lt;/li&gt;
+&lt;li&gt;Desarrollo de Servicios Web REST.&lt;/li&gt;
+&lt;li&gt;Desarrollo de Bases de Datos tanto Relacionales como No Relacionales.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Mis principales soft skills son:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Trabajo en equipo&lt;/li&gt;
+&lt;li&gt;Capacidad resolutiva&lt;/li&gt;
+&lt;li&gt;Capacidad de adaptación y aprendizaje&lt;/li&gt;
+&lt;li&gt;Pensamiento analítico&lt;/li&gt;
+&lt;li&gt;Creatividad&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Si deseas ponerte en contacto conmigo, puedes hacerlo a través de esta plataforma o por correo electrónico: [pablojoserocamora@gmail.com][mail]&lt;/p&gt;
+&lt;h1 id=&#34;socials&#34;&gt;Socials&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/procamora&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Github&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.procamora.com&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;web&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;mailto:pablojoserocamora@gmail.com&#34; &gt;pablojoserocamora@gmail.com&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        <item>
+        <title>Archivos</title>
+        <link>https://www.procamora.com/archives/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/archives/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Buscar</title>
+        <link>https://www.procamora.com/search/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/search/</guid>
+        <description></description>
+        </item>
+        
+    </channel>
+</rss>

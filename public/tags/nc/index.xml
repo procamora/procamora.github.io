@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>nc on #&gt; fireroot</title>
+        <link>https://www.procamora.com/tags/nc/</link>
+        <description>Recent content in nc on #&gt; fireroot</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>es</language>
+        <lastBuildDate>Thu, 08 Oct 2015 00:00:00 +0000</lastBuildDate><atom:link href="https://www.procamora.com/tags/nc/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Crear chat con netcat</title>
+        <link>https://www.procamora.com/p/netcat/</link>
+        <pubDate>Thu, 08 Oct 2015 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/p/netcat/</guid>
+        <description>&lt;img src="https://www.procamora.com/covers/linux.png" alt="Featured image of post Crear chat con netcat" /&gt;&lt;h2 id=&#34;para-hacer-un-chat-entre-ordenadores-en-una-red-local&#34;&gt;Para hacer un chat entre ordenadores en una red local&lt;/h2&gt;
+&lt;h6 id=&#34;servidor&#34;&gt;Servidor&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;nc -l -p 6698&lt;/code&gt;&lt;/p&gt;
+&lt;h6 id=&#34;cliente&#34;&gt;Cliente&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;nc ip-server 6698&lt;/code&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Importante: La conversación se manda por paquetes tcp sin cifrar, por lo que con un sniffer(wireshark) en la red local se pueden leer los paquetes&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

