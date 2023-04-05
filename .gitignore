@@ -1,6 +1,7 @@
 public/
 resources/_gen/
 
+.hugo_build.lock
 *.pid
 
 # Byte-compiled / optimized / DLL files
