@@ -3,8 +3,8 @@ title: "Qnap con certificado ECDSA"
 description: Actualmente, Let's Encrypt genera los certificados usando el algoritmo ECDSA (Elliptic Curve Digital Signature Algorithm), en vez de usar RSA (Rivest, Shamir y Adleman).
 date: 2023-04-06T17:23:26+02:00
 lastmod: 2023-04-06T17:23:26+02:00
-slug: "Qnap_keys_ecdsa"
-image: covers/linux.jpg
+slug: "qnap_keys_ecdsa"
+image: covers/security.png
 hidden: false
 draft: false
 tags:
