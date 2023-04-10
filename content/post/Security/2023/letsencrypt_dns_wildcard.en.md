@@ -1,5 +1,5 @@
 ---
-title: "Letsencrypt Dns Wildcard"
+title: "Let's Encrypt Dns Wildcard"
 description: In this post we will talk about how to generate an SSL certificate using Let's Encrypt with a Wildcard to a domain and using DNS as a challenge.
 date: 2023-03-27T08:57:32+02:00
 lastmod: 2023-03-27T08:57:32+02:00
@@ -8,12 +8,13 @@ image: "covers/linux.png"
 hidden: false
 draft: false
 tags:
-  - Linux
-categories:
   - letsencrypt
   - ssl
   - https
   - nginx
+  - ecdsa
+categories:
+  - Security
 ---
 
 
@@ -74,7 +75,7 @@ aRyhYI-l8bP_bGCC2tF20RuWLbepjZzshG8rIu3ABtM
 ```
 
 
-![dondominio](/images/2023/letsencrypt_dns_wildcard_dondominio.png){:height="auto" width="100%"}
+![dondominio](/images/2023/letsencrypt_dns_wildcard_dondominio.png)
 
 
 Once created, the change should propagate within seconds or minutes, depending on our DNS provider. We can verify that the TXT entry was created correctly with any of the following commands:
@@ -128,6 +129,6 @@ echo "0 0,12 * * * root $(command -v python3) -c 'import random; import time; ti
 
 The last step would be to use the certificate, in my personal case I use Nginx Proxy Manager for the ease it provides me for the management of hosts and ACLs.
 
-![nginx](/images/2023/letsencrypt_dns_wildcard_nginx.png){:height="auto" width="100%"}
+![nginx](/images/2023/letsencrypt_dns_wildcard_nginx.png)
 
 
