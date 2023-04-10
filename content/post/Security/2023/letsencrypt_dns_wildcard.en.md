@@ -4,7 +4,7 @@ description: In this post we will talk about how to generate an SSL certificate 
 date: 2023-03-27T08:57:32+02:00
 lastmod: 2023-03-27T08:57:32+02:00
 slug: "letsencrypt_dns_wildcard"
-image: "covers/linux.png"
+image: "covers/security.png"
 hidden: false
 draft: false
 tags:
