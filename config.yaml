@@ -7,7 +7,7 @@
 # https://roneo.org/en/a-newsletter-with-hugo-buttondown-and-netlify/
 
 baseurl: https://www.procamora.com
-languageCode: es
+languageCode: es-es
 defaultContentLanguage: es
 theme: hugo-theme-stack
 #theme: hugo-theme-learn
@@ -22,30 +22,24 @@ outputs:
 #    - JSON
 
 
+
 languages:
   es:
     languageName: Español
     contentDir: content
     weight: 1
-    sidebar:
-      #      emoji: 🍥
-      subtitle: Mi wiki donde escribo artículos sobre Linux, Ciberseguridad y temas relacionados.
-      avatar:
-        enabled: true
-        local: true
-        src: icons/procamora_30.png
+
 
   en:
     languageName: English
     contentDir: content
     weight: 2
-    sidebar:
-      #      emoji: 🍥
-      subtitle: My wiki where I write articles about Linux, Cybersecurity and related topics.
-      avatar:
-        enabled: true
-        local: true
-        src: icons/procamora_30.png
+#    sidebar:
+#      #      emoji: 🍥
+#      avatar:
+#        enabled: true
+#        local: true
+#        src: icons/procamora_30.png
 
 # Change it to your Disqus shortname before using
 disqusShortname : 'procamora-github'
@@ -82,6 +76,14 @@ params:
     published: Jan 02, 2006
     lastUpdated: Jan 02, 2006 15:04 MST
 
+  sidebar:
+    #      emoji: 🍥
+    subtitle: Mi wiki donde escribo artículos sobre Linux, Ciberseguridad y temas relacionados.
+    # subtitle: My wiki where I write articles about Linux, Cybersecurity and related topics.
+    avatar:
+      enabled: true
+      local: true
+      src: icons/procamora_30.png
 
 
   article:

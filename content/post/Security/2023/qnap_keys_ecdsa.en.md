@@ -123,7 +123,7 @@ The values that can change from the playbook are:
  - `ansible_ssh_private_key_file=/Users/pablojoserocamora/.ssh/id_ed25519`. Path of our private key to connect via SSH.
 
 
-## Verificación
+## Verification
 
 
 Once the playbook is executed, we can access with the browser and verify:
