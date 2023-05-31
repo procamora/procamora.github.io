@@ -51,7 +51,7 @@ languages:
 disqusShortname : 'procamora-github'
 
 # GA Tracking ID
-googleAnalytics:
+googleAnalytics: G-9W65EDE7C7
 
 # Set hasCJKLanguage to true if DefaultContentLanguage is in [zh-cn ja ko]
 # This will make .Summary and .WordCount behave correctly for CJK languages.
